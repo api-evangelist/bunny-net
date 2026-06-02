@@ -1,0 +1,212 @@
+asyncapi: 2.6.0
+info:
+  title: Bunny.net Stream Webhooks
+  version: '1.0.0'
+  description: >
+    AsyncAPI definition of the Bunny Stream webhook surface. Bunny Stream
+    sends a signed HTTP POST callback to the `WebhookUrl` configured on a
+    Video Library whenever the state of a video changes (upload, encoding,
+    captions, AI-generated metadata, pre-signed uploads). A single payload
+    schema is used for every event; the event type is determined by the
+    integer `Status` field.
+
+
+    Only Bunny Stream exposes a documented webhook surface. The Core
+    Platform API, Pull Zones, Edge Storage, DNS, Shield, Optimizer,
+    Scripting / Magic Containers, Purge, Statistics, Billing, and API Keys
+    APIs do not publish webhook callbacks at the time of writing.
+  contact:
+    name: Bunny.net Documentation
+    url: https://docs.bunny.net/stream/webhooks
+  license:
+    name: Bunny.net Terms of Service
+    url: https://bunny.net/terms-of-service
+  x-source:
+    - https://docs.bunny.net/stream/webhooks
+    - https://docs.bunny.net/reference/videolibrarypublic_index2
+
+defaultContentType: application/json
+
+servers:
+  subscriber:
+    url: '{webhookUrl}'
+    protocol: https
+    description: >
+      The consumer-hosted HTTPS endpoint registered in the `WebhookUrl`
+      field of a Bunny Stream Video Library. Bunny Stream sends an HTTP
+      POST to this URL for every video state transition.
+    variables:
+      webhookUrl:
+        default: https://example.com/bunny/stream/webhook
+        description: Fully qualified HTTPS URL configured on the Video Library.
+
+channels:
+  stream/video/state-changed:
+    description: >
+      Receives all Bunny Stream video state-change notifications for a
+      single Video Library. The same channel delivers every event type;
+      consumers branch on the integer `Status` field of the payload.
+    subscribe:
+      operationId: receiveStreamVideoStateChanged
+      summary: Receive a Bunny Stream video state-change webhook.
+      description: >
+        Bunny Stream issues an HTTP POST with a JSON body to the configured
+        `WebhookUrl` whenever a video transitions to a new processing
+        state. Each request is signed with HMAC-SHA256 over the exact raw
+        request body using the Video Library's Read-Only API key as the
+        secret.
+      bindings:
+        http:
+          type: request
+          method: POST
+          bindingVersion: '0.3.0'
+      message:
+        $ref: '#/components/messages/VideoStateChanged'
+
+components:
+  messages:
+    VideoStateChanged:
+      name: VideoStateChanged
+      title: Bunny Stream Video State Changed
+      summary: >
+        Notification that a Bunny Stream video has transitioned to a new
+        processing state.
+      contentType: application/json
+      headers:
+        $ref: '#/components/schemas/WebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/VideoStateChangedPayload'
+      bindings:
+        http:
+          bindingVersion: '0.3.0'
+      examples:
+        - name: VideoFinished
+          summary: A video has finished encoding and is fully available.
+          payload:
+            VideoLibraryId: 133
+            VideoGuid: 657bb740-a71b-4529-a012-528021c31a92
+            Status: 3
+
+  schemas:
+    WebhookHeaders:
+      type: object
+      description: >
+        HTTP headers Bunny Stream attaches to every signed webhook POST.
+      properties:
+        X-BunnyStream-Signature-Version:
+          type: string
+          description: >
+            Signature scheme version. Currently the only value is `v1`.
+          enum:
+            - v1
+        X-BunnyStream-Signature-Algorithm:
+          type: string
+          description: >
+            HMAC algorithm used to compute the signature. Currently always
+            `hmac-sha256`.
+          enum:
+            - hmac-sha256
+        X-BunnyStream-Signature:
+          type: string
+          description: >
+            Lowercase hex-encoded HMAC-SHA256 of the exact raw request
+            body, computed with the Video Library's Read-Only API key as
+            the secret.
+          pattern: '^[0-9a-f]{64}$'
+      required:
+        - X-BunnyStream-Signature-Version
+        - X-BunnyStream-Signature-Algorithm
+        - X-BunnyStream-Signature
+
+    VideoStateChangedPayload:
+      type: object
+      description: >
+        JSON body Bunny Stream delivers for every video state change.
+        Consumers distinguish event types by inspecting `Status`.
+      properties:
+        VideoLibraryId:
+          type: integer
+          format: int64
+          description: Identifier of the Bunny Stream Video Library that owns the video.
+          example: 133
+        VideoGuid:
+          type: string
+          format: uuid
+          description: GUID of the Bunny Stream video whose state changed.
+          example: 657bb740-a71b-4529-a012-528021c31a92
+        Status:
+          type: integer
+          format: int32
+          description: >
+            Integer code identifying the new video state. Possible values:
+
+            * `0` Queued - The video has been queued for encoding.
+
+            * `1` Processing - The video has begun processing the preview
+              and format details.
+
+            * `2` Encoding - The video is encoding.
+
+            * `3` Finished - The video encoding has finished and the video
+              is fully available.
+
+            * `4` ResolutionFinished - The encoder has finished processing
+              one of the resolutions. The first such event signals that
+              the video is now playable.
+
+            * `5` Failed - The video encoding failed.
+
+            * `6` PresignedUploadStarted - A pre-signed upload has begun.
+
+            * `7` PresignedUploadFinished - A pre-signed upload has
+              completed.
+
+            * `8` PresignedUploadFailed - A pre-signed upload failed.
+
+            * `9` CaptionsGenerated - Automatic captions were generated
+              for the video.
+
+            * `10` TitleOrDescriptionGenerated - Automatic generation of
+              the title or description completed.
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            - 7
+            - 8
+            - 9
+            - 10
+          x-enum-varnames:
+            - Queued
+            - Processing
+            - Encoding
+            - Finished
+            - ResolutionFinished
+            - Failed
+            - PresignedUploadStarted
+            - PresignedUploadFinished
+            - PresignedUploadFailed
+            - CaptionsGenerated
+            - TitleOrDescriptionGenerated
+      required:
+        - VideoLibraryId
+        - VideoGuid
+        - Status
+
+  securitySchemes:
+    bunnyStreamSignature:
+      type: symmetricEncryption
+      description: >
+        Each webhook request is authenticated with an HMAC-SHA256
+        signature over the exact raw request body. The signing secret is
+        the Video Library's Read-Only API key. The hex-encoded signature
+        is delivered in the `X-BunnyStream-Signature` header, with the
+        scheme version in `X-BunnyStream-Signature-Version` (`v1`) and
+        algorithm in `X-BunnyStream-Signature-Algorithm`
+        (`hmac-sha256`). Consumers must verify using the raw bytes - do
+        not re-serialize the JSON before computing the HMAC - and
+        compare using a constant-time function.

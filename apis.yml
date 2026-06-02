@@ -24,7 +24,7 @@ tags:
   - Edge Compute
   - Image Optimization
 created: '2026-05-23'
-modified: '2026-05-23'
+modified: '2026-05-30'
 specificationVersion: '0.19'
 apis:
   - aid: bunny-net:core
@@ -118,6 +118,28 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.bunny.net/reference/video_getvideo
+  - aid: bunny-net:stream-webhooks
+    name: Bunny.net Stream Webhooks
+    description: >-
+      Signed HTTP POST webhooks delivered by Bunny Stream to the
+      WebhookUrl configured on a Video Library whenever a video
+      transitions to a new processing state (Queued, Processing, Encoding,
+      Finished, ResolutionFinished, Failed, PresignedUploadStarted /
+      Finished / Failed, CaptionsGenerated, TitleOrDescriptionGenerated).
+      Each request is authenticated with an HMAC-SHA256 signature over
+      the raw body using the library's Read-Only API key.
+    humanURL: https://docs.bunny.net/stream/webhooks
+    tags:
+      - Webhooks
+      - AsyncAPI
+      - Video
+      - Streaming
+      - Events
+    properties:
+      - type: Documentation
+        url: https://docs.bunny.net/stream/webhooks
+      - type: AsyncAPI
+        url: asyncapi/bunny-net-stream-webhooks-asyncapi.yml
   - aid: bunny-net:shield
     name: Bunny.net Shield API
     description: >-
