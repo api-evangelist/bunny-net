@@ -2,302 +2,281 @@ aid: bunny-net
 url: https://raw.githubusercontent.com/api-evangelist/bunny-net/refs/heads/main/apis.yml
 name: Bunny.net
 kind: company
-description: >-
-  Bunny.net is a content-delivery and edge platform offering a global CDN, edge
-  storage, video streaming, DNS, image optimisation, edge scripting, and WAF /
-  security shielding. The Bunny.net Core Platform REST API at api.bunny.net
-  manages account-level resources - Pull Zones, Storage Zones, DNS Zones,
-  Stream video libraries, statistics, billing, purge, API keys, and reference
-  data (countries, regions). Product-specific data-plane APIs sit on dedicated
-  hosts: Edge Storage at storage.bunnycdn.com, Stream uploads at
-  video.bunnycdn.com, Shield (WAF), Optimizer, and the Scripting / Magic
-  Containers edge-compute API. All APIs use the AccessKey header for
-  authentication, with API keys issued from the bunny.net dashboard.
+description: 'Bunny.net is a content-delivery and edge platform offering a global
+  CDN, edge storage, video streaming, DNS, image optimisation, edge scripting, and
+  WAF / security shielding. The Bunny.net Core Platform REST API at api.bunny.net
+  manages account-level resources - Pull Zones, Storage Zones, DNS Zones, Stream video
+  libraries, statistics, billing, purge, API keys, and reference data (countries,
+  regions). Product-specific data-plane APIs sit on dedicated hosts: Edge Storage
+  at storage.bunnycdn.com, Stream uploads at video.bunnycdn.com, Shield (WAF), Optimizer,
+  and the Scripting / Magic Containers edge-compute API. All APIs use the AccessKey
+  header for authentication, with API keys issued from the bunny.net dashboard.'
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - CDN
-  - Edge
-  - Video
-  - Storage
-  - DNS
-  - WAF
-  - Edge Compute
-  - Image Optimization
+- CDN
+- Edge
+- Video
+- Storage
+- DNS
+- WAF
+- Edge Compute
+- Image Optimization
 created: '2026-05-23'
 modified: '2026-05-30'
 specificationVersion: '0.19'
 apis:
-  - aid: bunny-net:core
-    name: Bunny.net Core Platform API
-    description: >-
-      REST API for managing account-level bunny.net resources - Pull Zones,
-      Storage Zones, DNS Zones, Stream Video Libraries, statistics, billing,
-      purge, API keys, and reference data (countries, regions).
-    humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
-    baseURL: https://api.bunny.net
-    tags:
-      - REST
-      - Account
-      - Management
-    properties:
-      - type: Documentation
-        url: https://docs.bunny.net/reference/bunnynet-api-overview
-  - aid: bunny-net:pull-zones
-    name: Bunny.net Pull Zones API
-    description: >-
-      Endpoints for creating and configuring CDN Pull Zones - origin
-      configuration, edge rules, hostnames, SSL certificates, cache settings,
-      and security headers.
-    humanURL: https://docs.bunny.net/reference/pullzonepublic_index
-    baseURL: https://api.bunny.net/pullzone
-    tags:
-      - CDN
-      - Pull Zones
-      - Edge Rules
-    properties:
-      - type: Documentation
-        url: https://docs.bunny.net/reference/pullzonepublic_index
-  - aid: bunny-net:storage-zones
-    name: Bunny.net Storage Zones API
-    description: >-
-      Endpoints for creating and managing edge Storage Zones, replication
-      regions, and access keys used by the Edge Storage data-plane.
-    humanURL: https://docs.bunny.net/reference/storagezonepublic_index
-    baseURL: https://api.bunny.net/storagezone
-    tags:
-      - Storage
-      - Edge Storage
-      - Replication
-    properties:
-      - type: Documentation
-        url: https://docs.bunny.net/reference/storagezonepublic_index
-  - aid: bunny-net:edge-storage
-    name: Bunny.net Edge Storage API
-    description: >-
-      Object-storage data-plane API for uploading, downloading, listing, and
-      deleting files inside a Storage Zone. Regional hosts are derived from
-      the zone's primary region (e.g. ny.storage.bunnycdn.com,
-      la.storage.bunnycdn.com, syd.storage.bunnycdn.com), with the default
-      host at storage.bunnycdn.com.
-    humanURL: https://docs.bunny.net/reference/storage-api
-    baseURL: https://storage.bunnycdn.com
-    tags:
-      - Storage
-      - Object Storage
-      - Data Plane
-    properties:
-      - type: Documentation
-        url: https://docs.bunny.net/reference/storage-api
-  - aid: bunny-net:dns
-    name: Bunny.net DNS API
-    description: >-
-      Endpoints for managing DNS zones and records on the Bunny.net DNS
-      platform, including geo-steering and load-balancing record types.
-    humanURL: https://docs.bunny.net/reference/dnszonepublic_index
-    baseURL: https://api.bunny.net/dnszone
-    tags:
-      - DNS
-      - Geo Steering
-    properties:
-      - type: Documentation
-        url: https://docs.bunny.net/reference/dnszonepublic_index
-  - aid: bunny-net:stream
-    name: Bunny.net Stream API
-    description: >-
-      Video streaming API for managing Video Libraries, videos, collections,
-      captions, chapters, transcoding profiles, and DRM. Upload and playback
-      are served via dedicated video.bunnycdn.com endpoints; library-level
-      management uses video.bunnycdn.com/library/{libraryId}.
-    humanURL: https://docs.bunny.net/reference/video_getvideo
-    baseURL: https://video.bunnycdn.com
-    tags:
-      - Video
-      - Streaming
-      - VOD
-      - Transcoding
-    properties:
-      - type: Documentation
-        url: https://docs.bunny.net/reference/video_getvideo
-  - aid: bunny-net:stream-webhooks
-    name: Bunny.net Stream Webhooks
-    description: >-
-      Signed HTTP POST webhooks delivered by Bunny Stream to the
-      WebhookUrl configured on a Video Library whenever a video
-      transitions to a new processing state (Queued, Processing, Encoding,
-      Finished, ResolutionFinished, Failed, PresignedUploadStarted /
-      Finished / Failed, CaptionsGenerated, TitleOrDescriptionGenerated).
-      Each request is authenticated with an HMAC-SHA256 signature over
-      the raw body using the library's Read-Only API key.
-    humanURL: https://docs.bunny.net/stream/webhooks
-    tags:
-      - Webhooks
-      - AsyncAPI
-      - Video
-      - Streaming
-      - Events
-    properties:
-      - type: Documentation
-        url: https://docs.bunny.net/stream/webhooks
-      - type: AsyncAPI
-        url: asyncapi/bunny-net-stream-webhooks-asyncapi.yml
-  - aid: bunny-net:shield
-    name: Bunny.net Shield API
-    description: >-
-      Security and WAF configuration API for Bunny Shield - managed rules,
-      custom rules, bot detection, rate-limiting policies, and DDoS
-      mitigation settings attached to Pull Zones.
-    humanURL: https://docs.bunny.net/reference/shield-api
-    baseURL: https://api.bunny.net/shield
-    tags:
-      - WAF
-      - Security
-      - DDoS
-      - Bot Mitigation
-    properties:
-      - type: Documentation
-        url: https://docs.bunny.net/reference/shield-api
-  - aid: bunny-net:optimizer
-    name: Bunny.net Optimizer
-    description: >-
-      Image and front-end optimisation service attached to Pull Zones - image
-      resizing, format conversion (WebP/AVIF), quality controls, and
-      automatic CSS/JS minification. Configured via Pull Zone settings on the
-      Core Platform API.
-    humanURL: https://docs.bunny.net/docs/cdn-optimizer-overview
-    baseURL: https://api.bunny.net/pullzone
-    tags:
-      - Image Optimization
-      - WebP
-      - AVIF
-      - Front-End
-    properties:
-      - type: Documentation
-        url: https://docs.bunny.net/docs/cdn-optimizer-overview
-  - aid: bunny-net:scripting
-    name: Bunny.net Scripting / Edge Compute API
-    description: >-
-      Edge-compute API for deploying and managing Bunny Edge Scripts -
-      JavaScript/TypeScript functions that run on the Bunny.net edge network
-      to mutate requests and responses, with associated routes, environment
-      variables, and deployments.
-    humanURL: https://docs.bunny.net/reference/scripting-api
-    baseURL: https://api.bunny.net/compute/script
-    tags:
-      - Edge Compute
-      - Scripting
-      - JavaScript
-    properties:
-      - type: Documentation
-        url: https://docs.bunny.net/reference/scripting-api
-  - aid: bunny-net:purge
-    name: Bunny.net Purge API
-    description: >-
-      Cache purge endpoints for invalidating cached content by URL, by Pull
-      Zone, or by tag across the Bunny.net global edge network.
-    humanURL: https://docs.bunny.net/reference/purgepublic_index
-    baseURL: https://api.bunny.net/purge
-    tags:
-      - Cache
-      - Purge
-      - Invalidation
-    properties:
-      - type: Documentation
-        url: https://docs.bunny.net/reference/purgepublic_index
-  - aid: bunny-net:statistics
-    name: Bunny.net Statistics API
-    description: >-
-      Endpoints returning bandwidth, request, status-code, and geographic
-      traffic statistics for the account and per Pull Zone or Storage Zone.
-    humanURL: https://docs.bunny.net/reference/statisticspublic_index
-    baseURL: https://api.bunny.net/statistics
-    tags:
-      - Statistics
-      - Analytics
-      - Bandwidth
-    properties:
-      - type: Documentation
-        url: https://docs.bunny.net/reference/statisticspublic_index
-  - aid: bunny-net:billing
-    name: Bunny.net Billing API
-    description: >-
-      Billing endpoints for retrieving account balance, monthly usage and
-      invoices, and applying promo codes.
-    humanURL: https://docs.bunny.net/reference/billingpublic_index
-    baseURL: https://api.bunny.net/billing
-    tags:
-      - Billing
-      - Usage
-      - Invoices
-    properties:
-      - type: Documentation
-        url: https://docs.bunny.net/reference/billingpublic_index
-  - aid: bunny-net:api-keys
-    name: Bunny.net API Keys API
-    description: Endpoints for managing API keys (AccessKey) issued for the account.
-    humanURL: https://docs.bunny.net/reference/apikeypublic_index
-    baseURL: https://api.bunny.net/apikey
-    tags:
-      - API Keys
-      - Authentication
-    properties:
-      - type: Documentation
-        url: https://docs.bunny.net/reference/apikeypublic_index
-  - aid: bunny-net:countries
-    name: Bunny.net Countries API
-    description: >-
-      Reference endpoint returning the list of countries Bunny.net supports
-      for geo-targeting in Pull Zone and DNS rules.
-    humanURL: https://docs.bunny.net/reference/countriespublic_index
-    baseURL: https://api.bunny.net/country
-    tags:
-      - Reference
-      - Geography
-    properties:
-      - type: Documentation
-        url: https://docs.bunny.net/reference/countriespublic_index
-  - aid: bunny-net:regions
-    name: Bunny.net Regions API
-    description: >-
-      Reference endpoint returning the list of Bunny.net edge and storage
-      regions for use in zone configuration.
-    humanURL: https://docs.bunny.net/reference/regionpublic_index
-    baseURL: https://api.bunny.net/region
-    tags:
-      - Reference
-      - Regions
-    properties:
-      - type: Documentation
-        url: https://docs.bunny.net/reference/regionpublic_index
-common:
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/bunny-net
-  - type: Website
-    url: https://bunny.net/
+- aid: bunny-net:core
+  name: Bunny.net Core Platform API
+  description: REST API for managing account-level bunny.net resources - Pull Zones,
+    Storage Zones, DNS Zones, Stream Video Libraries, statistics, billing, purge,
+    API keys, and reference data (countries, regions).
+  humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
+  baseURL: https://api.bunny.net
+  tags:
+  - REST
+  - Account
+  - Management
+  properties:
   - type: Documentation
-    url: https://docs.bunny.net/
-  - type: GitHub
-    url: https://github.com/BunnyWay
-  - type: Status
-    url: https://status.bunny.net/
-  - type: Pricing
-    url: https://bunny.net/pricing/
-  - type: Plans
-    url: plans/bunny-net-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/bunny-net-rate-limits.yml
-  - type: FinOps
-    url: finops/bunny-net-finops.yml
-  - type: LLMsTxt
-    url: https://docs.bunny.net/llms.txt
+    url: https://docs.bunny.net/reference/bunnynet-api-overview
+  - url: graphql/bunny-net-graphql.md
+    type: GraphQL
+- aid: bunny-net:pull-zones
+  name: Bunny.net Pull Zones API
+  description: Endpoints for creating and configuring CDN Pull Zones - origin configuration,
+    edge rules, hostnames, SSL certificates, cache settings, and security headers.
+  humanURL: https://docs.bunny.net/reference/pullzonepublic_index
+  baseURL: https://api.bunny.net/pullzone
+  tags:
+  - CDN
+  - Pull Zones
+  - Edge Rules
+  properties:
+  - type: Documentation
+    url: https://docs.bunny.net/reference/pullzonepublic_index
+- aid: bunny-net:storage-zones
+  name: Bunny.net Storage Zones API
+  description: Endpoints for creating and managing edge Storage Zones, replication
+    regions, and access keys used by the Edge Storage data-plane.
+  humanURL: https://docs.bunny.net/reference/storagezonepublic_index
+  baseURL: https://api.bunny.net/storagezone
+  tags:
+  - Storage
+  - Edge Storage
+  - Replication
+  properties:
+  - type: Documentation
+    url: https://docs.bunny.net/reference/storagezonepublic_index
+- aid: bunny-net:edge-storage
+  name: Bunny.net Edge Storage API
+  description: Object-storage data-plane API for uploading, downloading, listing,
+    and deleting files inside a Storage Zone. Regional hosts are derived from the
+    zone's primary region (e.g. ny.storage.bunnycdn.com, la.storage.bunnycdn.com,
+    syd.storage.bunnycdn.com), with the default host at storage.bunnycdn.com.
+  humanURL: https://docs.bunny.net/reference/storage-api
+  baseURL: https://storage.bunnycdn.com
+  tags:
+  - Storage
+  - Object Storage
+  - Data Plane
+  properties:
+  - type: Documentation
+    url: https://docs.bunny.net/reference/storage-api
+- aid: bunny-net:dns
+  name: Bunny.net DNS API
+  description: Endpoints for managing DNS zones and records on the Bunny.net DNS platform,
+    including geo-steering and load-balancing record types.
+  humanURL: https://docs.bunny.net/reference/dnszonepublic_index
+  baseURL: https://api.bunny.net/dnszone
+  tags:
+  - DNS
+  - Geo Steering
+  properties:
+  - type: Documentation
+    url: https://docs.bunny.net/reference/dnszonepublic_index
+- aid: bunny-net:stream
+  name: Bunny.net Stream API
+  description: Video streaming API for managing Video Libraries, videos, collections,
+    captions, chapters, transcoding profiles, and DRM. Upload and playback are served
+    via dedicated video.bunnycdn.com endpoints; library-level management uses video.bunnycdn.com/library/{libraryId}.
+  humanURL: https://docs.bunny.net/reference/video_getvideo
+  baseURL: https://video.bunnycdn.com
+  tags:
+  - Video
+  - Streaming
+  - VOD
+  - Transcoding
+  properties:
+  - type: Documentation
+    url: https://docs.bunny.net/reference/video_getvideo
+- aid: bunny-net:stream-webhooks
+  name: Bunny.net Stream Webhooks
+  description: Signed HTTP POST webhooks delivered by Bunny Stream to the WebhookUrl
+    configured on a Video Library whenever a video transitions to a new processing
+    state (Queued, Processing, Encoding, Finished, ResolutionFinished, Failed, PresignedUploadStarted
+    / Finished / Failed, CaptionsGenerated, TitleOrDescriptionGenerated). Each request
+    is authenticated with an HMAC-SHA256 signature over the raw body using the library's
+    Read-Only API key.
+  humanURL: https://docs.bunny.net/stream/webhooks
+  tags:
+  - Webhooks
+  - AsyncAPI
+  - Video
+  - Streaming
+  - Events
+  properties:
+  - type: Documentation
+    url: https://docs.bunny.net/stream/webhooks
+  - type: AsyncAPI
+    url: asyncapi/bunny-net-stream-webhooks-asyncapi.yml
+- aid: bunny-net:shield
+  name: Bunny.net Shield API
+  description: Security and WAF configuration API for Bunny Shield - managed rules,
+    custom rules, bot detection, rate-limiting policies, and DDoS mitigation settings
+    attached to Pull Zones.
+  humanURL: https://docs.bunny.net/reference/shield-api
+  baseURL: https://api.bunny.net/shield
+  tags:
+  - WAF
+  - Security
+  - DDoS
+  - Bot Mitigation
+  properties:
+  - type: Documentation
+    url: https://docs.bunny.net/reference/shield-api
+- aid: bunny-net:optimizer
+  name: Bunny.net Optimizer
+  description: Image and front-end optimisation service attached to Pull Zones - image
+    resizing, format conversion (WebP/AVIF), quality controls, and automatic CSS/JS
+    minification. Configured via Pull Zone settings on the Core Platform API.
+  humanURL: https://docs.bunny.net/docs/cdn-optimizer-overview
+  baseURL: https://api.bunny.net/pullzone
+  tags:
+  - Image Optimization
+  - WebP
+  - AVIF
+  - Front-End
+  properties:
+  - type: Documentation
+    url: https://docs.bunny.net/docs/cdn-optimizer-overview
+- aid: bunny-net:scripting
+  name: Bunny.net Scripting / Edge Compute API
+  description: Edge-compute API for deploying and managing Bunny Edge Scripts - JavaScript/TypeScript
+    functions that run on the Bunny.net edge network to mutate requests and responses,
+    with associated routes, environment variables, and deployments.
+  humanURL: https://docs.bunny.net/reference/scripting-api
+  baseURL: https://api.bunny.net/compute/script
+  tags:
+  - Edge Compute
+  - Scripting
+  - JavaScript
+  properties:
+  - type: Documentation
+    url: https://docs.bunny.net/reference/scripting-api
+- aid: bunny-net:purge
+  name: Bunny.net Purge API
+  description: Cache purge endpoints for invalidating cached content by URL, by Pull
+    Zone, or by tag across the Bunny.net global edge network.
+  humanURL: https://docs.bunny.net/reference/purgepublic_index
+  baseURL: https://api.bunny.net/purge
+  tags:
+  - Cache
+  - Purge
+  - Invalidation
+  properties:
+  - type: Documentation
+    url: https://docs.bunny.net/reference/purgepublic_index
+- aid: bunny-net:statistics
+  name: Bunny.net Statistics API
+  description: Endpoints returning bandwidth, request, status-code, and geographic
+    traffic statistics for the account and per Pull Zone or Storage Zone.
+  humanURL: https://docs.bunny.net/reference/statisticspublic_index
+  baseURL: https://api.bunny.net/statistics
+  tags:
+  - Statistics
+  - Analytics
+  - Bandwidth
+  properties:
+  - type: Documentation
+    url: https://docs.bunny.net/reference/statisticspublic_index
+- aid: bunny-net:billing
+  name: Bunny.net Billing API
+  description: Billing endpoints for retrieving account balance, monthly usage and
+    invoices, and applying promo codes.
+  humanURL: https://docs.bunny.net/reference/billingpublic_index
+  baseURL: https://api.bunny.net/billing
+  tags:
+  - Billing
+  - Usage
+  - Invoices
+  properties:
+  - type: Documentation
+    url: https://docs.bunny.net/reference/billingpublic_index
+- aid: bunny-net:api-keys
+  name: Bunny.net API Keys API
+  description: Endpoints for managing API keys (AccessKey) issued for the account.
+  humanURL: https://docs.bunny.net/reference/apikeypublic_index
+  baseURL: https://api.bunny.net/apikey
+  tags:
+  - API Keys
+  - Authentication
+  properties:
+  - type: Documentation
+    url: https://docs.bunny.net/reference/apikeypublic_index
+- aid: bunny-net:countries
+  name: Bunny.net Countries API
+  description: Reference endpoint returning the list of countries Bunny.net supports
+    for geo-targeting in Pull Zone and DNS rules.
+  humanURL: https://docs.bunny.net/reference/countriespublic_index
+  baseURL: https://api.bunny.net/country
+  tags:
+  - Reference
+  - Geography
+  properties:
+  - type: Documentation
+    url: https://docs.bunny.net/reference/countriespublic_index
+- aid: bunny-net:regions
+  name: Bunny.net Regions API
+  description: Reference endpoint returning the list of Bunny.net edge and storage
+    regions for use in zone configuration.
+  humanURL: https://docs.bunny.net/reference/regionpublic_index
+  baseURL: https://api.bunny.net/region
+  tags:
+  - Reference
+  - Regions
+  properties:
+  - type: Documentation
+    url: https://docs.bunny.net/reference/regionpublic_index
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/bunny-net
+- type: Website
+  url: https://bunny.net/
+- type: Documentation
+  url: https://docs.bunny.net/
+- type: GitHub
+  url: https://github.com/BunnyWay
+- type: Status
+  url: https://status.bunny.net/
+- type: Pricing
+  url: https://bunny.net/pricing/
+- type: Plans
+  url: plans/bunny-net-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/bunny-net-rate-limits.yml
+- type: FinOps
+  url: finops/bunny-net-finops.yml
+- type: LLMsTxt
+  url: https://docs.bunny.net/llms.txt
 integrations:
-  - name: WordPress
-  - name: Magento
-  - name: Shopify
-  - name: PrestaShop
-  - name: Drupal
-  - name: Cloudflare
-  - name: AWS S3
-  - name: Terraform
+- name: WordPress
+- name: Magento
+- name: Shopify
+- name: PrestaShop
+- name: Drupal
+- name: Cloudflare
+- name: AWS S3
+- name: Terraform
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

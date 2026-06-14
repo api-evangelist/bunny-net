@@ -1,0 +1,1072 @@
+# Bunny.net Conceptual GraphQL Schema
+# Derived from: https://docs.bunny.net/reference/bunnynet-api-overview
+# GitHub: https://github.com/BunnyWay
+# No live GraphQL endpoint found at https://api.bunny.net/graphql (404).
+# This schema models the Bunny.net REST API surface as a unified GraphQL type system.
+
+scalar DateTime
+scalar JSON
+scalar Long
+
+# ---------------------------------------------------------------------------
+# Root Types
+# ---------------------------------------------------------------------------
+
+type Query {
+  # Pull Zones
+  pullZone(id: ID!): PullZone
+  pullZones(page: Int, perPage: Int): [PullZone!]!
+
+  # Storage
+  storageZone(id: ID!): StorageZone
+  storageZones(page: Int, perPage: Int): [StorageZone!]!
+
+  # Video
+  videoLibrary(id: ID!): VideoLibrary
+  videoLibraries(page: Int, perPage: Int): [VideoLibrary!]!
+  video(libraryId: ID!, videoId: ID!): Video
+
+  # DNS
+  dnsZone(id: ID!): DnsZone
+  dnsZones(page: Int, perPage: Int): [DnsZone!]!
+
+  # Edge Compute
+  edgeScript(id: ID!): EdgeScript
+  edgeScripts(page: Int, perPage: Int): [EdgeScript!]!
+
+  # Identity
+  apiKeys: [APIKey!]!
+  webhooks: [Webhook!]!
+
+  # Reference data
+  regions: [Region!]!
+  countries: [Country!]!
+
+  # Statistics
+  statistics(dateFrom: DateTime, dateTo: DateTime, pullZoneId: ID): TotalStat
+
+  # Billing
+  billing: Billing
+}
+
+type Mutation {
+  # Pull Zone mutations
+  createPullZone(input: CreatePullZoneInput!): PullZone
+  updatePullZone(id: ID!, input: UpdatePullZoneInput!): PullZone
+  deletePullZone(id: ID!): Boolean
+  addEdgeRule(pullZoneId: ID!, input: EdgeRuleInput!): EdgeRule
+  deleteEdgeRule(pullZoneId: ID!, edgeRuleId: ID!): Boolean
+  purgePullZoneCache(pullZoneId: ID!): CacheClearRequest
+  purgeUrl(url: String!, async: Boolean): CacheClearRequest
+
+  # Storage mutations
+  createStorageZone(input: CreateStorageZoneInput!): StorageZone
+  updateStorageZone(id: ID!, input: UpdateStorageZoneInput!): StorageZone
+  deleteStorageZone(id: ID!): Boolean
+
+  # DNS mutations
+  createDnsZone(input: CreateDnsZoneInput!): DnsZone
+  deleteDnsZone(id: ID!): Boolean
+  addDnsRecord(zoneId: ID!, input: DnsRecordInput!): DnsRecord
+  updateDnsRecord(zoneId: ID!, recordId: ID!, input: DnsRecordInput!): DnsRecord
+  deleteDnsRecord(zoneId: ID!, recordId: ID!): Boolean
+
+  # Video mutations
+  createVideoLibrary(input: CreateVideoLibraryInput!): VideoLibrary
+  deleteVideoLibrary(id: ID!): Boolean
+  createVideo(libraryId: ID!, input: CreateVideoInput!): Video
+  deleteVideo(libraryId: ID!, videoId: ID!): Boolean
+
+  # API Key mutations
+  createAPIKey(input: CreateAPIKeyInput!): APIKey
+  deleteAPIKey(id: ID!): Boolean
+
+  # Webhook mutations
+  createWebhook(input: CreateWebhookInput!): Webhook
+  deleteWebhook(id: ID!): Boolean
+
+  # Edge Script mutations
+  createEdgeScript(input: CreateEdgeScriptInput!): EdgeScript
+  deployEdgeScript(scriptId: ID!): ScriptDeployment
+  deleteEdgeScript(id: ID!): Boolean
+}
+
+# ---------------------------------------------------------------------------
+# CDN / Pull Zone Types
+# ---------------------------------------------------------------------------
+
+type Zone {
+  id: ID!
+  name: String!
+  type: ZoneType!
+  region: Region
+  createdAt: DateTime!
+  modifiedAt: DateTime!
+}
+
+enum ZoneType {
+  PULL
+  STORAGE
+  DNS
+  VIDEO
+}
+
+type PullZone {
+  id: ID!
+  name: String!
+  originUrl: String
+  originType: OriginType
+  originConfig: OriginConfig
+  cname: String
+  hostnames: [PullZoneHostname!]!
+  edgeRules: [EdgeRule!]!
+  cacheFiles: [CacheFile!]!
+  certificate: Certificate
+  shieldZone: ShieldZone
+  optimizerConfig: OptimizerConfig
+  enabled: Boolean!
+  suspended: Boolean!
+  monthlyBandwidthLimit: Long
+  monthlyBandwidthUsed: Long
+  priceOverride: Float
+  zoneSecurityEnabled: Boolean
+  zoneSecurityKey: String
+  accessControlOriginHeaderExtensions: [String!]
+  disableCookies: Boolean
+  budgetRedirectedCountries: [String!]
+  blockedCountries: [String!]
+  enableGeoZoneUS: Boolean
+  enableGeoZoneEU: Boolean
+  enableGeoZoneASIA: Boolean
+  enableGeoZoneSA: Boolean
+  enableGeoZoneAF: Boolean
+  createdAt: DateTime!
+  modifiedAt: DateTime!
+}
+
+enum OriginType {
+  URL
+  STORAGE_ZONE
+  LOAD_BALANCER
+}
+
+type OriginConfig {
+  url: String
+  storageZoneId: ID
+  followRedirects: Boolean
+  verifySSL: Boolean
+  originHostHeader: String
+  originConnectTimeout: Int
+  originResponseTimeout: Int
+  originRetries: Int
+}
+
+type PullZoneHostname {
+  id: ID!
+  value: String!
+  forceSSL: Boolean!
+  isSystemHostname: Boolean!
+  hasCertificate: Boolean!
+  certificate: Certificate
+}
+
+type EdgeRule {
+  id: ID!
+  guid: String!
+  description: String
+  enabled: Boolean!
+  actionType: EdgeRuleActionType!
+  actionParameter1: String
+  actionParameter2: String
+  triggers: [EdgeRuleTrigger!]!
+  triggerMatchingType: TriggerMatchingType!
+}
+
+enum EdgeRuleActionType {
+  FORCE_DOWNLOAD
+  DISABLE_TOKEN_AUTH
+  ENABLE_TOKEN_AUTH
+  FORCE_SSL
+  BLOCK_REQUEST
+  REDIRECT
+  CHANGE_ORIGIN
+  OVERRIDE_CACHE_TIME
+  REWRITE_URL
+  SET_RESPONSE_HEADER
+  SET_REQUEST_HEADER
+  REMOVE_RESPONSE_HEADER
+  REMOVE_REQUEST_HEADER
+  BYPASS_CDN
+}
+
+enum TriggerMatchingType {
+  ANY
+  ALL
+  NONE
+}
+
+type EdgeRuleTrigger {
+  type: TriggerType!
+  patternMatchingType: PatternMatchingType!
+  patternMatches: [String!]!
+}
+
+enum TriggerType {
+  URL
+  REQUEST_HEADER
+  RESPONSE_HEADER
+  FILE_EXTENSION
+  COUNTRY_CODE
+  REMOTE_IP
+  QUERY_STRING
+  METHOD
+}
+
+enum PatternMatchingType {
+  ANY
+  ALL
+  NONE
+}
+
+type CacheFile {
+  id: ID!
+  url: String!
+  pullZoneId: ID!
+  size: Long!
+  cachedAt: DateTime!
+  expiresAt: DateTime!
+  edgeRegion: String
+}
+
+type CacheClearRequest {
+  id: ID!
+  status: CacheClearStatus!
+  url: String
+  pullZoneId: ID
+  requestedAt: DateTime!
+  completedAt: DateTime
+}
+
+enum CacheClearStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  FAILED
+}
+
+type ShieldZone {
+  id: ID!
+  pullZoneId: ID!
+  wafConfig: WAFConfig
+  createdAt: DateTime!
+}
+
+# ---------------------------------------------------------------------------
+# Storage Types
+# ---------------------------------------------------------------------------
+
+type StorageZone {
+  id: ID!
+  name: String!
+  region: Region
+  replicationRegions: [StorageReplicationRegion!]!
+  storageUsed: Long!
+  filesStored: Long!
+  readOnlyPassword: String
+  password: String
+  pullZones: [PullZone!]!
+  stats: StorageStats
+  createdAt: DateTime!
+  modifiedAt: DateTime!
+}
+
+type StorageReplicationRegion {
+  id: ID!
+  name: String!
+  code: String!
+  enabled: Boolean!
+}
+
+type StorageFile {
+  objectName: String!
+  path: String!
+  storageZoneName: String!
+  contentType: String
+  length: Long!
+  checksum: String
+  serverSideEncryption: Boolean!
+  isDirectory: Boolean!
+  userId: String
+  dateCreated: DateTime!
+  lastChanged: DateTime!
+}
+
+type StorageDirectory {
+  path: String!
+  storageZoneName: String!
+  files: [StorageFile!]!
+  directories: [StorageDirectory!]!
+  totalSize: Long!
+  totalFiles: Int!
+}
+
+type StorageStats {
+  storageUsed: Long!
+  filesStored: Long!
+  lastModified: DateTime
+}
+
+type StorageStatSnapshot {
+  date: DateTime!
+  storageUsed: Long!
+  filesStored: Long!
+}
+
+# ---------------------------------------------------------------------------
+# Video / Stream Types
+# ---------------------------------------------------------------------------
+
+type VideoLibrary {
+  id: ID!
+  name: String!
+  apiKey: String
+  readOnlyApiKey: String
+  videoCount: Int!
+  storageUsage: Long!
+  trafficUsage: Long!
+  enabledResolutions: String
+  vimeoImport: Boolean
+  allowEarlyPlay: Boolean
+  playerKeyColor: String
+  enabledTranscoding: Boolean
+  watermarkEnabled: Boolean
+  drmConfig: DRMConfig
+  webhookUrl: String
+  allowDirectPlay: Boolean
+  videos: [Video!]!
+  collections: [VideoCollection!]!
+  createdAt: DateTime!
+}
+
+type Video {
+  id: ID!
+  videoLibraryId: ID!
+  title: String!
+  description: String
+  guid: String!
+  status: VideoStatus!
+  views: Long!
+  isPublic: Boolean!
+  length: Int!
+  width: Int
+  height: Int
+  framerate: Float
+  thumbnailFileName: String
+  category: String
+  chapters: [Chapter!]!
+  moments: [Moment!]!
+  captions: [Caption!]!
+  transcoding: [VideoTranscoding!]!
+  metaTags: JSON
+  collectionId: ID
+  storageSize: Long!
+  encodeProgress: Int!
+  availableResolutions: String
+  dateUploaded: DateTime!
+  createdAt: DateTime!
+}
+
+enum VideoStatus {
+  QUEUED
+  PROCESSING
+  ENCODING
+  FINISHED
+  RESOLUTION_FINISHED
+  FAILED
+  PRESIGNED_UPLOAD_STARTED
+  PRESIGNED_UPLOAD_FINISHED
+  PRESIGNED_UPLOAD_FAILED
+}
+
+type VideoTranscoding {
+  id: ID!
+  videoId: ID!
+  resolution: String!
+  status: TranscodingStatus!
+  progress: Int!
+  size: Long
+  bitrate: Int
+  startedAt: DateTime
+  completedAt: DateTime
+}
+
+enum TranscodingStatus {
+  QUEUED
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+type Chapter {
+  id: ID!
+  videoId: ID!
+  title: String!
+  start: Int!
+}
+
+type Moment {
+  id: ID!
+  videoId: ID!
+  label: String!
+  timestamp: Int!
+}
+
+type Caption {
+  srclang: String!
+  label: String!
+  captionsPath: String
+  isAutoGenerated: Boolean!
+}
+
+type VideoCollection {
+  id: ID!
+  videoLibraryId: ID!
+  name: String!
+  videoCount: Int!
+  previewVideoIds: String
+  totalSize: Long!
+  createdAt: DateTime!
+  modifiedAt: DateTime!
+}
+
+type Stream {
+  id: ID!
+  videoLibraryId: ID!
+  name: String!
+  status: StreamStatus!
+  previewUrl: String
+  embedUrl: String
+  records: [StreamRecord!]!
+  createdAt: DateTime!
+}
+
+enum StreamStatus {
+  IDLE
+  LIVE
+  PROCESSING
+}
+
+type StreamRecord {
+  id: ID!
+  streamId: ID!
+  videoId: ID
+  title: String!
+  duration: Int!
+  size: Long!
+  recordedAt: DateTime!
+}
+
+type DRMConfig {
+  provider: String
+  enabled: Boolean!
+  keyId: String
+}
+
+# ---------------------------------------------------------------------------
+# DNS Types
+# ---------------------------------------------------------------------------
+
+type DnsZone {
+  id: ID!
+  domain: String!
+  records: [DnsRecord!]!
+  dateModified: DateTime!
+  dateCreated: DateTime!
+  nameserver1: String
+  nameserver2: String
+  soaEmail: String
+  customNameserversEnabled: Boolean!
+  logAnonymizationEnabled: Boolean!
+  loggingEnabled: Boolean!
+}
+
+type DnsRecord {
+  id: ID!
+  type: DnsRecordType!
+  name: String!
+  value: String!
+  ttl: Int!
+  priority: Int
+  weight: Int
+  port: Int
+  flags: Int
+  tag: String
+  accelerated: Boolean
+  acceleratedPullZoneId: ID
+  linkName: String
+  ipFilteringEnabled: Boolean
+  geoSteering: DnsGeoSteering
+  disabled: Boolean!
+}
+
+enum DnsRecordType {
+  A
+  AAAA
+  CNAME
+  MX
+  TXT
+  NS
+  SRV
+  CAA
+  PTR
+  SCRIPT
+}
+
+type DnsGeoSteering {
+  records: [DnsGeoSteeringRecord!]!
+}
+
+type DnsGeoSteeringRecord {
+  continent: String
+  countryCode: String
+  value: String!
+}
+
+# ---------------------------------------------------------------------------
+# Security / WAF Types
+# ---------------------------------------------------------------------------
+
+type WAFConfig {
+  id: ID!
+  pullZoneId: ID!
+  enabled: Boolean!
+  managedRulesEnabled: Boolean!
+  rules: [WAFRule!]!
+  customRules: [CustomRule!]!
+  rateLimitPolicies: [RateLimitPolicy!]!
+  botDetection: BotDetectionConfig
+}
+
+type WAFRule {
+  id: ID!
+  ruleSetId: String!
+  ruleId: String!
+  enabled: Boolean!
+  action: WAFRuleAction!
+  description: String
+}
+
+enum WAFRuleAction {
+  ALLOW
+  BLOCK
+  LOG
+  CHALLENGE
+}
+
+type CustomRule {
+  id: ID!
+  name: String!
+  enabled: Boolean!
+  conditions: [JSON!]!
+  action: WAFRuleAction!
+  priority: Int!
+}
+
+type RateLimitPolicy {
+  id: ID!
+  name: String!
+  requestsPerSecond: Int!
+  windowSeconds: Int!
+  blockDurationSeconds: Int!
+  conditions: [JSON!]!
+  action: WAFRuleAction!
+}
+
+type BotDetectionConfig {
+  enabled: Boolean!
+  aggressiveness: BotDetectionLevel!
+  allowedBots: [String!]!
+}
+
+enum BotDetectionLevel {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+# ---------------------------------------------------------------------------
+# Edge Compute / Scripting Types
+# ---------------------------------------------------------------------------
+
+type EdgeScript {
+  id: ID!
+  name: String!
+  code: String
+  status: ScriptStatus!
+  routes: [ScriptRoute!]!
+  envVars: [ScriptEnvVar!]!
+  deployments: [ScriptDeployment!]!
+  createdAt: DateTime!
+  modifiedAt: DateTime!
+}
+
+enum ScriptStatus {
+  DRAFT
+  ACTIVE
+  INACTIVE
+  ERROR
+}
+
+type ScriptDeployment {
+  id: ID!
+  scriptId: ID!
+  version: String!
+  status: DeploymentStatus!
+  deployedAt: DateTime!
+  log: String
+}
+
+enum DeploymentStatus {
+  PENDING
+  DEPLOYING
+  ACTIVE
+  FAILED
+  ROLLED_BACK
+}
+
+type ScriptRoute {
+  id: ID!
+  scriptId: ID!
+  pathPattern: String!
+  pullZoneId: ID
+}
+
+type ScriptEnvVar {
+  name: String!
+  value: String
+  isSecret: Boolean!
+}
+
+# ---------------------------------------------------------------------------
+# Image Optimization Types
+# ---------------------------------------------------------------------------
+
+type OptimizerConfig {
+  pullZoneId: ID!
+  enabled: Boolean!
+  webpEnabled: Boolean!
+  avifEnabled: Boolean!
+  smartImageOptimization: Boolean!
+  imageQuality: Int
+  minifyCSS: Boolean!
+  minifyJS: Boolean!
+  minifyHTML: Boolean!
+}
+
+type ImageTransform {
+  width: Int
+  height: Int
+  quality: Int
+  format: ImageFormat
+  crop: String
+}
+
+enum ImageFormat {
+  WEBP
+  AVIF
+  JPEG
+  PNG
+  GIF
+  ORIGINAL
+}
+
+# ---------------------------------------------------------------------------
+# Networking / Infrastructure Types
+# ---------------------------------------------------------------------------
+
+type CDNNode {
+  id: ID!
+  name: String!
+  ipAddress: String!
+  region: Region!
+  status: NodeStatus!
+  load: Float
+  lastChecked: DateTime
+}
+
+enum NodeStatus {
+  ONLINE
+  DEGRADED
+  OFFLINE
+}
+
+type Region {
+  id: ID!
+  name: String!
+  pricePerGigabyte: Float
+  regionCode: String!
+  continent: String
+  latitude: Float
+  longitude: Float
+  isEdgeRegion: Boolean!
+  isStorageRegion: Boolean!
+}
+
+type Country {
+  isoCode: String!
+  name: String!
+  isEU: Boolean!
+  taxRate: Float
+  currency: String
+}
+
+type EdgeServerConfig {
+  id: ID!
+  nodeId: ID!
+  setting: String!
+  value: JSON!
+  appliedAt: DateTime
+}
+
+# ---------------------------------------------------------------------------
+# Identity / Auth Types
+# ---------------------------------------------------------------------------
+
+type APIKey {
+  id: ID!
+  key: String
+  roles: [String!]!
+  description: String
+  lastUsed: DateTime
+  createdAt: DateTime!
+}
+
+type Token {
+  id: ID!
+  value: String!
+  expiresAt: DateTime
+  scopes: [String!]!
+  pullZoneId: ID
+}
+
+type Certificate {
+  id: ID!
+  hostname: String!
+  expiresAt: DateTime!
+  issuedAt: DateTime!
+  issuer: String
+  fingerprint: String
+  isFree: Boolean!
+}
+
+# ---------------------------------------------------------------------------
+# Webhook Types
+# ---------------------------------------------------------------------------
+
+type Webhook {
+  id: ID!
+  url: String!
+  events: [WebhookEventType!]!
+  secret: String
+  enabled: Boolean!
+  deliveries: [WebhookDelivery!]!
+  createdAt: DateTime!
+}
+
+enum WebhookEventType {
+  VIDEO_QUEUED
+  VIDEO_PROCESSING
+  VIDEO_ENCODING
+  VIDEO_FINISHED
+  VIDEO_RESOLUTION_FINISHED
+  VIDEO_FAILED
+  PRESIGNED_UPLOAD_STARTED
+  PRESIGNED_UPLOAD_FINISHED
+  PRESIGNED_UPLOAD_FAILED
+  CAPTIONS_GENERATED
+  TITLE_OR_DESCRIPTION_GENERATED
+  PULL_ZONE_PURGE_COMPLETED
+  STORAGE_FILE_UPLOADED
+  STORAGE_FILE_DELETED
+}
+
+type WebhookDelivery {
+  id: ID!
+  webhookId: ID!
+  event: WebhookEvent!
+  requestBody: JSON
+  responseStatus: Int
+  responseBody: String
+  success: Boolean!
+  deliveredAt: DateTime!
+}
+
+type WebhookEvent {
+  id: ID!
+  type: WebhookEventType!
+  payload: JSON!
+  occurredAt: DateTime!
+}
+
+# ---------------------------------------------------------------------------
+# Analytics / Statistics Types
+# ---------------------------------------------------------------------------
+
+type BandwidthStat {
+  date: DateTime!
+  bandwidth: Long!
+  pullZoneId: ID
+  regionCode: String
+}
+
+type PullZoneStat {
+  pullZoneId: ID!
+  date: DateTime!
+  requests: Long!
+  cacheHitRate: Float!
+  bandwidth: Long!
+  originTraffic: Long!
+  statusCodes: JSON
+}
+
+type EdgeNodeStats {
+  nodeId: ID!
+  date: DateTime!
+  requests: Long!
+  bandwidth: Long!
+  avgResponseTime: Float!
+  errorRate: Float!
+}
+
+type TotalStat {
+  totalBandwidth: Long!
+  totalRequests: Long!
+  totalCacheHitRate: Float!
+  pullZoneStats: [PullZoneStat!]!
+  bandwidthStats: [BandwidthStat!]!
+  storageStats: [StorageStatSnapshot!]!
+  dateFrom: DateTime!
+  dateTo: DateTime!
+}
+
+# ---------------------------------------------------------------------------
+# Billing Types
+# ---------------------------------------------------------------------------
+
+type Billing {
+  balance: Float!
+  totalMonthlyCharges: Float!
+  billingUsage: [BillingUsageEntry!]!
+  invoices: [Invoice!]!
+  payments: [Payment!]!
+  plan: Plan
+  currency: String!
+}
+
+type BillingUsageEntry {
+  id: ID!
+  type: String!
+  description: String!
+  amount: Float!
+  date: DateTime!
+}
+
+type Invoice {
+  id: ID!
+  amount: Float!
+  startDate: DateTime!
+  endDate: DateTime!
+  status: InvoiceStatus!
+  items: [InvoiceItem!]!
+  downloadUrl: String
+  createdAt: DateTime!
+}
+
+enum InvoiceStatus {
+  DRAFT
+  OPEN
+  PAID
+  VOID
+  UNCOLLECTIBLE
+}
+
+type InvoiceItem {
+  description: String!
+  quantity: Float!
+  unitPrice: Float!
+  total: Float!
+}
+
+type Payment {
+  id: ID!
+  amount: Float!
+  currency: String!
+  status: PaymentStatus!
+  method: String
+  paidAt: DateTime!
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+type Plan {
+  id: ID!
+  name: String!
+  pricePerMonth: Float!
+  bandwidthIncluded: Long!
+  storageIncluded: Long!
+  features: [String!]!
+}
+
+# ---------------------------------------------------------------------------
+# Branding / Domain Types
+# ---------------------------------------------------------------------------
+
+type BunnyBranding {
+  id: ID!
+  playerLogoUrl: String
+  playerLogoPosition: LogoPosition
+  playerColor: String
+  customCSS: String
+}
+
+enum LogoPosition {
+  TOP_LEFT
+  TOP_RIGHT
+  BOTTOM_LEFT
+  BOTTOM_RIGHT
+}
+
+type Domain {
+  id: ID!
+  name: String!
+  status: DomainStatus!
+  pullZone: PullZone
+  dnsZone: DnsZone
+  verifiedAt: DateTime
+  createdAt: DateTime!
+}
+
+enum DomainStatus {
+  PENDING_VERIFICATION
+  ACTIVE
+  SUSPENDED
+  DELETED
+}
+
+type DomainConfiguration {
+  domainId: ID!
+  sslMode: SSLMode!
+  forceHttps: Boolean!
+  http2Enabled: Boolean!
+  http3Enabled: Boolean!
+  tlsMinVersion: String
+  hstsEnabled: Boolean!
+  hstsMaxAge: Int
+}
+
+enum SSLMode {
+  OFF
+  FLEXIBLE
+  FULL
+  STRICT
+}
+
+# ---------------------------------------------------------------------------
+# Input Types
+# ---------------------------------------------------------------------------
+
+input CreatePullZoneInput {
+  name: String!
+  originUrl: String
+  originType: OriginType
+  storageZoneId: ID
+  monthlyBandwidthLimit: Long
+  zoneSecurityEnabled: Boolean
+}
+
+input UpdatePullZoneInput {
+  originUrl: String
+  originType: OriginType
+  monthlyBandwidthLimit: Long
+  zoneSecurityEnabled: Boolean
+  enableGeoZoneUS: Boolean
+  enableGeoZoneEU: Boolean
+  enableGeoZoneASIA: Boolean
+  enableGeoZoneSA: Boolean
+  enableGeoZoneAF: Boolean
+  disableCookies: Boolean
+}
+
+input EdgeRuleInput {
+  description: String
+  enabled: Boolean!
+  actionType: EdgeRuleActionType!
+  actionParameter1: String
+  actionParameter2: String
+  triggers: [EdgeRuleTriggerInput!]!
+  triggerMatchingType: TriggerMatchingType!
+}
+
+input EdgeRuleTriggerInput {
+  type: TriggerType!
+  patternMatchingType: PatternMatchingType!
+  patternMatches: [String!]!
+}
+
+input CreateStorageZoneInput {
+  name: String!
+  region: String
+  replicationRegions: [String!]
+}
+
+input UpdateStorageZoneInput {
+  replicationRegions: [String!]
+  originUrl: String
+}
+
+input CreateDnsZoneInput {
+  domain: String!
+}
+
+input DnsRecordInput {
+  type: DnsRecordType!
+  name: String!
+  value: String!
+  ttl: Int
+  priority: Int
+  weight: Int
+  port: Int
+  accelerated: Boolean
+  ipFilteringEnabled: Boolean
+}
+
+input CreateVideoLibraryInput {
+  name: String!
+  replicationRegions: [String!]
+}
+
+input CreateVideoInput {
+  title: String!
+  collectionId: ID
+}
+
+input CreateAPIKeyInput {
+  description: String
+  roles: [String!]
+}
+
+input CreateWebhookInput {
+  url: String!
+  events: [WebhookEventType!]!
+  secret: String
+}
+
+input CreateEdgeScriptInput {
+  name: String!
+  code: String!
+}
