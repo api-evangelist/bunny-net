@@ -1,0 +1,4537 @@
+{
+  "item": [
+    {
+      "id": "1f417ffb-89fe-43d4-a7b1-4c62733d0913",
+      "name": "PullZones",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "80f61b2a-652b-464c-b44d-5aa9607c2dda",
+          "name": "List pull zones",
+          "request": {
+            "name": "List pull zones",
+            "description": {},
+            "url": {
+              "path": [
+                "pullzone"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeCertificate",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2ee10dcf-aacc-4738-8054-162d7f643348",
+              "name": "List of pull zones",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pullzone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeCertificate",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Items\": [\n    {\n      \"Id\": 2169,\n      \"Name\": \"string\",\n      \"OriginUrl\": \"string\",\n      \"Enabled\": true,\n      \"Hostnames\": [\n        {\n          \"Id\": 4197,\n          \"Value\": \"string\",\n          \"ForceSSL\": false,\n          \"IsSystemHostname\": false,\n          \"HasCertificate\": true\n        },\n        {\n          \"Id\": 145,\n          \"Value\": \"string\",\n          \"ForceSSL\": true,\n          \"IsSystemHostname\": false,\n          \"HasCertificate\": false\n        }\n      ],\n      \"StorageZoneId\": 6253,\n      \"CacheControlMaxAgeOverride\": 1225,\n      \"AllowedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedIps\": [\n        \"string\",\n        \"string\"\n      ],\n      \"EnableGeoZoneUS\": false,\n      \"EnableGeoZoneEU\": true,\n      \"EnableGeoZoneASIA\": false,\n      \"EnableGeoZoneSA\": false,\n      \"EnableGeoZoneAF\": true,\n      \"ZoneSecurityEnabled\": true,\n      \"ZoneSecurityKey\": \"string\",\n      \"Type\": 4909\n    },\n    {\n      \"Id\": 6494,\n      \"Name\": \"string\",\n      \"OriginUrl\": \"string\",\n      \"Enabled\": false,\n      \"Hostnames\": [\n        {\n          \"Id\": 4291,\n          \"Value\": \"string\",\n          \"ForceSSL\": true,\n          \"IsSystemHostname\": true,\n          \"HasCertificate\": true\n        },\n        {\n          \"Id\": 5045,\n          \"Value\": \"string\",\n          \"ForceSSL\": true,\n          \"IsSystemHostname\": false,\n          \"HasCertificate\": false\n        }\n      ],\n      \"StorageZoneId\": 1191,\n      \"CacheControlMaxAgeOverride\": 8107,\n      \"AllowedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedIps\": [\n        \"string\",\n        \"string\"\n      ],\n      \"EnableGeoZoneUS\": false,\n      \"EnableGeoZoneEU\": true,\n      \"EnableGeoZoneASIA\": false,\n      \"EnableGeoZoneSA\": false,\n      \"EnableGeoZoneAF\": false,\n      \"ZoneSecurityEnabled\": true,\n      \"ZoneSecurityKey\": \"string\",\n      \"Type\": 3128\n    }\n  ],\n  \"CurrentPage\": 7134,\n  \"TotalItems\": 551,\n  \"HasMoreItems\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08d42272-4988-4e93-9129-bfd3bada9330",
+          "name": "Add a pull zone",
+          "request": {
+            "name": "Add a pull zone",
+            "description": {},
+            "url": {
+              "path": [
+                "pullzone"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"OriginUrl\": \"<string>\",\n  \"StorageZoneId\": \"<integer>\",\n  \"Type\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "720ddc9d-aee2-468c-a224-8c689aa8bb28",
+              "name": "Pull zone created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pullzone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"OriginUrl\": \"<string>\",\n  \"StorageZoneId\": \"<integer>\",\n  \"Type\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": 5488,\n  \"Name\": \"string\",\n  \"OriginUrl\": \"string\",\n  \"Enabled\": false,\n  \"Hostnames\": [\n    {\n      \"Id\": 9366,\n      \"Value\": \"string\",\n      \"ForceSSL\": false,\n      \"IsSystemHostname\": false,\n      \"HasCertificate\": false\n    },\n    {\n      \"Id\": 3827,\n      \"Value\": \"string\",\n      \"ForceSSL\": false,\n      \"IsSystemHostname\": true,\n      \"HasCertificate\": false\n    }\n  ],\n  \"StorageZoneId\": 673,\n  \"CacheControlMaxAgeOverride\": 8080,\n  \"AllowedReferrers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"BlockedReferrers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"BlockedIps\": [\n    \"string\",\n    \"string\"\n  ],\n  \"EnableGeoZoneUS\": false,\n  \"EnableGeoZoneEU\": false,\n  \"EnableGeoZoneASIA\": true,\n  \"EnableGeoZoneSA\": false,\n  \"EnableGeoZoneAF\": false,\n  \"ZoneSecurityEnabled\": false,\n  \"ZoneSecurityKey\": \"string\",\n  \"Type\": 1953\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9877eefc-1966-45d5-bbeb-377f3df53ac7",
+          "name": "Get pull zone",
+          "request": {
+            "name": "Get pull zone",
+            "description": {},
+            "url": {
+              "path": [
+                "pullzone",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "af1f757c-b6c4-4b47-b027-2b9e77698184",
+              "name": "Pull zone",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pullzone",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": 5488,\n  \"Name\": \"string\",\n  \"OriginUrl\": \"string\",\n  \"Enabled\": false,\n  \"Hostnames\": [\n    {\n      \"Id\": 9366,\n      \"Value\": \"string\",\n      \"ForceSSL\": false,\n      \"IsSystemHostname\": false,\n      \"HasCertificate\": false\n    },\n    {\n      \"Id\": 3827,\n      \"Value\": \"string\",\n      \"ForceSSL\": false,\n      \"IsSystemHostname\": true,\n      \"HasCertificate\": false\n    }\n  ],\n  \"StorageZoneId\": 673,\n  \"CacheControlMaxAgeOverride\": 8080,\n  \"AllowedReferrers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"BlockedReferrers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"BlockedIps\": [\n    \"string\",\n    \"string\"\n  ],\n  \"EnableGeoZoneUS\": false,\n  \"EnableGeoZoneEU\": false,\n  \"EnableGeoZoneASIA\": true,\n  \"EnableGeoZoneSA\": false,\n  \"EnableGeoZoneAF\": false,\n  \"ZoneSecurityEnabled\": false,\n  \"ZoneSecurityKey\": \"string\",\n  \"Type\": 1953\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f874d333-5c1a-452b-9353-973c073d615b",
+          "name": "Update pull zone",
+          "request": {
+            "name": "Update pull zone",
+            "description": {},
+            "url": {
+              "path": [
+                "pullzone",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": \"string\",\n  \"key_1\": 9771.896947606585\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "63167c52-6f2f-4c4c-89b5-a21451049689",
+              "name": "Pull zone",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pullzone",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": 1651,\n  \"key_1\": 9033\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": 5488,\n  \"Name\": \"string\",\n  \"OriginUrl\": \"string\",\n  \"Enabled\": false,\n  \"Hostnames\": [\n    {\n      \"Id\": 9366,\n      \"Value\": \"string\",\n      \"ForceSSL\": false,\n      \"IsSystemHostname\": false,\n      \"HasCertificate\": false\n    },\n    {\n      \"Id\": 3827,\n      \"Value\": \"string\",\n      \"ForceSSL\": false,\n      \"IsSystemHostname\": true,\n      \"HasCertificate\": false\n    }\n  ],\n  \"StorageZoneId\": 673,\n  \"CacheControlMaxAgeOverride\": 8080,\n  \"AllowedReferrers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"BlockedReferrers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"BlockedIps\": [\n    \"string\",\n    \"string\"\n  ],\n  \"EnableGeoZoneUS\": false,\n  \"EnableGeoZoneEU\": false,\n  \"EnableGeoZoneASIA\": true,\n  \"EnableGeoZoneSA\": false,\n  \"EnableGeoZoneAF\": false,\n  \"ZoneSecurityEnabled\": false,\n  \"ZoneSecurityKey\": \"string\",\n  \"Type\": 1953\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a359482-3d52-4de1-9e7a-5efb14cb7840",
+          "name": "Delete pull zone",
+          "request": {
+            "name": "Delete pull zone",
+            "description": {},
+            "url": {
+              "path": [
+                "pullzone",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eeac37f3-04cc-4602-a0ee-f41b5e24aaf3",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pullzone",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1de8bb2a-970b-426a-a146-df383cffef5b",
+          "name": "Purge pull zone cache",
+          "request": {
+            "name": "Purge pull zone cache",
+            "description": {},
+            "url": {
+              "path": [
+                "pullzone",
+                ":id",
+                "purgeCache"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6375e427-1768-4a5f-aaa8-1611c7bf68a3",
+              "name": "Purged",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pullzone",
+                    ":id",
+                    "purgeCache"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f655db4f-e815-4a91-8ddf-6288a48d3f60",
+          "name": "Add allowed referer",
+          "request": {
+            "name": "Add allowed referer",
+            "description": {},
+            "url": {
+              "path": [
+                "pullzone",
+                ":id",
+                "addAllowedReferer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Hostname\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dad92e77-9743-473f-9025-284b597db24c",
+              "name": "Added",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pullzone",
+                    ":id",
+                    "addAllowedReferer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Hostname\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "385fdd10-4c73-4b0f-8c9c-a105df20c5e9",
+          "name": "Remove allowed referer",
+          "request": {
+            "name": "Remove allowed referer",
+            "description": {},
+            "url": {
+              "path": [
+                "pullzone",
+                ":id",
+                "removeAllowedReferer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Hostname\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4b818fed-1c17-4adf-86c4-1c2f39ef9609",
+              "name": "Removed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pullzone",
+                    ":id",
+                    "removeAllowedReferer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Hostname\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "caee7257-5f8f-4f6c-9739-a791e731ef23",
+          "name": "Add blocked IP",
+          "request": {
+            "name": "Add blocked IP",
+            "description": {},
+            "url": {
+              "path": [
+                "pullzone",
+                ":id",
+                "addBlockedIP"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"BlockedIp\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "256da09b-303c-446f-be4e-4f4fbae5e0ee",
+              "name": "Added",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pullzone",
+                    ":id",
+                    "addBlockedIP"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"BlockedIp\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b79b385-9a59-4d5a-b459-d254bd010fe8",
+          "name": "Remove blocked IP",
+          "request": {
+            "name": "Remove blocked IP",
+            "description": {},
+            "url": {
+              "path": [
+                "pullzone",
+                ":id",
+                "removeBlockedIP"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"BlockedIp\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "40a57615-c9a0-485e-b1a9-74a2148cca83",
+              "name": "Removed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pullzone",
+                    ":id",
+                    "removeBlockedIP"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"BlockedIp\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6bd75dc-eeba-42db-bcb3-bb6b5ce45fcd",
+          "name": "Add custom certificate",
+          "request": {
+            "name": "Add custom certificate",
+            "description": {},
+            "url": {
+              "path": [
+                "pullzone",
+                ":id",
+                "addCustomCertificate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Hostname\": \"<string>\",\n  \"Certificate\": \"<string>\",\n  \"CertificateKey\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ce016bce-0044-4550-82a7-0d546f8349b8",
+              "name": "Added",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pullzone",
+                    ":id",
+                    "addCustomCertificate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Hostname\": \"<string>\",\n  \"Certificate\": \"<string>\",\n  \"CertificateKey\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0371249-bbb2-43bf-ad08-04955ecba479",
+          "name": "Add custom hostname",
+          "request": {
+            "name": "Add custom hostname",
+            "description": {},
+            "url": {
+              "path": [
+                "pullzone",
+                ":id",
+                "addCustomHostname"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Hostname\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8dcf2d48-c7c3-4575-9c45-8bbe8dd1f9fc",
+              "name": "Added",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pullzone",
+                    ":id",
+                    "addCustomHostname"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Hostname\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "34b7a05a-314e-4499-87fb-93bbfda264a9",
+          "name": "Remove custom hostname",
+          "request": {
+            "name": "Remove custom hostname",
+            "description": {},
+            "url": {
+              "path": [
+                "pullzone",
+                ":id",
+                "removeCustomHostname"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Hostname\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0c47c3b6-7f86-4a2b-9992-e788e9737b93",
+              "name": "Removed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pullzone",
+                    ":id",
+                    "removeCustomHostname"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Hostname\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fbb78339-d408-4f1d-8d25-92e7b598db99",
+          "name": "Set force SSL on hostname",
+          "request": {
+            "name": "Set force SSL on hostname",
+            "description": {},
+            "url": {
+              "path": [
+                "pullzone",
+                ":id",
+                "setForceSSL"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Hostname\": \"<string>\",\n  \"ForceSSL\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "483bcd89-e6b8-4f28-b746-0b39b6ddf4dc",
+              "name": "Set",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pullzone",
+                    ":id",
+                    "setForceSSL"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Hostname\": \"<string>\",\n  \"ForceSSL\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a195d76-9818-4f2e-92ed-0fbe95df915c",
+          "name": "Reset token authentication key",
+          "request": {
+            "name": "Reset token authentication key",
+            "description": {},
+            "url": {
+              "path": [
+                "pullzone",
+                ":id",
+                "resetTokenKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aaf3b8d0-4bec-4c2c-b39d-6931f4089990",
+              "name": "Reset",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pullzone",
+                    ":id",
+                    "resetTokenKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c3a9a541-ff2b-46e2-b44d-0e59896a3d37",
+      "name": "StorageZones",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5828d041-6a83-4623-b572-9d72681a9099",
+          "name": "List storage zones",
+          "request": {
+            "name": "List storage zones",
+            "description": {},
+            "url": {
+              "path": [
+                "storagezone"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0341fc2b-94e1-4a6a-97c6-d1a078be5a6c",
+              "name": "Storage zones",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storagezone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"Id\": 8776,\n    \"UserId\": \"string\",\n    \"Name\": \"string\",\n    \"Password\": \"string\",\n    \"ReadOnlyPassword\": \"string\",\n    \"DateModified\": \"2014-12-30T04:39:37.764Z\",\n    \"Deleted\": true,\n    \"StorageUsed\": 9586,\n    \"FilesStored\": 8361,\n    \"Region\": \"string\",\n    \"ReplicationRegions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"PullZones\": [\n      {\n        \"Id\": 1980,\n        \"Name\": \"string\",\n        \"OriginUrl\": \"string\",\n        \"Enabled\": false,\n        \"Hostnames\": [\n          {\n            \"Id\": 4464,\n            \"Value\": \"string\",\n            \"ForceSSL\": false,\n            \"IsSystemHostname\": true,\n            \"HasCertificate\": false\n          },\n          {\n            \"Id\": 2805,\n            \"Value\": \"string\",\n            \"ForceSSL\": true,\n            \"IsSystemHostname\": false,\n            \"HasCertificate\": true\n          }\n        ],\n        \"StorageZoneId\": 6021,\n        \"CacheControlMaxAgeOverride\": 9529,\n        \"AllowedReferrers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"BlockedReferrers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"BlockedIps\": [\n          \"string\",\n          \"string\"\n        ],\n        \"EnableGeoZoneUS\": false,\n        \"EnableGeoZoneEU\": false,\n        \"EnableGeoZoneASIA\": false,\n        \"EnableGeoZoneSA\": false,\n        \"EnableGeoZoneAF\": true,\n        \"ZoneSecurityEnabled\": true,\n        \"ZoneSecurityKey\": \"string\",\n        \"Type\": 4032\n      },\n      {\n        \"Id\": 8940,\n        \"Name\": \"string\",\n        \"OriginUrl\": \"string\",\n        \"Enabled\": true,\n        \"Hostnames\": [\n          {\n            \"Id\": 8852,\n            \"Value\": \"string\",\n            \"ForceSSL\": true,\n            \"IsSystemHostname\": false,\n            \"HasCertificate\": false\n          },\n          {\n            \"Id\": 8381,\n            \"Value\": \"string\",\n            \"ForceSSL\": false,\n            \"IsSystemHostname\": false,\n            \"HasCertificate\": false\n          }\n        ],\n        \"StorageZoneId\": 6222,\n        \"CacheControlMaxAgeOverride\": 9682,\n        \"AllowedReferrers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"BlockedReferrers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"BlockedIps\": [\n          \"string\",\n          \"string\"\n        ],\n        \"EnableGeoZoneUS\": true,\n        \"EnableGeoZoneEU\": false,\n        \"EnableGeoZoneASIA\": false,\n        \"EnableGeoZoneSA\": true,\n        \"EnableGeoZoneAF\": true,\n        \"ZoneSecurityEnabled\": false,\n        \"ZoneSecurityKey\": \"string\",\n        \"Type\": 9529\n      }\n    ]\n  },\n  {\n    \"Id\": 8539,\n    \"UserId\": \"string\",\n    \"Name\": \"string\",\n    \"Password\": \"string\",\n    \"ReadOnlyPassword\": \"string\",\n    \"DateModified\": \"2025-09-04T00:34:12.824Z\",\n    \"Deleted\": true,\n    \"StorageUsed\": 3522,\n    \"FilesStored\": 6191,\n    \"Region\": \"string\",\n    \"ReplicationRegions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"PullZones\": [\n      {\n        \"Id\": 8061,\n        \"Name\": \"string\",\n        \"OriginUrl\": \"string\",\n        \"Enabled\": true,\n        \"Hostnames\": [\n          {\n            \"Id\": 2163,\n            \"Value\": \"string\",\n            \"ForceSSL\": false,\n            \"IsSystemHostname\": false,\n            \"HasCertificate\": true\n          },\n          {\n            \"Id\": 7909,\n            \"Value\": \"string\",\n            \"ForceSSL\": true,\n            \"IsSystemHostname\": true,\n            \"HasCertificate\": false\n          }\n        ],\n        \"StorageZoneId\": 925,\n        \"CacheControlMaxAgeOverride\": 8165,\n        \"AllowedReferrers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"BlockedReferrers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"BlockedIps\": [\n          \"string\",\n          \"string\"\n        ],\n        \"EnableGeoZoneUS\": false,\n        \"EnableGeoZoneEU\": false,\n        \"EnableGeoZoneASIA\": true,\n        \"EnableGeoZoneSA\": false,\n        \"EnableGeoZoneAF\": false,\n        \"ZoneSecurityEnabled\": false,\n        \"ZoneSecurityKey\": \"string\",\n        \"Type\": 4376\n      },\n      {\n        \"Id\": 6801,\n        \"Name\": \"string\",\n        \"OriginUrl\": \"string\",\n        \"Enabled\": true,\n        \"Hostnames\": [\n          {\n            \"Id\": 3396,\n            \"Value\": \"string\",\n            \"ForceSSL\": true,\n            \"IsSystemHostname\": true,\n            \"HasCertificate\": false\n          },\n          {\n            \"Id\": 6422,\n            \"Value\": \"string\",\n            \"ForceSSL\": true,\n            \"IsSystemHostname\": false,\n            \"HasCertificate\": true\n          }\n        ],\n        \"StorageZoneId\": 9316,\n        \"CacheControlMaxAgeOverride\": 1258,\n        \"AllowedReferrers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"BlockedReferrers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"BlockedIps\": [\n          \"string\",\n          \"string\"\n        ],\n        \"EnableGeoZoneUS\": false,\n        \"EnableGeoZoneEU\": true,\n        \"EnableGeoZoneASIA\": true,\n        \"EnableGeoZoneSA\": false,\n        \"EnableGeoZoneAF\": true,\n        \"ZoneSecurityEnabled\": false,\n        \"ZoneSecurityKey\": \"string\",\n        \"Type\": 7207\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3acd9774-ac66-4957-a0ff-678163efa8f0",
+          "name": "Add a storage zone",
+          "request": {
+            "name": "Add a storage zone",
+            "description": {},
+            "url": {
+              "path": [
+                "storagezone"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"Region\": \"<string>\",\n  \"ReplicationRegions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ZoneTier\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b6aa8d7f-20a6-4d8b-b34c-eec5c7adaf40",
+              "name": "Storage zone",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storagezone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Region\": \"<string>\",\n  \"ReplicationRegions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ZoneTier\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": 1986,\n  \"UserId\": \"string\",\n  \"Name\": \"string\",\n  \"Password\": \"string\",\n  \"ReadOnlyPassword\": \"string\",\n  \"DateModified\": \"1958-11-16T00:47:47.020Z\",\n  \"Deleted\": false,\n  \"StorageUsed\": 5208,\n  \"FilesStored\": 9849,\n  \"Region\": \"string\",\n  \"ReplicationRegions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"PullZones\": [\n    {\n      \"Id\": 7682,\n      \"Name\": \"string\",\n      \"OriginUrl\": \"string\",\n      \"Enabled\": true,\n      \"Hostnames\": [\n        {\n          \"Id\": 1240,\n          \"Value\": \"string\",\n          \"ForceSSL\": false,\n          \"IsSystemHostname\": false,\n          \"HasCertificate\": true\n        },\n        {\n          \"Id\": 2346,\n          \"Value\": \"string\",\n          \"ForceSSL\": false,\n          \"IsSystemHostname\": true,\n          \"HasCertificate\": true\n        }\n      ],\n      \"StorageZoneId\": 1512,\n      \"CacheControlMaxAgeOverride\": 4415,\n      \"AllowedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedIps\": [\n        \"string\",\n        \"string\"\n      ],\n      \"EnableGeoZoneUS\": false,\n      \"EnableGeoZoneEU\": false,\n      \"EnableGeoZoneASIA\": false,\n      \"EnableGeoZoneSA\": true,\n      \"EnableGeoZoneAF\": true,\n      \"ZoneSecurityEnabled\": true,\n      \"ZoneSecurityKey\": \"string\",\n      \"Type\": 4880\n    },\n    {\n      \"Id\": 4511,\n      \"Name\": \"string\",\n      \"OriginUrl\": \"string\",\n      \"Enabled\": true,\n      \"Hostnames\": [\n        {\n          \"Id\": 8422,\n          \"Value\": \"string\",\n          \"ForceSSL\": true,\n          \"IsSystemHostname\": true,\n          \"HasCertificate\": false\n        },\n        {\n          \"Id\": 3245,\n          \"Value\": \"string\",\n          \"ForceSSL\": true,\n          \"IsSystemHostname\": true,\n          \"HasCertificate\": false\n        }\n      ],\n      \"StorageZoneId\": 4677,\n      \"CacheControlMaxAgeOverride\": 7896,\n      \"AllowedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedIps\": [\n        \"string\",\n        \"string\"\n      ],\n      \"EnableGeoZoneUS\": false,\n      \"EnableGeoZoneEU\": true,\n      \"EnableGeoZoneASIA\": false,\n      \"EnableGeoZoneSA\": false,\n      \"EnableGeoZoneAF\": true,\n      \"ZoneSecurityEnabled\": true,\n      \"ZoneSecurityKey\": \"string\",\n      \"Type\": 5344\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6692d60f-3ae9-40fe-a564-bdd8282d1906",
+          "name": "Get storage zone",
+          "request": {
+            "name": "Get storage zone",
+            "description": {},
+            "url": {
+              "path": [
+                "storagezone",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "81f56654-1daa-4263-8abb-094b057c7384",
+              "name": "Storage zone",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storagezone",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": 1986,\n  \"UserId\": \"string\",\n  \"Name\": \"string\",\n  \"Password\": \"string\",\n  \"ReadOnlyPassword\": \"string\",\n  \"DateModified\": \"1958-11-16T00:47:47.020Z\",\n  \"Deleted\": false,\n  \"StorageUsed\": 5208,\n  \"FilesStored\": 9849,\n  \"Region\": \"string\",\n  \"ReplicationRegions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"PullZones\": [\n    {\n      \"Id\": 7682,\n      \"Name\": \"string\",\n      \"OriginUrl\": \"string\",\n      \"Enabled\": true,\n      \"Hostnames\": [\n        {\n          \"Id\": 1240,\n          \"Value\": \"string\",\n          \"ForceSSL\": false,\n          \"IsSystemHostname\": false,\n          \"HasCertificate\": true\n        },\n        {\n          \"Id\": 2346,\n          \"Value\": \"string\",\n          \"ForceSSL\": false,\n          \"IsSystemHostname\": true,\n          \"HasCertificate\": true\n        }\n      ],\n      \"StorageZoneId\": 1512,\n      \"CacheControlMaxAgeOverride\": 4415,\n      \"AllowedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedIps\": [\n        \"string\",\n        \"string\"\n      ],\n      \"EnableGeoZoneUS\": false,\n      \"EnableGeoZoneEU\": false,\n      \"EnableGeoZoneASIA\": false,\n      \"EnableGeoZoneSA\": true,\n      \"EnableGeoZoneAF\": true,\n      \"ZoneSecurityEnabled\": true,\n      \"ZoneSecurityKey\": \"string\",\n      \"Type\": 4880\n    },\n    {\n      \"Id\": 4511,\n      \"Name\": \"string\",\n      \"OriginUrl\": \"string\",\n      \"Enabled\": true,\n      \"Hostnames\": [\n        {\n          \"Id\": 8422,\n          \"Value\": \"string\",\n          \"ForceSSL\": true,\n          \"IsSystemHostname\": true,\n          \"HasCertificate\": false\n        },\n        {\n          \"Id\": 3245,\n          \"Value\": \"string\",\n          \"ForceSSL\": true,\n          \"IsSystemHostname\": true,\n          \"HasCertificate\": false\n        }\n      ],\n      \"StorageZoneId\": 4677,\n      \"CacheControlMaxAgeOverride\": 7896,\n      \"AllowedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedIps\": [\n        \"string\",\n        \"string\"\n      ],\n      \"EnableGeoZoneUS\": false,\n      \"EnableGeoZoneEU\": true,\n      \"EnableGeoZoneASIA\": false,\n      \"EnableGeoZoneSA\": false,\n      \"EnableGeoZoneAF\": true,\n      \"ZoneSecurityEnabled\": true,\n      \"ZoneSecurityKey\": \"string\",\n      \"Type\": 5344\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "420fc4d6-2855-4b99-b83d-3124e29be8ad",
+          "name": "Update storage zone",
+          "request": {
+            "name": "Update storage zone",
+            "description": {},
+            "url": {
+              "path": [
+                "storagezone",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ReplicationZones\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"OriginUrl\": \"<string,null>\",\n  \"Custom404FilePath\": \"<string>\",\n  \"Rewrite404To200\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "870e6bd7-3414-4176-8f59-30faa0246eff",
+              "name": "Updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storagezone",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ReplicationZones\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"OriginUrl\": \"<string,null>\",\n  \"Custom404FilePath\": \"<string>\",\n  \"Rewrite404To200\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4df24fe3-2f90-4d47-9cb5-821aa7b55846",
+          "name": "Delete storage zone",
+          "request": {
+            "name": "Delete storage zone",
+            "description": {},
+            "url": {
+              "path": [
+                "storagezone",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bca20675-52c1-402b-9b37-295400cf088a",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storagezone",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2f0094d-67e7-4edb-82de-7834b42dec0b",
+          "name": "Reset storage zone password",
+          "request": {
+            "name": "Reset storage zone password",
+            "description": {},
+            "url": {
+              "path": [
+                "storagezone",
+                ":id",
+                "resetPassword"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "932f4365-a7d4-4f94-859b-458efcbf8e27",
+              "name": "Reset",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storagezone",
+                    ":id",
+                    "resetPassword"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0d8a547-9c0e-4dcc-b09d-66a218b3bc70",
+          "name": "Reset read-only password",
+          "request": {
+            "name": "Reset read-only password",
+            "description": {},
+            "url": {
+              "path": [
+                "storagezone",
+                ":id",
+                "resetReadOnlyPassword"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f3c4b483-d6e0-4a7f-8c60-5be90950c406",
+              "name": "Reset",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storagezone",
+                    ":id",
+                    "resetReadOnlyPassword"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "6ed80aa5-0f4e-4723-a470-01d9e50a48c9",
+      "name": "DNSZones",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "51b14216-51a6-48f9-8873-44db7190bc8a",
+          "name": "List DNS zones",
+          "request": {
+            "name": "List DNS zones",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "80189cb8-ff64-4abe-b4e3-8575a6f745b4",
+              "name": "DNS zones",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"Id\": 809,\n    \"Domain\": \"string\",\n    \"Records\": [\n      {\n        \"Id\": 9767,\n        \"Type\": 7176,\n        \"Ttl\": 2,\n        \"Value\": \"string\",\n        \"Name\": \"string\",\n        \"Weight\": 7270,\n        \"Priority\": 1146,\n        \"Port\": 2284,\n        \"Flags\": 6956,\n        \"Tag\": \"string\",\n        \"Accelerated\": false,\n        \"AcceleratedPullZoneId\": 2897,\n        \"Disabled\": false\n      },\n      {\n        \"Id\": 1912,\n        \"Type\": 5312,\n        \"Ttl\": 8522,\n        \"Value\": \"string\",\n        \"Name\": \"string\",\n        \"Weight\": 4595,\n        \"Priority\": 9413,\n        \"Port\": 4676,\n        \"Flags\": 1792,\n        \"Tag\": \"string\",\n        \"Accelerated\": false,\n        \"AcceleratedPullZoneId\": 4690,\n        \"Disabled\": true\n      }\n    ],\n    \"DateModified\": \"1996-02-20T14:32:16.429Z\",\n    \"DateCreated\": \"1957-03-08T23:51:24.091Z\",\n    \"NameserversDetected\": true,\n    \"CustomNameserversEnabled\": false,\n    \"Nameserver1\": \"string\",\n    \"Nameserver2\": \"string\"\n  },\n  {\n    \"Id\": 528,\n    \"Domain\": \"string\",\n    \"Records\": [\n      {\n        \"Id\": 349,\n        \"Type\": 1696,\n        \"Ttl\": 4173,\n        \"Value\": \"string\",\n        \"Name\": \"string\",\n        \"Weight\": 1762,\n        \"Priority\": 5672,\n        \"Port\": 6150,\n        \"Flags\": 925,\n        \"Tag\": \"string\",\n        \"Accelerated\": false,\n        \"AcceleratedPullZoneId\": 9131,\n        \"Disabled\": true\n      },\n      {\n        \"Id\": 4201,\n        \"Type\": 1026,\n        \"Ttl\": 6085,\n        \"Value\": \"string\",\n        \"Name\": \"string\",\n        \"Weight\": 1102,\n        \"Priority\": 8175,\n        \"Port\": 4253,\n        \"Flags\": 9066,\n        \"Tag\": \"string\",\n        \"Accelerated\": true,\n        \"AcceleratedPullZoneId\": 8137,\n        \"Disabled\": false\n      }\n    ],\n    \"DateModified\": \"1976-12-27T17:34:24.155Z\",\n    \"DateCreated\": \"2012-12-15T09:06:26.633Z\",\n    \"NameserversDetected\": false,\n    \"CustomNameserversEnabled\": false,\n    \"Nameserver1\": \"string\",\n    \"Nameserver2\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db5c8733-0784-42d3-bbce-564ad261859f",
+          "name": "Add DNS zone",
+          "request": {
+            "name": "Add DNS zone",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Domain\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fb94ba43-1bb4-422b-8278-d739d32aeae1",
+              "name": "DNS zone",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Domain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": 8035,\n  \"Domain\": \"string\",\n  \"Records\": [\n    {\n      \"Id\": 2386,\n      \"Type\": 1982,\n      \"Ttl\": 7244,\n      \"Value\": \"string\",\n      \"Name\": \"string\",\n      \"Weight\": 6919,\n      \"Priority\": 1213,\n      \"Port\": 3127,\n      \"Flags\": 8430,\n      \"Tag\": \"string\",\n      \"Accelerated\": false,\n      \"AcceleratedPullZoneId\": 5461,\n      \"Disabled\": true\n    },\n    {\n      \"Id\": 2603,\n      \"Type\": 8600,\n      \"Ttl\": 9023,\n      \"Value\": \"string\",\n      \"Name\": \"string\",\n      \"Weight\": 7776,\n      \"Priority\": 2892,\n      \"Port\": 7128,\n      \"Flags\": 8148,\n      \"Tag\": \"string\",\n      \"Accelerated\": true,\n      \"AcceleratedPullZoneId\": 8077,\n      \"Disabled\": false\n    }\n  ],\n  \"DateModified\": \"2013-09-01T11:54:45.022Z\",\n  \"DateCreated\": \"2009-08-14T17:57:22.508Z\",\n  \"NameserversDetected\": false,\n  \"CustomNameserversEnabled\": false,\n  \"Nameserver1\": \"string\",\n  \"Nameserver2\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "15911638-5908-4c1a-a0cf-7d23b92c607e",
+          "name": "Get DNS zone",
+          "request": {
+            "name": "Get DNS zone",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f06d82d3-b4f8-45c9-b728-a1220831a5c6",
+              "name": "DNS zone",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": 8035,\n  \"Domain\": \"string\",\n  \"Records\": [\n    {\n      \"Id\": 2386,\n      \"Type\": 1982,\n      \"Ttl\": 7244,\n      \"Value\": \"string\",\n      \"Name\": \"string\",\n      \"Weight\": 6919,\n      \"Priority\": 1213,\n      \"Port\": 3127,\n      \"Flags\": 8430,\n      \"Tag\": \"string\",\n      \"Accelerated\": false,\n      \"AcceleratedPullZoneId\": 5461,\n      \"Disabled\": true\n    },\n    {\n      \"Id\": 2603,\n      \"Type\": 8600,\n      \"Ttl\": 9023,\n      \"Value\": \"string\",\n      \"Name\": \"string\",\n      \"Weight\": 7776,\n      \"Priority\": 2892,\n      \"Port\": 7128,\n      \"Flags\": 8148,\n      \"Tag\": \"string\",\n      \"Accelerated\": true,\n      \"AcceleratedPullZoneId\": 8077,\n      \"Disabled\": false\n    }\n  ],\n  \"DateModified\": \"2013-09-01T11:54:45.022Z\",\n  \"DateCreated\": \"2009-08-14T17:57:22.508Z\",\n  \"NameserversDetected\": false,\n  \"CustomNameserversEnabled\": false,\n  \"Nameserver1\": \"string\",\n  \"Nameserver2\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c29ff9ac-7ed6-41e2-a21e-e21018df5ade",
+          "name": "Update DNS zone",
+          "request": {
+            "name": "Update DNS zone",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": \"string\",\n  \"key_1\": 9771.896947606585\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "58aa84d4-f9c5-4fd7-8391-a541121c4e46",
+              "name": "Updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": 1651,\n  \"key_1\": 9033\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19675eb6-c006-468f-8bb6-e0c94f6f1a12",
+          "name": "Delete DNS zone",
+          "request": {
+            "name": "Delete DNS zone",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23a46cf9-6427-488a-a923-d73e638a5255",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "499fcfdb-b867-4007-bc26-eda4cbf8573c",
+          "name": "Add DNS record",
+          "request": {
+            "name": "Add DNS record",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone",
+                ":id",
+                "records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"<integer>\",\n  \"Type\": \"<integer>\",\n  \"Ttl\": \"<integer>\",\n  \"Value\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Weight\": \"<integer>\",\n  \"Priority\": \"<integer>\",\n  \"Port\": \"<integer>\",\n  \"Flags\": \"<integer>\",\n  \"Tag\": \"<string>\",\n  \"Accelerated\": \"<boolean>\",\n  \"AcceleratedPullZoneId\": \"<integer>\",\n  \"Disabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4bc8a7e4-e828-4ea1-a8cd-c471c463a78d",
+              "name": "DNS record",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone",
+                    ":id",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<integer>\",\n  \"Type\": \"<integer>\",\n  \"Ttl\": \"<integer>\",\n  \"Value\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Weight\": \"<integer>\",\n  \"Priority\": \"<integer>\",\n  \"Port\": \"<integer>\",\n  \"Flags\": \"<integer>\",\n  \"Tag\": \"<string>\",\n  \"Accelerated\": \"<boolean>\",\n  \"AcceleratedPullZoneId\": \"<integer>\",\n  \"Disabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": 7947,\n  \"Type\": 1071,\n  \"Ttl\": 5509,\n  \"Value\": \"string\",\n  \"Name\": \"string\",\n  \"Weight\": 489,\n  \"Priority\": 9213,\n  \"Port\": 5234,\n  \"Flags\": 9183,\n  \"Tag\": \"string\",\n  \"Accelerated\": true,\n  \"AcceleratedPullZoneId\": 5019,\n  \"Disabled\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f7817751-1a94-4c41-8416-6268f753d877",
+          "name": "Update DNS record",
+          "request": {
+            "name": "Update DNS record",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone",
+                ":id",
+                "records",
+                ":recordId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "recordId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"<integer>\",\n  \"Type\": \"<integer>\",\n  \"Ttl\": \"<integer>\",\n  \"Value\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Weight\": \"<integer>\",\n  \"Priority\": \"<integer>\",\n  \"Port\": \"<integer>\",\n  \"Flags\": \"<integer>\",\n  \"Tag\": \"<string>\",\n  \"Accelerated\": \"<boolean>\",\n  \"AcceleratedPullZoneId\": \"<integer>\",\n  \"Disabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e3aea465-611e-4cfd-b565-e4a5d63065a3",
+              "name": "Updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone",
+                    ":id",
+                    "records",
+                    ":recordId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "recordId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<integer>\",\n  \"Type\": \"<integer>\",\n  \"Ttl\": \"<integer>\",\n  \"Value\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Weight\": \"<integer>\",\n  \"Priority\": \"<integer>\",\n  \"Port\": \"<integer>\",\n  \"Flags\": \"<integer>\",\n  \"Tag\": \"<string>\",\n  \"Accelerated\": \"<boolean>\",\n  \"AcceleratedPullZoneId\": \"<integer>\",\n  \"Disabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c3d4f747-8d1d-4004-be37-9417f89428f9",
+          "name": "Delete DNS record",
+          "request": {
+            "name": "Delete DNS record",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone",
+                ":id",
+                "records",
+                ":recordId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "recordId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b89185a-7fa5-4f26-aa2f-e42a8834047f",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone",
+                    ":id",
+                    "records",
+                    ":recordId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "recordId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f788ba4-ac7b-4e16-b532-8a08bc4c343c",
+          "name": "Enable DNSSEC",
+          "request": {
+            "name": "Enable DNSSEC",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone",
+                ":id",
+                "enableDNSSEC"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f3529f7c-1c08-4eaf-a9a2-1c376d6fd7e4",
+              "name": "Enabled",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone",
+                    ":id",
+                    "enableDNSSEC"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ce0ec54-5e30-4e1a-a7ff-9ee882a9ba5e",
+          "name": "Disable DNSSEC",
+          "request": {
+            "name": "Disable DNSSEC",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone",
+                ":id",
+                "disableDNSSEC"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5efccddf-d9fe-406e-942e-3b9a74afdae4",
+              "name": "Disabled",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone",
+                    ":id",
+                    "disableDNSSEC"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "49ab040e-7edb-45ca-8e0d-3d6f33b8d134",
+      "name": "Stream",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ee572363-ea56-4290-b7fb-9ae97e75ef13",
+          "name": "List video libraries",
+          "request": {
+            "name": "List video libraries",
+            "description": {},
+            "url": {
+              "path": [
+                "videolibrary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2bada112-219e-4d18-b833-34eb4fea3cd3",
+              "name": "Libraries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videolibrary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"Id\": 6251,\n    \"Name\": \"string\",\n    \"VideoCount\": 9190,\n    \"TrafficUsage\": 552,\n    \"StorageUsage\": 8317,\n    \"ApiKey\": \"string\",\n    \"ReadOnlyApiKey\": \"string\",\n    \"DateCreated\": \"2020-04-14T18:32:24.878Z\",\n    \"ReplicationRegions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"EnabledResolutions\": \"string\",\n    \"ViAiPublisherId\": \"string\",\n    \"VastTagUrl\": \"string\",\n    \"WatermarkPositionLeft\": 6372,\n    \"WatermarkPositionTop\": 6841,\n    \"WatermarkWidth\": 8273,\n    \"WatermarkHeight\": 963,\n    \"EnableMP4Fallback\": false,\n    \"AllowedReferrers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"BlockedReferrers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"BlockNoneReferrer\": true,\n    \"EnableTokenAuthentication\": true,\n    \"EnableTokenIPVerification\": false\n  },\n  {\n    \"Id\": 9932,\n    \"Name\": \"string\",\n    \"VideoCount\": 6384,\n    \"TrafficUsage\": 7086,\n    \"StorageUsage\": 4855,\n    \"ApiKey\": \"string\",\n    \"ReadOnlyApiKey\": \"string\",\n    \"DateCreated\": \"1953-09-01T06:13:39.300Z\",\n    \"ReplicationRegions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"EnabledResolutions\": \"string\",\n    \"ViAiPublisherId\": \"string\",\n    \"VastTagUrl\": \"string\",\n    \"WatermarkPositionLeft\": 3011,\n    \"WatermarkPositionTop\": 5375,\n    \"WatermarkWidth\": 2812,\n    \"WatermarkHeight\": 8163,\n    \"EnableMP4Fallback\": false,\n    \"AllowedReferrers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"BlockedReferrers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"BlockNoneReferrer\": false,\n    \"EnableTokenAuthentication\": true,\n    \"EnableTokenIPVerification\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2fc693e2-0217-43dd-bae8-8319490c2c8f",
+          "name": "Add video library",
+          "request": {
+            "name": "Add video library",
+            "description": {},
+            "url": {
+              "path": [
+                "videolibrary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"ReplicationRegions\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f9b4d053-2014-4e74-a87f-d6e9baa3f347",
+              "name": "Library",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videolibrary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"ReplicationRegions\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": 670,\n  \"Name\": \"string\",\n  \"VideoCount\": 3441,\n  \"TrafficUsage\": 5561,\n  \"StorageUsage\": 1303,\n  \"ApiKey\": \"string\",\n  \"ReadOnlyApiKey\": \"string\",\n  \"DateCreated\": \"2019-12-02T17:42:40.955Z\",\n  \"ReplicationRegions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"EnabledResolutions\": \"string\",\n  \"ViAiPublisherId\": \"string\",\n  \"VastTagUrl\": \"string\",\n  \"WatermarkPositionLeft\": 2869,\n  \"WatermarkPositionTop\": 2464,\n  \"WatermarkWidth\": 9957,\n  \"WatermarkHeight\": 982,\n  \"EnableMP4Fallback\": false,\n  \"AllowedReferrers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"BlockedReferrers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"BlockNoneReferrer\": true,\n  \"EnableTokenAuthentication\": true,\n  \"EnableTokenIPVerification\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27b62e71-662c-4cc9-be1d-b95429bffb72",
+          "name": "Get video library",
+          "request": {
+            "name": "Get video library",
+            "description": {},
+            "url": {
+              "path": [
+                "videolibrary",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d7d14b8a-8bc0-4f6d-9043-8fd252d18422",
+              "name": "Library",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videolibrary",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": 670,\n  \"Name\": \"string\",\n  \"VideoCount\": 3441,\n  \"TrafficUsage\": 5561,\n  \"StorageUsage\": 1303,\n  \"ApiKey\": \"string\",\n  \"ReadOnlyApiKey\": \"string\",\n  \"DateCreated\": \"2019-12-02T17:42:40.955Z\",\n  \"ReplicationRegions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"EnabledResolutions\": \"string\",\n  \"ViAiPublisherId\": \"string\",\n  \"VastTagUrl\": \"string\",\n  \"WatermarkPositionLeft\": 2869,\n  \"WatermarkPositionTop\": 2464,\n  \"WatermarkWidth\": 9957,\n  \"WatermarkHeight\": 982,\n  \"EnableMP4Fallback\": false,\n  \"AllowedReferrers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"BlockedReferrers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"BlockNoneReferrer\": true,\n  \"EnableTokenAuthentication\": true,\n  \"EnableTokenIPVerification\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f496493-8b32-4e84-ad7d-f1340d140f89",
+          "name": "Update video library",
+          "request": {
+            "name": "Update video library",
+            "description": {},
+            "url": {
+              "path": [
+                "videolibrary",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": \"string\",\n  \"key_1\": 9771.896947606585\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cc87cb6a-4b19-49f3-b32c-95cbbc23ab5c",
+              "name": "Updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videolibrary",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": 1651,\n  \"key_1\": 9033\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8aec6593-bbd1-45a3-81e4-6612c7b73f22",
+          "name": "Delete video library",
+          "request": {
+            "name": "Delete video library",
+            "description": {},
+            "url": {
+              "path": [
+                "videolibrary",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bb6b02c3-d7af-4223-a878-5efdbc690324",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videolibrary",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8bf51f4b-79cb-424e-b759-29a8ca13e3e2",
+      "name": "Statistics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "112d1866-28b9-4d39-9a57-7d1671f53e6e",
+          "name": "Get account statistics",
+          "request": {
+            "name": "Get account statistics",
+            "description": {},
+            "url": {
+              "path": [
+                "statistics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "dateFrom",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dateTo",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pullZone",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "serverZoneId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "loadErrors",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "hourly",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "997e9e7e-46c7-413d-838e-50b701b00ed1",
+              "name": "Statistics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dateFrom",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "dateTo",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "pullZone",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "serverZoneId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "loadErrors",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "hourly",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"TotalBandwidthUsed\": 2391,\n  \"TotalRequestsServed\": 612,\n  \"CacheHitRate\": 1671.230519806085,\n  \"BandwidthUsedChart\": {\n    \"key_0\": 6241.490588944177\n  },\n  \"BandwidthCachedChart\": {\n    \"key_0\": 1914.1992941199094,\n    \"key_1\": 6121.486165682446,\n    \"key_2\": 4249.1813638440035,\n    \"key_3\": 1262.8083058840546\n  },\n  \"CacheHitRateChart\": {\n    \"key_0\": 1363.4026780889462\n  },\n  \"RequestsServedChart\": {\n    \"key_0\": 3867.414238729908,\n    \"key_1\": 4145.425864843528\n  },\n  \"PullRequestsPulledChart\": {\n    \"key_0\": 4484.336577457616\n  },\n  \"OriginShieldBandwidthUsedChart\": {\n    \"key_0\": 4667.8171597491855,\n    \"key_1\": 2811.280466971805\n  },\n  \"OriginShieldInternalBandwidthUsedChart\": {\n    \"key_0\": 3115.5218291413357,\n    \"key_1\": 42.960181582553105\n  },\n  \"OriginTrafficChart\": {\n    \"key_0\": 9010.2409635203\n  },\n  \"Error3xxChart\": {\n    \"key_0\": 8591.407049519034,\n    \"key_1\": 8978.834239150188\n  },\n  \"Error4xxChart\": {\n    \"key_0\": 7009.34245921558,\n    \"key_1\": 6171.012564850155\n  },\n  \"Error5xxChart\": {\n    \"key_0\": 3028.247664326491,\n    \"key_1\": 2130.595574265617\n  },\n  \"UserBalanceHistoryChart\": {\n    \"key_0\": 8415.131972772491\n  },\n  \"UserStorageUsedChart\": {\n    \"key_0\": 9428.350501425,\n    \"key_1\": 3129.507269887315\n  },\n  \"GeoTrafficDistribution\": {\n    \"key_0\": 6060.456365450951\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de841af2-7f36-44a8-aed0-232138015a04",
+          "name": "Get optimizer statistics",
+          "request": {
+            "name": "Get optimizer statistics",
+            "description": {},
+            "url": {
+              "path": [
+                "statistics",
+                "optimizer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "33c1ce99-25f1-41ec-ae4d-2b5850604d36",
+              "name": "Statistics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "optimizer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c890996-daf2-4de7-ae11-43c25abc2b50",
+          "name": "Get SafeHop statistics",
+          "request": {
+            "name": "Get SafeHop statistics",
+            "description": {},
+            "url": {
+              "path": [
+                "statistics",
+                "safehop"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73c8b2a9-b247-47e0-891a-482422d5ab69",
+              "name": "Statistics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "safehop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8237ce84-96f1-44e1-9cab-2db6c52177b6",
+      "name": "Billing",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "75570dcd-4544-4679-9c09-6fcf59f2ac43",
+          "name": "Get billing details",
+          "request": {
+            "name": "Get billing details",
+            "description": {},
+            "url": {
+              "path": [
+                "billing"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "10f9368c-0d12-450b-bd25-5ff5c038e83b",
+              "name": "Billing details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "billing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e03c0ce8-7f2f-47a9-a931-e37de5377117",
+          "name": "Get billing summary",
+          "request": {
+            "name": "Get billing summary",
+            "description": {},
+            "url": {
+              "path": [
+                "billing",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3dcaf45f-b02f-450f-9027-68b5587d659d",
+              "name": "Billing summary",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "billing",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2c22b761-0fb9-4b6b-9827-503991c58469",
+          "name": "Get pending payment requests",
+          "request": {
+            "name": "Get pending payment requests",
+            "description": {},
+            "url": {
+              "path": [
+                "billing",
+                "paymentRequests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fc54a76a-ee07-4f86-8ca8-3731cdf462c1",
+              "name": "Pending payment requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "billing",
+                    "paymentRequests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "86dc4365-5624-4458-a8e5-56057cf99f14",
+      "name": "Purge",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d051339b-9c8d-448a-9e48-28424a3a86a1",
+          "name": "Purge URL from CDN",
+          "request": {
+            "name": "Purge URL from CDN",
+            "description": {},
+            "url": {
+              "path": [
+                "purge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "async",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2e721b60-b1df-4efe-baf0-278932fbf456",
+              "name": "Purged",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "async",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ba9f2494-9261-4a42-b519-4e08d8771f1e",
+      "name": "APIKeys",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "216f92cf-aa6c-4f9c-af23-3ba6314493d7",
+          "name": "List API keys",
+          "request": {
+            "name": "List API keys",
+            "description": {},
+            "url": {
+              "path": [
+                "apikey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7e260e62-f317-4ff9-b3e1-7ed93ce380b6",
+              "name": "Keys",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apikey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"Id\": 2189,\n    \"Key\": \"string\",\n    \"Roles\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"Id\": 3477,\n    \"Key\": \"string\",\n    \"Roles\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "4a08c11c-742d-4652-8964-7a9abb1da4d7",
+      "name": "Countries",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fe4d4b95-dc84-4a44-b777-792d3a9967eb",
+          "name": "Get country list",
+          "request": {
+            "name": "Get country list",
+            "description": {},
+            "url": {
+              "path": [
+                "countries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "100e0f3d-56c4-4467-8324-932a5f0440cc",
+              "name": "Countries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "countries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"Name\": \"string\",\n    \"IsoCode\": \"string\",\n    \"IsEU\": false,\n    \"TaxRate\": 2192.626795124565,\n    \"TaxPrefix\": \"string\",\n    \"FlagUrl\": \"string\",\n    \"PopList\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"Name\": \"string\",\n    \"IsoCode\": \"string\",\n    \"IsEU\": true,\n    \"TaxRate\": 5622.161972742092,\n    \"TaxPrefix\": \"string\",\n    \"FlagUrl\": \"string\",\n    \"PopList\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "3231d89c-4642-4e43-b29e-60671a9890d2",
+      "name": "Regions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1e75b6e0-f249-4ad6-9601-c72c3ab05752",
+          "name": "List regions",
+          "request": {
+            "name": "List regions",
+            "description": {},
+            "url": {
+              "path": [
+                "region"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f3725518-85d7-414f-96cd-baef688a8e8f",
+              "name": "Regions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "region"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"Id\": 8836,\n    \"Name\": \"string\",\n    \"PricePerGigabyte\": 4374.359649102366,\n    \"RegionCode\": \"string\",\n    \"ContinentCode\": \"string\",\n    \"CountryCode\": \"string\",\n    \"Latitude\": 3109.6247339989345,\n    \"Longitude\": 9721.463627958989\n  },\n  {\n    \"Id\": 2943,\n    \"Name\": \"string\",\n    \"PricePerGigabyte\": 5667.076197151848,\n    \"RegionCode\": \"string\",\n    \"ContinentCode\": \"string\",\n    \"CountryCode\": \"string\",\n    \"Latitude\": 6616.185553673559,\n    \"Longitude\": 624.357905022398\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.bunny.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "AccessKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "37c804c7-27fe-4216-9adf-6646acb5a8e8",
+    "name": "Bunny.net Core Platform API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of the Bunny.net Core Platform REST API for managing\nPull Zones, Storage Zones, DNS Zones, Stream video libraries, statistics, billing,\npurge, API keys, and reference data.\n\nAuthentication uses the `AccessKey` header containing your account API key issued from\nthe Bunny.net dashboard.\n\n\nContact Support:\n Name: Bunny.net",
+      "type": "text/plain"
+    }
+  }
+}
