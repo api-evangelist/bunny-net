@@ -266,7 +266,7 @@ common:
   url: rate-limits/bunny-net-rate-limits.yml
 - type: FinOps
   url: finops/bunny-net-finops.yml
-- type: LLMsTxt
+- type: LlmsText
   url: https://docs.bunny.net/llms.txt
 integrations:
 - name: WordPress
