@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/bunny-net-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: accessKeyAuth
+  type: apiKey
+  in: header
+  parameter: AccessKey
+  description: API key issued from the Bunny.net dashboard.
+  sources:
+  - openapi/bunny-net-openapi.yml

@@ -248,6 +248,10 @@ apis:
   - type: Documentation
     url: https://docs.bunny.net/reference/regionpublic_index
 common:
+- type: DomainSecurity
+  url: security/bunny-net-domain-security.yml
+- type: Authentication
+  url: authentication/bunny-net-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/bunny-net
 - type: Website
@@ -268,6 +272,8 @@ common:
   url: finops/bunny-net-finops.yml
 - type: LlmsText
   url: https://docs.bunny.net/llms.txt
+- type: Blog
+  url: https://bunny.net/blog/
 integrations:
 - name: WordPress
 - name: Magento
