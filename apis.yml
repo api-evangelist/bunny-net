@@ -248,6 +248,8 @@ apis:
   - type: Documentation
     url: https://docs.bunny.net/reference/regionpublic_index
 common:
+- type: AgenticAccess
+  url: agentic-access/bunny-net-agentic-access.yml
 - type: DomainSecurity
   url: security/bunny-net-domain-security.yml
 - type: Authentication
