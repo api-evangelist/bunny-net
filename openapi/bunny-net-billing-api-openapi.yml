@@ -1,0 +1,75 @@
+openapi: 3.1.0
+info:
+  title: Bunny.net Core Platform APIKeys Billing API
+  description: 'Best-effort OpenAPI 3.1 description of the Bunny.net Core Platform REST API for managing
+
+    Pull Zones, Storage Zones, DNS Zones, Stream video libraries, statistics, billing,
+
+    purge, API keys, and reference data.
+
+
+    Authentication uses the `AccessKey` header containing your account API key issued from
+
+    the Bunny.net dashboard.
+
+    '
+  version: '1.0'
+  contact:
+    name: Bunny.net
+    url: https://docs.bunny.net/reference/bunnynet-api-overview
+servers:
+- url: https://api.bunny.net
+  description: Bunny.net Core Platform API
+security:
+- accessKeyAuth: []
+tags:
+- name: Billing
+paths:
+  /billing:
+    get:
+      tags:
+      - Billing
+      summary: Get billing details
+      operationId: getBilling
+      responses:
+        '200':
+          description: Billing details
+          content:
+            application/json:
+              schema:
+                type: object
+  /billing/summary:
+    get:
+      tags:
+      - Billing
+      summary: Get billing summary
+      operationId: getBillingSummary
+      responses:
+        '200':
+          description: Billing summary
+          content:
+            application/json:
+              schema:
+                type: object
+  /billing/paymentRequests:
+    get:
+      tags:
+      - Billing
+      summary: Get pending payment requests
+      operationId: getPaymentRequests
+      responses:
+        '200':
+          description: Pending payment requests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+components:
+  securitySchemes:
+    accessKeyAuth:
+      type: apiKey
+      in: header
+      name: AccessKey
+      description: API key issued from the Bunny.net dashboard.

@@ -1,0 +1,176 @@
+openapi: 3.1.0
+info:
+  title: Bunny.net Core Platform APIKeys Stream API
+  description: 'Best-effort OpenAPI 3.1 description of the Bunny.net Core Platform REST API for managing
+
+    Pull Zones, Storage Zones, DNS Zones, Stream video libraries, statistics, billing,
+
+    purge, API keys, and reference data.
+
+
+    Authentication uses the `AccessKey` header containing your account API key issued from
+
+    the Bunny.net dashboard.
+
+    '
+  version: '1.0'
+  contact:
+    name: Bunny.net
+    url: https://docs.bunny.net/reference/bunnynet-api-overview
+servers:
+- url: https://api.bunny.net
+  description: Bunny.net Core Platform API
+security:
+- accessKeyAuth: []
+tags:
+- name: Stream
+paths:
+  /videolibrary:
+    get:
+      tags:
+      - Stream
+      summary: List video libraries
+      operationId: listVideoLibraries
+      responses:
+        '200':
+          description: Libraries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VideoLibrary'
+    post:
+      tags:
+      - Stream
+      summary: Add video library
+      operationId: addVideoLibrary
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - Name
+              properties:
+                Name:
+                  type: string
+                ReplicationRegions:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '201':
+          description: Library
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoLibrary'
+  /videolibrary/{id}:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    get:
+      tags:
+      - Stream
+      summary: Get video library
+      operationId: getVideoLibrary
+      responses:
+        '200':
+          description: Library
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoLibrary'
+    post:
+      tags:
+      - Stream
+      summary: Update video library
+      operationId: updateVideoLibrary
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '204':
+          description: Updated
+    delete:
+      tags:
+      - Stream
+      summary: Delete video library
+      operationId: deleteVideoLibrary
+      responses:
+        '204':
+          description: Deleted
+components:
+  schemas:
+    VideoLibrary:
+      type: object
+      properties:
+        Id:
+          type: integer
+        Name:
+          type: string
+        VideoCount:
+          type: integer
+        TrafficUsage:
+          type: integer
+        StorageUsage:
+          type: integer
+        ApiKey:
+          type: string
+        ReadOnlyApiKey:
+          type: string
+        DateCreated:
+          type: string
+          format: date-time
+        ReplicationRegions:
+          type: array
+          items:
+            type: string
+        EnabledResolutions:
+          type: string
+        ViAiPublisherId:
+          type: string
+        VastTagUrl:
+          type: string
+        WatermarkPositionLeft:
+          type: integer
+        WatermarkPositionTop:
+          type: integer
+        WatermarkWidth:
+          type: integer
+        WatermarkHeight:
+          type: integer
+        EnableMP4Fallback:
+          type: boolean
+        AllowedReferrers:
+          type: array
+          items:
+            type: string
+        BlockedReferrers:
+          type: array
+          items:
+            type: string
+        BlockNoneReferrer:
+          type: boolean
+        EnableTokenAuthentication:
+          type: boolean
+        EnableTokenIPVerification:
+          type: boolean
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+  securitySchemes:
+    accessKeyAuth:
+      type: apiKey
+      in: header
+      name: AccessKey
+      description: API key issued from the Bunny.net dashboard.

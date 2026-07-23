@@ -1,0 +1,166 @@
+openapi: 3.1.0
+info:
+  title: Bunny.net Core Platform APIKeys Statistics API
+  description: 'Best-effort OpenAPI 3.1 description of the Bunny.net Core Platform REST API for managing
+
+    Pull Zones, Storage Zones, DNS Zones, Stream video libraries, statistics, billing,
+
+    purge, API keys, and reference data.
+
+
+    Authentication uses the `AccessKey` header containing your account API key issued from
+
+    the Bunny.net dashboard.
+
+    '
+  version: '1.0'
+  contact:
+    name: Bunny.net
+    url: https://docs.bunny.net/reference/bunnynet-api-overview
+servers:
+- url: https://api.bunny.net
+  description: Bunny.net Core Platform API
+security:
+- accessKeyAuth: []
+tags:
+- name: Statistics
+paths:
+  /statistics:
+    get:
+      tags:
+      - Statistics
+      summary: Get account statistics
+      operationId: getStatistics
+      parameters:
+      - name: dateFrom
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: dateTo
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: pullZone
+        in: query
+        schema:
+          type: integer
+      - name: serverZoneId
+        in: query
+        schema:
+          type: integer
+      - name: loadErrors
+        in: query
+        schema:
+          type: boolean
+      - name: hourly
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statistics'
+  /statistics/optimizer:
+    get:
+      tags:
+      - Statistics
+      summary: Get optimizer statistics
+      operationId: getOptimizerStatistics
+      responses:
+        '200':
+          description: Statistics
+          content:
+            application/json:
+              schema:
+                type: object
+  /statistics/safehop:
+    get:
+      tags:
+      - Statistics
+      summary: Get SafeHop statistics
+      operationId: getSafehopStatistics
+      responses:
+        '200':
+          description: Statistics
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    Statistics:
+      type: object
+      properties:
+        TotalBandwidthUsed:
+          type: integer
+        TotalRequestsServed:
+          type: integer
+        CacheHitRate:
+          type: number
+        BandwidthUsedChart:
+          type: object
+          additionalProperties:
+            type: number
+        BandwidthCachedChart:
+          type: object
+          additionalProperties:
+            type: number
+        CacheHitRateChart:
+          type: object
+          additionalProperties:
+            type: number
+        RequestsServedChart:
+          type: object
+          additionalProperties:
+            type: number
+        PullRequestsPulledChart:
+          type: object
+          additionalProperties:
+            type: number
+        OriginShieldBandwidthUsedChart:
+          type: object
+          additionalProperties:
+            type: number
+        OriginShieldInternalBandwidthUsedChart:
+          type: object
+          additionalProperties:
+            type: number
+        OriginTrafficChart:
+          type: object
+          additionalProperties:
+            type: number
+        Error3xxChart:
+          type: object
+          additionalProperties:
+            type: number
+        Error4xxChart:
+          type: object
+          additionalProperties:
+            type: number
+        Error5xxChart:
+          type: object
+          additionalProperties:
+            type: number
+        UserBalanceHistoryChart:
+          type: object
+          additionalProperties:
+            type: number
+        UserStorageUsedChart:
+          type: object
+          additionalProperties:
+            type: number
+        GeoTrafficDistribution:
+          type: object
+          additionalProperties:
+            type: number
+  securitySchemes:
+    accessKeyAuth:
+      type: apiKey
+      in: header
+      name: AccessKey
+      description: API key issued from the Bunny.net dashboard.

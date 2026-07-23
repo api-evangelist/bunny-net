@@ -1,0 +1,250 @@
+openapi: 3.1.0
+info:
+  title: Bunny.net Core Platform APIKeys StorageZones API
+  description: 'Best-effort OpenAPI 3.1 description of the Bunny.net Core Platform REST API for managing
+
+    Pull Zones, Storage Zones, DNS Zones, Stream video libraries, statistics, billing,
+
+    purge, API keys, and reference data.
+
+
+    Authentication uses the `AccessKey` header containing your account API key issued from
+
+    the Bunny.net dashboard.
+
+    '
+  version: '1.0'
+  contact:
+    name: Bunny.net
+    url: https://docs.bunny.net/reference/bunnynet-api-overview
+servers:
+- url: https://api.bunny.net
+  description: Bunny.net Core Platform API
+security:
+- accessKeyAuth: []
+tags:
+- name: StorageZones
+paths:
+  /storagezone:
+    get:
+      tags:
+      - StorageZones
+      summary: List storage zones
+      operationId: listStorageZones
+      responses:
+        '200':
+          description: Storage zones
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StorageZone'
+    post:
+      tags:
+      - StorageZones
+      summary: Add a storage zone
+      operationId: addStorageZone
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - Name
+              properties:
+                Name:
+                  type: string
+                Region:
+                  type: string
+                ReplicationRegions:
+                  type: array
+                  items:
+                    type: string
+                ZoneTier:
+                  type: integer
+      responses:
+        '201':
+          description: Storage zone
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StorageZone'
+  /storagezone/{id}:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    get:
+      tags:
+      - StorageZones
+      summary: Get storage zone
+      operationId: getStorageZone
+      responses:
+        '200':
+          description: Storage zone
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StorageZone'
+    post:
+      tags:
+      - StorageZones
+      summary: Update storage zone
+      operationId: updateStorageZone
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ReplicationZones:
+                  type: array
+                  items:
+                    type: string
+                OriginUrl:
+                  type:
+                  - string
+                  - 'null'
+                Custom404FilePath:
+                  type: string
+                Rewrite404To200:
+                  type: boolean
+      responses:
+        '204':
+          description: Updated
+    delete:
+      tags:
+      - StorageZones
+      summary: Delete storage zone
+      operationId: deleteStorageZone
+      responses:
+        '204':
+          description: Deleted
+  /storagezone/{id}/resetPassword:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    post:
+      tags:
+      - StorageZones
+      summary: Reset storage zone password
+      operationId: resetStorageZonePassword
+      responses:
+        '204':
+          description: Reset
+  /storagezone/{id}/resetReadOnlyPassword:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    post:
+      tags:
+      - StorageZones
+      summary: Reset read-only password
+      operationId: resetReadOnlyPassword
+      responses:
+        '204':
+          description: Reset
+components:
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+  schemas:
+    StorageZone:
+      type: object
+      properties:
+        Id:
+          type: integer
+        UserId:
+          type: string
+        Name:
+          type: string
+        Password:
+          type: string
+        ReadOnlyPassword:
+          type: string
+        DateModified:
+          type: string
+          format: date-time
+        Deleted:
+          type: boolean
+        StorageUsed:
+          type: integer
+        FilesStored:
+          type: integer
+        Region:
+          type: string
+        ReplicationRegions:
+          type: array
+          items:
+            type: string
+        PullZones:
+          type: array
+          items:
+            $ref: '#/components/schemas/PullZone'
+    PullZone:
+      type: object
+      properties:
+        Id:
+          type: integer
+        Name:
+          type: string
+        OriginUrl:
+          type: string
+        Enabled:
+          type: boolean
+        Hostnames:
+          type: array
+          items:
+            type: object
+            properties:
+              Id:
+                type: integer
+              Value:
+                type: string
+              ForceSSL:
+                type: boolean
+              IsSystemHostname:
+                type: boolean
+              HasCertificate:
+                type: boolean
+        StorageZoneId:
+          type: integer
+        CacheControlMaxAgeOverride:
+          type: integer
+        AllowedReferrers:
+          type: array
+          items:
+            type: string
+        BlockedReferrers:
+          type: array
+          items:
+            type: string
+        BlockedIps:
+          type: array
+          items:
+            type: string
+        EnableGeoZoneUS:
+          type: boolean
+        EnableGeoZoneEU:
+          type: boolean
+        EnableGeoZoneASIA:
+          type: boolean
+        EnableGeoZoneSA:
+          type: boolean
+        EnableGeoZoneAF:
+          type: boolean
+        ZoneSecurityEnabled:
+          type: boolean
+        ZoneSecurityKey:
+          type: string
+        Type:
+          type: integer
+  securitySchemes:
+    accessKeyAuth:
+      type: apiKey
+      in: header
+      name: AccessKey
+      description: API key issued from the Bunny.net dashboard.

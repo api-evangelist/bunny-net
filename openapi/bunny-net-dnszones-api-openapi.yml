@@ -1,0 +1,246 @@
+openapi: 3.1.0
+info:
+  title: Bunny.net Core Platform APIKeys DNSZones API
+  description: 'Best-effort OpenAPI 3.1 description of the Bunny.net Core Platform REST API for managing
+
+    Pull Zones, Storage Zones, DNS Zones, Stream video libraries, statistics, billing,
+
+    purge, API keys, and reference data.
+
+
+    Authentication uses the `AccessKey` header containing your account API key issued from
+
+    the Bunny.net dashboard.
+
+    '
+  version: '1.0'
+  contact:
+    name: Bunny.net
+    url: https://docs.bunny.net/reference/bunnynet-api-overview
+servers:
+- url: https://api.bunny.net
+  description: Bunny.net Core Platform API
+security:
+- accessKeyAuth: []
+tags:
+- name: DNSZones
+paths:
+  /dnszone:
+    get:
+      tags:
+      - DNSZones
+      summary: List DNS zones
+      operationId: listDnsZones
+      responses:
+        '200':
+          description: DNS zones
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DnsZone'
+    post:
+      tags:
+      - DNSZones
+      summary: Add DNS zone
+      operationId: addDnsZone
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - Domain
+              properties:
+                Domain:
+                  type: string
+      responses:
+        '201':
+          description: DNS zone
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DnsZone'
+  /dnszone/{id}:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    get:
+      tags:
+      - DNSZones
+      summary: Get DNS zone
+      operationId: getDnsZone
+      responses:
+        '200':
+          description: DNS zone
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DnsZone'
+    post:
+      tags:
+      - DNSZones
+      summary: Update DNS zone
+      operationId: updateDnsZone
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '204':
+          description: Updated
+    delete:
+      tags:
+      - DNSZones
+      summary: Delete DNS zone
+      operationId: deleteDnsZone
+      responses:
+        '204':
+          description: Deleted
+  /dnszone/{id}/records:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    post:
+      tags:
+      - DNSZones
+      summary: Add DNS record
+      operationId: addDnsRecord
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DnsRecord'
+      responses:
+        '201':
+          description: DNS record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DnsRecord'
+  /dnszone/{id}/records/{recordId}:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    - name: recordId
+      in: path
+      required: true
+      schema:
+        type: integer
+    post:
+      tags:
+      - DNSZones
+      summary: Update DNS record
+      operationId: updateDnsRecord
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DnsRecord'
+      responses:
+        '204':
+          description: Updated
+    delete:
+      tags:
+      - DNSZones
+      summary: Delete DNS record
+      operationId: deleteDnsRecord
+      responses:
+        '204':
+          description: Deleted
+  /dnszone/{id}/enableDNSSEC:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    post:
+      tags:
+      - DNSZones
+      summary: Enable DNSSEC
+      operationId: enableDnssec
+      responses:
+        '204':
+          description: Enabled
+  /dnszone/{id}/disableDNSSEC:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    post:
+      tags:
+      - DNSZones
+      summary: Disable DNSSEC
+      operationId: disableDnssec
+      responses:
+        '204':
+          description: Disabled
+components:
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+  schemas:
+    DnsZone:
+      type: object
+      properties:
+        Id:
+          type: integer
+        Domain:
+          type: string
+        Records:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecord'
+        DateModified:
+          type: string
+          format: date-time
+        DateCreated:
+          type: string
+          format: date-time
+        NameserversDetected:
+          type: boolean
+        CustomNameserversEnabled:
+          type: boolean
+        Nameserver1:
+          type: string
+        Nameserver2:
+          type: string
+    DnsRecord:
+      type: object
+      properties:
+        Id:
+          type: integer
+        Type:
+          type: integer
+          description: 0=A, 1=AAAA, 2=CNAME, 3=TXT, 4=MX, 5=Redirect, 6=Flatten, 7=PullZone, 8=SRV, 9=CAA, 10=PTR, 11=Script, 12=NS
+        Ttl:
+          type: integer
+        Value:
+          type: string
+        Name:
+          type: string
+        Weight:
+          type: integer
+        Priority:
+          type: integer
+        Port:
+          type: integer
+        Flags:
+          type: integer
+        Tag:
+          type: string
+        Accelerated:
+          type: boolean
+        AcceleratedPullZoneId:
+          type: integer
+        Disabled:
+          type: boolean
+  securitySchemes:
+    accessKeyAuth:
+      type: apiKey
+      in: header
+      name: AccessKey
+      description: API key issued from the Bunny.net dashboard.

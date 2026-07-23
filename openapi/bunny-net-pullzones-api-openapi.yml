@@ -1,0 +1,415 @@
+openapi: 3.1.0
+info:
+  title: Bunny.net Core Platform APIKeys PullZones API
+  description: 'Best-effort OpenAPI 3.1 description of the Bunny.net Core Platform REST API for managing
+
+    Pull Zones, Storage Zones, DNS Zones, Stream video libraries, statistics, billing,
+
+    purge, API keys, and reference data.
+
+
+    Authentication uses the `AccessKey` header containing your account API key issued from
+
+    the Bunny.net dashboard.
+
+    '
+  version: '1.0'
+  contact:
+    name: Bunny.net
+    url: https://docs.bunny.net/reference/bunnynet-api-overview
+servers:
+- url: https://api.bunny.net
+  description: Bunny.net Core Platform API
+security:
+- accessKeyAuth: []
+tags:
+- name: PullZones
+paths:
+  /pullzone:
+    get:
+      tags:
+      - PullZones
+      summary: List pull zones
+      operationId: listPullZones
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+      - name: perPage
+        in: query
+        schema:
+          type: integer
+      - name: includeCertificate
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: List of pull zones
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PullZoneList'
+    post:
+      tags:
+      - PullZones
+      summary: Add a pull zone
+      operationId: addPullZone
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PullZoneCreate'
+      responses:
+        '201':
+          description: Pull zone created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PullZone'
+  /pullzone/{id}:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    get:
+      tags:
+      - PullZones
+      summary: Get pull zone
+      operationId: getPullZone
+      responses:
+        '200':
+          description: Pull zone
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PullZone'
+    post:
+      tags:
+      - PullZones
+      summary: Update pull zone
+      operationId: updatePullZone
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PullZoneUpdate'
+      responses:
+        '200':
+          description: Pull zone
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PullZone'
+    delete:
+      tags:
+      - PullZones
+      summary: Delete pull zone
+      operationId: deletePullZone
+      responses:
+        '204':
+          description: Deleted
+  /pullzone/{id}/purgeCache:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    post:
+      tags:
+      - PullZones
+      summary: Purge pull zone cache
+      operationId: purgePullZoneCache
+      responses:
+        '204':
+          description: Purged
+  /pullzone/{id}/addAllowedReferer:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    post:
+      tags:
+      - PullZones
+      summary: Add allowed referer
+      operationId: addAllowedReferer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - Hostname
+              properties:
+                Hostname:
+                  type: string
+      responses:
+        '204':
+          description: Added
+  /pullzone/{id}/removeAllowedReferer:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    post:
+      tags:
+      - PullZones
+      summary: Remove allowed referer
+      operationId: removeAllowedReferer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - Hostname
+              properties:
+                Hostname:
+                  type: string
+      responses:
+        '204':
+          description: Removed
+  /pullzone/{id}/addBlockedIP:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    post:
+      tags:
+      - PullZones
+      summary: Add blocked IP
+      operationId: addBlockedIp
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - BlockedIp
+              properties:
+                BlockedIp:
+                  type: string
+      responses:
+        '204':
+          description: Added
+  /pullzone/{id}/removeBlockedIP:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    post:
+      tags:
+      - PullZones
+      summary: Remove blocked IP
+      operationId: removeBlockedIp
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - BlockedIp
+              properties:
+                BlockedIp:
+                  type: string
+      responses:
+        '204':
+          description: Removed
+  /pullzone/{id}/addCustomCertificate:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    post:
+      tags:
+      - PullZones
+      summary: Add custom certificate
+      operationId: addCustomCertificate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Hostname:
+                  type: string
+                Certificate:
+                  type: string
+                CertificateKey:
+                  type: string
+      responses:
+        '204':
+          description: Added
+  /pullzone/{id}/addCustomHostname:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    post:
+      tags:
+      - PullZones
+      summary: Add custom hostname
+      operationId: addCustomHostname
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - Hostname
+              properties:
+                Hostname:
+                  type: string
+      responses:
+        '204':
+          description: Added
+  /pullzone/{id}/removeCustomHostname:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    post:
+      tags:
+      - PullZones
+      summary: Remove custom hostname
+      operationId: removeCustomHostname
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - Hostname
+              properties:
+                Hostname:
+                  type: string
+      responses:
+        '204':
+          description: Removed
+  /pullzone/{id}/setForceSSL:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    post:
+      tags:
+      - PullZones
+      summary: Set force SSL on hostname
+      operationId: setForceSsl
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Hostname:
+                  type: string
+                ForceSSL:
+                  type: boolean
+      responses:
+        '204':
+          description: Set
+  /pullzone/{id}/resetTokenKey:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    post:
+      tags:
+      - PullZones
+      summary: Reset token authentication key
+      operationId: resetTokenKey
+      responses:
+        '204':
+          description: Reset
+components:
+  schemas:
+    PullZoneList:
+      type: object
+      properties:
+        Items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PullZone'
+        CurrentPage:
+          type: integer
+        TotalItems:
+          type: integer
+        HasMoreItems:
+          type: boolean
+    PullZoneCreate:
+      type: object
+      required:
+      - Name
+      - OriginUrl
+      properties:
+        Name:
+          type: string
+        OriginUrl:
+          type: string
+        StorageZoneId:
+          type: integer
+        Type:
+          type: integer
+    PullZoneUpdate:
+      type: object
+      additionalProperties: true
+    PullZone:
+      type: object
+      properties:
+        Id:
+          type: integer
+        Name:
+          type: string
+        OriginUrl:
+          type: string
+        Enabled:
+          type: boolean
+        Hostnames:
+          type: array
+          items:
+            type: object
+            properties:
+              Id:
+                type: integer
+              Value:
+                type: string
+              ForceSSL:
+                type: boolean
+              IsSystemHostname:
+                type: boolean
+              HasCertificate:
+                type: boolean
+        StorageZoneId:
+          type: integer
+        CacheControlMaxAgeOverride:
+          type: integer
+        AllowedReferrers:
+          type: array
+          items:
+            type: string
+        BlockedReferrers:
+          type: array
+          items:
+            type: string
+        BlockedIps:
+          type: array
+          items:
+            type: string
+        EnableGeoZoneUS:
+          type: boolean
+        EnableGeoZoneEU:
+          type: boolean
+        EnableGeoZoneASIA:
+          type: boolean
+        EnableGeoZoneSA:
+          type: boolean
+        EnableGeoZoneAF:
+          type: boolean
+        ZoneSecurityEnabled:
+          type: boolean
+        ZoneSecurityKey:
+          type: string
+        Type:
+          type: integer
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+  securitySchemes:
+    accessKeyAuth:
+      type: apiKey
+      in: header
+      name: AccessKey
+      description: API key issued from the Bunny.net dashboard.
