@@ -1,0 +1,32 @@
+{
+  "provider": "bunny-net",
+  "sources": [
+    "bunny-net-apikeys-api-openapi.yml",
+    "bunny-net-billing-api-openapi.yml",
+    "bunny-net-countries-api-openapi.yml",
+    "bunny-net-dnszones-api-openapi.yml",
+    "bunny-net-pullzones-api-openapi.yml",
+    "bunny-net-purge-api-openapi.yml",
+    "bunny-net-regions-api-openapi.yml",
+    "bunny-net-statistics-api-openapi.yml",
+    "bunny-net-storagezones-api-openapi.yml",
+    "bunny-net-stream-api-openapi.yml"
+  ],
+  "outputs": [
+    "bunny-net-apikeys-api-openapi.yml",
+    "bunny-net-billing-api-openapi.yml",
+    "bunny-net-countries-api-openapi.yml",
+    "bunny-net-dnszones-api-openapi.yml",
+    "bunny-net-pullzones-api-openapi.yml",
+    "bunny-net-purge-api-openapi.yml",
+    "bunny-net-regions-api-openapi.yml",
+    "bunny-net-statistics-api-openapi.yml",
+    "bunny-net-storagezones-api-openapi.yml",
+    "bunny-net-stream-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
