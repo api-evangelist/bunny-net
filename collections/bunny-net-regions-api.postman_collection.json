@@ -1,0 +1,124 @@
+{
+  "item": [
+    {
+      "id": "acc0a800-2dd9-4cbf-abc5-ee5194207d65",
+      "name": "Regions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a32b593a-ed8c-4fbb-8c37-a3d1280f33b3",
+          "name": "List regions",
+          "request": {
+            "name": "List regions",
+            "description": {},
+            "url": {
+              "path": [
+                "region"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b7033fd0-cc6e-4962-b09c-b81ec8b182ee",
+              "name": "Regions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "region"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"Id\": 9818,\n    \"Name\": \"string\",\n    \"PricePerGigabyte\": 5965.938344028337,\n    \"RegionCode\": \"string\",\n    \"ContinentCode\": \"string\",\n    \"CountryCode\": \"string\",\n    \"Latitude\": 7746.089477022419,\n    \"Longitude\": 7428.098024879818\n  },\n  {\n    \"Id\": 5003,\n    \"Name\": \"string\",\n    \"PricePerGigabyte\": 1616.049063743189,\n    \"RegionCode\": \"string\",\n    \"ContinentCode\": \"string\",\n    \"CountryCode\": \"string\",\n    \"Latitude\": 4428.981990733596,\n    \"Longitude\": 9016.734858146005\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.bunny.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "AccessKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "34531a6c-3c4d-46ab-afac-11e3c854b0ec",
+    "name": "Bunny.net Core Platform APIKeys Regions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of the Bunny.net Core Platform REST API for managing\nPull Zones, Storage Zones, DNS Zones, Stream video libraries, statistics, billing,\npurge, API keys, and reference data.\n\nAuthentication uses the `AccessKey` header containing your account API key issued from\nthe Bunny.net dashboard.\n\n\nContact Support:\n Name: Bunny.net",
+      "type": "text/plain"
+    }
+  }
+}

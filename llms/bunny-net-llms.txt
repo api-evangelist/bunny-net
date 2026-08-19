@@ -1,0 +1,662 @@
+# bunny.net Documentation
+
+## Docs
+
+- [Developer Hub](https://bunny.net/docs/index.md): Everything from quickstarts to advanced guides, you will find it here.
+- [Get started with bunny.net](https://bunny.net/docs/quickstart.md): It's free to get started.
+- [FAQs](https://bunny.net/docs/faq.md): Frequently asked questions about bunny.net trials, billing, and accounts.
+- [Changelog](https://bunny.net/docs/changelog.md): Latest updates and improvements across bunny.net products.
+- [Personal Details](https://bunny.net/docs/account/index.md): Manage your personal details, billing address, and company information.
+- [Two-Factor Authentication](https://bunny.net/docs/account/two-factor-authentication.md): Add an extra layer of security to your bunny.net account.
+- [Change Password](https://bunny.net/docs/account/change-password.md): Update your bunny.net account password.
+- [Appearance](https://bunny.net/docs/account/appearance.md): Choose between light and dark mode for the bunny.net dashboard.
+- [API Keys](https://bunny.net/docs/account/api-keys.md): Manage your bunny.net API key for programmatic access.
+- [Integrations](https://bunny.net/docs/account/integrations.md): Manage connected GitHub accounts and linked scripts.
+- [Data Processing Agreement](https://bunny.net/docs/account/data-processing-agreement.md): View and accept the GDPR data processing agreement.
+- [Close Account](https://bunny.net/docs/account/close-account.md): How to close your bunny.net account.
+- [Account Disabled or Suspended](https://bunny.net/docs/account/account-suspended.md): Why a bunny.net account becomes disabled or suspended, and how to resolve each state.
+- [Abuse Procedure](https://bunny.net/docs/account/abuse-procedure.md): How bunny.net handles abuse reports for content hosted or delivered through our platform.
+- [DMCA Procedure](https://bunny.net/docs/account/dmca-procedure.md): How bunny.net handles DMCA and copyright takedown requests for customer content.
+- [Team Management](https://bunny.net/docs/account/team-management/index.md): Add team members to your bunny.net account and manage their permissions.
+- [Add a Team Member](https://bunny.net/docs/account/team-management/add-team-member.md): Invite new users to your bunny.net account with customized permissions.
+- [Remove a Team Member](https://bunny.net/docs/account/team-management/remove-team-member.md): Remove users from your bunny.net account or update their permissions.
+- [Team Permissions](https://bunny.net/docs/account/team-management/permissions.md): Understand the available permissions for team members in your bunny.net account.
+- [Add Funds](https://bunny.net/docs/billing/add-funds.md): Add credit to your bunny.net account balance.
+- [Auto-Recharge](https://bunny.net/docs/billing/auto-recharge.md): Automatically add funds when your balance runs low.
+- [Billing History & Invoices](https://bunny.net/docs/billing/billing-history.md): View past transactions and download invoices and usage summaries.
+- [Sales Tax](https://bunny.net/docs/billing/sales-tax.md): Information about U.S. sales tax on bunny.net services.
+- [Affiliate Program](https://bunny.net/docs/billing/affiliate-program.md): Now you can earn carrots for helping others hop faster too.
+- [Best Practices Manual](https://bunny.net/docs/billing/affiliate-best-practices.md): A step-by-step guide to getting started with the Bunny Affiliate Program.
+- [Affiliate Guidelines](https://bunny.net/docs/billing/affiliate-guidelines.md): Guidelines for promoting bunny.net through the Bunny Affiliate Program.
+- [Product Release Stages](https://bunny.net/docs/product-release-stages.md)
+- [Platform Domains](https://bunny.net/docs/domains.md): The domains and base URLs used across bunny.net for deployed apps, CDN delivery, and platform APIs.
+- [Bunny CDN](https://bunny.net/docs/cdn/index.md): Deliver content globally with smart caching, edge rules, and real-time analytics.
+- [Quickstart](https://bunny.net/docs/cdn/quickstart.md): Create your first Pull Zone and start delivering content in minutes.
+- [Global Network Regions](https://bunny.net/docs/cdn/regions.md): Bunny CDN spans 6 continents with 119+ points of presence across 77+ countries.
+- [Pricing](https://bunny.net/docs/cdn/pricing.md): Choose between Standard tier for global low-latency or Volume tier for cost-effective high-bandwidth delivery.
+- [Changelog](https://bunny.net/docs/cdn/changelog.md): Latest updates and improvements to the CDN.
+- [CDN Limits and Defaults](https://bunny.net/docs/cdn/limits.md): Overview of default limits for bunny.net Pull Zones.
+- [Connectivity](https://bunny.net/docs/cdn/connectivity.md): Learn how bunny.net supports IPv4 and IPv6 connectivity across our global network.
+- [IP Family Policy](https://bunny.net/docs/cdn/ip-family-policy.md): Control which IP address families your Pull Zone advertises and which edge servers are eligible to serve it.
+- [Smart Cache](https://bunny.net/docs/cdn/smart-cache.md): Prevent accidental caching of sensitive content by limiting caching to known static file types.
+- [Vary Cache](https://bunny.net/docs/cdn/vary-cache.md): Customize the cache key to store multiple versions of files based on browser support, location, device type, or request parameters.
+- [Query String Sort](https://bunny.net/docs/cdn/query-string-sort.md): Improve cache efficiency by normalizing query parameter order in cache keys.
+- [Perma-Cache](https://bunny.net/docs/cdn/perma-cache.md): Permanently store cached files on geo-replicated storage to eliminate repeated origin fetches.
+- [Request Coalescing](https://bunny.net/docs/cdn/request-coalescing.md): Combine multiple simultaneous requests to the same resource into a single origin request.
+- [Purge Cache](https://bunny.net/docs/cdn/purge-cache.md): Clear cached content from your Pull Zone to serve fresh files from your origin.
+- [Edge Rules](https://bunny.net/docs/cdn/edge-rules/index.md): Create powerful custom behaviors for your CDN using Edge Rules to control redirects, headers, caching, and origin routing.
+- [Trigger Path Setup](https://bunny.net/docs/cdn/edge-rules/trigger-path.md): Learn how to correctly configure Edge Rule trigger paths using wildcards and pattern matching.
+- [Custom Cache Time for File Extensions](https://bunny.net/docs/cdn/edge-rules/custom-cache-time.md): Use Edge Rules to set custom cache durations for specific file types.
+- [Redirect b-cdn.net to Custom Hostname](https://bunny.net/docs/cdn/edge-rules/redirect-hostname.md): Use Edge Rules to redirect your default b-cdn.net hostname to your custom CDN hostname.
+- [Direct IP Origin with Custom Hostname](https://bunny.net/docs/cdn/edge-rules/ip-origin.md): Connect your pull zone directly to a server IP address while serving content from a custom hostname using Edge Rules.
+- [Dynamic Variables](https://bunny.net/docs/cdn/edge-rules/dynamic-variables.md): Complete reference for dynamic variables available in Edge Rule actions like redirects, header modifications, and origin changes.
+- [Variable Expansion](https://bunny.net/docs/cdn/edge-rules/variable-expansion.md): Use variable expansion syntax to dynamically configure Edge Rule values based on request parameters.
+- [Edge Rules Ordering](https://bunny.net/docs/cdn/edge-rules/ordering.md): Control the sequence of your Edge Rules to fine-tune behavior and execution priority.
+- [Pattern Matching in Edge Rules](https://bunny.net/docs/cdn/edge-rules/pattern-matching.md): Use Lua-based pattern matching in Edge Rule conditions to match structured request values such as URLs, headers, cookies, and query strings.
+- [Performance](https://bunny.net/docs/cdn/performance/index.md): Optimize delivery speed, reduce origin load, and control bandwidth usage.
+- [Origin Shield](https://bunny.net/docs/cdn/performance/origin-shield.md): Reduce origin traffic by routing all CDN requests through a single caching layer.
+- [Smart Preloader](https://bunny.net/docs/cdn/performance/smart-preloader.md): Show a branded loading screen when your origin takes longer than expected to respond.
+- [Routing Filters](https://bunny.net/docs/cdn/performance/routing-filters.md): Limit CDN routing to specific geographic regions for compliance and data residency requirements.
+- [Network Limits](https://bunny.net/docs/cdn/performance/network-limits.md): Control download speeds, request rates, and bandwidth usage per Pull Zone.
+- [Hotlink Protection](https://bunny.net/docs/cdn/security/hotlink-protection.md): Prevent other websites from embedding your content and increasing your bandwidth costs.
+- [Geographic Blocking](https://bunny.net/docs/cdn/security/geographic-blocking.md): Block access to your Pull Zone from specific countries using bunny.net's Traffic Manager.
+- [Token Authentication](https://bunny.net/docs/cdn/security/token-authentication/index.md): Protect your content with signed URLs that expire and can be restricted by location or IP.
+- [Basic Token Authentication](https://bunny.net/docs/cdn/security/token-authentication/basic.md): Generate expiring URLs using MD5-based token authentication.
+- [Advanced Token Authentication](https://bunny.net/docs/cdn/security/token-authentication/advanced.md): Generate secure URLs with HMAC-SHA256 tokens, geo-restrictions, directory access, speed limits, and IP locking.
+- [JA4 Fingerprinting](https://bunny.net/docs/cdn/security/ja4-fingerprinting.md): Identify clients using TLS fingerprinting and access the JA4 fingerprint via request headers.
+- [Logging](https://bunny.net/docs/cdn/logging/index.md): Access raw request logs via API or dashboard with a 3 day log retention policy.
+- [Permanent Log Storage](https://bunny.net/docs/cdn/logging/permanent-storage.md): Permanent Log Storage allows you to permanently store access logs inside of an Edge Storage zone. Parts are uploaded when they are closed (by size, time,…
+- [Log Forwarding](https://bunny.net/docs/cdn/logging/forwarding.md): Forward CDN access logs in real-time to your Syslog endpoint for monitoring and analysis.
+- [Origin Errors](https://bunny.net/docs/cdn/logging/origin-errors.md): No more 502 guesswork. See exactly why your origin failed in real time.
+- [WordPress](https://bunny.net/docs/cdn/integrations/cms/wordpress.md): Speed up your WordPress site with bunny.net CDN using our official plugin for easy integration and optimization.
+- [Typo3](https://bunny.net/docs/cdn/integrations/cms/typo3.md): Integrate bunny.net CDN with your TYPO3 website for faster content delivery and improved performance.
+- [Joomla](https://bunny.net/docs/cdn/integrations/cms/joomla.md): Speed up your Joomla website with bunny.net CDN using the CDN for Joomla plugin.
+- [ExpressionEngine](https://bunny.net/docs/cdn/integrations/cms/expressionengine.md): Configure bunny.net CDN with ExpressionEngine to accelerate your website and optimize asset delivery.
+- [Shopware](https://bunny.net/docs/cdn/integrations/cms/shopware.md): Configure bunny.net CDN with Shopware to accelerate your e-commerce store and improve customer experience.
+- [Drupal](https://bunny.net/docs/cdn/integrations/cms/drupal.md): Integrate bunny.net CDN with your Drupal website for faster content delivery and improved performance.
+- [PrestaShop](https://bunny.net/docs/cdn/integrations/cms/prestashop.md): Speed up your PrestaShop store with bunny.net CDN for faster product pages and improved checkout performance.
+- [Magento](https://bunny.net/docs/cdn/integrations/cms/magento.md): Integrate bunny.net CDN with your Magento store for faster page loads and optimized e-commerce performance.
+- [Discourse](https://bunny.net/docs/cdn/integrations/cms/discourse.md): Speed up your Discourse forum with bunny.net CDN for faster page loads and improved performance.
+- [Microsoft Azure Storage Blobs](https://bunny.net/docs/cdn/integrations/storage/azure-blob.md): Accelerate Azure Blob Storage delivery with bunny.net CDN for faster file access and reduced egress costs.
+- [Wasabi](https://bunny.net/docs/cdn/integrations/storage/wasabi.md): Speed up Wasabi cloud storage delivery with bunny.net CDN for global caching and faster file access.
+- [Amazon S3](https://bunny.net/docs/cdn/integrations/storage/amazon-s3.md): Use bunny.net CDN as a caching layer for Amazon S3 to accelerate file delivery and reduce origin costs.
+- [OVH Public Cloud](https://bunny.net/docs/cdn/integrations/storage/ovh.md): Use bunny.net CDN with OVH Public Cloud storage for faster file delivery and improved global performance.
+- [Backblaze](https://bunny.net/docs/cdn/integrations/storage/backblaze.md): Speed up Backblaze B2 file delivery with bunny.net CDN for global caching and reduced bandwidth costs.
+- [DigitalOcean Spaces](https://bunny.net/docs/cdn/integrations/storage/digitalocean-spaces.md): Accelerate DigitalOcean Spaces content delivery with bunny.net CDN for faster global file access.
+- [Custom Hostname](https://bunny.net/docs/cdn/custom-hostname.md): Serve content from your own branded domain like cdn.yourdomain.com.
+- [CDN Acceleration](https://bunny.net/docs/cdn/cdn-acceleration.md): Connect your domain to a Pull Zone using Bunny DNS for automatic CDN routing and simplified SSL.
+- [Verify your configuration](https://bunny.net/docs/cdn/verify-configuration.md): Verify that your website is properly configured to use bunny.net CDN.
+- [SSL for Custom Domains](https://bunny.net/docs/cdn/ssl-setup.md): Enable free Let's Encrypt SSL or upload your own certificate for custom hostnames.
+- [How to Seamlessly Migrate Your Domain to bunny.net](https://bunny.net/docs/cdn/seamless-migration.md): Issue SSL certificates via DNS or HTTP validation before pointing your domain to bunny.net, enabling seamless zero-downtime migration.
+- [Custom 404 Page](https://bunny.net/docs/cdn/custom-404-page.md): Display a branded error page when files are not found in your storage zone.
+- [WebSockets](https://bunny.net/docs/cdn/websockets.md): bunny.net supports WebSockets to deliver low-latency, bidirectional communication between your applications and users across the globe. By combining WebS…
+- [Do you support ETag?](https://bunny.net/docs/cdn/frequently-asked-questions/etag-support.md)
+- [Do you support cache warming or preloading content onto the CDN?](https://bunny.net/docs/cdn/frequently-asked-questions/cache-warming.md)
+- [Does BunnyCDN automatically detect when a file is changed?](https://bunny.net/docs/cdn/frequently-asked-questions/updating-files.md)
+- [Do you support range requests?](https://bunny.net/docs/cdn/frequently-asked-questions/range-requests.md)
+- [Do you support RTMP streaming?](https://bunny.net/docs/cdn/frequently-asked-questions/rtmp-streaming.md)
+- [Is there a domain limit on pull zone configurations?](https://bunny.net/docs/cdn/frequently-asked-questions/domain-limit.md)
+- [MIME Type Compression Support](https://bunny.net/docs/cdn/frequently-asked-questions/mime-compression.md): Learn how BunnyCDN automatically compresses content using gzip, Brotli, and Zstandard, and view supported MIME types.
+- [Which PoP you are being routed to](https://bunny.net/docs/cdn/frequently-asked-questions/pop-routing.md): Learn how to identify which CDN edge server is handling your requests and how to check your routing details.
+- [Find Your PoP and Run Diagnostics](https://bunny.net/docs/cdn/troubleshooting/run-traceroute.md): Identify which CDN edge server is handling your requests and run network diagnostics.
+- [Generate a HAR File](https://bunny.net/docs/cdn/troubleshooting/generate-a-har-file.md): Capture a HAR file from your browser so support can see exactly what your browser sent and received from the CDN.
+- [Website Still Slow](https://bunny.net/docs/cdn/troubleshooting/still-slow.md): Tools and techniques to diagnose and fix performance issues after CDN setup.
+- [Magic Containers](https://bunny.net/docs/magic-containers/index.md): Deploy and manage containerized applications on a distributed network of bare-metal servers.
+- [Quickstart](https://bunny.net/docs/magic-containers/quickstart.md): Learn how to deploy your first application with Magic Containers.
+- [Templates](https://bunny.net/docs/magic-containers/templates.md): Deploy pre-built application templates with Magic Containers.
+- [Quick Deploy](https://bunny.net/docs/magic-containers/quick-deploy.md): Deploy containerized applications globally in seconds with a streamlined, single-form flow.
+- [Pricing](https://bunny.net/docs/magic-containers/pricing.md): Magic Containers uses a pay-as-you-go pricing model, charging you based on your actual consumption of CPU, RAM, storage, and bandwidth.
+- [Changelog](https://bunny.net/docs/magic-containers/changelog.md): Latest updates and improvements to Magic Containers.
+- [Deploy](https://bunny.net/docs/magic-containers/deploy.md): Choose from Magic, Single region, or Advanced deployment options.
+- [Deploy with GitHub Actions](https://bunny.net/docs/magic-containers/deploy-with-github-actions.md): Automate container image updates on Magic Containers with GitHub Actions.
+- [Image Registries](https://bunny.net/docs/magic-containers/image-registries.md): Connect public or private container registries to Magic Containers.
+- [Regions](https://bunny.net/docs/magic-containers/regions.md): Deploy your applications globally across Magic Containers' distributed network of servers.
+- [IP Addresses](https://bunny.net/docs/magic-containers/ip-addresses.md): You can use the following IP addresses to whitelist Bunny.net traffic in your firewall or ACLs.
+- [Update App](https://bunny.net/docs/magic-containers/update.md): Update your container to a new image version.
+- [Configuration](https://bunny.net/docs/magic-containers/configuration.md): Configure your container's environment variables, health checks, endpoints, and runtime settings.
+- [Environment Variables](https://bunny.net/docs/magic-containers/environment-variables.md): Configure your container's runtime settings using environment variables.
+- [Persistent Volumes](https://bunny.net/docs/magic-containers/persistent-volumes.md): Attach persistent storage to your Magic Containers applications.
+- [Endpoints](https://bunny.net/docs/magic-containers/endpoints.md): Expose your container to the internet using CDN or Anycast endpoints.
+- [Undeploy](https://bunny.net/docs/magic-containers/undeploy.md): Temporarily stop a running container without deleting it.
+- [Delete App](https://bunny.net/docs/magic-containers/delete.md): Permanently remove a container and its configuration.
+- [Monitoring](https://bunny.net/docs/magic-containers/monitoring.md): Understanding how your application behaves in real time is essential for making informed decisions, identifying performance bottlenecks, and delivering a…
+- [Logs](https://bunny.net/docs/magic-containers/logs.md): Logs are a critical component of Magic Containers and are accessible through the dedicated Logs tab on the Dashboard.
+- [Log Forwarding](https://bunny.net/docs/magic-containers/log-forwarding.md): Forward container logs in real-time to your Syslog endpoint for monitoring and debugging.
+- [Health Checks](https://bunny.net/docs/magic-containers/health-checks.md): Configure health checks to ensure your containerized applications are reliable and available.
+- [Autoscaling](https://bunny.net/docs/magic-containers/autoscaling.md): Autoscaling is a powerful feature in Magic Containers that allows you to automatically adjust the number of replicas running in each region based on the…
+- [Rolling Updates](https://bunny.net/docs/magic-containers/rolling-updates.md): The Rolling Update process on Magic Containers ensures that updates to your application's container settings are applied smoothly and without any downtim…
+- [Blue/Green & A/B Deployments](https://bunny.net/docs/magic-containers/deployment-strategies.md): Run multiple versions of your app at the same time and control how traffic is routed between them.
+- [Graceful Shutdown](https://bunny.net/docs/magic-containers/graceful-shutdown.md): Understand how Magic Containers handles container shutdown with SIGTERM signals and grace periods.
+- [Sandboxing](https://bunny.net/docs/magic-containers/sandbox.md): Learn how Magic Containers uses gVisor for application kernel isolation and enhanced container security.
+- [Multi-Container Apps](https://bunny.net/docs/magic-containers/multi-container.md): When using bunny.net Magic Containers, you can add multiple containers to the same application. These containers will all run inside a single pod sandbox…
+- [App Metadata](https://bunny.net/docs/magic-containers/app-metadata.md): bunny.net's platform automatically injects specific metadata into the deployed containers. This metadata is provided in the form of environment variables…
+- [Limits](https://bunny.net/docs/magic-containers/limits.md): To make sure everyone’s applications run reliably and smoothly, we have a few resource and usage limits in place. Below, you’ll find details on these lim…
+- [Troubleshooting](https://bunny.net/docs/magic-containers/troubleshooting.md): This page describes how to troubleshoot issues with applications deployed on Magic Containers.
+- [FAQs](https://bunny.net/docs/magic-containers/faqs.md): Frequently asked questions about Magic Containers.
+- [API Reference](https://bunny.net/docs/magic-containers/api-reference.md): Complete API reference for deploying and managing Magic Containers programmatically.
+- [Go API](https://bunny.net/docs/magic-containers/guides/simple-go-api.md): Deploy a Go API to Magic Containers
+- [Node.js API with Hono](https://bunny.net/docs/magic-containers/guides/node-hono-api.md): Deploy a Node.js API with Hono to Magic Containers
+- [Node.js API with Express](https://bunny.net/docs/magic-containers/guides/node-express-api.md): Deploy a Node.js API with Express to Magic Containers
+- [PHP API with Slim](https://bunny.net/docs/magic-containers/guides/php-slim.md): Deploy a PHP API with Slim Framework to Magic Containers
+- [Python API with FastAPI](https://bunny.net/docs/magic-containers/guides/python-fastapi.md): Deploy a Python API with FastAPI to Magic Containers
+- [Astro](https://bunny.net/docs/magic-containers/guides/astro.md): Deploy an Astro application to Magic Containers
+- [Next.js](https://bunny.net/docs/magic-containers/guides/nextjs.md): Deploy a Next.js application to Magic Containers
+- [Nuxt](https://bunny.net/docs/magic-containers/guides/nuxt.md): Deploy a Nuxt application to Magic Containers
+- [Ruby on Rails](https://bunny.net/docs/magic-containers/guides/ruby-on-rails.md): Deploy a Ruby on Rails application to Magic Containers
+- [Laravel + MariaDB](https://bunny.net/docs/magic-containers/guides/laravel.md): Deploy a Laravel application with MariaDB to Magic Containers
+- [WordPress](https://bunny.net/docs/magic-containers/guides/wordpress.md): Deploy WordPress to Magic Containers
+- [ClickHouse](https://bunny.net/docs/magic-containers/guides/clickhouse.md): Deploy ClickHouse to Magic Containers
+- [MariaDB](https://bunny.net/docs/magic-containers/guides/mariadb.md): Deploy MariaDB to Magic Containers
+- [PostgreSQL](https://bunny.net/docs/magic-containers/guides/postgresql.md): Deploy PostgreSQL to Magic Containers
+- [Redis](https://bunny.net/docs/magic-containers/guides/redis.md): Deploy Redis to Magic Containers
+- [Bunny Edge Scripting](https://bunny.net/docs/scripting/index.md): Run JavaScript and TypeScript at the edge. Build APIs, dynamic UIs, AI-powered functions, or extend Bunny CDN with middleware, all without managing serve…
+- [Quickstart](https://bunny.net/docs/scripting/quickstart.md): Create and deploy your first Edge Script in minutes.
+- [Pricing](https://bunny.net/docs/scripting/pricing.md): How Edge Scripting is billed: CPU time, requests, increments, and worked examples.
+- [Changelog](https://bunny.net/docs/scripting/changelog.md): Latest updates and improvements to Edge Scripting.
+- [Standalone scripts](https://bunny.net/docs/scripting/standalone/overview.md): Standalone scripts take the place of an origin server and handle HTTP requests directly on the bunny.net CDN network.
+- [Fetch url](https://bunny.net/docs/scripting/standalone/examples/fetch-url.md): Proxy a request to another URL with fetch, keeping the original path.
+- [Return JSON](https://bunny.net/docs/scripting/standalone/examples/return-json.md): Respond with JSON, for an API endpoint or for configuration data.
+- [Return HTML](https://bunny.net/docs/scripting/standalone/examples/return-html.md): Build an HTML document in the script and include data from the request, such as the path.
+- [Send an email](https://bunny.net/docs/scripting/standalone/examples/send-email.md): Send emails from the edge using popular email providers like SendGrid or Resend.
+- [Redirect to another domain](https://bunny.net/docs/scripting/standalone/examples/redirect-domain.md): Send every request to a different domain with Response.redirect.
+- [Weighted traffic splitting](https://bunny.net/docs/scripting/standalone/examples/weighted-routing.md): Send a set percentage of visitors to a second origin and keep each visitor on the same origin across requests.
+- [Route by country](https://bunny.net/docs/scripting/standalone/examples/geo-routing.md): Send visitors from specific countries to a different origin using the CDN-RequestCountryCode header.
+- [Middleware scripts](https://bunny.net/docs/scripting/middleware/overview.md): Middleware scripts allow you to transform and modify HTTP requests and responses as they flow through the CDN. Manipulate requests before they reach your…
+- [Modify HTTP headers](https://bunny.net/docs/scripting/middleware/examples/modify-headers.md): Reject requests that use the wrong method and set your own headers on the response.
+- [Modify response body (Middleware)](https://bunny.net/docs/scripting/middleware/examples/modify-body.md): Use a middleware script to change the response body coming back from the origin before it is cached.
+- [Deployments](https://bunny.net/docs/scripting/deployments.md): Track the published versions of your script and roll back to an earlier one when you need to.
+- [Deploying your scripts with GitHub Actions](https://bunny.net/docs/scripting/github-actions.md): Use the bunny.net deploy action to publish an Edge Script from a GitHub repository whenever your code changes.
+- [GitHub Integration](https://bunny.net/docs/scripting/github-integration.md): Keep your Edge Script code in a GitHub repository and deploy it with GitHub Actions.
+- [Environment Variables](https://bunny.net/docs/scripting/environment-variables.md): Environment variables are used to store information or configuration data that your script requires at runtime.
+- [Secrets](https://bunny.net/docs/scripting/secrets.md): Environment secrets are sensitive configuration settings, such as API keys, passwords, or tokens, that are securely stored and used by your script.
+- [Statistics](https://bunny.net/docs/scripting/statistics.md): See how often your script runs and how much CPU time it uses.
+- [Logs](https://bunny.net/docs/scripting/logs.md): See the messages and errors your script writes while it runs.
+- [Runtime](https://bunny.net/docs/scripting/runtime.md): The runtime APIs available on the bunny.net platform.
+- [Cache API](https://bunny.net/docs/scripting/cache/index.md): Fine-grained control over reading and writing from the bunny.net edge cache from Edge Scripting.
+- [Managing caches](https://bunny.net/docs/scripting/cache/managing-caches.md): The global caches object, covering the default cache and how to open named caches.
+- [Reading & writing](https://bunny.net/docs/scripting/cache/reading-writing.md): Reading from, writing to, and deleting entries on a Cache instance.
+- [Cache examples](https://bunny.net/docs/scripting/cache/examples.md): End-to-end Cache API recipes for Edge Scripting.
+- [HTMLRewriter](https://bunny.net/docs/scripting/html-rewriter.md): Transform HTML responses on the edge with streaming, selector-based rewriting.
+- [Node:FS](https://bunny.net/docs/scripting/node-fs.md): Read and write files in Edge Scripts using the Node.js-compatible file system API
+- [WebSockets](https://bunny.net/docs/scripting/websockets.md): Use WebSockets in an Edge Script for two-way, low-latency communication between your script and connected clients.
+- [Limits](https://bunny.net/docs/scripting/limits.md): Execution limits for Edge Scripts, covering CPU time, memory, subrequests, script size, and environment variables.
+- [Before cache execution](https://bunny.net/docs/scripting/before-cache.md): Run your edge scripts before the cache layer to take control of every request, instead of only executing when the cache is missed.
+- [API Reference](https://bunny.net/docs/scripting/api-reference.md): Complete API reference for deploying and managing Edge Scripts programmatically.
+- [Bunny Stream](https://bunny.net/docs/stream/index.md): Video streaming platform with global delivery, adaptive streaming, and robust security.
+- [Quickstart](https://bunny.net/docs/stream/quickstart.md): Step-by-step guide to get started quickly with the product
+- [Authentication](https://bunny.net/docs/stream/authentication.md): Learn how to find your Stream API key to upload videos, manage content libraries, and more via the HTTP API.
+- [Pricing](https://bunny.net/docs/stream/pricing.md): Bunny Stream pricing for encoding, transcribing, DRM, storage, and CDN delivery.
+- [Changelog](https://bunny.net/docs/stream/changelog.md): Latest updates and improvements to Stream.
+- [Encoding](https://bunny.net/docs/stream/encoding.md): bunny.net Stream platform provides users with powerful and, most of all, free transcoding of their videos.
+- [Adaptive bitrate streaming](https://bunny.net/docs/stream/adaptive-bitrate.md): In the world of computing, particularly within the realm of streaming, the concept of bitrate is fundamental. Bitrate, or bit rate, represents the volume…
+- [Multi-audio](https://bunny.net/docs/stream/multi-audio.md): Multi-audio track support allows you to make your videos accessible to a broader audience by incorporating additional audio tracks into your video player…
+- [Premium Encoding](https://bunny.net/docs/stream/premium-encoding.md): Bunny Stream's Premium Encoding Tier is designed specifically for developers and businesses seeking top-tier performance, flexibility, and outstanding vi…
+- [Transcribing](https://bunny.net/docs/stream/transcribing.md): The Transcribing feature offers a suite of smart tools for automatically generating, translating and managing captions and video details. This functional…
+- [Smart Generate](https://bunny.net/docs/stream/smart-generate.md): How to generate automatically with AI
+- [MediaCage DRM](https://bunny.net/docs/stream/drm/index.md): MediaCage DRM (Digital Rights Management) solutions are designed to safeguard your digital content and protect it from unauthorized access and distributi…
+- [Quickstart MediaCage Basic DRM](https://bunny.net/docs/stream/quickstart-mediacage-basic.md): Step-by-step guide to get started quickly with the product
+- [Quickstart MediaCage Enterprise DRM](https://bunny.net/docs/stream/quickstart-mediacage-enterprise.md): Step-by-step guide to get started quickly with the product
+- [MediaCage Basic DRM](https://bunny.net/docs/stream/mediacage-basic.md): MediaCage DRM Basic is a user-friendly feature that empowers every  user to safeguard their video content effortlessly. It is designed with simplicity in…
+- [Understanding MediaCage basic DRM](https://bunny.net/docs/stream/mediacage-basic-guide.md): Learn how MediaCage basic DRM protects your video content from unauthorized downloads.
+- [MediaCage Enterprise DRM](https://bunny.net/docs/stream/mediacage-enterprise.md): MediaCage Enterprise DRM provides advanced digital content protection for enterprise-level requirements. It integrates cutting-edge technologies such as…
+- [Google Widevine DRM](https://bunny.net/docs/stream/widevine-security-levels.md): Understand Widevine DRM security levels (L1, L2, L3) and device compatibility for HD content.
+- [Google Widevine DRM SD only for L3](https://bunny.net/docs/stream/widevine-l3.md): Custom Settings for Content Distribution
+- [Apple FairPlay Streaming](https://bunny.net/docs/stream/fairplay-deployment.md): FairPlay Streaming is Apple's robust digital rights management (DRM) solution, ensuring secure and protected content distribution for your applications o…
+- [Advertising VAST](https://bunny.net/docs/stream/vast.md): Understanding VAST Advertising Tags
+- [Delivery Tiers](https://bunny.net/docs/stream/delivery-tiers.md): From a configuration and technical perspective, there is practically no difference between Standard and Volume zones. Where Standard and Volume tiers do…
+- [Replication](https://bunny.net/docs/stream/replication.md): Learn how geo-replication works in Bunny Stream to distribute your videos globally.
+- [Security](https://bunny.net/docs/stream/security.md): Bunny Stream provides a powerful security toolset to give you full control of who, where and for how long can view your videos.
+- [Understanding Bunny Stream security options](https://bunny.net/docs/stream/security-options.md): Overview of Bunny Stream security features including MediaCage DRM and token authentication.
+- [Embedded view token authentication](https://bunny.net/docs/stream/token-authentication.md): Secure your video embeds with token authentication to prevent unauthorized playback.
+- [Statistics](https://bunny.net/docs/stream/statistics.md): Understand video analytics including views, watch time, engagement scores, and heatmaps.
+- [Webhooks](https://bunny.net/docs/stream/webhooks.md): Bunny Stream allows you to configure a secure webhook URL. Our system will automatically send notifications back to this URL once a video status changes.…
+- [Dashboard](https://bunny.net/docs/stream/dashboard.md): The Bunny Stream dashboard is divided into several key areas, each dedicated to a specific aspect of video content management and delivery.
+- [HTTP](https://bunny.net/docs/stream/http-api.md): Upload videos to Bunny Stream using the HTTP API.
+- [URL Fetch](https://bunny.net/docs/stream/url-fetch.md): Upload videos to Bunny Stream by providing a remote URL.
+- [TUS Resumable Uploads](https://bunny.net/docs/stream/tus-resumable-uploads.md): Upload videos to Bunny Stream using the TUS protocol for resumable, reliable uploads.
+- [Collections](https://bunny.net/docs/stream/collections.md): Understanding Collections
+- [Tagging](https://bunny.net/docs/stream/tagging.md): Bunny Stream allows uploaded videos to automatically be tagged based on their video content using machine learning algorithms. This allows you to easily…
+- [MetaTags](https://bunny.net/docs/stream/metatags.md): How to add metaTags to your video
+- [Storage Structure](https://bunny.net/docs/stream/storage-structure.md): All videos on Bunny Stream are processed and stored in a standardized location. The following page describes how and where videos are stored, allowing yo…
+- [Overview](https://bunny.net/docs/stream/player-settings.md): This area focuses on tailoring the Bunny Player's look and functionality to match your branding or specific preferences.
+- [Player](https://bunny.net/docs/stream/player.md): Welcome to our Bunny Stream video player with modern interface and improved performance.
+- [Playback control API](https://bunny.net/docs/stream/playback-api.md): The Bunny Stream Player offers a rich set of events and methods through its embeddable iframe player, enabling external programmatic interaction with pla…
+- [Custom head HTML migration guide](https://bunny.net/docs/stream/custom-head-html-migration-guide.md)
+- [Introduction](https://bunny.net/docs/stream/players/index.md): MediaCage Enterprise DRM offers out-of-the-box integration with our own Bunny Stream player, making the implementation process simple and efficient.
+- [Bitmovin player integration](https://bunny.net/docs/stream/players/bitmovin.md): This documentation expands on our  to guide you through the integration of  with Bunny Stream’s video streams and MediaCage Enterprise DRM solution into…
+- [Shaka Player integration](https://bunny.net/docs/stream/players/shaka.md): This guide will help you integrate Shaka Player with bunny.net to stream video content. Shaka Player is a free, open-source media player that plays adapt…
+- [Widevine HTML5 integration](https://bunny.net/docs/stream/players/widevine.md): This guide provides step-by-step instructions on integrating Widevine with HTML5 video players. Widevine ensures secure playback and decryption of encryp…
+- [Fairplay HTML5 player integration](https://bunny.net/docs/stream/players/fairplay.md): This documentation will guide you through the integration of the FairPlay DRM solution into your web application, ensuring secure and compliant playback…
+- [Mobile SDK](https://bunny.net/docs/stream/mobile-sdk.md): Stream Mobile SDK Libraries
+- [Token authentication with Mobile SDKs](https://bunny.net/docs/stream/mobile-sdk-token-authentication.md)
+- [Embedding videos](https://bunny.net/docs/stream/embedding.md): Bunny Stream is designed for developers and content creators to easily upload, process, and display videos within any application or website. Once your v…
+- [MP4 Fallback](https://bunny.net/docs/stream/mp4-downloads.md): The bunny.net Stream platform offers MP4 URL access to some resolutions of video enabled, which may be useful in an environment where HLS playback or usi…
+- [Video Specification](https://bunny.net/docs/stream/video-specification.md): Video, audio, and caption formats that Bunny Stream supports
+- [Vimeo2Bunny CLI](https://bunny.net/docs/stream/vimeo2bunny.md)
+- [Data and Privacy](https://bunny.net/docs/stream/data-and-privacy.md): At bunny.net, we take data privacy seriously. We’re committed to being fully transparent about the information we collect, how we use it, and how we keep…
+- [API Reference](https://bunny.net/docs/stream/api-reference.md): Complete API reference for managing Bunny Stream video libraries and content programmatically.
+- [Bunny Storage](https://bunny.net/docs/storage/index.md): The fastest object storage, replicated to the edge for unparalleled performance worldwide.
+- [Quickstart](https://bunny.net/docs/storage/quickstart.md): Create a storage zone and upload your first file in minutes
+- [Pricing](https://bunny.net/docs/storage/pricing.md): Edge Storage pricing for Standard and Edge tiers with geo-replication options.
+- [Changelog](https://bunny.net/docs/storage/changelog.md): Latest updates and improvements for Storage.
+- [Storage Tiers](https://bunny.net/docs/storage/storage-tiers.md): Choose between Standard and Edge (SSD) storage tiers based on your performance requirements
+- [Replication](https://bunny.net/docs/storage/replication.md): Automatically replicate your data across multiple regions for improved reliability and performance
+- [Dashboard](https://bunny.net/docs/storage/dashboard.md): Manage files directly from the bunny.net dashboard
+- [HTTP](https://bunny.net/docs/storage/http.md): Upload and manage files using the Bunny Storage API over HTTP for best performance, stability, and security
+- [S3](https://bunny.net/docs/storage/s3.md)
+- [FTP Access](https://bunny.net/docs/storage/ftp.md): Upload and manage files using FTP for compatibility with existing software and workflows
+- [TypeScript SDK](https://bunny.net/docs/storage/typescript-sdk.md): Official TypeScript/JavaScript SDK for Bunny Storage
+- [PHP SDK](https://bunny.net/docs/storage/php-sdk.md): Official PHP SDK for Bunny Storage
+- [.NET SDK](https://bunny.net/docs/storage/dotnet-sdk.md): Official .NET SDK for Bunny Storage
+- [Java SDK](https://bunny.net/docs/storage/java-sdk.md): Official Java SDK for Bunny Storage
+- [Frontend Deployment Guides](https://bunny.net/docs/storage/static-site-hosting/index.md): Deploy static sites and single-page applications to Bunny Storage with global CDN delivery
+- [Deploy a Vite Site](https://bunny.net/docs/storage/static-site-hosting/vite.md): Deploy a Vite-built static site to Bunny Storage with global CDN delivery
+- [Deploy a React App](https://bunny.net/docs/storage/static-site-hosting/react.md): Deploy a React application to Bunny Storage with global CDN delivery
+- [Deploy a Vue App](https://bunny.net/docs/storage/static-site-hosting/vue.md): Deploy a Vue application to Bunny Storage with global CDN delivery
+- [Settings](https://bunny.net/docs/storage/settings.md): Configure storage zone settings including error handling and custom responses
+- [Limits](https://bunny.net/docs/storage/limits.md): Storage zone, connection, rate, request, and naming limits for Bunny Storage.
+- [Durability](https://bunny.net/docs/storage/durability.md): Data durability guarantees, redundancy configuration, and disaster recovery capabilities
+- [API Reference](https://bunny.net/docs/storage/api-reference.md): Complete API reference for managing Edge Storage files and folders programmatically.
+- [Bunny Shield](https://bunny.net/docs/shield/index.md): Your entire security stack in one product. Full-layer protection, simpler integration, and fewer points of failure.
+- [Quickstart](https://bunny.net/docs/shield/quickstart.md): Set up Bunny Shield to protect your Pull Zone.
+- [Pricing](https://bunny.net/docs/shield/pricing.md): Tiered Bunny Shield plans that scale from baseline protection to enterprise-grade security and dedicated support.
+- [WAF](https://bunny.net/docs/shield/waf.md): A Web Application Firewall that filters, monitors, and blocks HTTP traffic in front of your services. Blocks common threats without affecting legitimate…
+- [Understanding Rule Engine](https://bunny.net/docs/shield/rule-engine.md): The Rule Engine is the core component of the Web Application Firewall (WAF) that enables precise control over HTTP requests by executing rules. These rul…
+- [Creating a custom WAF rule](https://bunny.net/docs/shield/custom-waf-rule.md): Define your own WAF rules in Bunny Shield to fine-tune existing protections or block threats the managed ruleset doesn't cover.
+- [Rate Limiting](https://bunny.net/docs/shield/rate-limiting.md): Bunny Shield's rate limiting is a critical feature of its Web Application Firewall (WAF) that helps prevent abuse of your web resources by controlling th…
+- [Creating a rate limit rule](https://bunny.net/docs/shield/custom-rate-limit-rule.md): Customize Bunny Shield’s protections to throttle abuse, slow malicious bots, and absorb traffic spikes without affecting legitimate users.
+- [DDoS Mitigation](https://bunny.net/docs/shield/ddos.md): Protect your web applications against Distributed Denial of Service (DDoS) attacks using stateful validation and configurable defense mechanisms.
+- [Bot Detection](https://bunny.net/docs/shield/bot-detection.md): Identify and block malicious bots, including headless browsers, impersonators, and scrapers, without affecting legitimate automation or user experience.
+- [Access Lists](https://bunny.net/docs/shield/access-lists.md): Access Lists give you precise control over who can and cannot reach your applications. From blocking malicious proxies and anonymized botnets to allowing…
+- [Upload Scanning](https://bunny.net/docs/shield/upload-scanning.md): Keep your platform safe from harmful uploads. Automatically scan files for viruses, malware, and CSAM to stop threats before they spread.
+- [API Guardian](https://bunny.net/docs/shield/api-guardian.md): Schema-aware API protection. Bunny Shield enforces your OpenAPI contract at the edge so requests and responses match what your application expects.
+- [Custom Response Pages](https://bunny.net/docs/shield/custom-response-pages.md): Customize the challenge, block, and rate limit response pages shown to visitors when Bunny Shield takes action. Create fully branded experiences that mat…
+- [Verified Bots](https://bunny.net/docs/shield/verified-bots.md): Bunny Shield recognizes well-known crawlers, AI agents, monitoring tools, and social preview bots, verifies that they are genuine, and lets you decide pe…
+- [Metrics & Logging](https://bunny.net/docs/shield/metrics.md): Aggregate metrics and per-request logs for the Bunny Shield WAF Engine. Review them regularly to catch false positives and confirm that threats are being…
+- [Cookies](https://bunny.net/docs/shield/cookies.md): Bunny Shield relies on cookies to support its abuse mitigation features, protect against automated bots, and maintain legitimate user access. These cooki…
+- [Troubleshooting](https://bunny.net/docs/shield/troubleshooting.md): Diagnose unexpected Shield challenges and resolve false-positive rule triggers.
+- [API Reference](https://bunny.net/docs/shield/api-reference.md): Complete API reference for configuring Bunny Shield security features programmatically.
+- [Bunny Optimizer](https://bunny.net/docs/optimizer/index.md): Bunny Optimizer accelerates your website with automatic asset optimization, smart routing, and dynamic image manipulation.
+- [Quickstart](https://bunny.net/docs/optimizer/quickstart.md): Enable Bunny Optimizer and start optimizing your website in minutes
+- [Pricing](https://bunny.net/docs/optimizer/pricing.md): Simple, predictable pricing for optimising your website.
+- [Changelog](https://bunny.net/docs/optimizer/changelog.md): Latest updates and improvements to Bunny Optimizer
+- [Automatic Optimization](https://bunny.net/docs/optimizer/automatic-optimization.md): Configure automatic image, CSS, and JavaScript optimization settings
+- [Dynamic Images](https://bunny.net/docs/optimizer/dynamic-images/overview.md): Transform images on the fly using URL parameters
+- [Face Detection](https://bunny.net/docs/optimizer/dynamic-images/face-detection.md): Automatically detect faces and crop images intelligently
+- [Resizing](https://bunny.net/docs/optimizer/dynamic-images/resizing.md): Resize images by width or height while maintaining aspect ratio
+- [Cropping](https://bunny.net/docs/optimizer/dynamic-images/cropping.md): Crop images to specific dimensions with precise control over positioning
+- [Luminosity](https://bunny.net/docs/optimizer/dynamic-images/luminosity.md): Adjust brightness and gamma to control image exposure and tonality
+- [Color Manipulation](https://bunny.net/docs/optimizer/dynamic-images/color-manipulation.md): Adjust saturation, hue, contrast, tint, and sepia for precise color control
+- [Reflections and Rotations](https://bunny.net/docs/optimizer/dynamic-images/reflections-and-rotations.md): Flip, flop, and rotate images to adjust orientation
+- [Blur and Sharpen](https://bunny.net/docs/optimizer/dynamic-images/blur-and-sharpen.md): Apply blur effects or sharpen images for clarity and focus control
+- [Quality](https://bunny.net/docs/optimizer/dynamic-images/quality.md): Control image compression for optimal balance between file size and visual quality
+- [Formats](https://bunny.net/docs/optimizer/dynamic-images/formats.md): Convert images between formats for optimal compatibility and compression
+- [Image Classes](https://bunny.net/docs/optimizer/image-classes.md): Define reusable transformation presets
+- [Image Watermarking](https://bunny.net/docs/optimizer/watermarking.md): Automatically protect and brand your images with custom watermarks
+- [Burrow Smart Routing](https://bunny.net/docs/optimizer/burrow-smart-routing.md): Optimize uncached requests with intelligent path selection
+- [HTML Prerender](https://bunny.net/docs/optimizer/html-prerender.md): Improve SEO for single-page applications
+- [Optimizer limits](https://bunny.net/docs/optimizer/limits.md): Overview of the default limits for the Bunny Optimiser
+- [Troubleshooting](https://bunny.net/docs/optimizer/troubleshooting.md): This page provides guidance on how to troubleshoot issues with the Bunny Optimiser
+- [Bunny DNS](https://bunny.net/docs/dns/index.md): Hop on an ultra-fast DNS platform designed to power the next generation of applications. By utilizing scriptable records, Bunny DNS helps you unlock the…
+- [Quickstart](https://bunny.net/docs/dns/quickstart.md): Create and configure your first DNS Zone in minutes.
+- [Changelog](https://bunny.net/docs/dns/changelog.md): Latest updates and improvements to Bunny DNS.
+- [DNS Records](https://bunny.net/docs/dns/records.md): Add, edit, and manage DNS records for your zone.
+- [Nameservers](https://bunny.net/docs/dns/nameservers.md): Configure nameservers for your DNS Zone.
+- [Import and Export](https://bunny.net/docs/dns/import-export.md): Import and export DNS records using BIND zone files.
+- [DNSSEC](https://bunny.net/docs/dns/dnssec.md): Enable DNSSEC to protect your domain from DNS spoofing, cache poisoning, and man-in-the-middle attacks.
+- [Logging](https://bunny.net/docs/dns/logging.md): Enable and configure DNS query logging for your zone.
+- [Statistics](https://bunny.net/docs/dns/statistics.md): View DNS query statistics for your zone.
+- [DNS Limits and Defaults](https://bunny.net/docs/dns/limits.md): Overview of the default limits for Bunny DNS.
+- [Introduction](https://bunny.net/docs/dns/scriptable/introduction.md): The Scriptable DNS allows you to dynamically respond to DNS queries using JavaScript scripts. The following pages contain sample documentation to help yo…
+- [Query Response Object Types](https://bunny.net/docs/dns/scriptable/query-response-object-types.md): The handleQuery entry point function supports multiple object return types to return different types of answers. This page contains the various types of…
+- [Helper Objects](https://bunny.net/docs/dns/scriptable/helper-objects.md): The Scriptable DNS comes with a list of helper objects to help with various tasks needed for dynamic routing. This page contains the documentation for th…
+- [Domain Unavailable on the Internet](https://bunny.net/docs/dns/troubleshooting/domain-unavailable.md): Common reasons a domain is unreachable, including ERR_NAME_NOT_RESOLVED errors.
+- [AAAA Queries Without AAAA Records](https://bunny.net/docs/dns/troubleshooting/aaaa-queries-in-logs.md): Why AAAA queries appear in DNS logs even when no AAAA records are configured.
+- [CDN Acceleration SSL Issues](https://bunny.net/docs/dns/troubleshooting/cdn-acceleration-ssl.md): Troubleshoot SSL certificate issues on DNS records with CDN Acceleration enabled.
+- [Can't Activate CDN Acceleration](https://bunny.net/docs/dns/troubleshooting/cdn-acceleration-not-activating.md): Resolve errors when enabling CDN Acceleration on a DNS record.
+- [RDR Record SSL Certificate Issues](https://bunny.net/docs/dns/troubleshooting/rdr-record-ssl.md): Troubleshoot invalid SSL certificate errors on Redirect (RDR) DNS records.
+- [Bunny Database](https://bunny.net/docs/database/index.md): Bunny Database is a globally distributed SQLite-compatible database.
+- [Quickstart](https://bunny.net/docs/database/quickstart.md): Create a database and run your first query in minutes
+- [Changelog](https://bunny.net/docs/database/changelog.md): Latest updates and improvements to Bunny Database.
+- [Auth & Access](https://bunny.net/docs/database/connect/authorization.md): Manage database URLs and access tokens for authentication
+- [TypeScript](https://bunny.net/docs/database/connect/typescript.md): Get started with Bunny Database and TypeScript using the libSQL client
+- [Go](https://bunny.net/docs/database/connect/go.md): Get started with Bunny Database and Go using the libSQL client
+- [Rust](https://bunny.net/docs/database/connect/rust.md): Get started with Bunny Database and Rust using the libSQL crate
+- [.NET](https://bunny.net/docs/database/connect/dotnet.md): Get started with Bunny Database and .NET using the Bunny.LibSQL.Client
+- [Database Shell](https://bunny.net/docs/database/connect/database-shell.md): Connect to Bunny Database using the interactive SQL shell
+- [SQL API](https://bunny.net/docs/database/connect/sql-api.md): Execute SQL queries over HTTP using the libSQL remote protocol
+- [Bunny Edge Scripting](https://bunny.net/docs/database/connect/scripting.md): Connect your Edge Scripts to Bunny Database using environment variables
+- [Bunny Magic Containers](https://bunny.net/docs/database/connect/magic-containers.md): Connect your Magic Container apps to Bunny Database using environment variables
+- [Limits](https://bunny.net/docs/database/limits.md): Understand the usage limits and quotas for Bunny Database during the Public Preview phase.
+- [Replication](https://bunny.net/docs/database/replication.md): Learn how Bunny Database separates storage from compute and replicates data across regions for low-latency access.
+- [Metrics](https://bunny.net/docs/database/metrics.md): Monitor your database performance with real-time metrics and usage statistics
+- [Durability and Consistency](https://bunny.net/docs/database/durability-and-consistency.md): Understand how Bunny Database handles writes, replication, and data durability
+- [WordPress Plugin](https://bunny.net/docs/integrations/wordpress/index.md): Speed up your WordPress site with the official bunny.net plugin for easy CDN integration, content offloading, and optimization.
+- [Quickstart](https://bunny.net/docs/integrations/wordpress/quickstart.md): Install and configure the bunny.net WordPress plugin to speed up your website with CDN acceleration.
+- [Support Policy](https://bunny.net/docs/integrations/wordpress/support-policy.md): Support policy for the bunny.net WordPress plugin covering plugin versions, PHP, and WordPress compatibility.
+- [Enable Bunny DNS and CDN Acceleration](https://bunny.net/docs/integrations/wordpress/dns.md): Migrate your domain to Bunny DNS and enable CDN Acceleration. This is a prerequisite for the Bunny Offloader and Bunny Shield features in the WordPress p…
+- [Enable Offloader](https://bunny.net/docs/integrations/wordpress/offloader.md): Turn on Bunny Offloader in the bunny.net WordPress plugin to automatically transfer media files to Bunny Storage.
+- [Enable Bunny Shield](https://bunny.net/docs/integrations/wordpress/shield.md): Turn on Bunny Shield in the bunny.net WordPress plugin to protect your site with WAF and DDoS mitigation.
+- [Bunny Stream Videos](https://bunny.net/docs/integrations/wordpress/stream.md): Embed Bunny Stream videos in WordPress using the Stream Video block or shortcode.
+- [WordPress Static URLs](https://bunny.net/docs/integrations/wordpress/troubleshooting-static-urls.md): Fix issues where not all WordPress static assets are being served through the CDN.
+- [WordPress Plugin Conflicts](https://bunny.net/docs/integrations/wordpress/troubleshooting-plugin-conflicts.md): Fix compatibility issues between the bunny.net WordPress plugin and other plugins.
+- [CDN Acceleration Not Enabled](https://bunny.net/docs/integrations/wordpress/troubleshooting-acceleration-not-enabled.md): Fix the "CDN Acceleration Is Not Enabled" error in the bunny.net WordPress plugin.
+- [Migrate Media Files from Bunny Storage](https://bunny.net/docs/integrations/wordpress/move-files-to-wordpress.md): Move media files that were previously offloaded to a Bunny Storage Zone back to your WordPress server
+- [WP Rocket](https://bunny.net/docs/integrations/wordpress/wp-rocket.md): Set up bunny.net CDN with WordPress using the WP Rocket caching plugin.
+- [W3 Total Cache](https://bunny.net/docs/integrations/wordpress/w3-total-cache.md): Set up bunny.net CDN with WordPress using the W3 Total Cache plugin.
+- [Documentation](https://bunny.net/docs/integrations/terraform/index.md): The bunny.net Terraform provider allows users to manage Bunny.net resources using Terraform's infrastructure as code (IaC) capabilities.
+- [Quickstart](https://bunny.net/docs/integrations/terraform/quickstart.md): Get started with the bunny.net Terraform provider to manage your infrastructure as code.
+- [Authentication](https://bunny.net/docs/integrations/terraform/authentication.md): Learn how to authenticate with the bunny.net Terraform provider using your API key.
+- [Resources](https://bunny.net/docs/integrations/terraform/resources.md): Overview of all resources available in the bunny.net Terraform provider.
+- [Data Sources](https://bunny.net/docs/integrations/terraform/data-sources.md): Overview of all data sources available in the bunny.net Terraform provider.
+- [Importing stream library](https://bunny.net/docs/integrations/terraform/importing-stream-library.md): Learn how to import an existing Stream library and its associated resources into Terraform.
+- [Managing Pullzones for Edge Scripting](https://bunny.net/docs/integrations/terraform/edgescript-pullzone.md): Learn how to manage the association between Edge Scripts and Pullzones via Terraform
+- [cPanel Plugin](https://bunny.net/docs/integrations/cpanel/index.md): Integrate bunny.net services into your cPanel/WHM server for easy CDN, DNS, and optimization management.
+- [Quickstart](https://bunny.net/docs/integrations/cpanel/quickstart.md): Install and configure the bunny.net cPanel plugin on your WHM server.
+- [Configuration](https://bunny.net/docs/integrations/cpanel/configuration.md): Configure the bunny.net cPanel plugin settings including API keys, nameservers, and logging.
+- [Custom Nameservers](https://bunny.net/docs/integrations/cpanel/custom-nameservers.md): Use your own branded nameservers with the bunny.net cPanel plugin.
+- [Bunny CLI](https://bunny.net/docs/cli/index.md): Manage bunny.net from your terminal
+- [Quickstart](https://bunny.net/docs/cli/quickstart.md): Install the Bunny CLI, authenticate, and start managing your bunny.net resources.
+- [Installation](https://bunny.net/docs/cli/installation.md): Install the Bunny CLI via shell installer or npm.
+- [Configuration](https://bunny.net/docs/cli/configuration.md): Profiles, global options, output formats, and environment variables.
+- [Changelog](https://bunny.net/docs/cli/changelog.md): Release notes for the Bunny CLI.
+- [Authentication](https://bunny.net/docs/cli/commands/auth.md): Log in, log out, and verify the active account with `bunny login`, `bunny logout`, and `bunny whoami`.
+- [bunny config](https://bunny.net/docs/cli/commands/config.md): Manage CLI configuration and named profiles.
+- [bunny db](https://bunny.net/docs/cli/commands/db.md): Create, manage, and query Bunny Databases from the command line.
+- [bunny scripts](https://bunny.net/docs/cli/commands/scripts.md): Scaffold, deploy, and manage Edge Scripts from the command line.
+- [bunny sandbox](https://bunny.net/docs/cli/commands/sandbox.md): Create and manage on-demand cloud sandbox environments backed by Bunny Magic Containers.
+- [bunny api](https://bunny.net/docs/cli/commands/api.md): Make raw authenticated HTTP requests to any bunny.net API endpoint.
+- [Introduction](https://bunny.net/docs/api-reference/index.md): Learn about the bunny.net APIs and how to integrate with the platform.
+- [Quickstart](https://bunny.net/docs/api-reference/quickstart.md): Make your first API request to bunny.net in minutes.
+- [Authentication](https://bunny.net/docs/api-reference/authentication.md): Learn how to authenticate requests to the bunny.net APIs.
+- [OpenAPI Specifications](https://bunny.net/docs/openapi.md): Download OpenAPI specification files for bunny.net APIs.
+- [Core API Reference](https://bunny.net/docs/api-reference/core/index.md): Manage your bunny.net account, pull zones, storage zones, DNS, and more.
+- [Errors](https://bunny.net/docs/api-reference/core/errors.md): Standard HTTP error codes returned by the bunny.net API.
+- [Get Country List](https://bunny.net/docs/api-reference/core/countries/get-country-list.md)
+- [List DNS Zones](https://bunny.net/docs/api-reference/core/dns-zone/list-dns-zones.md)
+- [Add DNS Zone](https://bunny.net/docs/api-reference/core/dns-zone/add-dns-zone.md)
+- [Get DNS Zone](https://bunny.net/docs/api-reference/core/dns-zone/get-dns-zone.md)
+- [Update DNS Zones](https://bunny.net/docs/api-reference/core/dns-zone/update-dns-zones.md)
+- [Delete DNS Zone](https://bunny.net/docs/api-reference/core/dns-zone/delete-dns-zone.md)
+- [Get dnszone export](https://bunny.net/docs/api-reference/core/dns-zone/get-dnszone-export.md)
+- [Check the DNS zone availability](https://bunny.net/docs/api-reference/core/dns-zone/check-the-dns-zone-availability.md)
+- [List DNS Zone Records](https://bunny.net/docs/api-reference/core/dns-zone/list-dns-zone-records.md)
+- [Add DNS Record](https://bunny.net/docs/api-reference/core/dns-zone/add-dns-record.md)
+- [Update DNS Record](https://bunny.net/docs/api-reference/core/dns-zone/update-dns-record.md)
+- [Delete DNS Record](https://bunny.net/docs/api-reference/core/dns-zone/delete-dns-record.md)
+- [Import DNS Records](https://bunny.net/docs/api-reference/core/dns-zone/import-dns-records.md)
+- [Issue new wildcard certificate](https://bunny.net/docs/api-reference/core/dns-zone/issue-new-wildcard-certificate.md)
+- [Get DNS Query Statistics](https://bunny.net/docs/api-reference/core/dns-zone/get-dns-query-statistics.md)
+- [Enable DNSSEC on a DNS Zone](https://bunny.net/docs/api-reference/core/dns-zone/enable-dnssec-on-a-dns-zone.md)
+- [Disable DNSSEC on a DNS Zone](https://bunny.net/docs/api-reference/core/dns-zone/disable-dnssec-on-a-dns-zone.md)
+- [Trigger a background scan for pre-existing DNS records. Can use ZoneId for existing zones or Domain for pre-zone creation scenarios.](https://bunny.net/docs/api-reference/core/dns-zone/trigger-a-background-scan-for-pre-existing-dns-records-can-use-zoneid-for-existing-zones-or-domain-for-pre-zone-creation-scenarios.md)
+- [Get the latest DNS record scan result for a DNS Zone](https://bunny.net/docs/api-reference/core/dns-zone/get-the-latest-dns-record-scan-result-for-a-dns-zone.md)
+- [List Pull Zones](https://bunny.net/docs/api-reference/core/pull-zone/list-pull-zones.md)
+- [Add Pull Zone](https://bunny.net/docs/api-reference/core/pull-zone/add-pull-zone.md)
+- [Count Pull Zones](https://bunny.net/docs/api-reference/core/pull-zone/count-pull-zones.md)
+- [Get Pull Zone](https://bunny.net/docs/api-reference/core/pull-zone/get-pull-zone.md)
+- [Update Pull Zone](https://bunny.net/docs/api-reference/core/pull-zone/update-pull-zone.md)
+- [Delete Pull Zone](https://bunny.net/docs/api-reference/core/pull-zone/delete-pull-zone.md)
+- [Delete Edge Rule](https://bunny.net/docs/api-reference/core/pull-zone/delete-edge-rule.md)
+- [Add/Update Edge Rule](https://bunny.net/docs/api-reference/core/pull-zone/addupdate-edge-rule.md)
+- [Set Edge Rule Enabled](https://bunny.net/docs/api-reference/core/pull-zone/set-edge-rule-enabled.md)
+- [Change hostname private key type](https://bunny.net/docs/api-reference/core/pull-zone/change-hostname-private-key-type.md)
+- [Load Free Certificate](https://bunny.net/docs/api-reference/core/pull-zone/load-free-certificate.md)
+- [Request External DNS Certificate](https://bunny.net/docs/api-reference/core/pull-zone/request-external-dns-certificate.md)
+- [Complete External DNS Certificate](https://bunny.net/docs/api-reference/core/pull-zone/complete-external-dns-certificate.md)
+- [Request External HTTP Certificate](https://bunny.net/docs/api-reference/core/pull-zone/request-external-http-certificate.md)
+- [Complete External HTTP Certificate](https://bunny.net/docs/api-reference/core/pull-zone/complete-external-http-certificate.md)
+- [Purge Cache](https://bunny.net/docs/api-reference/core/pull-zone/purge-cache.md)
+- [Check the pull zone availability](https://bunny.net/docs/api-reference/core/pull-zone/check-the-pull-zone-availability.md)
+- [Add Custom Certificate](https://bunny.net/docs/api-reference/core/pull-zone/add-custom-certificate.md)
+- [Remove Certificate](https://bunny.net/docs/api-reference/core/pull-zone/remove-certificate.md)
+- [Add Custom Hostname](https://bunny.net/docs/api-reference/core/pull-zone/add-custom-hostname.md)
+- [Remove Custom Hostname](https://bunny.net/docs/api-reference/core/pull-zone/remove-custom-hostname.md)
+- [Set Force SSL](https://bunny.net/docs/api-reference/core/pull-zone/set-force-ssl.md)
+- [Reset Token Key](https://bunny.net/docs/api-reference/core/pull-zone/reset-token-key.md)
+- [Add Allowed Referer](https://bunny.net/docs/api-reference/core/pull-zone/add-allowed-referer.md)
+- [Remove Allowed Referer](https://bunny.net/docs/api-reference/core/pull-zone/remove-allowed-referer.md)
+- [Add Blocked Referer](https://bunny.net/docs/api-reference/core/pull-zone/add-blocked-referer.md)
+- [Remove Blocked Referer](https://bunny.net/docs/api-reference/core/pull-zone/remove-blocked-referer.md)
+- [Add Blocked IP](https://bunny.net/docs/api-reference/core/pull-zone/add-blocked-ip.md)
+- [Remove Blocked IP](https://bunny.net/docs/api-reference/core/pull-zone/remove-blocked-ip.md)
+- [Purge URL](https://bunny.net/docs/api-reference/core/purge/purge-url.md)
+- [Region list](https://bunny.net/docs/api-reference/core/region/region-list.md)
+- [List Storage Zones](https://bunny.net/docs/api-reference/core/storage-zone/list-storage-zones.md)
+- [Add Storage Zone](https://bunny.net/docs/api-reference/core/storage-zone/add-storage-zone.md)
+- [Check the storage zone availability](https://bunny.net/docs/api-reference/core/storage-zone/check-the-storage-zone-availability.md)
+- [Get Storage Zone](https://bunny.net/docs/api-reference/core/storage-zone/get-storage-zone.md)
+- [Update Storage Zone](https://bunny.net/docs/api-reference/core/storage-zone/update-storage-zone.md)
+- [Delete Storage Zone](https://bunny.net/docs/api-reference/core/storage-zone/delete-storage-zone.md)
+- [Reset Password](https://bunny.net/docs/api-reference/core/storage-zone/reset-password.md)
+- [Reset Read-Only Password](https://bunny.net/docs/api-reference/core/storage-zone/reset-read-only-password.md)
+- [Get Storage Zone Egress Statistics](https://bunny.net/docs/api-reference/core/storage-zone/get-storage-zone-egress-statistics.md)
+- [Get Storage Zone Regions](https://bunny.net/docs/api-reference/core/storage-zone/get-storage-zone-regions.md)
+- [Get Storage Zone Statistics](https://bunny.net/docs/api-reference/core/storage-zone/get-storage-zone-statistics.md)
+- [Add Allowed Referer](https://bunny.net/docs/api-reference/core/stream-video-library/add-allowed-referer.md)
+- [Add Blocked Referer](https://bunny.net/docs/api-reference/core/stream-video-library/add-blocked-referer.md)
+- [List Video Libraries](https://bunny.net/docs/api-reference/core/stream-video-library/list-video-libraries.md)
+- [Add Video Library](https://bunny.net/docs/api-reference/core/stream-video-library/add-video-library.md)
+- [Add Watermark](https://bunny.net/docs/api-reference/core/stream-video-library/add-watermark.md)
+- [Delete Watermark](https://bunny.net/docs/api-reference/core/stream-video-library/delete-watermark.md)
+- [Get Video Library](https://bunny.net/docs/api-reference/core/stream-video-library/get-video-library.md)
+- [Update Video Library](https://bunny.net/docs/api-reference/core/stream-video-library/update-video-library.md)
+- [Delete Video Library](https://bunny.net/docs/api-reference/core/stream-video-library/delete-video-library.md)
+- [Get Languages](https://bunny.net/docs/api-reference/core/stream-video-library/get-languages.md)
+- [Remove Allowed Referer](https://bunny.net/docs/api-reference/core/stream-video-library/remove-allowed-referer.md)
+- [Remove Blocked Referer](https://bunny.net/docs/api-reference/core/stream-video-library/remove-blocked-referer.md)
+- [Reset API Key](https://bunny.net/docs/api-reference/core/stream-video-library/reset-api-key.md)
+- [Reset Read Only API Key](https://bunny.net/docs/api-reference/core/stream-video-library/reset-read-only-api-key.md)
+- [Get Video Library Transcribing Statistics](https://bunny.net/docs/api-reference/core/stream-video-library/get-video-library-transcribing-statistics.md)
+- [Get Video Library DRM Statistics](https://bunny.net/docs/api-reference/core/stream-video-library/get-video-library-drm-statistics.md)
+- [Close the account](https://bunny.net/docs/api-reference/core/user/close-the-account.md): Close the current user account
+- [Get useraudit](https://bunny.net/docs/api-reference/core/auditlog/get-useraudit.md)
+- [Get optimizer statistics](https://bunny.net/docs/api-reference/core/statistics/get-optimizer-statistics.md)
+- [Get Origin Shield Queue Statistics](https://bunny.net/docs/api-reference/core/statistics/get-origin-shield-queue-statistics.md)
+- [Get SafeHop Statistics](https://bunny.net/docs/api-reference/core/statistics/get-safehop-statistics.md)
+- [Get Statistics](https://bunny.net/docs/api-reference/core/statistics/get-statistics.md)
+- [Global Search](https://bunny.net/docs/api-reference/core/search/global-search.md)
+- [Get Billing Details](https://bunny.net/docs/api-reference/core/billing/get-billing-details.md): Get the billing status details
+- [Download Payment Request Invoice PDF](https://bunny.net/docs/api-reference/core/billing/download-payment-request-invoice-pdf.md)
+- [Get Pending Payment Requests](https://bunny.net/docs/api-reference/core/billing/get-pending-payment-requests.md)
+- [Get Billing Summary Document](https://bunny.net/docs/api-reference/core/billing/get-billing-summary-document.md)
+- [Get Billing Summary](https://bunny.net/docs/api-reference/core/billing/get-billing-summary.md)
+- [List API Keys](https://bunny.net/docs/api-reference/core/api-keys/list-api-keys.md)
+- [Get affiliate details](https://bunny.net/docs/api-reference/core/affiliate/get-affiliate-details.md)
+- [Origin Errors API Reference](https://bunny.net/docs/api-reference/origin-errors/index.md): Retrieve origin error logs for your pull zones via HTTP.
+- [Get origin error logs for a specific Pull Zone and date](https://bunny.net/docs/api-reference/origin-errors/get-origin-error-logs-for-a-specific-pull-zone-and-date.md): Retrieves origin error logs for the given Pull Zone and date.
+- [Logging API Reference](https://bunny.net/docs/api-reference/cdn-logging/index.md): Access raw CDN request logs for your pull zones via HTTP.
+- [Query logs (legacy)](https://bunny.net/docs/api-reference/cdn-logging/logging-v1/query-logs-legacy.md)
+- [Query CDN access logs for a pull zone.](https://bunny.net/docs/api-reference/cdn-logging/logging-v2/query-cdn-access-logs-for-a-pull-zone.md): Authenticate with either an `Authorization` bearer JWT or an `AccessKey` header. Filter pushdown happens in ClickHouse where possible; `country` and free…
+- [Storage API Reference](https://bunny.net/docs/api-reference/storage/index.md): Upload, download, and manage files in your storage zones via HTTP.
+- [Download File](https://bunny.net/docs/api-reference/storage/manage-files/download-file.md): Returns the stored file at the given path. If the file does not exist, a 404 response will be returned.
+- [Upload File](https://bunny.net/docs/api-reference/storage/manage-files/upload-file.md): Upload a file to a storage zone based on the URL path. If the directory tree does not exist, it will be created automatically. **The file content should…
+- [Delete File](https://bunny.net/docs/api-reference/storage/manage-files/delete-file.md): Delete an object from the storage zone. In case the object is a directory all the data in it will be recursively deleted as well.
+- [List Files](https://bunny.net/docs/api-reference/storage/browse-files/list-files.md): Retrieve a list of files and directories located in the given directory.
+- [Stream API Reference](https://bunny.net/docs/api-reference/stream/index.md): Upload, manage, and deliver videos with the Stream API.
+- [Get Collection](https://bunny.net/docs/api-reference/stream/manage-collections/get-collection.md)
+- [Update Collection](https://bunny.net/docs/api-reference/stream/manage-collections/update-collection.md)
+- [Delete Collection](https://bunny.net/docs/api-reference/stream/manage-collections/delete-collection.md)
+- [Get Collection List](https://bunny.net/docs/api-reference/stream/manage-collections/get-collection-list.md)
+- [Create Collection](https://bunny.net/docs/api-reference/stream/manage-collections/create-collection.md)
+- [Get Video](https://bunny.net/docs/api-reference/stream/manage-videos/get-video.md)
+- [Upload Video](https://bunny.net/docs/api-reference/stream/manage-videos/upload-video.md)
+- [Update Video](https://bunny.net/docs/api-reference/stream/manage-videos/update-video.md)
+- [Delete Video](https://bunny.net/docs/api-reference/stream/manage-videos/delete-video.md)
+- [Get Video Heatmap](https://bunny.net/docs/api-reference/stream/manage-videos/get-video-heatmap.md): Returns the attention heatmap for a specific video, showing relative viewer interest across the timeline. May be unavailable if the feature is disabled o…
+- [Get Video play data](https://bunny.net/docs/api-reference/stream/manage-videos/get-video-play-data.md)
+- [Get Video heatmap data](https://bunny.net/docs/api-reference/stream/manage-videos/get-video-heatmap-data.md)
+- [Get Video Statistics](https://bunny.net/docs/api-reference/stream/manage-videos/get-video-statistics.md): Returns time-series views and watch time, plus country-level aggregates, at the library level or for a specific video. Control the time window with dateF…
+- [Reencode Video](https://bunny.net/docs/api-reference/stream/manage-videos/reencode-video.md)
+- [Add output codec to video](https://bunny.net/docs/api-reference/stream/manage-videos/add-output-codec-to-video.md)
+- [Repackage Video](https://bunny.net/docs/api-reference/stream/manage-videos/repackage-video.md)
+- [List Videos](https://bunny.net/docs/api-reference/stream/manage-videos/list-videos.md)
+- [Create Video](https://bunny.net/docs/api-reference/stream/manage-videos/create-video.md)
+- [Set Thumbnail](https://bunny.net/docs/api-reference/stream/manage-videos/set-thumbnail.md)
+- [Fetch Video](https://bunny.net/docs/api-reference/stream/manage-videos/fetch-video.md)
+- [Add Caption](https://bunny.net/docs/api-reference/stream/manage-videos/add-caption.md)
+- [Delete Caption](https://bunny.net/docs/api-reference/stream/manage-videos/delete-caption.md)
+- [Transcribe video](https://bunny.net/docs/api-reference/stream/manage-videos/transcribe-video.md)
+- [Trigger Smart actions](https://bunny.net/docs/api-reference/stream/manage-videos/trigger-smart-actions.md)
+- [Video resolutions info](https://bunny.net/docs/api-reference/stream/manage-videos/video-resolutions-info.md)
+- [Get video storage size info](https://bunny.net/docs/api-reference/stream/manage-videos/get-video-storage-size-info.md)
+- [Cleanup unconfigured resolutions](https://bunny.net/docs/api-reference/stream/manage-videos/cleanup-unconfigured-resolutions.md)
+- [Get oembed](https://bunny.net/docs/api-reference/stream/oembed/get-oembed.md)
+- [Shield API Reference](https://bunny.net/docs/api-reference/shield/index.md): Configure WAF rules, rate limiting, and security settings via HTTP.
+- [Get all Access Lists available for a Shield Zone](https://bunny.net/docs/api-reference/shield/access-lists/get-all-access-lists-available-for-a-shield-zone.md)
+- [Create a new Custom Access List associated with a Shield Zone](https://bunny.net/docs/api-reference/shield/access-lists/create-a-new-custom-access-list-associated-with-a-shield-zone.md)
+- [Update Access List Configuration for a Shield Zone](https://bunny.net/docs/api-reference/shield/access-lists/update-access-list-configuration-for-a-shield-zone.md)
+- [Get the specified Custom Access List associated with a Shield Zone](https://bunny.net/docs/api-reference/shield/access-lists/get-the-specified-custom-access-list-associated-with-a-shield-zone.md)
+- [Delete the specified Custom Access List associated with a Shield Zone](https://bunny.net/docs/api-reference/shield/access-lists/delete-the-specified-custom-access-list-associated-with-a-shield-zone.md)
+- [Update the specified Custom Access List associated with a Shield Zone](https://bunny.net/docs/api-reference/shield/access-lists/update-the-specified-custom-access-list-associated-with-a-shield-zone.md)
+- [Get all Access Lists API enumeration types and their values](https://bunny.net/docs/api-reference/shield/access-lists/get-all-access-lists-api-enumeration-types-and-their-values.md)
+- [Get the API Guardian configuration and endpoints.](https://bunny.net/docs/api-reference/shield/api-guardian/get-the-api-guardian-configuration-and-endpoints.md)
+- [Update the API Guardian configuration (enabled, execution mode, body limit action)](https://bunny.net/docs/api-reference/shield/api-guardian/update-the-api-guardian-configuration-enabled-execution-mode-body-limit-action.md)
+- [Update your API Guardian Endpoint configuration](https://bunny.net/docs/api-reference/shield/api-guardian/update-your-api-guardian-endpoint-configuration.md)
+- [Upload your OpenAPI specification](https://bunny.net/docs/api-reference/shield/api-guardian/upload-your-openapi-specification.md)
+- [Update your OpenAPI specification](https://bunny.net/docs/api-reference/shield/api-guardian/update-your-openapi-specification.md)
+- [Get all API Guardian enumeration types and their values](https://bunny.net/docs/api-reference/shield/api-guardian/get-all-api-guardian-enumeration-types-and-their-values.md)
+- [List bots available for explicit allow/block configuration on this Shield Zone, grouped by category.](https://bunny.net/docs/api-reference/shield/bot-categorization/list-bots-available-for-explicit-allowblock-configuration-on-this-shield-zone-grouped-by-category.md)
+- [Set or clear the action applied to a categorised bot for this Shield Zone.](https://bunny.net/docs/api-reference/shield/bot-categorization/set-or-clear-the-action-applied-to-a-categorised-bot-for-this-shield-zone.md)
+- [Set or clear the action applied to every bot in a category for this Shield Zone.](https://bunny.net/docs/api-reference/shield/bot-categorization/set-or-clear-the-action-applied-to-every-bot-in-a-category-for-this-shield-zone.md)
+- [Your current Bot Detection configuration](https://bunny.net/docs/api-reference/shield/bot-detection/your-current-bot-detection-configuration.md)
+- [Update your current Bot Detection configuration](https://bunny.net/docs/api-reference/shield/bot-detection/update-your-current-bot-detection-configuration.md)
+- [Get a custom HTML response page for a Shield Zone](https://bunny.net/docs/api-reference/shield/custom-response-pages/get-a-custom-html-response-page-for-a-shield-zone.md)
+- [Upload a custom HTML response page for a Shield Zone](https://bunny.net/docs/api-reference/shield/custom-response-pages/upload-a-custom-html-response-page-for-a-shield-zone.md)
+- [Delete a custom HTML response page for a Shield Zone](https://bunny.net/docs/api-reference/shield/custom-response-pages/delete-a-custom-html-response-page-for-a-shield-zone.md)
+- [List of all DDoS Enum Mappings](https://bunny.net/docs/api-reference/shield/ddos/list-of-all-ddos-enum-mappings.md)
+- [Get Event Logs for Shield Zone](https://bunny.net/docs/api-reference/shield/event-logs/get-event-logs-for-shield-zone.md)
+- [Search, filter and group Event Logs for a Shield Zone](https://bunny.net/docs/api-reference/shield/event-logs/search-filter-and-group-event-logs-for-a-shield-zone.md)
+- [Export the full filtered Event Logs set for a Shield Zone as CSV](https://bunny.net/docs/api-reference/shield/event-logs/export-the-full-filtered-event-logs-set-for-a-shield-zone-as-csv.md)
+- [Get the overage breakdown for the specified Shield Zone for a given month, segmented by billing plan changes](https://bunny.net/docs/api-reference/shield/metrics/get-the-overage-breakdown-for-the-specified-shield-zone-for-a-given-month-segmented-by-billing-plan-changes.md)
+- [Get an overview of metrics for the specified Shield Zone](https://bunny.net/docs/api-reference/shield/metrics/get-an-overview-of-metrics-for-the-specified-shield-zone.md)
+- [Get a detailed metrics overview for the specified Shield Zone within the selected time range and resolution](https://bunny.net/docs/api-reference/shield/metrics/get-a-detailed-metrics-overview-for-the-specified-shield-zone-within-the-selected-time-range-and-resolution.md)
+- [Get aggregated rate limit metrics for the specified Shield Zone](https://bunny.net/docs/api-reference/shield/metrics/get-aggregated-rate-limit-metrics-for-the-specified-shield-zone.md)
+- [Get detailed metrics for the specified Rate Limit](https://bunny.net/docs/api-reference/shield/metrics/get-detailed-metrics-for-the-specified-rate-limit.md)
+- [Get metrics for a specific WAF Rule within the specified Shield Zone](https://bunny.net/docs/api-reference/shield/metrics/get-metrics-for-a-specific-waf-rule-within-the-specified-shield-zone.md)
+- [Get bot detection metrics for the specified Shield Zone](https://bunny.net/docs/api-reference/shield/metrics/get-bot-detection-metrics-for-the-specified-shield-zone.md)
+- [Get upload scanning metrics for the specified Shield Zone](https://bunny.net/docs/api-reference/shield/metrics/get-upload-scanning-metrics-for-the-specified-shield-zone.md)
+- [Get API Guardian metrics for the specified Shield Zone](https://bunny.net/docs/api-reference/shield/metrics/get-api-guardian-metrics-for-the-specified-shield-zone.md)
+- [Get metrics for a specific API Guardian endpoint within the specified Shield Zone](https://bunny.net/docs/api-reference/shield/metrics/get-metrics-for-a-specific-api-guardian-endpoint-within-the-specified-shield-zone.md)
+- [Get the current Promotion State for your Account](https://bunny.net/docs/api-reference/shield/promotions/get-the-current-promotion-state-for-your-account.md)
+- [Get Rate Limits for your Shield Zone](https://bunny.net/docs/api-reference/shield/rate-limiting/get-rate-limits-for-your-shield-zone.md)
+- [Get Individual Rate Limit for your Shield Zone](https://bunny.net/docs/api-reference/shield/rate-limiting/get-individual-rate-limit-for-your-shield-zone.md)
+- [Delete a Rate Limit on your Shield Zone](https://bunny.net/docs/api-reference/shield/rate-limiting/delete-a-rate-limit-on-your-shield-zone.md)
+- [Update a Rate Limit configuration on your Shield Zone](https://bunny.net/docs/api-reference/shield/rate-limiting/update-a-rate-limit-configuration-on-your-shield-zone.md)
+- [Create a Rate Limit for your Shield Zone](https://bunny.net/docs/api-reference/shield/rate-limiting/create-a-rate-limit-for-your-shield-zone.md)
+- [Get all of your Shield Zone Configurations](https://bunny.net/docs/api-reference/shield/shield-zone/get-all-of-your-shield-zone-configurations.md)
+- [Get Active Shield Zones for Pullzone Mapping](https://bunny.net/docs/api-reference/shield/shield-zone/get-active-shield-zones-for-pullzone-mapping.md)
+- [Get Singular Shield Zone Configuration](https://bunny.net/docs/api-reference/shield/shield-zone/get-singular-shield-zone-configuration.md)
+- [Get Singular Shield Zone Configuration for PullZone](https://bunny.net/docs/api-reference/shield/shield-zone/get-singular-shield-zone-configuration-for-pullzone.md)
+- [Get the recommended defaults for creating a Shield Zone](https://bunny.net/docs/api-reference/shield/shield-zone/get-the-recommended-defaults-for-creating-a-shield-zone.md)
+- [Create a Shield Zone in under-attack mode for your PullZone](https://bunny.net/docs/api-reference/shield/shield-zone/create-a-shield-zone-in-under-attack-mode-for-your-pullzone.md)
+- [Create a Shield Zone for your PullZone](https://bunny.net/docs/api-reference/shield/shield-zone/create-a-shield-zone-for-your-pullzone.md)
+- [Update your Shield Zone configuration](https://bunny.net/docs/api-reference/shield/shield-zone/update-your-shield-zone-configuration.md)
+- [Get your Current Upload Scanning Configuration](https://bunny.net/docs/api-reference/shield/upload-scanning/get-your-current-upload-scanning-configuration.md)
+- [Update your Upload Scanning Configuration](https://bunny.net/docs/api-reference/shield/upload-scanning/update-your-upload-scanning-configuration.md)
+- [Retrieve all available WAF rules for a Shield Zone](https://bunny.net/docs/api-reference/shield/waf/retrieve-all-available-waf-rules-for-a-shield-zone.md)
+- [Retrieve WAF rules segmented by subscription plan](https://bunny.net/docs/api-reference/shield/waf/retrieve-waf-rules-segmented-by-subscription-plan.md)
+- [Review all triggered WAF rules for the specified Shield Zone](https://bunny.net/docs/api-reference/shield/waf/review-all-triggered-waf-rules-for-the-specified-shield-zone.md)
+- [Review and update the action of a triggered WAF rule](https://bunny.net/docs/api-reference/shield/waf/review-and-update-the-action-of-a-triggered-waf-rule.md)
+- [Retrieve an AI recommendation for a triggered WAF rule](https://bunny.net/docs/api-reference/shield/waf/retrieve-an-ai-recommendation-for-a-triggered-waf-rule.md)
+- [Retrieve custom WAF rules configured for the specified Shield Zone](https://bunny.net/docs/api-reference/shield/waf/retrieve-custom-waf-rules-configured-for-the-specified-shield-zone.md)
+- [Retrieve a specific custom WAF rule](https://bunny.net/docs/api-reference/shield/waf/retrieve-a-specific-custom-waf-rule.md)
+- [Update an existing custom WAF rule](https://bunny.net/docs/api-reference/shield/waf/update-an-existing-custom-waf-rule.md)
+- [Delete a custom WAF rule](https://bunny.net/docs/api-reference/shield/waf/delete-a-custom-waf-rule.md)
+- [Update an existing custom WAF rule](https://bunny.net/docs/api-reference/shield/waf/update-an-existing-custom-waf-rule-1.md)
+- [Create a new custom WAF rule](https://bunny.net/docs/api-reference/shield/waf/create-a-new-custom-waf-rule.md)
+- [Retrieve all available WAF profiles](https://bunny.net/docs/api-reference/shield/waf/retrieve-all-available-waf-profiles.md)
+- [Retrieve all available WAF enum mappings](https://bunny.net/docs/api-reference/shield/waf/retrieve-all-available-waf-enum-mappings.md)
+- [Retrieve the default WAF engine configuration](https://bunny.net/docs/api-reference/shield/waf/retrieve-the-default-waf-engine-configuration.md)
+- [Edge Scripting API Reference](https://bunny.net/docs/api-reference/scripting/index.md): Deploy, manage, and monitor edge scripts via HTTP.
+- [Get Code](https://bunny.net/docs/api-reference/scripting/code/get-code.md)
+- [Set Code](https://bunny.net/docs/api-reference/scripting/code/set-code.md)
+- [Get Edge Script](https://bunny.net/docs/api-reference/scripting/edge-script/get-edge-script.md)
+- [Update Edge Script](https://bunny.net/docs/api-reference/scripting/edge-script/update-edge-script.md)
+- [Delete Edge Script](https://bunny.net/docs/api-reference/scripting/edge-script/delete-edge-script.md)
+- [Get Edge Script Statistics](https://bunny.net/docs/api-reference/scripting/edge-script/get-edge-script-statistics.md)
+- [List Edge Scripts](https://bunny.net/docs/api-reference/scripting/edge-script/list-edge-scripts.md)
+- [Add Edge Script](https://bunny.net/docs/api-reference/scripting/edge-script/add-edge-script.md)
+- [Rotate Deployment Key](https://bunny.net/docs/api-reference/scripting/edge-script/rotate-deployment-key.md)
+- [Add Variable](https://bunny.net/docs/api-reference/scripting/variable/add-variable.md)
+- [Get Variable](https://bunny.net/docs/api-reference/scripting/variable/get-variable.md)
+- [Update Variable](https://bunny.net/docs/api-reference/scripting/variable/update-variable.md)
+- [Delete Variable](https://bunny.net/docs/api-reference/scripting/variable/delete-variable.md)
+- [Upsert Variable](https://bunny.net/docs/api-reference/scripting/variable/upsert-variable.md)
+- [List Secrets](https://bunny.net/docs/api-reference/scripting/secret/list-secrets.md)
+- [Upsert Secret](https://bunny.net/docs/api-reference/scripting/secret/upsert-secret.md)
+- [Add Secret](https://bunny.net/docs/api-reference/scripting/secret/add-secret.md)
+- [Update Secret](https://bunny.net/docs/api-reference/scripting/secret/update-secret.md)
+- [Delete Secret](https://bunny.net/docs/api-reference/scripting/secret/delete-secret.md)
+- [Get Active Release](https://bunny.net/docs/api-reference/scripting/release/get-active-release.md)
+- [Get Releases](https://bunny.net/docs/api-reference/scripting/release/get-releases.md)
+- [Publish Release](https://bunny.net/docs/api-reference/scripting/release/publish-release.md)
+- [Publish Release](https://bunny.net/docs/api-reference/scripting/release/publish-release-1.md)
+- [Magic Containers API Reference](https://bunny.net/docs/api-reference/magic-containers/overview.md): Create, modify or delete your Magic Containers applications configuration.
+- [Deploy Application](https://bunny.net/docs/api-reference/magic-containers/applications/deploy-application.md): Deploys an application, making it active and running.
+- [Undeploy Application](https://bunny.net/docs/api-reference/magic-containers/applications/undeploy-application.md): Undeploys an application, stopping all running instances.
+- [Get Application Statistics](https://bunny.net/docs/api-reference/magic-containers/applications/get-application-statistics.md): Retrieves historical statistics for an application including CPU, RAM, traffic, latency, and volume usage over a specified time period.
+- [Get Application Usage Summary](https://bunny.net/docs/api-reference/magic-containers/applications/get-application-usage-summary.md): Retrieves usage summary for an application including latency, volume size, monthly cost, and status information.
+- [Get Application Overview](https://bunny.net/docs/api-reference/magic-containers/applications/get-application-overview.md): Retrieves comprehensive status overview for an application including latency, CPU/RAM usage, active instances, regions, and cost information.
+- [List Applications](https://bunny.net/docs/api-reference/magic-containers/applications/list-applications.md): Lists all applications for the authenticated user with their current status.
+- [Add Application](https://bunny.net/docs/api-reference/magic-containers/applications/add-application.md): Creates a new application with the specified configuration including containers, volumes, region settings, and autoscaling.
+- [Get application](https://bunny.net/docs/api-reference/magic-containers/applications/get-application.md)
+- [Update Application](https://bunny.net/docs/api-reference/magic-containers/applications/update-application.md): Updates an existing application with full replacement of all configuration fields.
+- [Delete Application](https://bunny.net/docs/api-reference/magic-containers/applications/delete-application.md): Marks the application for deletion and enqueues cleanup of all associated resources. Returns immediately; deletion is processed asynchronously.
+- [Patch Application](https://bunny.net/docs/api-reference/magic-containers/applications/patch-application.md): Partially updates an existing application using JSON Merge Patch semantics. Only provided fields will be updated; existing fields not included in the req…
+- [Restart Application](https://bunny.net/docs/api-reference/magic-containers/applications/restart-application.md): Triggers a restart of all pods for the specified application.
+- [Get Application Autoscaling](https://bunny.net/docs/api-reference/magic-containers/autoscalingsettings/get-application-autoscaling.md): Retrieves the current autoscaling settings for an application, including minimum and maximum replica counts.
+- [Update Application Autoscaling](https://bunny.net/docs/api-reference/magic-containers/autoscalingsettings/update-application-autoscaling.md): Updates the autoscaling settings for an application, including minimum and maximum replica counts.
+- [List Container Registries](https://bunny.net/docs/api-reference/magic-containers/containerregistries/list-container-registries.md): Lists all container registries configured for the authenticated user.
+- [Add container registry](https://bunny.net/docs/api-reference/magic-containers/containerregistries/add-container-registry.md): Add a container registry for user.
+- [Search Public Container Images](https://bunny.net/docs/api-reference/magic-containers/containerregistries/search-public-container-images.md): Searches for public container images in a registry by prefix.
+- [List Container Images](https://bunny.net/docs/api-reference/magic-containers/containerregistries/list-container-images.md): Lists all container images available in a private registry.
+- [Get Container Registry](https://bunny.net/docs/api-reference/magic-containers/containerregistries/get-container-registry.md): Retrieves a specific container registry by its ID.
+- [Update Container Registry](https://bunny.net/docs/api-reference/magic-containers/containerregistries/update-container-registry.md): Updates an existing container registry configuration including credentials.
+- [Delete Container Registry](https://bunny.net/docs/api-reference/magic-containers/containerregistries/delete-container-registry.md): Deletes a container registry. Returns an error if the registry is currently in use by any applications.
+- [List Container Image Tags](https://bunny.net/docs/api-reference/magic-containers/containerregistries/list-container-image-tags.md): Lists all available tags for a specific container image.
+- [Get Image Config](https://bunny.net/docs/api-reference/magic-containers/containerregistries/get-image-config.md): Retrieves endpoint and volume suggestions for a container image from a registry.
+- [Get Container Image Digest](https://bunny.net/docs/api-reference/magic-containers/containerregistries/get-container-image-digest.md): Retrieves the digest information for a specific container image tag.
+- [Get Container Config Suggestions](https://bunny.net/docs/api-reference/magic-containers/containerregistries/get-container-config-suggestions.md): Gets recommended configuration for a container image including endpoint configurations and environment variables.
+- [Set Container Environment Variables](https://bunny.net/docs/api-reference/magic-containers/containers/set-container-environment-variables.md): Replaces all environment variables for a container template. All existing environment variables will be removed and replaced with the provided set.
+- [Get Container Template](https://bunny.net/docs/api-reference/magic-containers/containers/get-container-template.md): Gets a container template within an application.
+- [Delete Container Template](https://bunny.net/docs/api-reference/magic-containers/containers/delete-container-template.md): Deletes a container template from an application.
+- [Patch Container Template](https://bunny.net/docs/api-reference/magic-containers/containers/patch-container-template.md): Partially updates a container template within an application. Only provided fields will be updated; existing fields not included in the request will rema…
+- [Add Container Template](https://bunny.net/docs/api-reference/magic-containers/containers/add-container-template.md): Adds a new container template to an application.
+- [Update Application Endpoint](https://bunny.net/docs/api-reference/magic-containers/endpoints/update-application-endpoint.md): Update an existing endpoint for given application
+- [Delete application endpoint](https://bunny.net/docs/api-reference/magic-containers/endpoints/delete-application-endpoint.md): Delete endpoint of a container for given application.
+- [List application endpoints](https://bunny.net/docs/api-reference/magic-containers/endpoints/list-application-endpoints.md): List endpoints from all containers for given application
+- [Add application endpoint](https://bunny.net/docs/api-reference/magic-containers/endpoints/add-application-endpoint.md): Add CDN or Anycast endpoint to a container of given application.
+- [Get User Limits](https://bunny.net/docs/api-reference/magic-containers/limits/get-user-limits.md): Retrieves the current resource limits and usage for the authenticated user, including application counts and instance limits.
+- [List Nodes](https://bunny.net/docs/api-reference/magic-containers/nodes/list-nodes.md): Lists all node IP addresses in the Magic Containers network.
+- [List Node IPs (Plain)](https://bunny.net/docs/api-reference/magic-containers/nodes/list-node-ips-plain.md): Lists all node IP addresses in the Magic Containers network as a flat list.
+- [Recreate Pod](https://bunny.net/docs/api-reference/magic-containers/pods/recreate-pod.md): Recreate a pod, deleting previous one.
+- [List Regions](https://bunny.net/docs/api-reference/magic-containers/regions/list-regions.md): Lists all available regions where applications can be deployed, including their anycast support and capacity status.
+- [Get Optimal Base Region](https://bunny.net/docs/api-reference/magic-containers/regions/get-optimal-base-region.md): Returns the optimal base region for deployment based on the user's CDN server token location.
+- [Get Application Region Settings](https://bunny.net/docs/api-reference/magic-containers/regionsettings/get-application-region-settings.md): Retrieves the current region settings for an application, including allowed regions, required regions, and maximum allowed regions.
+- [Update Application Region Settings](https://bunny.net/docs/api-reference/magic-containers/regionsettings/update-application-region-settings.md): Updates the region settings for an application, including allowed regions, required regions, and maximum allowed regions.
+- [Delete All Volume Instances](https://bunny.net/docs/api-reference/magic-containers/volumes/delete-all-volume-instances.md): Deletes all volume instances for a volume template. All instances must be detached before deletion.
+- [Update Volume](https://bunny.net/docs/api-reference/magic-containers/volumes/update-volume.md): Partially updates a volume template's configuration including name and size. Only provided fields will be updated.
+- [List Volumes](https://bunny.net/docs/api-reference/magic-containers/volumes/list-volumes.md): Lists all volume templates and their instances for an application, including usage statistics.
+- [Detach Volume](https://bunny.net/docs/api-reference/magic-containers/volumes/detach-volume.md): Detaches a volume template from all application containers.
+- [Delete Volume Instance](https://bunny.net/docs/api-reference/magic-containers/volumes/delete-volume-instance.md): Deletes a specific volume instance. The volume must be detached before deletion.
+- [List log-forwarding configurations](https://bunny.net/docs/api-reference/magic-containers/log-forwarding/list-log-forwarding-configurations.md): Get a list of all log-forwarding configurations for the authenticated user.
+- [Create log forwarding configuration](https://bunny.net/docs/api-reference/magic-containers/log-forwarding/create-log-forwarding-configuration.md): Create a new log forwarding configuration.
+- [Get log-forwarding configuration](https://bunny.net/docs/api-reference/magic-containers/log-forwarding/get-log-forwarding-configuration.md): Get a specific log-forwarding configuration by ID.
+- [Update log-forwarding configuration](https://bunny.net/docs/api-reference/magic-containers/log-forwarding/update-log-forwarding-configuration.md): Update an existing log-forwarding configuration.
+- [Delete log-forwarding configuration](https://bunny.net/docs/api-reference/magic-containers/log-forwarding/delete-log-forwarding-configuration.md): Delete a log-forwarding configuration.
+
+## OpenAPI Specs
+
+- [public](https://core-api-public-docs.b-cdn.net/docs/v3/public.json)
+- [swagger](https://api-mc.opsbunny.net/docs/public/swagger.json)
+- [bunnynet-video-api.public](https://video.bunnycdn.com/openapi/bunnynet-video-api.public.json)
+- [stream-api](https://bunny.net/docs/docsf/openapi/stream-api.json)
+- [origin-errors-spec](https://bunny.net/docs/docsf/openapi/origin-errors-spec.json)
+- [edge-scripting-api](https://bunny.net/docs/docsf/openapi/edge-scripting-api.json)
+- [bunnynet-edge-storage-api](https://bunny.net/docs/docsf/openapi/bunnynet-edge-storage-api.json)
+- [bunnynet-api-1](https://bunny.net/docs/docsf/openapi/bunnynet-api-1.json)
+- [bunny-shield-api](https://bunny.net/docs/docsf/openapi/bunny-shield-api.json)
+- [openapi](https://bunny.net/docs/api-reference/storage/openapi.json)
+- [compute](https://core-api-public-docs.b-cdn.net/docs/v3/compute.json)
+- [api](https://api.bunny.net/database/docs/private/api.json)

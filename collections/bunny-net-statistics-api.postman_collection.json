@@ -1,0 +1,334 @@
+{
+  "item": [
+    {
+      "id": "ab66e56d-2b10-4071-b2fc-bb8f9a5587e9",
+      "name": "Statistics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1fbde8ee-1d95-4d35-a181-f797252f0bdd",
+          "name": "Get account statistics",
+          "request": {
+            "name": "Get account statistics",
+            "description": {},
+            "url": {
+              "path": [
+                "statistics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "dateFrom",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dateTo",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pullZone",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "serverZoneId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "loadErrors",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "hourly",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dce1ba54-c640-4a87-b123-a4d4e800a8ce",
+              "name": "Statistics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dateFrom",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "dateTo",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "pullZone",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "serverZoneId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "loadErrors",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "hourly",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"TotalBandwidthUsed\": 5643,\n  \"TotalRequestsServed\": 455,\n  \"CacheHitRate\": 989.571455198075,\n  \"BandwidthUsedChart\": {\n    \"key_0\": 7673.914150706245,\n    \"key_1\": 3047.3468665271785,\n    \"key_2\": 5558.615097290437\n  },\n  \"BandwidthCachedChart\": {\n    \"key_0\": 7718.803937235985,\n    \"key_1\": 9678.59950201852,\n    \"key_2\": 9033.24120927461\n  },\n  \"CacheHitRateChart\": {\n    \"key_0\": 8195.44924630128,\n    \"key_1\": 7395.872802381054,\n    \"key_2\": 7155.737313229442,\n    \"key_3\": 5918.0962414557935\n  },\n  \"RequestsServedChart\": {\n    \"key_0\": 8854.016370229405,\n    \"key_1\": 923.9602714553663,\n    \"key_2\": 4506.375021275617\n  },\n  \"PullRequestsPulledChart\": {\n    \"key_0\": 5569.683308897722,\n    \"key_1\": 3259.069129428954\n  },\n  \"OriginShieldBandwidthUsedChart\": {\n    \"key_0\": 712.1766096859506\n  },\n  \"OriginShieldInternalBandwidthUsedChart\": {\n    \"key_0\": 5033.976719182769,\n    \"key_1\": 7959.071237514157\n  },\n  \"OriginTrafficChart\": {\n    \"key_0\": 4066.8030908901965,\n    \"key_1\": 5162.08816267194\n  },\n  \"Error3xxChart\": {\n    \"key_0\": 6949.770613074975,\n    \"key_1\": 4321.637712851657\n  },\n  \"Error4xxChart\": {\n    \"key_0\": 4133.13705020272\n  },\n  \"Error5xxChart\": {\n    \"key_0\": 2116.7972832298797,\n    \"key_1\": 468.8608180425169\n  },\n  \"UserBalanceHistoryChart\": {\n    \"key_0\": 7676.617569528932,\n    \"key_1\": 6374.326360804884\n  },\n  \"UserStorageUsedChart\": {\n    \"key_0\": 9619.421735382468,\n    \"key_1\": 3946.71351865963,\n    \"key_2\": 9099.757151838952,\n    \"key_3\": 1726.9153507439628\n  },\n  \"GeoTrafficDistribution\": {\n    \"key_0\": 3.2087785896617316\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e40942e5-55ea-4615-9a2b-84541283c1b7",
+          "name": "Get optimizer statistics",
+          "request": {
+            "name": "Get optimizer statistics",
+            "description": {},
+            "url": {
+              "path": [
+                "statistics",
+                "optimizer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d3ce080-a61d-4bc6-9522-17c9f73c46b1",
+              "name": "Statistics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "optimizer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e8bd09c-98ac-4fe6-a201-826128318b91",
+          "name": "Get SafeHop statistics",
+          "request": {
+            "name": "Get SafeHop statistics",
+            "description": {},
+            "url": {
+              "path": [
+                "statistics",
+                "safehop"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95b24272-64ec-476a-9255-5cd1bf260718",
+              "name": "Statistics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics",
+                    "safehop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.bunny.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "AccessKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f2ca22c1-8dcc-4075-99b1-293ac1b1c389",
+    "name": "Bunny.net Core Platform APIKeys Statistics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of the Bunny.net Core Platform REST API for managing\nPull Zones, Storage Zones, DNS Zones, Stream video libraries, statistics, billing,\npurge, API keys, and reference data.\n\nAuthentication uses the `AccessKey` header containing your account API key issued from\nthe Bunny.net dashboard.\n\n\nContact Support:\n Name: Bunny.net",
+      "type": "text/plain"
+    }
+  }
+}

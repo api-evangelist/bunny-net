@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bunny.net Core Platform APIKeys Statistics API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AccessKey",
+      "value": "{{AccessKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Statistics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get account statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bunny.net/statistics",
+            "params": [
+              {
+                "name": "dateFrom",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dateTo",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pullZone",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "serverZoneId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "loadErrors",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "hourly",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get account statistics"
+        },
+        {
+          "info": {
+            "name": "Get optimizer statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bunny.net/statistics/optimizer"
+          },
+          "docs": "Get optimizer statistics"
+        },
+        {
+          "info": {
+            "name": "Get SafeHop statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bunny.net/statistics/safehop"
+          },
+          "docs": "Get SafeHop statistics"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

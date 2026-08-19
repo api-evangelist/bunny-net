@@ -1,0 +1,672 @@
+{
+  "item": [
+    {
+      "id": "cc1e623d-4305-4819-873c-16b5e9d3a748",
+      "name": "StorageZones",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bc10c0f3-d114-447c-9c60-1bfc9e7aa8bb",
+          "name": "List storage zones",
+          "request": {
+            "name": "List storage zones",
+            "description": {},
+            "url": {
+              "path": [
+                "storagezone"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a5a3847-e89c-4248-8ac2-c490f5fb1e5f",
+              "name": "Storage zones",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storagezone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"Id\": 7275,\n    \"UserId\": \"string\",\n    \"Name\": \"string\",\n    \"Password\": \"string\",\n    \"ReadOnlyPassword\": \"string\",\n    \"DateModified\": \"1995-04-28T08:44:59.517Z\",\n    \"Deleted\": true,\n    \"StorageUsed\": 8564,\n    \"FilesStored\": 6746,\n    \"Region\": \"string\",\n    \"ReplicationRegions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"PullZones\": [\n      {\n        \"Id\": 2267,\n        \"Name\": \"string\",\n        \"OriginUrl\": \"string\",\n        \"Enabled\": true,\n        \"Hostnames\": [\n          {\n            \"Id\": 864,\n            \"Value\": \"string\",\n            \"ForceSSL\": true,\n            \"IsSystemHostname\": true,\n            \"HasCertificate\": false\n          },\n          {\n            \"Id\": 9783,\n            \"Value\": \"string\",\n            \"ForceSSL\": false,\n            \"IsSystemHostname\": false,\n            \"HasCertificate\": false\n          }\n        ],\n        \"StorageZoneId\": 5451,\n        \"CacheControlMaxAgeOverride\": 1493,\n        \"AllowedReferrers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"BlockedReferrers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"BlockedIps\": [\n          \"string\",\n          \"string\"\n        ],\n        \"EnableGeoZoneUS\": true,\n        \"EnableGeoZoneEU\": false,\n        \"EnableGeoZoneASIA\": true,\n        \"EnableGeoZoneSA\": false,\n        \"EnableGeoZoneAF\": false,\n        \"ZoneSecurityEnabled\": true,\n        \"ZoneSecurityKey\": \"string\",\n        \"Type\": 5430\n      },\n      {\n        \"Id\": 4794,\n        \"Name\": \"string\",\n        \"OriginUrl\": \"string\",\n        \"Enabled\": true,\n        \"Hostnames\": [\n          {\n            \"Id\": 9728,\n            \"Value\": \"string\",\n            \"ForceSSL\": true,\n            \"IsSystemHostname\": false,\n            \"HasCertificate\": true\n          },\n          {\n            \"Id\": 1786,\n            \"Value\": \"string\",\n            \"ForceSSL\": true,\n            \"IsSystemHostname\": true,\n            \"HasCertificate\": false\n          }\n        ],\n        \"StorageZoneId\": 2331,\n        \"CacheControlMaxAgeOverride\": 6355,\n        \"AllowedReferrers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"BlockedReferrers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"BlockedIps\": [\n          \"string\",\n          \"string\"\n        ],\n        \"EnableGeoZoneUS\": false,\n        \"EnableGeoZoneEU\": true,\n        \"EnableGeoZoneASIA\": true,\n        \"EnableGeoZoneSA\": false,\n        \"EnableGeoZoneAF\": true,\n        \"ZoneSecurityEnabled\": true,\n        \"ZoneSecurityKey\": \"string\",\n        \"Type\": 1597\n      }\n    ]\n  },\n  {\n    \"Id\": 7872,\n    \"UserId\": \"string\",\n    \"Name\": \"string\",\n    \"Password\": \"string\",\n    \"ReadOnlyPassword\": \"string\",\n    \"DateModified\": \"1977-06-26T17:55:04.411Z\",\n    \"Deleted\": true,\n    \"StorageUsed\": 2906,\n    \"FilesStored\": 4767,\n    \"Region\": \"string\",\n    \"ReplicationRegions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"PullZones\": [\n      {\n        \"Id\": 8241,\n        \"Name\": \"string\",\n        \"OriginUrl\": \"string\",\n        \"Enabled\": false,\n        \"Hostnames\": [\n          {\n            \"Id\": 6607,\n            \"Value\": \"string\",\n            \"ForceSSL\": true,\n            \"IsSystemHostname\": false,\n            \"HasCertificate\": true\n          },\n          {\n            \"Id\": 4034,\n            \"Value\": \"string\",\n            \"ForceSSL\": false,\n            \"IsSystemHostname\": true,\n            \"HasCertificate\": false\n          }\n        ],\n        \"StorageZoneId\": 1056,\n        \"CacheControlMaxAgeOverride\": 1894,\n        \"AllowedReferrers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"BlockedReferrers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"BlockedIps\": [\n          \"string\",\n          \"string\"\n        ],\n        \"EnableGeoZoneUS\": false,\n        \"EnableGeoZoneEU\": true,\n        \"EnableGeoZoneASIA\": true,\n        \"EnableGeoZoneSA\": true,\n        \"EnableGeoZoneAF\": true,\n        \"ZoneSecurityEnabled\": false,\n        \"ZoneSecurityKey\": \"string\",\n        \"Type\": 8192\n      },\n      {\n        \"Id\": 2991,\n        \"Name\": \"string\",\n        \"OriginUrl\": \"string\",\n        \"Enabled\": true,\n        \"Hostnames\": [\n          {\n            \"Id\": 3326,\n            \"Value\": \"string\",\n            \"ForceSSL\": false,\n            \"IsSystemHostname\": true,\n            \"HasCertificate\": true\n          },\n          {\n            \"Id\": 6903,\n            \"Value\": \"string\",\n            \"ForceSSL\": false,\n            \"IsSystemHostname\": true,\n            \"HasCertificate\": true\n          }\n        ],\n        \"StorageZoneId\": 7197,\n        \"CacheControlMaxAgeOverride\": 566,\n        \"AllowedReferrers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"BlockedReferrers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"BlockedIps\": [\n          \"string\",\n          \"string\"\n        ],\n        \"EnableGeoZoneUS\": false,\n        \"EnableGeoZoneEU\": false,\n        \"EnableGeoZoneASIA\": true,\n        \"EnableGeoZoneSA\": false,\n        \"EnableGeoZoneAF\": false,\n        \"ZoneSecurityEnabled\": false,\n        \"ZoneSecurityKey\": \"string\",\n        \"Type\": 6481\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "273514a0-bc14-4d0b-8780-b8f6dab7d539",
+          "name": "Add a storage zone",
+          "request": {
+            "name": "Add a storage zone",
+            "description": {},
+            "url": {
+              "path": [
+                "storagezone"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"Region\": \"<string>\",\n  \"ReplicationRegions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ZoneTier\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0cd9324f-d59f-4647-bc95-fa5c253090c2",
+              "name": "Storage zone",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storagezone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Region\": \"<string>\",\n  \"ReplicationRegions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ZoneTier\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": 4273,\n  \"UserId\": \"string\",\n  \"Name\": \"string\",\n  \"Password\": \"string\",\n  \"ReadOnlyPassword\": \"string\",\n  \"DateModified\": \"2004-08-08T14:16:48.591Z\",\n  \"Deleted\": false,\n  \"StorageUsed\": 78,\n  \"FilesStored\": 1881,\n  \"Region\": \"string\",\n  \"ReplicationRegions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"PullZones\": [\n    {\n      \"Id\": 1314,\n      \"Name\": \"string\",\n      \"OriginUrl\": \"string\",\n      \"Enabled\": false,\n      \"Hostnames\": [\n        {\n          \"Id\": 6413,\n          \"Value\": \"string\",\n          \"ForceSSL\": true,\n          \"IsSystemHostname\": true,\n          \"HasCertificate\": true\n        },\n        {\n          \"Id\": 5043,\n          \"Value\": \"string\",\n          \"ForceSSL\": false,\n          \"IsSystemHostname\": false,\n          \"HasCertificate\": false\n        }\n      ],\n      \"StorageZoneId\": 3277,\n      \"CacheControlMaxAgeOverride\": 5693,\n      \"AllowedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedIps\": [\n        \"string\",\n        \"string\"\n      ],\n      \"EnableGeoZoneUS\": true,\n      \"EnableGeoZoneEU\": false,\n      \"EnableGeoZoneASIA\": true,\n      \"EnableGeoZoneSA\": false,\n      \"EnableGeoZoneAF\": false,\n      \"ZoneSecurityEnabled\": true,\n      \"ZoneSecurityKey\": \"string\",\n      \"Type\": 7770\n    },\n    {\n      \"Id\": 3579,\n      \"Name\": \"string\",\n      \"OriginUrl\": \"string\",\n      \"Enabled\": false,\n      \"Hostnames\": [\n        {\n          \"Id\": 6773,\n          \"Value\": \"string\",\n          \"ForceSSL\": false,\n          \"IsSystemHostname\": true,\n          \"HasCertificate\": false\n        },\n        {\n          \"Id\": 6064,\n          \"Value\": \"string\",\n          \"ForceSSL\": false,\n          \"IsSystemHostname\": true,\n          \"HasCertificate\": true\n        }\n      ],\n      \"StorageZoneId\": 8370,\n      \"CacheControlMaxAgeOverride\": 8653,\n      \"AllowedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedIps\": [\n        \"string\",\n        \"string\"\n      ],\n      \"EnableGeoZoneUS\": true,\n      \"EnableGeoZoneEU\": false,\n      \"EnableGeoZoneASIA\": true,\n      \"EnableGeoZoneSA\": true,\n      \"EnableGeoZoneAF\": true,\n      \"ZoneSecurityEnabled\": false,\n      \"ZoneSecurityKey\": \"string\",\n      \"Type\": 108\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8e8699e-c1e5-4fd7-953b-c190cbd1e9d2",
+          "name": "Get storage zone",
+          "request": {
+            "name": "Get storage zone",
+            "description": {},
+            "url": {
+              "path": [
+                "storagezone",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f903cc0-1ce3-4a45-9fb3-37de1c6296fb",
+              "name": "Storage zone",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storagezone",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": 4273,\n  \"UserId\": \"string\",\n  \"Name\": \"string\",\n  \"Password\": \"string\",\n  \"ReadOnlyPassword\": \"string\",\n  \"DateModified\": \"2004-08-08T14:16:48.591Z\",\n  \"Deleted\": false,\n  \"StorageUsed\": 78,\n  \"FilesStored\": 1881,\n  \"Region\": \"string\",\n  \"ReplicationRegions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"PullZones\": [\n    {\n      \"Id\": 1314,\n      \"Name\": \"string\",\n      \"OriginUrl\": \"string\",\n      \"Enabled\": false,\n      \"Hostnames\": [\n        {\n          \"Id\": 6413,\n          \"Value\": \"string\",\n          \"ForceSSL\": true,\n          \"IsSystemHostname\": true,\n          \"HasCertificate\": true\n        },\n        {\n          \"Id\": 5043,\n          \"Value\": \"string\",\n          \"ForceSSL\": false,\n          \"IsSystemHostname\": false,\n          \"HasCertificate\": false\n        }\n      ],\n      \"StorageZoneId\": 3277,\n      \"CacheControlMaxAgeOverride\": 5693,\n      \"AllowedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedIps\": [\n        \"string\",\n        \"string\"\n      ],\n      \"EnableGeoZoneUS\": true,\n      \"EnableGeoZoneEU\": false,\n      \"EnableGeoZoneASIA\": true,\n      \"EnableGeoZoneSA\": false,\n      \"EnableGeoZoneAF\": false,\n      \"ZoneSecurityEnabled\": true,\n      \"ZoneSecurityKey\": \"string\",\n      \"Type\": 7770\n    },\n    {\n      \"Id\": 3579,\n      \"Name\": \"string\",\n      \"OriginUrl\": \"string\",\n      \"Enabled\": false,\n      \"Hostnames\": [\n        {\n          \"Id\": 6773,\n          \"Value\": \"string\",\n          \"ForceSSL\": false,\n          \"IsSystemHostname\": true,\n          \"HasCertificate\": false\n        },\n        {\n          \"Id\": 6064,\n          \"Value\": \"string\",\n          \"ForceSSL\": false,\n          \"IsSystemHostname\": true,\n          \"HasCertificate\": true\n        }\n      ],\n      \"StorageZoneId\": 8370,\n      \"CacheControlMaxAgeOverride\": 8653,\n      \"AllowedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedReferrers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"BlockedIps\": [\n        \"string\",\n        \"string\"\n      ],\n      \"EnableGeoZoneUS\": true,\n      \"EnableGeoZoneEU\": false,\n      \"EnableGeoZoneASIA\": true,\n      \"EnableGeoZoneSA\": true,\n      \"EnableGeoZoneAF\": true,\n      \"ZoneSecurityEnabled\": false,\n      \"ZoneSecurityKey\": \"string\",\n      \"Type\": 108\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2bcf8615-67d1-47fd-97c5-473a22e354aa",
+          "name": "Update storage zone",
+          "request": {
+            "name": "Update storage zone",
+            "description": {},
+            "url": {
+              "path": [
+                "storagezone",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ReplicationZones\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"OriginUrl\": \"<string,null>\",\n  \"Custom404FilePath\": \"<string>\",\n  \"Rewrite404To200\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "64844372-de24-404e-8809-5a94c1dad12a",
+              "name": "Updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storagezone",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ReplicationZones\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"OriginUrl\": \"<string,null>\",\n  \"Custom404FilePath\": \"<string>\",\n  \"Rewrite404To200\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01fc52b4-41f8-4f0e-ae66-98930586134d",
+          "name": "Delete storage zone",
+          "request": {
+            "name": "Delete storage zone",
+            "description": {},
+            "url": {
+              "path": [
+                "storagezone",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d81f0253-c3fd-47db-bb2a-00b2060cc61e",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storagezone",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc8b72eb-d021-4071-92f7-6e0dff940e47",
+          "name": "Reset storage zone password",
+          "request": {
+            "name": "Reset storage zone password",
+            "description": {},
+            "url": {
+              "path": [
+                "storagezone",
+                ":id",
+                "resetPassword"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f572015d-03ad-4b5c-91b6-7dab8c9ab64a",
+              "name": "Reset",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storagezone",
+                    ":id",
+                    "resetPassword"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79db412c-af33-4c27-9a41-f516aad17a8d",
+          "name": "Reset read-only password",
+          "request": {
+            "name": "Reset read-only password",
+            "description": {},
+            "url": {
+              "path": [
+                "storagezone",
+                ":id",
+                "resetReadOnlyPassword"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9574aa0c-c661-4839-bf8d-6c460fec16c0",
+              "name": "Reset",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "storagezone",
+                    ":id",
+                    "resetReadOnlyPassword"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.bunny.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "AccessKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "21103390-b7e1-4554-a315-c50246ed3814",
+    "name": "Bunny.net Core Platform APIKeys StorageZones API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of the Bunny.net Core Platform REST API for managing\nPull Zones, Storage Zones, DNS Zones, Stream video libraries, statistics, billing,\npurge, API keys, and reference data.\n\nAuthentication uses the `AccessKey` header containing your account API key issued from\nthe Bunny.net dashboard.\n\n\nContact Support:\n Name: Bunny.net",
+      "type": "text/plain"
+    }
+  }
+}

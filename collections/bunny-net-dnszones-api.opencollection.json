@@ -1,0 +1,218 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bunny.net Core Platform APIKeys DNSZones API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AccessKey",
+      "value": "{{AccessKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DNSZones",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List DNS zones",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bunny.net/dnszone"
+          },
+          "docs": "List DNS zones"
+        },
+        {
+          "info": {
+            "name": "Add DNS zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/dnszone",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add DNS zone"
+        },
+        {
+          "info": {
+            "name": "Get DNS zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bunny.net/dnszone/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get DNS zone"
+        },
+        {
+          "info": {
+            "name": "Update DNS zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/dnszone/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update DNS zone"
+        },
+        {
+          "info": {
+            "name": "Delete DNS zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bunny.net/dnszone/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete DNS zone"
+        },
+        {
+          "info": {
+            "name": "Add DNS record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/dnszone/:id/records",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add DNS record"
+        },
+        {
+          "info": {
+            "name": "Update DNS record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/dnszone/:id/records/:recordId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "recordId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update DNS record"
+        },
+        {
+          "info": {
+            "name": "Delete DNS record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bunny.net/dnszone/:id/records/:recordId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "recordId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete DNS record"
+        },
+        {
+          "info": {
+            "name": "Enable DNSSEC",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/dnszone/:id/enableDNSSEC",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Enable DNSSEC"
+        },
+        {
+          "info": {
+            "name": "Disable DNSSEC",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/dnszone/:id/disableDNSSEC",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Disable DNSSEC"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

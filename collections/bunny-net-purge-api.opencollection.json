@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bunny.net Core Platform APIKeys Purge API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AccessKey",
+      "value": "{{AccessKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Purge",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Purge URL from CDN",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/purge",
+            "params": [
+              {
+                "name": "url",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "async",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Purge URL from CDN"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bunny.net Core Platform APIKeys Stream API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AccessKey",
+      "value": "{{AccessKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stream",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List video libraries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bunny.net/videolibrary"
+          },
+          "docs": "List video libraries"
+        },
+        {
+          "info": {
+            "name": "Add video library",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/videolibrary",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add video library"
+        },
+        {
+          "info": {
+            "name": "Get video library",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bunny.net/videolibrary/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get video library"
+        },
+        {
+          "info": {
+            "name": "Update video library",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/videolibrary/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update video library"
+        },
+        {
+          "info": {
+            "name": "Delete video library",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bunny.net/videolibrary/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete video library"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

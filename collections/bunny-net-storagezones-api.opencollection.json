@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bunny.net Core Platform APIKeys StorageZones API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AccessKey",
+      "value": "{{AccessKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "StorageZones",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List storage zones",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bunny.net/storagezone"
+          },
+          "docs": "List storage zones"
+        },
+        {
+          "info": {
+            "name": "Add a storage zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/storagezone",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a storage zone"
+        },
+        {
+          "info": {
+            "name": "Get storage zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bunny.net/storagezone/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get storage zone"
+        },
+        {
+          "info": {
+            "name": "Update storage zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/storagezone/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update storage zone"
+        },
+        {
+          "info": {
+            "name": "Delete storage zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bunny.net/storagezone/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete storage zone"
+        },
+        {
+          "info": {
+            "name": "Reset storage zone password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/storagezone/:id/resetPassword",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Reset storage zone password"
+        },
+        {
+          "info": {
+            "name": "Reset read-only password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/storagezone/:id/resetReadOnlyPassword",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Reset read-only password"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

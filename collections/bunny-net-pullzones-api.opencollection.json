@@ -1,0 +1,339 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bunny.net Core Platform APIKeys PullZones API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AccessKey",
+      "value": "{{AccessKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PullZones",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List pull zones",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bunny.net/pullzone",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeCertificate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List pull zones"
+        },
+        {
+          "info": {
+            "name": "Add a pull zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/pullzone",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a pull zone"
+        },
+        {
+          "info": {
+            "name": "Get pull zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bunny.net/pullzone/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get pull zone"
+        },
+        {
+          "info": {
+            "name": "Update pull zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/pullzone/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update pull zone"
+        },
+        {
+          "info": {
+            "name": "Delete pull zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.bunny.net/pullzone/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete pull zone"
+        },
+        {
+          "info": {
+            "name": "Purge pull zone cache",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/pullzone/:id/purgeCache",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Purge pull zone cache"
+        },
+        {
+          "info": {
+            "name": "Add allowed referer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/pullzone/:id/addAllowedReferer",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add allowed referer"
+        },
+        {
+          "info": {
+            "name": "Remove allowed referer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/pullzone/:id/removeAllowedReferer",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove allowed referer"
+        },
+        {
+          "info": {
+            "name": "Add blocked IP",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/pullzone/:id/addBlockedIP",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add blocked IP"
+        },
+        {
+          "info": {
+            "name": "Remove blocked IP",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/pullzone/:id/removeBlockedIP",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove blocked IP"
+        },
+        {
+          "info": {
+            "name": "Add custom certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/pullzone/:id/addCustomCertificate",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add custom certificate"
+        },
+        {
+          "info": {
+            "name": "Add custom hostname",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/pullzone/:id/addCustomHostname",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add custom hostname"
+        },
+        {
+          "info": {
+            "name": "Remove custom hostname",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/pullzone/:id/removeCustomHostname",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove custom hostname"
+        },
+        {
+          "info": {
+            "name": "Set force SSL on hostname",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/pullzone/:id/setForceSSL",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set force SSL on hostname"
+        },
+        {
+          "info": {
+            "name": "Reset token authentication key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bunny.net/pullzone/:id/resetTokenKey",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Reset token authentication key"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

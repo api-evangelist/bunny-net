@@ -1,0 +1,1013 @@
+{
+  "item": [
+    {
+      "id": "91d63bac-0e2c-482b-b365-186fd05f84a8",
+      "name": "DNSZones",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "49e2ce74-a522-4618-ad8f-2e5450c2b76a",
+          "name": "List DNS zones",
+          "request": {
+            "name": "List DNS zones",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "928312da-a025-4c2e-ad33-2085b050af61",
+              "name": "DNS zones",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"Id\": 1198,\n    \"Domain\": \"string\",\n    \"Records\": [\n      {\n        \"Id\": 9716,\n        \"Type\": 2749,\n        \"Ttl\": 7312,\n        \"Value\": \"string\",\n        \"Name\": \"string\",\n        \"Weight\": 3781,\n        \"Priority\": 7619,\n        \"Port\": 2803,\n        \"Flags\": 8800,\n        \"Tag\": \"string\",\n        \"Accelerated\": false,\n        \"AcceleratedPullZoneId\": 4918,\n        \"Disabled\": false\n      },\n      {\n        \"Id\": 3039,\n        \"Type\": 3713,\n        \"Ttl\": 7775,\n        \"Value\": \"string\",\n        \"Name\": \"string\",\n        \"Weight\": 7566,\n        \"Priority\": 1923,\n        \"Port\": 1596,\n        \"Flags\": 8642,\n        \"Tag\": \"string\",\n        \"Accelerated\": false,\n        \"AcceleratedPullZoneId\": 5635,\n        \"Disabled\": false\n      }\n    ],\n    \"DateModified\": \"1953-01-10T11:24:15.746Z\",\n    \"DateCreated\": \"2000-09-24T01:20:19.333Z\",\n    \"NameserversDetected\": false,\n    \"CustomNameserversEnabled\": true,\n    \"Nameserver1\": \"string\",\n    \"Nameserver2\": \"string\"\n  },\n  {\n    \"Id\": 3317,\n    \"Domain\": \"string\",\n    \"Records\": [\n      {\n        \"Id\": 3069,\n        \"Type\": 5364,\n        \"Ttl\": 3664,\n        \"Value\": \"string\",\n        \"Name\": \"string\",\n        \"Weight\": 5694,\n        \"Priority\": 9914,\n        \"Port\": 3716,\n        \"Flags\": 7763,\n        \"Tag\": \"string\",\n        \"Accelerated\": false,\n        \"AcceleratedPullZoneId\": 4203,\n        \"Disabled\": false\n      },\n      {\n        \"Id\": 512,\n        \"Type\": 7685,\n        \"Ttl\": 3700,\n        \"Value\": \"string\",\n        \"Name\": \"string\",\n        \"Weight\": 2587,\n        \"Priority\": 4784,\n        \"Port\": 3754,\n        \"Flags\": 3595,\n        \"Tag\": \"string\",\n        \"Accelerated\": false,\n        \"AcceleratedPullZoneId\": 7476,\n        \"Disabled\": false\n      }\n    ],\n    \"DateModified\": \"1994-05-05T04:54:25.026Z\",\n    \"DateCreated\": \"2013-10-12T14:21:02.344Z\",\n    \"NameserversDetected\": false,\n    \"CustomNameserversEnabled\": true,\n    \"Nameserver1\": \"string\",\n    \"Nameserver2\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dabd8de1-93e7-4b76-8e7d-a6af4b9dbba3",
+          "name": "Add DNS zone",
+          "request": {
+            "name": "Add DNS zone",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Domain\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1fb64ee7-ba72-4f9c-be66-27ed5ddd3e5a",
+              "name": "DNS zone",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Domain\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": 2465,\n  \"Domain\": \"string\",\n  \"Records\": [\n    {\n      \"Id\": 9400,\n      \"Type\": 8826,\n      \"Ttl\": 8131,\n      \"Value\": \"string\",\n      \"Name\": \"string\",\n      \"Weight\": 5027,\n      \"Priority\": 1729,\n      \"Port\": 717,\n      \"Flags\": 4827,\n      \"Tag\": \"string\",\n      \"Accelerated\": false,\n      \"AcceleratedPullZoneId\": 2712,\n      \"Disabled\": true\n    },\n    {\n      \"Id\": 7190,\n      \"Type\": 3623,\n      \"Ttl\": 5243,\n      \"Value\": \"string\",\n      \"Name\": \"string\",\n      \"Weight\": 2670,\n      \"Priority\": 6941,\n      \"Port\": 2175,\n      \"Flags\": 2461,\n      \"Tag\": \"string\",\n      \"Accelerated\": false,\n      \"AcceleratedPullZoneId\": 2991,\n      \"Disabled\": false\n    }\n  ],\n  \"DateModified\": \"1973-11-29T21:33:36.666Z\",\n  \"DateCreated\": \"1950-06-05T12:45:59.562Z\",\n  \"NameserversDetected\": false,\n  \"CustomNameserversEnabled\": false,\n  \"Nameserver1\": \"string\",\n  \"Nameserver2\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33d9b5d2-625f-4f1d-bc17-b9f37eadd9fc",
+          "name": "Get DNS zone",
+          "request": {
+            "name": "Get DNS zone",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0b124571-f14f-411b-b535-e4605ea0789c",
+              "name": "DNS zone",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": 2465,\n  \"Domain\": \"string\",\n  \"Records\": [\n    {\n      \"Id\": 9400,\n      \"Type\": 8826,\n      \"Ttl\": 8131,\n      \"Value\": \"string\",\n      \"Name\": \"string\",\n      \"Weight\": 5027,\n      \"Priority\": 1729,\n      \"Port\": 717,\n      \"Flags\": 4827,\n      \"Tag\": \"string\",\n      \"Accelerated\": false,\n      \"AcceleratedPullZoneId\": 2712,\n      \"Disabled\": true\n    },\n    {\n      \"Id\": 7190,\n      \"Type\": 3623,\n      \"Ttl\": 5243,\n      \"Value\": \"string\",\n      \"Name\": \"string\",\n      \"Weight\": 2670,\n      \"Priority\": 6941,\n      \"Port\": 2175,\n      \"Flags\": 2461,\n      \"Tag\": \"string\",\n      \"Accelerated\": false,\n      \"AcceleratedPullZoneId\": 2991,\n      \"Disabled\": false\n    }\n  ],\n  \"DateModified\": \"1973-11-29T21:33:36.666Z\",\n  \"DateCreated\": \"1950-06-05T12:45:59.562Z\",\n  \"NameserversDetected\": false,\n  \"CustomNameserversEnabled\": false,\n  \"Nameserver1\": \"string\",\n  \"Nameserver2\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ebe18b42-a795-436b-adf3-b74f30fba6d2",
+          "name": "Update DNS zone",
+          "request": {
+            "name": "Update DNS zone",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": 2768.8642890547867\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "69c4be52-0359-422d-99e6-cd9846b62b98",
+              "name": "Updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": 5343.5109991095205,\n  \"key_1\": \"string\",\n  \"key_2\": \"string\",\n  \"key_3\": 181\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17531632-2412-4c4c-b825-caea08c8b63c",
+          "name": "Delete DNS zone",
+          "request": {
+            "name": "Delete DNS zone",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78fcafa1-0878-446a-96ca-34ec9b251b7c",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ea2bb9cd-1584-4381-91eb-ace8d910f6db",
+          "name": "Add DNS record",
+          "request": {
+            "name": "Add DNS record",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone",
+                ":id",
+                "records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"<integer>\",\n  \"Type\": \"<integer>\",\n  \"Ttl\": \"<integer>\",\n  \"Value\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Weight\": \"<integer>\",\n  \"Priority\": \"<integer>\",\n  \"Port\": \"<integer>\",\n  \"Flags\": \"<integer>\",\n  \"Tag\": \"<string>\",\n  \"Accelerated\": \"<boolean>\",\n  \"AcceleratedPullZoneId\": \"<integer>\",\n  \"Disabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8e571429-56d0-448a-bbf7-704c525cc58d",
+              "name": "DNS record",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone",
+                    ":id",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<integer>\",\n  \"Type\": \"<integer>\",\n  \"Ttl\": \"<integer>\",\n  \"Value\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Weight\": \"<integer>\",\n  \"Priority\": \"<integer>\",\n  \"Port\": \"<integer>\",\n  \"Flags\": \"<integer>\",\n  \"Tag\": \"<string>\",\n  \"Accelerated\": \"<boolean>\",\n  \"AcceleratedPullZoneId\": \"<integer>\",\n  \"Disabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": 290,\n  \"Type\": 5280,\n  \"Ttl\": 3990,\n  \"Value\": \"string\",\n  \"Name\": \"string\",\n  \"Weight\": 1871,\n  \"Priority\": 4366,\n  \"Port\": 3128,\n  \"Flags\": 4438,\n  \"Tag\": \"string\",\n  \"Accelerated\": false,\n  \"AcceleratedPullZoneId\": 4619,\n  \"Disabled\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c4211c4-8f66-47c3-916c-b585500598b4",
+          "name": "Update DNS record",
+          "request": {
+            "name": "Update DNS record",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone",
+                ":id",
+                "records",
+                ":recordId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "recordId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"<integer>\",\n  \"Type\": \"<integer>\",\n  \"Ttl\": \"<integer>\",\n  \"Value\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Weight\": \"<integer>\",\n  \"Priority\": \"<integer>\",\n  \"Port\": \"<integer>\",\n  \"Flags\": \"<integer>\",\n  \"Tag\": \"<string>\",\n  \"Accelerated\": \"<boolean>\",\n  \"AcceleratedPullZoneId\": \"<integer>\",\n  \"Disabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ecfc8a1a-d8a8-4ba6-aa4c-9812eb660587",
+              "name": "Updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone",
+                    ":id",
+                    "records",
+                    ":recordId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "recordId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<integer>\",\n  \"Type\": \"<integer>\",\n  \"Ttl\": \"<integer>\",\n  \"Value\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Weight\": \"<integer>\",\n  \"Priority\": \"<integer>\",\n  \"Port\": \"<integer>\",\n  \"Flags\": \"<integer>\",\n  \"Tag\": \"<string>\",\n  \"Accelerated\": \"<boolean>\",\n  \"AcceleratedPullZoneId\": \"<integer>\",\n  \"Disabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0c48f62-7c66-4a7a-8a71-cb57f2c29a9a",
+          "name": "Delete DNS record",
+          "request": {
+            "name": "Delete DNS record",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone",
+                ":id",
+                "records",
+                ":recordId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "recordId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23076383-29d7-419d-91f7-3f73dd496ffa",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone",
+                    ":id",
+                    "records",
+                    ":recordId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "recordId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9c75441-dcae-4ce6-b21d-8fdf18a43c27",
+          "name": "Enable DNSSEC",
+          "request": {
+            "name": "Enable DNSSEC",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone",
+                ":id",
+                "enableDNSSEC"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4e358507-5487-464a-9c0b-f2e1ba53e4ca",
+              "name": "Enabled",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone",
+                    ":id",
+                    "enableDNSSEC"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dab81e6d-6b3a-46cc-b9c2-2236a99864bf",
+          "name": "Disable DNSSEC",
+          "request": {
+            "name": "Disable DNSSEC",
+            "description": {},
+            "url": {
+              "path": [
+                "dnszone",
+                ":id",
+                "disableDNSSEC"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b1dc1ca1-f195-4224-a70f-5bdb8b3bea26",
+              "name": "Disabled",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dnszone",
+                    ":id",
+                    "disableDNSSEC"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.bunny.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "AccessKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fa96285d-89b9-45d4-a571-428324b69f03",
+    "name": "Bunny.net Core Platform APIKeys DNSZones API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of the Bunny.net Core Platform REST API for managing\nPull Zones, Storage Zones, DNS Zones, Stream video libraries, statistics, billing,\npurge, API keys, and reference data.\n\nAuthentication uses the `AccessKey` header containing your account API key issued from\nthe Bunny.net dashboard.\n\n\nContact Support:\n Name: Bunny.net",
+      "type": "text/plain"
+    }
+  }
+}

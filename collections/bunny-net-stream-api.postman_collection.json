@@ -1,0 +1,502 @@
+{
+  "item": [
+    {
+      "id": "afa5768c-b04c-4842-9d5b-d1fe95a1a37b",
+      "name": "Stream",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ca5436fc-c1ea-42d4-a1ff-492de64c7a52",
+          "name": "List video libraries",
+          "request": {
+            "name": "List video libraries",
+            "description": {},
+            "url": {
+              "path": [
+                "videolibrary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f8dbbad2-92ce-4da2-a376-7f4698e5388e",
+              "name": "Libraries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videolibrary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"Id\": 2747,\n    \"Name\": \"string\",\n    \"VideoCount\": 8342,\n    \"TrafficUsage\": 6086,\n    \"StorageUsage\": 4905,\n    \"ApiKey\": \"string\",\n    \"ReadOnlyApiKey\": \"string\",\n    \"DateCreated\": \"2015-10-28T05:13:21.695Z\",\n    \"ReplicationRegions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"EnabledResolutions\": \"string\",\n    \"ViAiPublisherId\": \"string\",\n    \"VastTagUrl\": \"string\",\n    \"WatermarkPositionLeft\": 7073,\n    \"WatermarkPositionTop\": 7848,\n    \"WatermarkWidth\": 7838,\n    \"WatermarkHeight\": 8171,\n    \"EnableMP4Fallback\": true,\n    \"AllowedReferrers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"BlockedReferrers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"BlockNoneReferrer\": true,\n    \"EnableTokenAuthentication\": false,\n    \"EnableTokenIPVerification\": true\n  },\n  {\n    \"Id\": 5480,\n    \"Name\": \"string\",\n    \"VideoCount\": 4623,\n    \"TrafficUsage\": 1669,\n    \"StorageUsage\": 6904,\n    \"ApiKey\": \"string\",\n    \"ReadOnlyApiKey\": \"string\",\n    \"DateCreated\": \"1978-05-10T11:43:13.630Z\",\n    \"ReplicationRegions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"EnabledResolutions\": \"string\",\n    \"ViAiPublisherId\": \"string\",\n    \"VastTagUrl\": \"string\",\n    \"WatermarkPositionLeft\": 9925,\n    \"WatermarkPositionTop\": 9953,\n    \"WatermarkWidth\": 404,\n    \"WatermarkHeight\": 3283,\n    \"EnableMP4Fallback\": true,\n    \"AllowedReferrers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"BlockedReferrers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"BlockNoneReferrer\": true,\n    \"EnableTokenAuthentication\": false,\n    \"EnableTokenIPVerification\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "434b950a-bd3c-465e-b17a-9b69cc8bd44a",
+          "name": "Add video library",
+          "request": {
+            "name": "Add video library",
+            "description": {},
+            "url": {
+              "path": [
+                "videolibrary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"ReplicationRegions\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e7b54892-d983-446c-ab2b-2128e08088aa",
+              "name": "Library",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videolibrary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"ReplicationRegions\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": 4246,\n  \"Name\": \"string\",\n  \"VideoCount\": 125,\n  \"TrafficUsage\": 7230,\n  \"StorageUsage\": 1779,\n  \"ApiKey\": \"string\",\n  \"ReadOnlyApiKey\": \"string\",\n  \"DateCreated\": \"1947-07-01T00:05:42.356Z\",\n  \"ReplicationRegions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"EnabledResolutions\": \"string\",\n  \"ViAiPublisherId\": \"string\",\n  \"VastTagUrl\": \"string\",\n  \"WatermarkPositionLeft\": 9780,\n  \"WatermarkPositionTop\": 1561,\n  \"WatermarkWidth\": 2058,\n  \"WatermarkHeight\": 1707,\n  \"EnableMP4Fallback\": true,\n  \"AllowedReferrers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"BlockedReferrers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"BlockNoneReferrer\": true,\n  \"EnableTokenAuthentication\": false,\n  \"EnableTokenIPVerification\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b2a3a1c-84bd-47fc-ae90-592116362ed1",
+          "name": "Get video library",
+          "request": {
+            "name": "Get video library",
+            "description": {},
+            "url": {
+              "path": [
+                "videolibrary",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b1d3c85-be7c-4cac-ad79-c9bff9352a1b",
+              "name": "Library",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videolibrary",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": 4246,\n  \"Name\": \"string\",\n  \"VideoCount\": 125,\n  \"TrafficUsage\": 7230,\n  \"StorageUsage\": 1779,\n  \"ApiKey\": \"string\",\n  \"ReadOnlyApiKey\": \"string\",\n  \"DateCreated\": \"1947-07-01T00:05:42.356Z\",\n  \"ReplicationRegions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"EnabledResolutions\": \"string\",\n  \"ViAiPublisherId\": \"string\",\n  \"VastTagUrl\": \"string\",\n  \"WatermarkPositionLeft\": 9780,\n  \"WatermarkPositionTop\": 1561,\n  \"WatermarkWidth\": 2058,\n  \"WatermarkHeight\": 1707,\n  \"EnableMP4Fallback\": true,\n  \"AllowedReferrers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"BlockedReferrers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"BlockNoneReferrer\": true,\n  \"EnableTokenAuthentication\": false,\n  \"EnableTokenIPVerification\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e650ca02-092e-40d4-9c62-3c244711937f",
+          "name": "Update video library",
+          "request": {
+            "name": "Update video library",
+            "description": {},
+            "url": {
+              "path": [
+                "videolibrary",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": 463\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e93db7d3-db66-4e21-a714-c3d5077abca6",
+              "name": "Updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videolibrary",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": \"string\",\n  \"key_1\": 5121.023874066191\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "708bc50f-d905-4cd6-85d6-ea7add2768f4",
+          "name": "Delete video library",
+          "request": {
+            "name": "Delete video library",
+            "description": {},
+            "url": {
+              "path": [
+                "videolibrary",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "79e3aeb9-37a4-4105-b086-dc3a0bcfc109",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "videolibrary",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AccessKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.bunny.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "AccessKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "eacd69b9-05f0-4351-bd31-7cb0363fea3d",
+    "name": "Bunny.net Core Platform APIKeys Stream API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of the Bunny.net Core Platform REST API for managing\nPull Zones, Storage Zones, DNS Zones, Stream video libraries, statistics, billing,\npurge, API keys, and reference data.\n\nAuthentication uses the `AccessKey` header containing your account API key issued from\nthe Bunny.net dashboard.\n\n\nContact Support:\n Name: Bunny.net",
+      "type": "text/plain"
+    }
+  }
+}
