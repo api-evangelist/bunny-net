@@ -136,6 +136,12 @@ apis:
     Read-Only API key.
   humanURL: https://docs.bunny.net/stream/webhooks
   tags:
+  - Webhook
+  - AsyncAPI
+  - Video
+  - Streaming
+  - Event
+  tags_raw:
   - Webhooks
   - AsyncAPI
   - Video
@@ -170,6 +176,11 @@ apis:
   humanURL: https://docs.bunny.net/docs/cdn-optimizer-overview
   baseURL: https://api.bunny.net/pullzone
   tags:
+  - Image Optimization
+  - WebP
+  - AVIF
+  - Frontend
+  tags_raw:
   - Image Optimization
   - WebP
   - AVIF
@@ -239,6 +250,9 @@ apis:
   humanURL: https://docs.bunny.net/reference/apikeypublic_index
   baseURL: https://api.bunny.net/apikey
   tags:
+  - APIKeys
+  - Authentication
+  tags_raw:
   - API Keys
   - Authentication
   properties:
@@ -305,6 +319,8 @@ apis:
   humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
   baseURL: https://api.bunny.net
   tags:
+  - DNS Zones
+  tags_raw:
   - DNSZones
   properties:
   - type: OpenAPI
@@ -315,6 +331,8 @@ apis:
   humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
   baseURL: https://api.bunny.net
   tags:
+  - Pull Zones
+  tags_raw:
   - PullZones
   properties:
   - type: OpenAPI
