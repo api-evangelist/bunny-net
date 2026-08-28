@@ -11,6 +11,18 @@ description: 'Bunny.net is a content-delivery and edge platform offering a globa
   at storage.bunnycdn.com, Stream uploads at video.bunnycdn.com, Shield (WAF), Optimizer,
   and the Scripting / Magic Containers edge-compute API. All APIs use the AccessKey
   header for authentication, with API keys issued from the bunny.net dashboard.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: self-serve
