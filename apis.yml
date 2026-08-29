@@ -400,6 +400,9 @@ apis:
   - type: OpenAPI
     url: openapi/bunny-net-stream-api-openapi.yml
 common:
+- type: CapabilityMap
+  url: capabilities/bunny-net-capability-edges.yml
+  name: Bunny.net Business Capability Map
 - type: AgenticAccess
   url: agentic-access/bunny-net-agentic-access.yml
 - type: DomainSecurity

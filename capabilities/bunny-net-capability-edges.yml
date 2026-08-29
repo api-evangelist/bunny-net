@@ -1,0 +1,34 @@
+slug: bunny-net
+provider: Bunny.net
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Telecommunications
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Billing
+  spec_file: bunny-net-billing-api-openapi.yml
+  capability_id: BC-4250.30
+  capability_id_l1: BC-4250
+  capability_name: Invoicing & Statement Management
+  confidence: 0.7
+  evidence: GET /billing/summary  getBillingSummary; GET /billing/paymentRequests  Get pending payment
+    requests
+  reason: Account billing details, summaries and payment requests for a subscription/usage-based cloud
+    service — subscription billing and invoicing/statement surface, read-only.
+- tag: DNSZones
+  spec_file: bunny-net-dnszones-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: POST /dnszone  addDnsZone  Add DNS zone; POST /dnszone/{id}/enableDNSSEC  Enable DNSSEC
+  reason: DNS zone and record lifecycle management is IT network infrastructure configuration for the
+    buyer's estate.
