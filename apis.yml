@@ -191,7 +191,7 @@ apis:
   - Image Optimization
   - WebP
   - AVIF
-  - Front-End
+  - Frontend
   tags_raw:
   - Image Optimization
   - WebP
@@ -331,7 +331,7 @@ apis:
   humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
   baseURL: https://api.bunny.net
   tags:
-  - DNSZones
+  - DNS Zones
   tags_raw:
   - DNSZones
   properties:
@@ -343,7 +343,7 @@ apis:
   humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
   baseURL: https://api.bunny.net
   tags:
-  - PullZones
+  - Pull Zones
   tags_raw:
   - PullZones
   properties:
