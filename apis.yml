@@ -296,16 +296,6 @@ apis:
   properties:
   - type: Documentation
     url: https://docs.bunny.net/reference/regionpublic_index
-- aid: bunny-net:bunny-net-apikeys-api
-  name: Bunny.net APIKeys API
-  description: The APIKeys API from Bunny.net — 1 operation(s) for apikeys.
-  humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
-  baseURL: https://api.bunny.net
-  tags:
-  - APIKeys
-  properties:
-  - type: OpenAPI
-    url: openapi/bunny-net-apikeys-api-openapi.yml
 - aid: bunny-net:bunny-net-billing-api
   name: Bunny.net Billing API
   description: The Billing API from Bunny.net — 3 operation(s) for billing.
@@ -326,18 +316,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/bunny-net-countries-api-openapi.yml
-- aid: bunny-net:bunny-net-dnszones-api
-  name: Bunny.net DNSZones API
-  description: The DNSZones API from Bunny.net — 6 operation(s) for dnszones.
-  humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
-  baseURL: https://api.bunny.net
-  tags:
-  - DNS Zones
-  tags_raw:
-  - DNSZones
-  properties:
-  - type: OpenAPI
-    url: openapi/bunny-net-dnszones-api-openapi.yml
 - aid: bunny-net:bunny-net-pullzones-api
   name: Bunny.net PullZones API
   description: The PullZones API from Bunny.net — 12 operation(s) for pullzones.
@@ -400,6 +378,26 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/bunny-net-stream-api-openapi.yml
+- aid: bunny-net:bunny-net-api-keys-api
+  name: Bunny.net API Keys API
+  description: The API Keys API from Bunny.net — 1 operation(s) for api keys.
+  humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
+  baseURL: https://api.bunny.net
+  tags:
+  - API Keys
+  properties:
+  - type: OpenAPI
+    url: openapi/bunny-net-api-keys-api-openapi.yml
+- aid: bunny-net:bunny-net-dns-zones-api
+  name: Bunny.net DNS Zones API
+  description: The DNS Zones API from Bunny.net — 6 operation(s) for dns zones.
+  humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
+  baseURL: https://api.bunny.net
+  tags:
+  - DNS Zones
+  properties:
+  - type: OpenAPI
+    url: openapi/bunny-net-dns-zones-api-openapi.yml
 common:
 - type: CapabilityMap
   url: capabilities/bunny-net-capability-edges.yml
