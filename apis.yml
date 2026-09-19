@@ -384,6 +384,8 @@ apis:
   humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
   baseURL: https://api.bunny.net
   tags:
+  - APIKeys
+  tags_raw:
   - API Keys
   properties:
   - type: OpenAPI
