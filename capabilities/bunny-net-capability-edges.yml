@@ -24,7 +24,8 @@ edges:
   reason: Account billing details, summaries and payment requests for a subscription/usage-based cloud
     service — subscription billing and invoicing/statement surface, read-only.
 - tag: DNSZones
-  spec_file: bunny-net-dnszones-api-openapi.yml
+  spec_file: bunny-net-dns-zones-api-openapi.yml
+  reanchored_from: bunny-net-dnszones-api-openapi.yml
   capability_id: BC-600.50
   capability_id_l1: BC-600
   capability_name: IT Infrastructure Management
