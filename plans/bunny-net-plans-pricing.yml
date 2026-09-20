@@ -1,53 +1,69 @@
-specification: API Commons Plans
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
-provider: Bunny.net
-providerId: bunny-net
-created: '2026-05-22'
-modified: '2026-05-22'
-tags:
-- CDN
-- Edge
-- Video
-- Storage
-- DNS
-- WAF
-- Edge Compute
-- Image Optimization
-description: Machine-readable plans scaffold for the Bunny.net API surface. Conforms to the API Commons Plans schema. Tier
-  limits and prices are scaffold defaults; replace with provider-published values.
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://bunny.net/pricing/
+sources:
+- https://bunny.net/pricing/
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T120546
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: usage-other
+published: true
+note: Bandwidth-based pay-as-you-go CDN pricing with region and volume tiers; other products (Stream,
+  Storage, etc.) listed without visible prices in this text.
+plan_count: 9
+currency: USD
 plans:
-- id: bunny-net-free
-  name: Free
-  type: freemium
-  description: Free entry tier for the Bunny.net API surface. Intended for evaluation, prototyping, and low-volume integrations.
-    Real limits and pricing must be reconciled with the provider's published plan documentation.
-  entries:
-  - label: API Requests
-    description: Monthly API request quota across all included endpoints
-    name: api_requests
-    type: quota
-    metric: requests
-    limit: 1000
-    timeFrame: month
-    geo: global
-    domains:
-    - https://api.bunny.net
-    unit: 1
-    price: '0.00'
-    userMultiplied: false
-  - label: Rate Limit
-    description: Maximum requests per minute on the free tier
-    name: rate_limit
-    type: rate
-    metric: requests_per_minute
-    limit: 10
-    timeFrame: minute
-    geo: global
-    domains:
-    - https://api.bunny.net
-    unit: 1
-    price: '0.00'
-references:
-- name: Bunny.net API Documentation
-  url: https://raw.githubusercontent.com/api-evangelist/bunny-net/refs/heads/main/apis.yml
+- name: Standard network - Europe & North America
+  price_text: $0.01/GB
+  price: 0.01
+  currency: USD
+  period: per-use
+  unit: GB
+- name: Standard network - South America
+  price_text: $0.045/GB
+  price: 0.045
+  currency: USD
+  period: per-use
+  unit: GB
+- name: Standard network - Asia & Oceania
+  price_text: $0.03/GB
+  price: 0.03
+  currency: USD
+  period: per-use
+  unit: GB
+- name: Standard network - Middle East & Africa
+  price_text: $0.06/GB
+  price: 0.06
+  currency: USD
+  period: per-use
+  unit: GB
+- name: Volume network - First 500 TB
+  price_text: $0.005/GB
+  price: 0.005
+  currency: USD
+  period: per-use
+  unit: GB
+- name: Volume network - 500 TB - 1 PB
+  price_text: $0.004/GB
+  price: 0.004
+  currency: USD
+  period: per-use
+  unit: GB
+- name: Volume network - 1 PB - 2 PB
+  price_text: $0.002/GB
+  price: 0.002
+  currency: USD
+  period: per-use
+  unit: GB
+- name: Volume network - From 2 PB+
+  price_text: Contact us
+  period: none
+- name: Monthly minimum
+  price_text: $1 monthly minimum
+  price: 1
+  currency: USD
+  period: month
+  included_quota: All features included
