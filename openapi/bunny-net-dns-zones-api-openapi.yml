@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Bunny.net Core Platform APIKeys DNSZones API
+  title: Bunny.net Core Platform DNS Zones API
   description: 'Best-effort OpenAPI 3.1 description of the Bunny.net Core Platform REST API for managing
 
     Pull Zones, Storage Zones, DNS Zones, Stream video libraries, statistics, billing,
@@ -10,9 +10,7 @@ info:
 
     Authentication uses the `AccessKey` header containing your account API key issued from
 
-    the Bunny.net dashboard.
-
-    '
+    the Bunny.net dashboard.'
   version: '1.0'
   contact:
     name: Bunny.net
@@ -23,12 +21,12 @@ servers:
 security:
 - accessKeyAuth: []
 tags:
-- name: DNSZones
+- name: DNS Zones
 paths:
   /dnszone:
     get:
       tags:
-      - DNSZones
+      - DNS Zones
       summary: List DNS zones
       operationId: listDnsZones
       responses:
@@ -42,7 +40,7 @@ paths:
                   $ref: '#/components/schemas/DnsZone'
     post:
       tags:
-      - DNSZones
+      - DNS Zones
       summary: Add DNS zone
       operationId: addDnsZone
       requestBody:
@@ -68,7 +66,7 @@ paths:
     - $ref: '#/components/parameters/IdPath'
     get:
       tags:
-      - DNSZones
+      - DNS Zones
       summary: Get DNS zone
       operationId: getDnsZone
       responses:
@@ -80,7 +78,7 @@ paths:
                 $ref: '#/components/schemas/DnsZone'
     post:
       tags:
-      - DNSZones
+      - DNS Zones
       summary: Update DNS zone
       operationId: updateDnsZone
       requestBody:
@@ -95,7 +93,7 @@ paths:
           description: Updated
     delete:
       tags:
-      - DNSZones
+      - DNS Zones
       summary: Delete DNS zone
       operationId: deleteDnsZone
       responses:
@@ -106,7 +104,7 @@ paths:
     - $ref: '#/components/parameters/IdPath'
     post:
       tags:
-      - DNSZones
+      - DNS Zones
       summary: Add DNS record
       operationId: addDnsRecord
       requestBody:
@@ -132,7 +130,7 @@ paths:
         type: integer
     post:
       tags:
-      - DNSZones
+      - DNS Zones
       summary: Update DNS record
       operationId: updateDnsRecord
       requestBody:
@@ -146,7 +144,7 @@ paths:
           description: Updated
     delete:
       tags:
-      - DNSZones
+      - DNS Zones
       summary: Delete DNS record
       operationId: deleteDnsRecord
       responses:
@@ -157,7 +155,7 @@ paths:
     - $ref: '#/components/parameters/IdPath'
     post:
       tags:
-      - DNSZones
+      - DNS Zones
       summary: Enable DNSSEC
       operationId: enableDnssec
       responses:
@@ -168,46 +166,14 @@ paths:
     - $ref: '#/components/parameters/IdPath'
     post:
       tags:
-      - DNSZones
+      - DNS Zones
       summary: Disable DNSSEC
       operationId: disableDnssec
       responses:
         '204':
           description: Disabled
 components:
-  parameters:
-    IdPath:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: integer
   schemas:
-    DnsZone:
-      type: object
-      properties:
-        Id:
-          type: integer
-        Domain:
-          type: string
-        Records:
-          type: array
-          items:
-            $ref: '#/components/schemas/DnsRecord'
-        DateModified:
-          type: string
-          format: date-time
-        DateCreated:
-          type: string
-          format: date-time
-        NameserversDetected:
-          type: boolean
-        CustomNameserversEnabled:
-          type: boolean
-        Nameserver1:
-          type: string
-        Nameserver2:
-          type: string
     DnsRecord:
       type: object
       properties:
@@ -238,6 +204,38 @@ components:
           type: integer
         Disabled:
           type: boolean
+    DnsZone:
+      type: object
+      properties:
+        Id:
+          type: integer
+        Domain:
+          type: string
+        Records:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecord'
+        DateModified:
+          type: string
+          format: date-time
+        DateCreated:
+          type: string
+          format: date-time
+        NameserversDetected:
+          type: boolean
+        CustomNameserversEnabled:
+          type: boolean
+        Nameserver1:
+          type: string
+        Nameserver2:
+          type: string
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
   securitySchemes:
     accessKeyAuth:
       type: apiKey
