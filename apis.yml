@@ -68,8 +68,6 @@ apis:
   properties:
   - type: Documentation
     url: https://docs.bunny.net/reference/bunnynet-api-overview
-  - url: graphql/bunny-net-graphql.md
-    type: GraphQL
 - aid: bunny-net:pull-zones
   name: Bunny.net Pull Zones API
   description: >-
