@@ -402,6 +402,8 @@ apis:
   - type: OpenAPI
     url: openapi/bunny-net-dns-zones-api-openapi.yml
 common:
+- type: VendorFacets
+  url: vendor-facets/bunny-net-vendor-facets.yml
 - type: CapabilityMap
   url: capabilities/bunny-net-capability-edges.yml
   name: Bunny.net Business Capability Map
