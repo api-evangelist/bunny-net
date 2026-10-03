@@ -173,13 +173,6 @@ paths:
         '204':
           description: Disabled
 components:
-  parameters:
-    IdPath:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: integer
   schemas:
     DnsRecord:
       type: object
@@ -236,6 +229,13 @@ components:
           type: string
         Nameserver2:
           type: string
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
   securitySchemes:
     accessKeyAuth:
       type: apiKey

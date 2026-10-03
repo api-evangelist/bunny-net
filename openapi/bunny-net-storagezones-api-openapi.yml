@@ -150,38 +150,6 @@ components:
       schema:
         type: integer
   schemas:
-    StorageZone:
-      type: object
-      properties:
-        Id:
-          type: integer
-        UserId:
-          type: string
-        Name:
-          type: string
-        Password:
-          type: string
-        ReadOnlyPassword:
-          type: string
-        DateModified:
-          type: string
-          format: date-time
-        Deleted:
-          type: boolean
-        StorageUsed:
-          type: integer
-        FilesStored:
-          type: integer
-        Region:
-          type: string
-        ReplicationRegions:
-          type: array
-          items:
-            type: string
-        PullZones:
-          type: array
-          items:
-            $ref: '#/components/schemas/PullZone'
     PullZone:
       type: object
       properties:
@@ -240,6 +208,38 @@ components:
           type: string
         Type:
           type: integer
+    StorageZone:
+      type: object
+      properties:
+        Id:
+          type: integer
+        UserId:
+          type: string
+        Name:
+          type: string
+        Password:
+          type: string
+        ReadOnlyPassword:
+          type: string
+        DateModified:
+          type: string
+          format: date-time
+        Deleted:
+          type: boolean
+        StorageUsed:
+          type: integer
+        FilesStored:
+          type: integer
+        Region:
+          type: string
+        ReplicationRegions:
+          type: array
+          items:
+            type: string
+        PullZones:
+          type: array
+          items:
+            $ref: '#/components/schemas/PullZone'
   securitySchemes:
     accessKeyAuth:
       type: apiKey

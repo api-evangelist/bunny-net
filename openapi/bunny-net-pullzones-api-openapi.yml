@@ -310,19 +310,6 @@ paths:
           description: Reset
 components:
   schemas:
-    PullZoneList:
-      type: object
-      properties:
-        Items:
-          type: array
-          items:
-            $ref: '#/components/schemas/PullZone'
-        CurrentPage:
-          type: integer
-        TotalItems:
-          type: integer
-        HasMoreItems:
-          type: boolean
     PullZone:
       type: object
       properties:
@@ -381,6 +368,22 @@ components:
           type: string
         Type:
           type: integer
+    PullZoneList:
+      type: object
+      properties:
+        Items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PullZone'
+        CurrentPage:
+          type: integer
+        TotalItems:
+          type: integer
+        HasMoreItems:
+          type: boolean
+    PullZoneUpdate:
+      type: object
+      additionalProperties: true
     PullZoneCreate:
       type: object
       required:
@@ -395,9 +398,6 @@ components:
           type: integer
         Type:
           type: integer
-    PullZoneUpdate:
-      type: object
-      additionalProperties: true
   parameters:
     IdPath:
       name: id
