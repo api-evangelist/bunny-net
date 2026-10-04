@@ -104,6 +104,13 @@ paths:
         '204':
           description: Deleted
 components:
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
   schemas:
     VideoLibrary:
       type: object
@@ -159,13 +166,6 @@ components:
           type: boolean
         EnableTokenIPVerification:
           type: boolean
-  parameters:
-    IdPath:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: integer
   securitySchemes:
     accessKeyAuth:
       type: apiKey

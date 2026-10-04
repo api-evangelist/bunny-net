@@ -309,7 +309,31 @@ paths:
         '204':
           description: Reset
 components:
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
   schemas:
+    PullZoneUpdate:
+      type: object
+      additionalProperties: true
+    PullZoneCreate:
+      type: object
+      required:
+      - Name
+      - OriginUrl
+      properties:
+        Name:
+          type: string
+        OriginUrl:
+          type: string
+        StorageZoneId:
+          type: integer
+        Type:
+          type: integer
     PullZone:
       type: object
       properties:
@@ -381,30 +405,6 @@ components:
           type: integer
         HasMoreItems:
           type: boolean
-    PullZoneUpdate:
-      type: object
-      additionalProperties: true
-    PullZoneCreate:
-      type: object
-      required:
-      - Name
-      - OriginUrl
-      properties:
-        Name:
-          type: string
-        OriginUrl:
-          type: string
-        StorageZoneId:
-          type: integer
-        Type:
-          type: integer
-  parameters:
-    IdPath:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: integer
   securitySchemes:
     accessKeyAuth:
       type: apiKey

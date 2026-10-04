@@ -142,13 +142,6 @@ paths:
         '204':
           description: Reset
 components:
-  parameters:
-    IdPath:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: integer
   schemas:
     PullZone:
       type: object
@@ -240,6 +233,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PullZone'
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
   securitySchemes:
     accessKeyAuth:
       type: apiKey
