@@ -1,0 +1,130 @@
+openapi: 3.2.0
+info:
+  title: bunny.net Region API
+  description: 'Learn how to use the bunny.net API. Everything that can be done with the control panel can also be achieved with our API documented on this page. To learn how to use the storage API, have a look at our storage API documentation
+
+
+    Third party API clients:
+
+
+    We currently do not maintain an official API library, but you can use one of the third party ones provided here:
+
+
+    https://github.com/codewithmark/bunnycdn (bunny.net PHP library, thanks to Code With Mark)
+
+
+    Note that third party clients are not maintained or developed by bunny.net so we unfortunately cannot offer support for them.'
+  termsOfService: https://bunny.net/tos
+  contact:
+    name: bunny.net
+    url: https://docs.bunny.net
+    email: support@bunny.net
+  version: 1.0.0
+servers:
+- url: https://api.bunny.net
+  description: bunny.net API Server
+tags:
+- name: Region
+paths:
+  /region:
+    get:
+      tags:
+      - Region
+      summary: Region list
+      operationId: RegionPublic_Index
+      parameters: []
+      responses:
+        '200':
+          description: Returns the list of region codes
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RegionModel'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RegionModel'
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - Subuser
+        - User
+        - UserApi
+      description: Returns the list of region codes
+components:
+  schemas:
+    RegionModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Id:
+          type: integer
+          format: int64
+          description: The unique ID of the region
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The display name of the region
+        PricePerGigabyte:
+          type: number
+          format: decimal
+          description: The traffic pricing per gigabyte for the region
+        RegionCode:
+          type:
+          - string
+          - 'null'
+          description: The region short code
+        ContinentCode:
+          type:
+          - string
+          - 'null'
+          description: The continent code of the region
+        CountryCode:
+          type:
+          - string
+          - 'null'
+          description: The country code of the region
+        Latitude:
+          type: number
+          format: double
+          description: The latitude coordinate for this region
+        Longitude:
+          type: number
+          format: double
+          description: The longitude coordinate for this region
+        AllowLatencyRouting:
+          type: boolean
+          description: Determines weather this region can be selected as a DNS latency routing region
+      required:
+      - Id
+      - PricePerGigabyte
+      - Latitude
+      - Longitude
+      - AllowLatencyRouting
+  securitySchemes:
+    AccessKey:
+      type: apiKey
+      description: API Access Key authorization header
+      name: AccessKey
+      in: header
+x-generator: Dynamic OpenAPI Generator v1.0.0

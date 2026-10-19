@@ -1,25 +1,28 @@
 openapi: 3.2.0
 info:
-  title: Bunny.net Core Platform Purge API
-  description: 'Best-effort OpenAPI 3.1 description of the Bunny.net Core Platform REST API for managing
-
-    Pull Zones, Storage Zones, DNS Zones, Stream video libraries, statistics, billing,
-
-    purge, API keys, and reference data.
+  title: bunny.net Purge API
+  description: 'Learn how to use the bunny.net API. Everything that can be done with the control panel can also be achieved with our API documented on this page. To learn how to use the storage API, have a look at our storage API documentation
 
 
-    Authentication uses the `AccessKey` header containing your account API key issued from
+    Third party API clients:
 
-    the Bunny.net dashboard.'
-  version: '1.0'
+
+    We currently do not maintain an official API library, but you can use one of the third party ones provided here:
+
+
+    https://github.com/codewithmark/bunnycdn (bunny.net PHP library, thanks to Code With Mark)
+
+
+    Note that third party clients are not maintained or developed by bunny.net so we unfortunately cannot offer support for them.'
+  termsOfService: https://bunny.net/tos
   contact:
-    name: Bunny.net
-    url: https://docs.bunny.net/reference/bunnynet-api-overview
+    name: bunny.net
+    url: https://docs.bunny.net
+    email: support@bunny.net
+  version: 1.0.0
 servers:
 - url: https://api.bunny.net
-  description: Bunny.net Core Platform API
-security:
-- accessKeyAuth: []
+  description: bunny.net API Server
 tags:
 - name: Purge
 paths:
@@ -27,25 +30,54 @@ paths:
     post:
       tags:
       - Purge
-      summary: Purge URL from CDN
-      operationId: purgeUrl
+      summary: Purge URL
+      operationId: PurgePublic_IndexPost
       parameters:
       - name: url
         in: query
-        required: true
+        description: The URL that will be purged from cache.
         schema:
           type: string
       - name: async
         in: query
+        description: (Optional) Determines if the call should wait for the purge logic to complete
         schema:
           type: boolean
+          default: false
       responses:
-        '204':
-          description: Purged
+        '200':
+          description: The purge request was successfully processed.
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - InternalApi
+        - SubuserAPIManage
+        - SubuserAPIPullZones
+        - SubuserManage
+        - SubuserPullZones
+        - User
+        - UserApi
+      description: The purge request was successfully processed.
 components:
   securitySchemes:
-    accessKeyAuth:
+    AccessKey:
       type: apiKey
-      in: header
+      description: API Access Key authorization header
       name: AccessKey
-      description: API key issued from the Bunny.net dashboard.
+      in: header
+x-generator: Dynamic OpenAPI Generator v1.0.0

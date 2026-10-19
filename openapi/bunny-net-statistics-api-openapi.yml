@@ -1,25 +1,28 @@
 openapi: 3.2.0
 info:
-  title: Bunny.net Core Platform Statistics API
-  description: 'Best-effort OpenAPI 3.1 description of the Bunny.net Core Platform REST API for managing
-
-    Pull Zones, Storage Zones, DNS Zones, Stream video libraries, statistics, billing,
-
-    purge, API keys, and reference data.
+  title: bunny.net Statistics API
+  description: 'Learn how to use the bunny.net API. Everything that can be done with the control panel can also be achieved with our API documented on this page. To learn how to use the storage API, have a look at our storage API documentation
 
 
-    Authentication uses the `AccessKey` header containing your account API key issued from
+    Third party API clients:
 
-    the Bunny.net dashboard.'
-  version: '1.0'
+
+    We currently do not maintain an official API library, but you can use one of the third party ones provided here:
+
+
+    https://github.com/codewithmark/bunnycdn (bunny.net PHP library, thanks to Code With Mark)
+
+
+    Note that third party clients are not maintained or developed by bunny.net so we unfortunately cannot offer support for them.'
+  termsOfService: https://bunny.net/tos
   contact:
-    name: Bunny.net
-    url: https://docs.bunny.net/reference/bunnynet-api-overview
+    name: bunny.net
+    url: https://docs.bunny.net
+    email: support@bunny.net
+  version: 1.0.0
 servers:
 - url: https://api.bunny.net
-  description: Bunny.net Core Platform API
-security:
-- accessKeyAuth: []
+  description: bunny.net API Server
 tags:
 - name: Statistics
 paths:
@@ -27,138 +30,274 @@ paths:
     get:
       tags:
       - Statistics
-      summary: Get account statistics
-      operationId: getStatistics
+      summary: Get Statistics
+      operationId: StatisticsPublic_Index
       parameters:
       - name: dateFrom
         in: query
+        description: (Optional) The start date of the statistics. If no value is passed, the last 30 days will be returned.
+        x-nullable: true
         schema:
           type: string
           format: date-time
       - name: dateTo
         in: query
+        description: (Optional) The end date of the statistics. If no value is passed, the last 30 days will be returned.
+        x-nullable: true
         schema:
           type: string
           format: date-time
       - name: pullZone
         in: query
+        description: (Optional) If set, the statistics will be only returned for the given Pull Zone
         schema:
           type: integer
+          format: int64
+          default: '-1'
       - name: serverZoneId
         in: query
+        description: (Optional) If set, the statistics will be only returned for the given region ID
         schema:
           type: integer
+          format: int64
+          default: '-1'
       - name: loadErrors
         in: query
+        description: (Optional) If set, the respose will contain the non-2xx response
         schema:
           type: boolean
+          default: false
       - name: hourly
         in: query
+        description: (Optional) If true, the statistics data will be returned in hourly groupping.
         schema:
           type: boolean
+          default: false
+      - name: loadOriginResponseTimes
+        in: query
+        description: Load Origin Response Times
+        schema:
+          type: boolean
+          default: false
+      - name: loadOriginTraffic
+        in: query
+        description: Load Origin Traffic
+        schema:
+          type: boolean
+          default: false
+      - name: loadRequestsServed
+        in: query
+        description: Load Requests Served
+        schema:
+          type: boolean
+          default: false
+      - name: loadBandwidthUsed
+        in: query
+        description: Load Bandwidth Used
+        schema:
+          type: boolean
+          default: false
+      - name: loadOriginShieldBandwidth
+        in: query
+        description: Load Origin Shield Bandwidth
+        schema:
+          type: boolean
+          default: false
+      - name: loadGeographicTrafficDistribution
+        in: query
+        description: Load Geographic Traffic Distribution
+        schema:
+          type: boolean
+          default: false
+      - name: loadUserBalanceHistory
+        in: query
+        description: Load User Balance History
+        schema:
+          type: boolean
+          default: false
       responses:
         '200':
-          description: Statistics
+          description: The statistics data for the passed parameters.
+          x-nullable: false
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Statistics'
-  /statistics/optimizer:
-    get:
-      tags:
-      - Statistics
-      summary: Get optimizer statistics
-      operationId: getOptimizerStatistics
-      responses:
-        '200':
-          description: Statistics
+                $ref: '#/components/schemas/StatisticsModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/StatisticsModel'
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
           content:
             application/json:
               schema:
-                type: object
-  /statistics/safehop:
-    get:
-      tags:
-      - Statistics
-      summary: Get SafeHop statistics
-      operationId: getSafehopStatistics
-      responses:
-        '200':
-          description: Statistics
-          content:
-            application/json:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
               schema:
-                type: object
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStatistics
+        - SubuserManage
+        - SubuserStatistics
+        - User
+        - UserApi
+      description: The statistics data for the passed parameters.
 components:
   schemas:
-    Statistics:
+    StatisticsModel:
       type: object
+      additionalProperties: false
       properties:
         TotalBandwidthUsed:
           type: integer
+          format: int64
+        TotalOriginTraffic:
+          type: integer
+          format: int64
+          description: The total amount of traffic received from the origin
+        AverageOriginResponseTime:
+          type: integer
+          format: int32
+          description: The median response time origin
+        OriginResponseTimeChart:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type: number
+            format: double
+          description: The constructed origin response time chart data
         TotalRequestsServed:
           type: integer
+          format: int64
+          description: The total requests served by the response in the given time range
         CacheHitRate:
           type: number
+          format: double
+          description: The average cache hit rate in the response in the given time range
         BandwidthUsedChart:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
             type: number
+            format: double
+          description: The constructed bandwdidth used chart data
         BandwidthCachedChart:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
             type: number
+            format: double
+          description: The constructed cached bandwdidth used chart data
         CacheHitRateChart:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
             type: number
+            format: double
+          description: The constructed cache hit rate chart data
         RequestsServedChart:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
             type: number
+            format: double
+          description: The constructed requests served chart data
         PullRequestsPulledChart:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
             type: number
+            format: double
+          description: The constructed uncached requests served chart data
         OriginShieldBandwidthUsedChart:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
             type: number
+            format: double
+          description: The constructed origin shield bandwdidth used chart data
         OriginShieldInternalBandwidthUsedChart:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
             type: number
+            format: double
+          description: The constructed origin shield internal bandwdidth used chart data
         OriginTrafficChart:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
             type: number
-        Error3xxChart:
-          type: object
-          additionalProperties:
-            type: number
-        Error4xxChart:
-          type: object
-          additionalProperties:
-            type: number
-        Error5xxChart:
-          type: object
-          additionalProperties:
-            type: number
+            format: double
+          description: The constructed origin traffic used chart data
         UserBalanceHistoryChart:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
             type: number
-        UserStorageUsedChart:
-          type: object
-          additionalProperties:
-            type: number
+            format: double
+          description: The constructed user balance history chart data
         GeoTrafficDistribution:
-          type: object
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type: integer
+            format: int64
+          description: The geo traffic distribution data
+        Error3xxChart:
+          type:
+          - object
+          - 'null'
           additionalProperties:
             type: number
+            format: double
+          description: The constructed 3XX error responses chart data
+        Error4xxChart:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type: number
+            format: double
+          description: The constructed 4XX error responses chart data
+        Error5xxChart:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type: number
+            format: double
+          description: The constructed 5XX error responses chart data
+      required:
+      - TotalBandwidthUsed
+      - TotalOriginTraffic
+      - AverageOriginResponseTime
+      - TotalRequestsServed
+      - CacheHitRate
   securitySchemes:
-    accessKeyAuth:
+    AccessKey:
       type: apiKey
-      in: header
+      description: API Access Key authorization header
       name: AccessKey
-      description: API key issued from the Bunny.net dashboard.
+      in: header
+x-generator: Dynamic OpenAPI Generator v1.0.0

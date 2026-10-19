@@ -1,0 +1,2074 @@
+openapi: 3.2.0
+info:
+  title: bunny.net Stream Video Library API
+  description: 'Learn how to use the bunny.net API. Everything that can be done with the control panel can also be achieved with our API documented on this page. To learn how to use the storage API, have a look at our storage API documentation
+
+
+    Third party API clients:
+
+
+    We currently do not maintain an official API library, but you can use one of the third party ones provided here:
+
+
+    https://github.com/codewithmark/bunnycdn (bunny.net PHP library, thanks to Code With Mark)
+
+
+    Note that third party clients are not maintained or developed by bunny.net so we unfortunately cannot offer support for them.'
+  termsOfService: https://bunny.net/tos
+  contact:
+    name: bunny.net
+    url: https://docs.bunny.net
+    email: support@bunny.net
+  version: 1.0.0
+servers:
+- url: https://api.bunny.net
+  description: bunny.net API Server
+tags:
+- name: Stream Video Library
+paths:
+  /videolibrary:
+    get:
+      tags:
+      - Stream Video Library
+      summary: List Video Libraries
+      operationId: VideoLibraryPublic_Index
+      parameters:
+      - name: page
+        in: query
+        description: ''
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: perPage
+        in: query
+        description: ''
+        schema:
+          type: integer
+          format: int32
+          minimum: 5
+          maximum: 1000
+          default: 1000
+      - name: search
+        in: query
+        description: The search term that will be used to filter the results
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The list of Video Libraries on the account
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginationListModelOfVideoLibraryModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaginationListModelOfVideoLibraryModel'
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+      description: The list of Video Libraries on the account
+    post:
+      tags:
+      - Stream Video Library
+      summary: Add Video Library
+      operationId: VideoLibraryPublic_Add
+      parameters: []
+      responses:
+        '200':
+          description: The added video library
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoLibraryModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/VideoLibraryModel'
+        '400':
+          description: Failed to add video library
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+      description: The added video library
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoLibraryCreateModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/VideoLibraryCreateModel'
+        required: true
+  /videolibrary/{id}:
+    get:
+      tags:
+      - Stream Video Library
+      summary: Get Video Library
+      operationId: VideoLibraryPublic_Index2
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the Video Library that will be returned
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '200':
+          description: The requested video library
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoLibraryModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/VideoLibraryModel'
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The Video Library with the requested ID does not exist
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+      description: The requested video library
+    post:
+      tags:
+      - Stream Video Library
+      summary: Update Video Library
+      operationId: VideoLibraryPublic_Update
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The requested video library has been successfuly deleted
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoLibraryModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/VideoLibraryModel'
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The Video Library with the requested ID does not exist
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VideoLibraryUpdateModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/VideoLibraryUpdateModel'
+        required: true
+    delete:
+      tags:
+      - Stream Video Library
+      summary: Delete Video Library
+      operationId: VideoLibraryPublic_Delete
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the Video Library that should be deleted
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The requested video library has been successfuly deleted
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoLibraryModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/VideoLibraryModel'
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The Video Library with the requested ID does not exist
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+  /videolibrary/languages:
+    get:
+      tags:
+      - Stream Video Library
+      summary: Get Languages
+      operationId: VideoLibraryPublic_Index3
+      parameters: []
+      responses:
+        '200':
+          description: A list of language information objects
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoLibraryModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/VideoLibraryModel'
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+      description: A list of language information objects
+  /videolibrary/resetApiKey:
+    post:
+      tags:
+      - Stream Video Library
+      summary: Reset API Key
+      operationId: VideoLibraryPublic_ResetPassword
+      parameters:
+      - name: id
+        in: query
+        description: The ID of the video library that should have the API key reset
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The API key has been successfully changed
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The Video Library with the requested ID does not exist
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+  /videolibrary/{id}/resetApiKey:
+    post:
+      tags:
+      - Stream Video Library
+      summary: Reset API Key
+      operationId: VideoLibraryPublic_ResetPassword2
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the video library that should have the API key reset
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The API key has been successfully changed
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The Video Library with the requested ID does not exist
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+  /videolibrary/resetReadOnlyApiKey:
+    post:
+      tags:
+      - Stream Video Library
+      summary: Reset Read Only API Key
+      operationId: VideoLibraryPublic_ResetReadOnlyApiKey
+      parameters:
+      - name: id
+        in: query
+        description: The ID of the video library that should have the read only API key reset
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The Read Only API key has been successfully changed
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The Video Library with the requested ID does not exist
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+  /videolibrary/{id}/resetReadOnlyApiKey:
+    post:
+      tags:
+      - Stream Video Library
+      summary: Reset Read Only API Key
+      operationId: VideoLibraryPublic_ResetReadOnlyApiKey2
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the video library that should have the read only API key reset
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The Read Only API key has been successfully changed
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The Video Library with the requested ID does not exist
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+  /videolibrary/{id}/addAllowedReferrer:
+    post:
+      tags:
+      - Stream Video Library
+      summary: Add Allowed Referer
+      operationId: VideoLibraryPublic_AddAllowedReferrer
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the requested Video Library
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The allowed referer was successfuly removed
+        '400':
+          description: Failed to remove allowed referer
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The Pull Zone with the requested ID was not found
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddAllowedReferrerRequestModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AddAllowedReferrerRequestModel'
+        required: true
+  /videolibrary/{id}/removeAllowedReferrer:
+    post:
+      tags:
+      - Stream Video Library
+      summary: Remove Allowed Referer
+      operationId: VideoLibraryPublic_RemoveAllowedReferrer
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the requested Video Library
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The allowed referer was successfuly removed
+        '400':
+          description: Failed to remove allowed referer
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The Pull Zone with the requested ID was not found
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddBlockedReferrerRequestModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AddBlockedReferrerRequestModel'
+        required: true
+  /videolibrary/{id}/addBlockedReferrer:
+    post:
+      tags:
+      - Stream Video Library
+      summary: Add Blocked Referer
+      operationId: VideoLibraryPublic_AddBlockedReferrer
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the requested Video Library
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The blocked referer was successfuly removed
+        '400':
+          description: Failed to remove blocked referer
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The Pull Zone with the requested ID was not found
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveAllowedReferrerRequestModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/RemoveAllowedReferrerRequestModel'
+        required: true
+  /videolibrary/{id}/removeBlockedReferrer:
+    post:
+      tags:
+      - Stream Video Library
+      summary: Remove Blocked Referer
+      operationId: VideoLibraryPublic_RemoveBlockedReferrer
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the requested Video Library
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The blocked referer was successfuly removed
+        '400':
+          description: Failed to remove blocked referer
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The Pull Zone with the requested ID was not found
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveBlockedReferrerRequestModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/RemoveBlockedReferrerRequestModel'
+        required: true
+  /videolibrary/{id}/watermark:
+    put:
+      tags:
+      - Stream Video Library
+      summary: Add Watermark
+      operationId: VideoLibraryPublic_AddWatermark
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the requested Video Library
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The watermark has been successfuly uploaded
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The Video Library with the requested ID does not exist
+        '413':
+          description: The uploaded file was too large
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+    delete:
+      tags:
+      - Stream Video Library
+      summary: Delete Watermark
+      operationId: VideoLibraryPublic_DeleteWatermark
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the requested Video Library
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The watermark has been successfuly deleted
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoLibraryModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/VideoLibraryModel'
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The Video Library with the requested ID does not exist
+        '413':
+          description: The uploaded file was too large
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+  /videolibrary/{id}/transcribing/statistics:
+    get:
+      tags:
+      - Stream Video Library
+      summary: Get Video Library Transcribing Statistics
+      operationId: GetTranscribingStatistics_Statistics
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the video library for which the transcribing statistics will be returned
+        schema:
+          type: integer
+          format: int64
+        required: true
+      - name: dateFrom
+        in: query
+        description: (Optional) The start date of the statistics. If no value is passed, the last 14 days will be returned
+        x-nullable: true
+        schema:
+          type: string
+          format: date-time
+      - name: dateTo
+        in: query
+        description: (Optional) The end date of the statistics. If no value is passed, current date will be used
+        x-nullable: true
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Returns the statistics for the video library with the given ID
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoLibraryTranscriptionStatisticsModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/VideoLibraryTranscriptionStatisticsModel'
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The video library with the requested ID does not exist
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+      description: Returns the statistics for the video library with the given ID
+  /videolibrary/{id}/drm/statistics:
+    get:
+      tags:
+      - Stream Video Library
+      summary: Get Video Library DRM Statistics
+      operationId: GetDrmStatisticsEndpoint_Statistics
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the video library for which the DRM statistics will be returned
+        schema:
+          type: integer
+          format: int64
+        required: true
+      - name: dateFrom
+        in: query
+        description: (Optional) The start date of the statistics. If no value is passed, the last 14 days will be returned
+        x-nullable: true
+        schema:
+          type: string
+          format: date-time
+      - name: dateTo
+        in: query
+        description: (Optional) The end date of the statistics. If no value is passed, current date will be used
+        x-nullable: true
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Returns the statistics for the video library with the given ID
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoLibraryDrmStatisticsModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/VideoLibraryDrmStatisticsModel'
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The video library with the requested ID does not exist
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+      description: Returns the statistics for the video library with the given ID
+  /videolibrary/{id}/live/watermark:
+    put:
+      tags:
+      - Stream Video Library
+      summary: Add Live Watermark
+      operationId: AddLiveWatermark_AddWatermark
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the requested Video Library
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The watermark has been successfully uploaded
+        '400':
+          description: The request body is empty or invalid
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The Video Library with the requested ID does not exist
+        '413':
+          description: The uploaded file was too large (max 10 MB)
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+      x-hidden: true
+    delete:
+      tags:
+      - Stream Video Library
+      summary: Delete Live Watermark
+      operationId: DeleteLiveWatermark_DeleteWatermark
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the requested Video Library
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The watermark has been successfully deleted
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The Video Library with the requested ID does not exist
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+      x-hidden: true
+  /videolibrary/{id}/live/thumbnail:
+    delete:
+      tags:
+      - Stream Video Library
+      summary: Delete Live Thumbnail
+      operationId: DeleteLiveThumbnail_DeleteThumbnail
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the requested Video Library
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The thumbnail has been successfully deleted
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The Video Library with the requested ID does not exist
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+      x-hidden: true
+    put:
+      tags:
+      - Stream Video Library
+      summary: Add Live Thumbnail
+      operationId: AddLiveThumbnail_AddThumbnail
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the requested Video Library
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The thumbnail has been successfully uploaded
+        '400':
+          description: The request body is empty or invalid
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The Video Library with the requested ID does not exist
+        '413':
+          description: The uploaded file was too large (max 10 MB)
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIManage
+        - SubuserAPIStream
+        - SubuserManage
+        - SubuserStream
+        - User
+        - UserApi
+      x-hidden: true
+components:
+  schemas:
+    AddAllowedReferrerRequestModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Hostname:
+          type:
+          - string
+          - 'null'
+          description: The hostname that will be added as an allowed referer
+      required:
+      - Hostname
+      description: The model used for adding new allowed referer hostnames
+    VideoLibraryDrmStatisticsModel:
+      type: object
+      additionalProperties: false
+      properties:
+        TotalLicensesIssued:
+          type: integer
+          format: int64
+        LicensesIssuedChart:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type: number
+            format: double
+      required:
+      - TotalLicensesIssued
+    VideoLibraryUpdateModel:
+      type: object
+      additionalProperties: false
+      properties:
+        RtmpOutputs:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/RtmpOutput'
+          description: Up to 4 default RTMP outputs for live streams
+        Name:
+          type:
+          - string
+          - 'null'
+          description: (Optional) Sets name of the video library
+        CustomHTML:
+          type:
+          - string
+          - 'null'
+          description: (Optional) Sets the player custom HTML code
+        PlayerKeyColor:
+          type:
+          - string
+          - 'null'
+          description: (Optional) Sets the player key control color
+        EnableTokenAuthentication:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if the token authentication should be enabled
+        EnableTokenIPVerification:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if the token IP verification should be enabled
+        ResetToken:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Set to true to reset the CDN and embed view token key
+        WatermarkPositionLeft:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          description: (Optional) Sets the left offset of the watermark position (in %)
+        WatermarkPositionTop:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          description: (Optional) Sets the top offset of the watermark position (in %)
+        WatermarkWidth:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          description: (Optional) Sets the width of the watermark (in %)
+        WatermarkHeight:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          description: (Optional) Sets the height of the watermark (in %)
+        EnabledResolutions:
+          type:
+          - string
+          - 'null'
+          description: '(Optional) Sets the enabled resolutions for the transcoding. At least one resolution should be enabled. Possible values: 240p, 360p, 480p, 720p, 1080p, 1440p, 2160p'
+        ViAiPublisherId:
+          type:
+          - string
+          - 'null'
+          description: (Optional) Sets the vi.ai publisher ID
+        VastTagUrl:
+          type:
+          - string
+          - 'null'
+          description: (Optional) Sets the Vast tag URL
+        WebhookUrl:
+          type:
+          - string
+          - 'null'
+          description: (Optional) Sets the webhook API url
+        CaptionsFontSize:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          description: (Optional) Sets the captions display font size
+        CaptionsFontColor:
+          type:
+          - string
+          - 'null'
+          description: (Optional) Sets the captions display font color
+        CaptionsBackground:
+          type:
+          - string
+          - 'null'
+          description: (Optional) Sets the captions display background color
+        UILanguage:
+          type:
+          - string
+          - 'null'
+          description: (Optional) Sets the UI language of the video player.
+        AllowEarlyPlay:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if the Early-Play feature should be enabled. Enabling this will enable Expose Originals.
+        PlayerTokenAuthenticationEnabled:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if the token authentication should be enabled.
+        BlockNoneReferrer:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if requests without a referer should be blocked.
+        EnableMP4Fallback:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if MP4 fallback should be enabled for this library.
+        KeepOriginalFiles:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if the original file should be kept after the video is processed.
+        AllowDirectPlay:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if direct play URLs should be enabled for the library
+        EnableDRM:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if MediaCage DRM should be enabled for this library
+        DrmVersion:
+          allOf:
+          - $ref: '#/components/schemas/DrmVersion'
+          description: (Optional) Determines MediaCage DRM version to be used for this library
+        Controls:
+          type:
+          - string
+          - 'null'
+          description: '(Optional) The comma separated list of controls that will be displayed in the video player. Possible values: play-large, play, progress, current-time, mute, volume, captions, settings, pip, airplay, fullscreen.'
+        PlaybackSpeeds:
+          type:
+          - string
+          - 'null'
+          description: '(Optional) The comma separated list of playback speeds that will be available in the video player. Possible values: 0.25,0.5,0.75,1.0,1.25,1.5,1.75,2.0,2.5,3,3.5,4'
+        Bitrate240p:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          description: (Optional) The bitrate used for encoding 240p videos
+        Bitrate360p:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          description: (Optional) The bitrate used for encoding 360p videos
+        Bitrate480p:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          description: (Optional) The bitrate used for encoding 480p videos
+        Bitrate720p:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          description: (Optional) The bitrate used for encoding 720p videos
+        Bitrate1080p:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          description: (Optional) The bitrate used for encoding 1080p videos
+        Bitrate1440p:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          description: (Optional) The bitrate used for encoding 1440p videos
+        Bitrate2160p:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          description: (Optional) The bitrate used for encoding 2160p videos
+        ShowHeatmap:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if the video watch heatmap should be displayed in the player.
+        EnableContentTagging:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if content tagging should be enabled for this library.
+        FontFamily:
+          type:
+          - string
+          - 'null'
+          description: (Optional) The captions font family.
+        EnableTranscribing:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if the automatic audio transcribing is currently enabled for this zone.
+        EnableTranscribingTitleGeneration:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if automatic transcribing title generation is currently enabled.
+        EnableTranscribingDescriptionGeneration:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if automatic transcribing description generation is currently enabled.
+        EnableTranscribingChaptersGeneration:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if automatic transcribing chapters generation is currently enabled.
+        EnableTranscribingMomentsGeneration:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if automatic transcribing moments generation is currently enabled.
+        TranscribingCaptionLanguages:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: (Optional) The list of languages that the captions will be automatically transcribed to.
+        EnableCaptionsInPlaylist:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if any associated captions will be automatically signaled in the HLS master playlist via EXT-X-MEDIA tags, allowing client players to show captions.
+        RememberPlayerPosition:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if the player will automatically remember the playback position.
+        EnableMultiAudioTrackSupport:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines if multiple output audio track support is enabled on video library.
+        UseSeparateAudioStream:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines whether output audio stream should be split from video stream segments.
+        JitEncodingEnabled:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Determines whether JIT encoding should be used for the library. Supported in premium encoding only.
+        EncodingTier:
+          allOf:
+          - $ref: '#/components/schemas/EncodingTier'
+          description: (Optional) Defines encoding tier to be used with video library. premium is a paid tier that offers either JIT encoding or prioritized encoding and extra codec support.
+        OutputCodecs:
+          type:
+          - string
+          - 'null'
+          description: (Optional) Specifies which video codecs are used for encoding, provided as a comma-separated (CSV) string. Free encoding tier supports only x264. A premium encoding tier adds support for vp9, hevc, and av1.
+        AppleFairPlayDrm:
+          type: object
+          description: (Optional) Configure Apple FairPlay DRM. Works only if Enterprise DRM is set up.
+          properties:
+            Enabled:
+              type:
+              - boolean
+              - 'null'
+              description: (Optional) Enables or disables Apple FairPlay Enterprise DRM
+        GoogleWidevineDrm:
+          type: object
+          description: (Optional) Configure Google Widevine DRM. Works only if Enterprise DRM is set up.
+          properties:
+            Enabled:
+              type:
+              - boolean
+              - 'null'
+              description: (Optional) Enables or disables Google Widevine Enterprise DRM
+            SdOnlyForL3:
+              type:
+              - boolean
+              - 'null'
+              description: (Optional) Only allow audio and SD access to Widevine L3 clients
+            MinClientSecurityLevel:
+              $ref: '#/components/schemas/WidevineMinClientSecurityLevel'
+              description: (Optional) Minimum Client Security Level (1 being most secure, 3 least secure and is default)
+        PlayerVersion:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          description: (Optional) Sets player version used for this library
+        RemoveMetadataFromFallbackVideos:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Marks whether all potential video metadata should be removed from the fallback files
+        ScaleVideoUsingBothDimensions:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Marks whether videos should be scaled using both dimensions. Prevents videos being upscaled or unexpected aspect ratio changes.
+        ExposeOriginals:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Marks whether original video files should be exposed via CDN. Originals are not protected by DRM. Enabling Early-Play will enable this.
+        ExposeVideoMetadata:
+          type:
+          - boolean
+          - 'null'
+          description: (Optional) Marks whether video metadata in form of schema meta tags and LD+JSON should be exposed.
+    VideoLibraryCreateModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Name:
+          type:
+          - string
+          - 'null'
+        ReplicationRegions:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: The geo-replication regions of the underlying storage zone
+        PlayerVersion:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          description: (Optional) Sets player version used for this library
+      required:
+      - Name
+    RtmpOutput:
+      type: object
+      additionalProperties: false
+      properties:
+        Endpoint:
+          type:
+          - string
+          - 'null'
+          description: The RTMP endpoint URL for the output
+        StreamKey:
+          type:
+          - string
+          - 'null'
+          description: The RTMP stream key for the output
+    VideoLibraryTranscriptionStatisticsModel:
+      type: object
+      additionalProperties: false
+      properties:
+        TotalTranscriptionSeconds:
+          type: integer
+          format: int64
+        TranscriptionSecondsChart:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type: number
+            format: double
+      required:
+      - TotalTranscriptionSeconds
+    PullZoneType:
+      type: string
+      description: 0 = Premium<br/>1 = Volume
+      x-enumNames:
+      - Premium
+      - Volume
+      enum:
+      - Premium
+      - Volume
+      x-enum-varnames:
+      - Premium
+      - Volume
+      example: Premium
+    WidevineMinClientSecurityLevel:
+      type: string
+      description: 0 = None<br/>1 = L1<br/>2 = L2<br/>3 = L3
+      x-enumNames:
+      - None
+      - L1
+      - L2
+      - L3
+      enum:
+      - None
+      - L1
+      - L2
+      - L3
+      x-enum-varnames:
+      - None
+      - L1
+      - L2
+      - L3
+      example: None
+    RemoveBlockedReferrerRequestModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Hostname:
+          type:
+          - string
+          - 'null'
+          description: The hostname that will be removed as a blocked referer
+      required:
+      - Hostname
+      description: The model used for removing new existing blocked referer hostnames
+    EncodingTier:
+      type: string
+      description: 0 = Free<br/>1 = Premium
+      x-enumNames:
+      - Free
+      - Premium
+      enum:
+      - Free
+      - Premium
+      x-enum-varnames:
+      - Free
+      - Premium
+      example: Free
+    RemoveAllowedReferrerRequestModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Hostname:
+          type:
+          - string
+          - 'null'
+          description: The hostname that will be removed as an allowed referer
+      required:
+      - Hostname
+      description: The model used for removing new allowed referer hostnames
+    AddBlockedReferrerRequestModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Hostname:
+          type:
+          - string
+          - 'null'
+          description: The hostname that will be added as a blocked referer
+      required:
+      - Hostname
+      description: The model used for adding new blocked referer hostnames
+    PaginationListModelOfVideoLibraryModel:
+      type: object
+      required:
+      - CurrentPage
+      - TotalItems
+      - HasMoreItems
+      properties:
+        Items:
+          type: array
+          items:
+            $ref: '#/components/schemas/VideoLibraryModel'
+        CurrentPage:
+          type: integer
+          format: int32
+        TotalItems:
+          type: integer
+          format: int32
+        HasMoreItems:
+          type: boolean
+    GoogleWidevineDrm:
+      type: object
+      additionalProperties: false
+      properties:
+        Enabled:
+          type: boolean
+        CertificateId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        CertificateExpirationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        Provider:
+          type:
+          - string
+          - 'null'
+        SdOnlyForL3:
+          type: boolean
+        MinClientSecurityLevel:
+          allOf:
+          - $ref: '#/components/schemas/WidevineMinClientSecurityLevel'
+      required:
+      - Enabled
+      - SdOnlyForL3
+    AppleFairPlayDrm:
+      type: object
+      additionalProperties: false
+      properties:
+        Enabled:
+          type: boolean
+        CertificateId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        CertificateExpirationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        Provider:
+          type:
+          - string
+          - 'null'
+      required:
+      - Enabled
+    DrmVersion:
+      type: string
+      description: 0 = Basic<br/>1 = Enterprise<br/>2 = BasicV2
+      x-enumNames:
+      - Basic
+      - Enterprise
+      - BasicV2
+      enum:
+      - Basic
+      - Enterprise
+      - BasicV2
+      x-enum-varnames:
+      - Basic
+      - Enterprise
+      - BasicV2
+      example: Basic
+    VideoLibraryModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Id:
+          type: integer
+          format: int64
+        Name:
+          type:
+          - string
+          - 'null'
+          description: The name of the Video Library.
+        VideoCount:
+          type: integer
+          format: int64
+          description: The number of videos in the video library
+        StorageUsage:
+          type: integer
+          format: int64
+          description: The total amount of storage used by the library
+        DateCreated:
+          type: string
+          format: date-time
+          description: The date when the video library was created
+        ReplicationRegions:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: The geo-replication regions of the underlying storage zone
+        ApiKey:
+          type:
+          - string
+          - 'null'
+          description: The API key used for authenticating with the video library
+        ReadOnlyApiKey:
+          type:
+          - string
+          - 'null'
+          description: The read-only API key used for authenticating with the video library
+        HasWatermark:
+          type: boolean
+          description: Determines if the video library has a watermark configured
+        WatermarkPositionLeft:
+          type: integer
+          format: int32
+          description: The left offset of the watermark position (in %)
+        WatermarkPositionTop:
+          type: integer
+          format: int32
+          description: The top offset of the watermark position (in %)
+        WatermarkWidth:
+          type: integer
+          format: int32
+          description: The width of the watermark (in %)
+        PullZoneId:
+          type: integer
+          format: int64
+          description: The ID of the connected underlying pull zone
+        StorageZoneId:
+          type: integer
+          format: int64
+          description: The ID of the connected underlying storage zone
+        WatermarkHeight:
+          type: integer
+          format: int32
+          description: The height of the watermark (in %)
+        EnabledResolutions:
+          type:
+          - string
+          - 'null'
+          description: The comma separated list of enabled resolutions
+        ViAiPublisherId:
+          type:
+          - string
+          - 'null'
+          description: The vi.ai publisher id for advertising configuration
+        VastTagUrl:
+          type:
+          - string
+          - 'null'
+          description: The URL of the VAST tag endpoint for advertising configuration
+        WebhookUrl:
+          type:
+          - string
+          - 'null'
+          description: The webhook URL of the video library
+        CaptionsFontSize:
+          type: integer
+          format: int32
+          description: The captions display font size
+        CaptionsFontColor:
+          type:
+          - string
+          - 'null'
+          description: The captions display font color
+        CaptionsBackground:
+          type:
+          - string
+          - 'null'
+          description: The captions display background color
+        UILanguage:
+          type:
+          - string
+          - 'null'
+          description: The UI language of the player
+        AllowEarlyPlay:
+          type:
+          - boolean
+          - 'null'
+          description: Determines if the Early-Play feature is enabled
+        PlayerTokenAuthenticationEnabled:
+          type: boolean
+          description: Determines if the player token authentication is enabled
+        AllowedReferrers:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: The list of allowed referrer domains allowed to access the library
+        BlockedReferrers:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: The list of blocked referrer domains blocked from accessing the library
+        BlockNoneReferrer:
+          type: boolean
+          description: Determines if the requests without a referrer are blocked
+        EnableMP4Fallback:
+          type: boolean
+          description: Determines if the MP4 fallback feature is enabled
+        KeepOriginalFiles:
+          type: boolean
+          description: Determines if the original video files should be stored after encoding
+        AllowDirectPlay:
+          type: boolean
+          description: Determines direct play URLs are enabled for the library
+        EnableDRM:
+          type: boolean
+          description: Determines if the DRM is enabled
+        DrmVersion:
+          oneOf:
+          - $ref: '#/components/schemas/DrmVersion'
+          description: DRM version (basic or enterprise)
+        AppleFairPlayDrm:
+          oneOf:
+          - $ref: '#/components/schemas/AppleFairPlayDrm'
+          description: Described Apple FairPlay DRM
+        GoogleWidevineDrm:
+          oneOf:
+          - $ref: '#/components/schemas/GoogleWidevineDrm'
+          description: Describes Google Widevine DRM
+        Bitrate240p:
+          type: integer
+          format: int32
+          description: The bitrate used for encoding 240p videos
+        Bitrate360p:
+          type: integer
+          format: int32
+          description: The bitrate used for encoding 360p videos
+        Bitrate480p:
+          type: integer
+          format: int32
+          description: The bitrate used for encoding 480p videos
+        Bitrate720p:
+          type: integer
+          format: int32
+          description: The bitrate used for encoding 720p videos
+        Bitrate1080p:
+          type: integer
+          format: int32
+          description: The bitrate used for encoding 1080p videos
+        Bitrate1440p:
+          type: integer
+          format: int32
+          description: The bitrate used for encoding 1440p videos
+        Bitrate2160p:
+          type: integer
+          format: int32
+          description: The bitrate used for encoding 2160p videos
+        ApiAccessKey:
+          type:
+          - string
+          - 'null'
+        ShowHeatmap:
+          type: boolean
+          description: Determines if the video watch heatmap should be displayed in the player.
+        EnableContentTagging:
+          type: boolean
+          description: Determines if content tagging should be enabled for this library.
+        PullZoneType:
+          description: The type of the pull zone attached. Premium = 0, Volume = 1
+          allOf:
+          - $ref: '#/components/schemas/PullZoneType'
+        CustomHTML:
+          type:
+          - string
+          - 'null'
+          description: The custom HTMl that is added into the head of the HTML player.
+        Controls:
+          type:
+          - string
+          - 'null'
+          description: The list of controls on the video player.
+        PlaybackSpeeds:
+          type:
+          - string
+          - 'null'
+          description: The list of playback speeds available in the video player.
+        PlayerKeyColor:
+          type:
+          - string
+          - 'null'
+          description: The key color of the player.
+        FontFamily:
+          type:
+          - string
+          - 'null'
+          description: The captions font family.
+        WatermarkVersion:
+          type: integer
+          format: int64
+        EnableTranscribing:
+          type: boolean
+          description: Determines if the automatic audio transcribing is currently enabled for this zone.
+        EnableTranscribingTitleGeneration:
+          type: boolean
+          description: Determines if automatic transcribing title generation is currently enabled.
+        EnableTranscribingDescriptionGeneration:
+          type: boolean
+          description: Determines if automatic transcribing description generation is currently enabled.
+        EnableTranscribingChaptersGeneration:
+          type: boolean
+          description: Determines if automatic transcribing chapters generation is currently enabled.
+        EnableTranscribingMomentsGeneration:
+          type: boolean
+          description: Determines if automatic transcribing moments generation is currently enabled.
+        TranscribingCaptionLanguages:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: The list of languages that the captions will be automatically transcribed to.
+        EnableCaptionsInPlaylist:
+          type:
+          - boolean
+          - 'null'
+          description: Determines if any associated captions will be automatically signaled in the HLS master playlist via EXT-X-MEDIA tags, allowing client players to show captions.
+        RememberPlayerPosition:
+          type: boolean
+          description: Determines if the player will automatically remember the playback position.
+        EnableMultiAudioTrackSupport:
+          type: boolean
+          description: Determines if multiple output audio track support is enabled on video library.
+        UseSeparateAudioStream:
+          type: boolean
+          description: Determines whether output audio stream should be split from video stream segments.
+        JitEncodingEnabled:
+          type: boolean
+          description: Determines whether JIT encoding should be used for the library. Supported in premium encoding only.
+        EncodingTier:
+          oneOf:
+          - $ref: '#/components/schemas/EncodingTier'
+          description: Defines encoding tier to be used with video library. premium is a paid tier that offers either JIT encoding or prioritized encoding and extra codec support.
+        OutputCodecs:
+          type:
+          - string
+          - 'null'
+          description: Specifies which video codecs are used for encoding, provided as a comma-separated (CSV) string. Free encoding tier supports only x264. A premium encoding tier adds support for vp9, hevc, and av1.
+        DrmBasePriceOverride:
+          type:
+          - number
+          - 'null'
+          format: decimal
+          description: DRM (enterprise) monthly base price for this video library if it differs from list price.
+        DrmCostPerLicenseOverride:
+          type:
+          - number
+          - 'null'
+          format: decimal
+          description: DRM (enterprise) cost per license for this video library if it differs from list price.
+        TranscribingPriceOverride:
+          type:
+          - number
+          - 'null'
+          format: decimal
+        PremiumEncodingPriceOverride:
+          type:
+          - number
+          - 'null'
+          format: decimal
+        MonthlyChargesTranscribing:
+          type: number
+          format: decimal
+        MonthlyChargesPremiumEncoding:
+          type: number
+          format: decimal
+        MonthlyChargesEnterpriseDrm:
+          type: number
+          format: decimal
+        FeatureFlags:
+          type:
+          - string
+          - 'null'
+        PlayerVersion:
+          type: integer
+          format: int32
+        RemoveMetadataFromFallbackVideos:
+          type: boolean
+          description: Marks whether all potential video metadata should be removed from the fallback files. Default false.
+        ScaleVideoUsingBothDimensions:
+          type: boolean
+          description: Marks whether videos should be scaled using both dimensions. Prevents videos being upscaled or unexpected aspect ratio changes. Default true.
+        ExposeOriginals:
+          type: boolean
+          description: Marks whether original video files should be exposed via CDN.
+        ExposeVideoMetadata:
+          type: boolean
+          description: Marks whether video metadata in form of schema meta tags and LD+JSON should be exposed.
+      required:
+      - Id
+      - VideoCount
+      - StorageUsage
+      - DateCreated
+      - HasWatermark
+      - WatermarkPositionLeft
+      - WatermarkPositionTop
+      - WatermarkWidth
+      - PullZoneId
+      - StorageZoneId
+      - WatermarkHeight
+      - CaptionsFontSize
+      - PlayerTokenAuthenticationEnabled
+      - BlockNoneReferrer
+      - EnableMP4Fallback
+      - KeepOriginalFiles
+      - AllowDirectPlay
+      - EnableDRM
+      - Bitrate240p
+      - Bitrate360p
+      - Bitrate480p
+      - Bitrate720p
+      - Bitrate1080p
+      - Bitrate1440p
+      - Bitrate2160p
+      - ShowHeatmap
+      - EnableContentTagging
+      - WatermarkVersion
+      - EnableTranscribing
+      - EnableTranscribingTitleGeneration
+      - EnableTranscribingDescriptionGeneration
+      - EnableTranscribingChaptersGeneration
+      - EnableTranscribingMomentsGeneration
+      - RememberPlayerPosition
+      - EnableMultiAudioTrackSupport
+      - UseSeparateAudioStream
+      - JitEncodingEnabled
+      - MonthlyChargesTranscribing
+      - MonthlyChargesPremiumEncoding
+      - MonthlyChargesEnterpriseDrm
+      - PlayerVersion
+      - RemoveMetadataFromFallbackVideos
+      - ScaleVideoUsingBothDimensions
+      - ExposeOriginals
+      - ExposeVideoMetadata
+  securitySchemes:
+    AccessKey:
+      type: apiKey
+      description: API Access Key authorization header
+      name: AccessKey
+      in: header
+x-generator: Dynamic OpenAPI Generator v1.0.0

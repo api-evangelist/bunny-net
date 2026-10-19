@@ -297,16 +297,6 @@ apis:
   properties:
   - type: Documentation
     url: https://docs.bunny.net/reference/regionpublic_index
-- aid: bunny-net:bunny-net-billing-api
-  name: Bunny.net Billing API
-  description: The Billing API from Bunny.net — 3 operation(s) for billing.
-  humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
-  baseURL: https://api.bunny.net
-  tags:
-  - Billing
-  properties:
-  - type: OpenAPI
-    url: openapi/bunny-net-billing-api-openapi.yml
 - aid: bunny-net:bunny-net-countries-api
   name: Bunny.net Countries API
   description: The Countries API from Bunny.net — 1 operation(s) for countries.
@@ -317,18 +307,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/bunny-net-countries-api-openapi.yml
-- aid: bunny-net:bunny-net-pullzones-api
-  name: Bunny.net PullZones API
-  description: The PullZones API from Bunny.net — 12 operation(s) for pullzones.
-  humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
-  baseURL: https://api.bunny.net
-  tags:
-  - Pull Zones
-  tags_raw:
-  - PullZones
-  properties:
-  - type: OpenAPI
-    url: openapi/bunny-net-pullzones-api-openapi.yml
 - aid: bunny-net:bunny-net-purge-api
   name: Bunny.net Purge API
   description: The Purge API from Bunny.net — 1 operation(s) for purge.
@@ -339,16 +317,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/bunny-net-purge-api-openapi.yml
-- aid: bunny-net:bunny-net-regions-api
-  name: Bunny.net Regions API
-  description: The Regions API from Bunny.net — 1 operation(s) for regions.
-  humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
-  baseURL: https://api.bunny.net
-  tags:
-  - Regions
-  properties:
-  - type: OpenAPI
-    url: openapi/bunny-net-regions-api-openapi.yml
 - aid: bunny-net:bunny-net-statistics-api
   name: Bunny.net Statistics API
   description: The Statistics API from Bunny.net — 3 operation(s) for statistics.
@@ -359,26 +327,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/bunny-net-statistics-api-openapi.yml
-- aid: bunny-net:bunny-net-storagezones-api
-  name: Bunny.net StorageZones API
-  description: The StorageZones API from Bunny.net — 4 operation(s) for storagezones.
-  humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
-  baseURL: https://api.bunny.net
-  tags:
-  - StorageZones
-  properties:
-  - type: OpenAPI
-    url: openapi/bunny-net-storagezones-api-openapi.yml
-- aid: bunny-net:bunny-net-stream-api
-  name: Bunny.net Stream API
-  description: The Stream API from Bunny.net — 2 operation(s) for stream.
-  humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
-  baseURL: https://api.bunny.net
-  tags:
-  - Stream
-  properties:
-  - type: OpenAPI
-    url: openapi/bunny-net-stream-api-openapi.yml
 - aid: bunny-net:bunny-net-api-keys-api
   name: Bunny.net API Keys API
   description: The API Keys API from Bunny.net — 1 operation(s) for api keys.
@@ -391,16 +339,76 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/bunny-net-api-keys-api-openapi.yml
-- aid: bunny-net:bunny-net-dns-zones-api
-  name: Bunny.net DNS Zones API
-  description: The DNS Zones API from Bunny.net — 6 operation(s) for dns zones.
+- aid: bunny-net:bunny-net-dns-zone-api
+  name: Bunny.net DNS Zone API
+  description: The DNS Zone API from Bunny.net — 12 operation(s) for dns zone.
   humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
   baseURL: https://api.bunny.net
   tags:
-  - DNS Zones
+  - DNS Zone
   properties:
   - type: OpenAPI
-    url: openapi/bunny-net-dns-zones-api-openapi.yml
+    url: openapi/bunny-net-dns-zone-api-openapi.yml
+- aid: bunny-net:bunny-net-pull-zone-api
+  name: Bunny.net Pull Zone API
+  description: The Pull Zone API from Bunny.net — 24 operation(s) for pull zone.
+  humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
+  baseURL: https://api.bunny.net
+  tags:
+  - Pull Zone
+  properties:
+  - type: OpenAPI
+    url: openapi/bunny-net-pull-zone-api-openapi.yml
+- aid: bunny-net:bunny-net-region-api
+  name: Bunny.net Region API
+  description: The Region API from Bunny.net — 1 operation(s) for region.
+  humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
+  baseURL: https://api.bunny.net
+  tags:
+  - Region
+  properties:
+  - type: OpenAPI
+    url: openapi/bunny-net-region-api-openapi.yml
+- aid: bunny-net:bunny-net-search-api
+  name: Bunny.net Search API
+  description: The Search API from Bunny.net — 1 operation(s) for search.
+  humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
+  baseURL: https://api.bunny.net
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/bunny-net-search-api-openapi.yml
+- aid: bunny-net:bunny-net-storage-zone-api
+  name: Bunny.net Storage Zone API
+  description: The Storage Zone API from Bunny.net — 6 operation(s) for storage zone.
+  humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
+  baseURL: https://api.bunny.net
+  tags:
+  - Storage Zone
+  properties:
+  - type: OpenAPI
+    url: openapi/bunny-net-storage-zone-api-openapi.yml
+- aid: bunny-net:bunny-net-stream-video-library-api
+  name: Bunny.net Stream Video Library API
+  description: The Stream Video Library API from Bunny.net — 16 operation(s) for stream video library.
+  humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
+  baseURL: https://api.bunny.net
+  tags:
+  - Stream Video Library
+  properties:
+  - type: OpenAPI
+    url: openapi/bunny-net-stream-video-library-api-openapi.yml
+- aid: bunny-net:bunny-net-user-api
+  name: Bunny.net User API
+  description: The User API from Bunny.net — 2 operation(s) for user.
+  humanURL: https://docs.bunny.net/reference/bunnynet-api-overview
+  baseURL: https://api.bunny.net
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/bunny-net-user-api-openapi.yml
 common:
 - type: VendorFacets
   url: vendor-facets/bunny-net-vendor-facets.yml

@@ -1,0 +1,279 @@
+openapi: 3.2.0
+info:
+  title: bunny.net User API
+  description: 'Learn how to use the bunny.net API. Everything that can be done with the control panel can also be achieved with our API documented on this page. To learn how to use the storage API, have a look at our storage API documentation
+
+
+    Third party API clients:
+
+
+    We currently do not maintain an official API library, but you can use one of the third party ones provided here:
+
+
+    https://github.com/codewithmark/bunnycdn (bunny.net PHP library, thanks to Code With Mark)
+
+
+    Note that third party clients are not maintained or developed by bunny.net so we unfortunately cannot offer support for them.'
+  termsOfService: https://bunny.net/tos
+  contact:
+    name: bunny.net
+    url: https://docs.bunny.net
+    email: support@bunny.net
+  version: 1.0.0
+servers:
+- url: https://api.bunny.net
+  description: bunny.net API Server
+tags:
+- name: User
+paths:
+  /user/closeaccount:
+    post:
+      tags:
+      - User
+      summary: CloseAccount
+      operationId: CloseAccount_CloseAccount
+      parameters: []
+      responses:
+        '200':
+          description: The account was successfully closed
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloseAccountResponseModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CloseAccountResponseModel'
+        '400':
+          description: Failed closing the account
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CloseAccountResponseModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CloseAccountResponseModel'
+        '401':
+          description: The request authorization failed
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - Subuser
+        - User
+        - UserApi
+      description: The account was successfully closed
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CloseAccountRequestModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CloseAccountRequestModel'
+        required: true
+  /user/audit/{date}:
+    get:
+      tags:
+      - User
+      summary: GetUserAuditLog
+      operationId: GetUserAuditLog_GetUserAuditLog
+      parameters:
+      - name: date
+        in: path
+        description: ''
+        schema:
+          type: string
+          format: date-time
+        required: true
+      - name: request
+        in: query
+        description: ''
+        schema:
+          $ref: '#/components/schemas/GetUserAuditLogRequest'
+      responses:
+        '200':
+          description: The list of audit log entries
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserAuditLogResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetUserAuditLogResponse'
+        '400':
+          description: The request was invalid
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authentication failed
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - Subuser
+        - User
+        - UserApi
+      description: The list of audit log entries
+components:
+  schemas:
+    CloseAccountResponseModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Success:
+          type: boolean
+        Message:
+          type:
+          - string
+          - 'null'
+      required:
+      - Success
+      description: The model used as a reqsponse to the close account request
+    GetUserAuditLogResponse:
+      type: object
+      additionalProperties: false
+      properties:
+        Logs:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/UserAuditLog'
+        HasMoreData:
+          type: boolean
+        ContinuationToken:
+          type:
+          - string
+          - 'null'
+        StartToken:
+          type:
+          - string
+          - 'null'
+      required:
+      - HasMoreData
+    CloseAccountRequestModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Password:
+          type:
+          - string
+          - 'null'
+        Reason:
+          type:
+          - string
+          - 'null'
+      description: The model used to request account closing
+    LogOrdering:
+      type: string
+      enum:
+      - Ascending
+      - Descending
+      x-enumNames:
+      - Ascending
+      - Descending
+      description: 0 = Ascending<br/>1 = Descending
+      example: Ascending
+    GetUserAuditLogRequest:
+      type: object
+      additionalProperties: false
+      properties:
+        Product:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        ResourceType:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        ResourceId:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        ActorId:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        Order:
+          oneOf:
+          - $ref: '#/components/schemas/LogOrdering'
+        ContinuationToken:
+          type:
+          - string
+          - 'null'
+        Limit:
+          type: integer
+          format: int32
+          minimum: 1
+          maximum: 10000
+      required:
+      - Limit
+    UserAuditLog:
+      type: object
+      additionalProperties: false
+      properties:
+        Timestamp:
+          type: string
+          format: date-time
+        Product:
+          type:
+          - string
+          - 'null'
+        ResourceType:
+          type:
+          - string
+          - 'null'
+        ResourceId:
+          type:
+          - string
+          - 'null'
+        ResourceOwner:
+          type:
+          - string
+          - 'null'
+        Action:
+          type:
+          - string
+          - 'null'
+        ActorId:
+          type:
+          - string
+          - 'null'
+        ActorType:
+          type:
+          - string
+          - 'null'
+        Diff:
+          type:
+          - string
+          - 'null'
+      required:
+      - Timestamp
+  securitySchemes:
+    AccessKey:
+      type: apiKey
+      description: API Access Key authorization header
+      name: AccessKey
+      in: header
+x-generator: Dynamic OpenAPI Generator v1.0.0

@@ -1,41 +1,41 @@
 {
   "provider": "bunny-net",
   "sources": [
-    "_original/bunny-net-openapi.yml"
+    "_original/bunny-net-openapi.json"
   ],
   "outputs": [
-    "bunny-net-apikeys-api-openapi.yml",
-    "bunny-net-billing-api-openapi.yml",
+    "bunny-net-api-keys-api-openapi.yml",
     "bunny-net-countries-api-openapi.yml",
-    "bunny-net-dnszones-api-openapi.yml",
-    "bunny-net-pullzones-api-openapi.yml",
+    "bunny-net-dns-zone-api-openapi.yml",
+    "bunny-net-pull-zone-api-openapi.yml",
     "bunny-net-purge-api-openapi.yml",
-    "bunny-net-regions-api-openapi.yml",
+    "bunny-net-region-api-openapi.yml",
+    "bunny-net-search-api-openapi.yml",
     "bunny-net-statistics-api-openapi.yml",
-    "bunny-net-storagezones-api-openapi.yml",
-    "bunny-net-stream-api-openapi.yml"
+    "bunny-net-storage-zone-api-openapi.yml",
+    "bunny-net-stream-video-library-api-openapi.yml",
+    "bunny-net-user-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 2 superseded output(s) from the previous generation"
+  "archived": [],
+  "errors": [
+    "bunny-net-openapi.json: dangling $ref: #/components/schemas/ApiErrorData"
   ],
-  "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "bunny-net-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "superseded outputs removed: bunny-net-api-keys-api-openapi.yml, bunny-net-dns-zones-api-openapi.yml",
-    "apis.yml register: written (+2 apis, 26 total)"
+    "bunny-net-openapi.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "bunny-net-openapi.json: declared missing tag: API Keys",
+    "bunny-net-openapi.json: declared missing tag: Countries",
+    "bunny-net-openapi.json: declared missing tag: DNS Zone",
+    "bunny-net-openapi.json: declared missing tag: Pull Zone",
+    "bunny-net-openapi.json: declared missing tag: Purge",
+    "bunny-net-openapi.json: declared missing tag: Region",
+    "bunny-net-openapi.json: declared missing tag: Search",
+    "bunny-net-openapi.json: declared missing tag: Statistics",
+    "bunny-net-openapi.json: declared missing tag: Storage Zone",
+    "bunny-net-openapi.json: declared missing tag: Stream Video Library",
+    "bunny-net-openapi.json: declared missing tag: User",
+    "apis.yml register: written (+7 apis, 27 total)"
   ],
-  "skipped": [
-    "bunny-net-api-keys-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "bunny-net-billing-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "bunny-net-countries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "bunny-net-dns-zones-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "bunny-net-pullzones-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "bunny-net-purge-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "bunny-net-regions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "bunny-net-statistics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "bunny-net-storagezones-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "bunny-net-stream-api-openapi.yml: previously refined output, superseded by openapi/_original/"
-  ]
+  "skipped": []
 }

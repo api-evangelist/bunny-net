@@ -1,0 +1,1813 @@
+openapi: 3.2.0
+info:
+  title: bunny.net DNS Zone API
+  description: 'Learn how to use the bunny.net API. Everything that can be done with the control panel can also be achieved with our API documented on this page. To learn how to use the storage API, have a look at our storage API documentation
+
+
+    Third party API clients:
+
+
+    We currently do not maintain an official API library, but you can use one of the third party ones provided here:
+
+
+    https://github.com/codewithmark/bunnycdn (bunny.net PHP library, thanks to Code With Mark)
+
+
+    Note that third party clients are not maintained or developed by bunny.net so we unfortunately cannot offer support for them.'
+  termsOfService: https://bunny.net/tos
+  contact:
+    name: bunny.net
+    url: https://docs.bunny.net
+    email: support@bunny.net
+  version: 1.0.0
+servers:
+- url: https://api.bunny.net
+  description: bunny.net API Server
+tags:
+- name: DNS Zone
+paths:
+  /dnszone:
+    get:
+      tags:
+      - DNS Zone
+      summary: List DNS Zones
+      operationId: DnsZonePublic_Index
+      parameters:
+      - name: page
+        in: query
+        description: ''
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: perPage
+        in: query
+        description: ''
+        schema:
+          type: integer
+          format: int32
+          minimum: 5
+          maximum: 1000
+          default: 1000
+      - name: search
+        in: query
+        description: The search term that will be used to filter the results
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The list of DNS Zones on the account.
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginationListModelOfDnsZoneModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaginationListModelOfDnsZoneModel'
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIDns
+        - SubuserAPIManage
+        - SubuserDns
+        - SubuserManage
+        - User
+        - UserApi
+      description: The list of DNS Zones on the account.
+    post:
+      tags:
+      - DNS Zone
+      summary: Add DNS Zone
+      operationId: DnsZonePublic_Add
+      parameters: []
+      responses:
+        '201':
+          description: The DNS Zone was successfuly added
+        '400':
+          description: Failed adding the DNS Zone. Model validation failed
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIDns
+        - SubuserAPIManage
+        - SubuserDns
+        - SubuserManage
+        - User
+        - UserApi
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DnsZoneAddModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DnsZoneAddModel'
+        required: true
+  /dnszone/{id}:
+    get:
+      tags:
+      - DNS Zone
+      summary: Get DNS Zone
+      operationId: DnsZonePublic_Index2
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the DNS Zone that will be returned
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '200':
+          description: The DNS Zone with the requested ID
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DnsZoneModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DnsZoneModel'
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The DNS Zone with the requested ID does not exist.
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIDns
+        - SubuserAPIManage
+        - SubuserDns
+        - SubuserManage
+        - User
+        - UserApi
+      description: The DNS Zone with the requested ID
+    post:
+      tags:
+      - DNS Zone
+      summary: Update DNS Zones
+      operationId: DnsZonePublic_Update
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the DNS Zone that will be updated
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '200':
+          description: The DNS Zone with the requested ID
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DnsZoneModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DnsZoneModel'
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The DNS Zone with the requested ID does not exist.
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIDns
+        - SubuserAPIManage
+        - SubuserDns
+        - SubuserManage
+        - User
+        - UserApi
+      description: The DNS Zone with the requested ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDnsZoneModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UpdateDnsZoneModel'
+        required: true
+    delete:
+      tags:
+      - DNS Zone
+      summary: Delete DNS Zone
+      operationId: DnsZonePublic_Delete
+      parameters:
+      - name: id
+        in: path
+        description: The DNS Zone ID that will be deleted.
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The DNS Zone was successfuly deleted.
+        '400':
+          description: Failed deleting the DNS Zone. See error response.
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The DNS Zone with the requested ID does not exist.
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIDns
+        - SubuserAPIManage
+        - SubuserDns
+        - SubuserManage
+        - User
+        - UserApi
+  /dnszone/{id}/export:
+    get:
+      tags:
+      - DNS Zone
+      summary: Export
+      operationId: DnsZonePublic_Export
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '200':
+          description: Returns the model determinining if the zone is available or not
+        '400':
+          description: Failed checking the zone availability
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIDns
+        - SubuserAPIManage
+        - SubuserDns
+        - SubuserManage
+        - User
+        - UserApi
+      description: Returns the model determinining if the zone is available or not
+  /dnszone/checkavailability:
+    post:
+      tags:
+      - DNS Zone
+      summary: Check the DNS zone availability
+      operationId: DnsZonePublic_CheckAvailability
+      parameters: []
+      responses:
+        '200':
+          description: Returns the model determinining if the zone is available or not
+        '400':
+          description: Failed checking the zone availability
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIDns
+        - SubuserAPIManage
+        - SubuserDns
+        - SubuserManage
+        - User
+        - UserApi
+      description: Returns the model determinining if the zone is available or not
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZoneAvailabilityRequestModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ZoneAvailabilityRequestModel'
+        required: true
+  /dnszone/{zoneId}/records/{id}:
+    post:
+      tags:
+      - DNS Zone
+      summary: Update DNS Record
+      operationId: DnsZonePublic_UpdateRecord
+      parameters:
+      - name: zoneId
+        in: path
+        description: The DNS Zone ID that contains the record.
+        schema:
+          type: integer
+          format: int64
+        required: true
+      - name: id
+        in: path
+        description: The ID of the DNS record that will be updated.
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The DNS record was successfuly updated.
+        '400':
+          description: Failed updating the DNS record. Model validation failed.
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The DNS Zone or DNS Record with the requested ID does not exist.
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIDns
+        - SubuserAPIManage
+        - SubuserDns
+        - SubuserManage
+        - User
+        - UserApi
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDnsRecordModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UpdateDnsRecordModel'
+        required: true
+    delete:
+      tags:
+      - DNS Zone
+      summary: Delete DNS Record
+      operationId: DnsZonePublic_DeleteRecord
+      parameters:
+      - name: zoneId
+        in: path
+        description: The DNS Zone ID that contains the record.
+        schema:
+          type: integer
+          format: int64
+        required: true
+      - name: id
+        in: path
+        description: The ID of the DNS record that will be deleted.
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '204':
+          description: The DNS record was successfuly deleted.
+        '400':
+          description: Failed deleting the DNS Record. See error response.
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The DNS Zone or DNS Record with the requested ID does not exist.
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIDns
+        - SubuserAPIManage
+        - SubuserDns
+        - SubuserManage
+        - User
+        - UserApi
+  /dnszone/{zoneId}/import:
+    post:
+      tags:
+      - DNS Zone
+      summary: Import DNS Records
+      operationId: DnsZonePublic_Import
+      parameters:
+      - name: zoneId
+        in: path
+        description: The DNS Zone ID that should import the data.
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '200':
+          description: The import operation has finished successfuly.
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DnsZoneImportResultModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DnsZoneImportResultModel'
+        '400':
+          description: Failed importing data. See error response.
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The DNS Zone with the requested ID does not exist.
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIDns
+        - SubuserAPIManage
+        - SubuserDns
+        - SubuserManage
+        - User
+        - UserApi
+      description: The import operation has finished successfuly.
+  /dnszone/{zoneId}/certificate/issue:
+    post:
+      tags:
+      - DNS Zone
+      summary: Issue new wildcard certificate
+      operationId: DnsZonePublic_IssueWildcardCertificate
+      parameters:
+      - name: zoneId
+        in: path
+        description: The DNS Zone ID requiring a new certificate.
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '200':
+          description: A certificate has been issued successfully
+        '400':
+          description: Failed to issue a new certificate
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The DNS Zone with the requested ID does not exist.
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIDns
+        - SubuserAPIManage
+        - SubuserDns
+        - SubuserManage
+        - User
+        - UserApi
+      description: A certificate has been issued successfully
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IssueWildcardCertificateRequestModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/IssueWildcardCertificateRequestModel'
+        required: true
+  /dnszone/{zoneId}/records:
+    put:
+      tags:
+      - DNS Zone
+      summary: Add DNS Record
+      operationId: DnsZonePublic_AddRecord
+      parameters:
+      - name: zoneId
+        in: path
+        description: The DNS Zone ID to which the record will be added.
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '201':
+          description: The DNS record was successfuly added.
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DnsRecordModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DnsRecordModel'
+        '400':
+          description: Failed adding the DNS record. Model validation failed.
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The DNS Zone with the requested ID does not exist.
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIDns
+        - SubuserAPIManage
+        - SubuserDns
+        - SubuserManage
+        - User
+        - UserApi
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDnsRecordModel'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AddDnsRecordModel'
+        required: true
+  /dnszone/{id}/statistics:
+    get:
+      tags:
+      - DNS Zone
+      summary: Get DNS Query Statistics
+      operationId: DnsZonePublic_Statistics
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the DNS Zone for which the statistics will be returned
+        schema:
+          type: integer
+          format: int64
+        required: true
+      - name: dateFrom
+        in: query
+        description: (Optional) The start date of the statistics. If no value is passed, the last 30 days will be returned
+        x-nullable: true
+        schema:
+          type: string
+          format: date-time
+      - name: dateTo
+        in: query
+        description: (Optional) The end date of the statistics. If no value is passed, the last 30 days will be returned
+        x-nullable: true
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Returns the statistics for the DNS Zone with the given ID
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DnsZoneStatisticsModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DnsZoneStatisticsModel'
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The DNS Zone with the requested ID does not exist
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIDns
+        - SubuserAPIManage
+        - SubuserDns
+        - SubuserManage
+        - User
+        - UserApi
+      description: Returns the statistics for the DNS Zone with the given ID
+  /dnszone/{zoneId}/records/scan:
+    get:
+      tags:
+      - DNS Zone
+      summary: Get the latest DNS record scan result for a DNS Zone
+      operationId: TriggerDnsZoneRecordScan_GetLatestScan
+      parameters:
+      - name: zoneId
+        in: path
+        description: The DNS Zone ID
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '200':
+          description: Latest DNS record scan job details
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DnsZoneRecordScanJobResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DnsZoneRecordScanJobResponse'
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: No scan found or DNS Zone not found
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIDns
+        - SubuserAPIManage
+        - SubuserDns
+        - SubuserManage
+        - User
+        - UserApi
+  /dnszone/records/scan:
+    post:
+      tags:
+      - DNS Zone
+      summary: Trigger a background scan for pre-existing DNS records.
+      operationId: TriggerDnsZoneRecordScan_TriggerScan
+      parameters: []
+      responses:
+        '200':
+          description: DNS record scan job triggered successfully
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DnsZoneRecordScanTriggerResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DnsZoneRecordScanTriggerResponse'
+        '400':
+          description: Invalid request - either ZoneId or Domain must be provided, but not both
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The DNS Zone with the requested ID does not exist
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIDns
+        - SubuserAPIManage
+        - SubuserDns
+        - SubuserManage
+        - User
+        - UserApi
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TriggerDnsZoneRecordScanRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TriggerDnsZoneRecordScanRequest'
+        required: true
+  /dnszone/{id}/dnssec:
+    post:
+      tags:
+      - DNS Zone
+      summary: Enable DNSSEC on a DNS Zone
+      operationId: ManageDnsZoneDnsSecEndpoint_EnableDnsSecDnsZone
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the DNS Zone for which DNSSEC will be enabled
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '200':
+          description: Returns the DS record information for the DNS Zone with the given ID
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DnsSecDsRecordModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DnsSecDsRecordModel'
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The DNS Zone with the requested ID does not exist
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIDns
+        - SubuserAPIManage
+        - SubuserDns
+        - SubuserManage
+        - User
+        - UserApi
+      description: Returns the DS record information for the DNS Zone with the given ID
+    delete:
+      tags:
+      - DNS Zone
+      summary: Disable DNSSEC on a DNS Zone
+      operationId: ManageDnsZoneDnsSecEndpoint_DisableDnsSecDnsZone
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the DNS Zone for which DNSSEC will be disabled
+        schema:
+          type: integer
+          format: int64
+        required: true
+      responses:
+        '200':
+          description: Disables DNSSEC for the DNS Zone with the given ID
+          x-nullable: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DnsSecDsRecordModel'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DnsSecDsRecordModel'
+        '400':
+          x-nullable: false
+          description: Failed removing hostname
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ApiErrorData'
+        '401':
+          description: The request authorization failed
+        '404':
+          description: The DNS Zone with the requested ID does not exist
+        '500':
+          description: Internal Server Error
+        '503':
+          description: The service is currently unavailable
+      security:
+      - AccessKey:
+        - SubuserAPIDns
+        - SubuserAPIManage
+        - SubuserDns
+        - SubuserManage
+        - User
+        - UserApi
+      description: Disables DNSSEC for the DNS Zone with the given ID
+components:
+  schemas:
+    DnsRecordGeoLocationInfo:
+      type: object
+      additionalProperties: false
+      properties:
+        Country:
+          type:
+          - string
+          - 'null'
+        City:
+          type:
+          - string
+          - 'null'
+        Latitude:
+          type: number
+          format: double
+        Longitude:
+          type: number
+          format: double
+      required:
+      - Latitude
+      - Longitude
+    DnsZoneRecordScanJobResponse:
+      type: object
+      additionalProperties: false
+      properties:
+        JobId:
+          type: string
+          format: uuid
+        ZoneId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        Domain:
+          type:
+          - string
+          - 'null'
+        AccountId:
+          type:
+          - string
+          - 'null'
+        Status:
+          oneOf:
+          - $ref: '#/components/schemas/DnsZoneScanJobStatus'
+        CreatedAt:
+          type: string
+          format: date-time
+        CompletedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        Records:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/DnsZoneDiscoveredRecordModel'
+        Error:
+          type:
+          - string
+          - 'null'
+      required:
+      - JobId
+    DnsZoneDiscoveredRecordType:
+      type: string
+      description: 0 = A<br/>1 = AAAA<br/>2 = CNAME<br/>3 = TXT<br/>4 = MX<br/>8 = SRV<br/>9 = CAA<br/>10 = PTR<br/>12 = NS<br/>13 = Svcb<br/>14 = HTTPS<br/>15 = TLSA<br/>16 = SOA
+      x-enumNames:
+      - A
+      - AAAA
+      - CNAME
+      - TXT
+      - MX
+      - SRV
+      - CAA
+      - PTR
+      - NS
+      - Svcb
+      - HTTPS
+      - TLSA
+      - SOA
+      enum:
+      - A
+      - AAAA
+      - CNAME
+      - TXT
+      - MX
+      - SRV
+      - CAA
+      - PTR
+      - NS
+      - Svcb
+      - HTTPS
+      - TLSA
+      - SOA
+      x-enum-varnames:
+      - A
+      - AAAA
+      - CNAME
+      - TXT
+      - MX
+      - SRV
+      - CAA
+      - PTR
+      - NS
+      - Svcb
+      - HTTPS
+      - TLSA
+      - SOA
+      example: A
+    DnsZoneModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Id:
+          type: integer
+          format: int64
+        Domain:
+          type:
+          - string
+          - 'null'
+        Records:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/DnsRecordModel'
+        DateModified:
+          type: string
+          format: date-time
+        DateCreated:
+          type: string
+          format: date-time
+        NameserversDetected:
+          type: boolean
+        CustomNameserversEnabled:
+          type: boolean
+        Nameserver1:
+          type:
+          - string
+          - 'null'
+        Nameserver2:
+          type:
+          - string
+          - 'null'
+        SoaEmail:
+          type:
+          - string
+          - 'null'
+        NameserversNextCheck:
+          type: string
+          format: date-time
+        LoggingEnabled:
+          type: boolean
+        LoggingIPAnonymizationEnabled:
+          type: boolean
+          description: Determines if the TLS 1 is enabled on the DNS Zone
+        LogAnonymizationType:
+          allOf:
+          - $ref: '#/components/schemas/LogAnonymizationType'
+          description: Sets the log anonymization type for this zone
+        DnsSecEnabled:
+          type: boolean
+          description: Determines if DNSSEC is enabled for this DNS Zone
+        CertificateKeyType:
+          description: The private key type to use for automatic certificates
+          allOf:
+          - $ref: '#/components/schemas/PrivateKeyType'
+      required:
+      - Id
+      - DateModified
+      - DateCreated
+      - NameserversDetected
+      - CustomNameserversEnabled
+      - NameserversNextCheck
+      - LoggingEnabled
+      - LoggingIPAnonymizationEnabled
+      - DnsSecEnabled
+    IssueWildcardCertificateRequestModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Domain:
+          type:
+          - string
+          - 'null'
+    DnsZoneStatisticsModel:
+      type: object
+      additionalProperties: false
+      properties:
+        TotalQueriesServed:
+          type: integer
+          format: int64
+        QueriesServedChart:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type: number
+            format: double
+        NormalQueriesServedChart:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type: number
+            format: double
+        SmartQueriesServedChart:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type: number
+            format: double
+        QueriesByTypeChart:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type: integer
+            format: int64
+      required:
+      - TotalQueriesServed
+    PrivateKeyType:
+      type: string
+      description: 0 = Ecdsa<br/>1 = Rsa
+      x-enumNames:
+      - Ecdsa
+      - Rsa
+      enum:
+      - Ecdsa
+      - Rsa
+      x-enum-varnames:
+      - Ecdsa
+      - Rsa
+      example: Ecdsa
+    DnsMonitoringStatus:
+      type: string
+      description: 0 = Unknown<br/>1 = Online<br/>2 = Offline
+      x-enumNames:
+      - Unknown
+      - Online
+      - Offline
+      enum:
+      - Unknown
+      - Online
+      - Offline
+      x-enum-varnames:
+      - Unknown
+      - Online
+      - Offline
+      example: Unknown
+    DnsRecordEnviromentalVariableModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Name:
+          type:
+          - string
+          - 'null'
+        Value:
+          type:
+          - string
+          - 'null'
+    DnsMonitoringType:
+      type: string
+      description: 0 = None<br/>1 = Ping<br/>2 = Http<br/>3 = Monitor
+      x-enumNames:
+      - None
+      - Ping
+      - Http
+      - Monitor
+      enum:
+      - None
+      - Ping
+      - Http
+      - Monitor
+      x-enum-varnames:
+      - None
+      - Ping
+      - Http
+      - Monitor
+      example: None
+    DnsSecDsRecordModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Enabled:
+          type: boolean
+        DsRecord:
+          type:
+          - string
+          - 'null'
+        Digest:
+          type:
+          - string
+          - 'null'
+        DigestType:
+          type:
+          - string
+          - 'null'
+        Algorithm:
+          type: integer
+          format: int32
+        PublicKey:
+          type:
+          - string
+          - 'null'
+        KeyTag:
+          type: integer
+          format: int32
+        Flags:
+          type: integer
+          format: int32
+        DsConfigured:
+          type: boolean
+      required:
+      - Enabled
+      - Algorithm
+      - KeyTag
+      - Flags
+      - DsConfigured
+    DnsZoneRecordScanTriggerResponse:
+      type: object
+      additionalProperties: false
+      properties:
+        JobId:
+          type: string
+          format: uuid
+        Status:
+          oneOf:
+          - $ref: '#/components/schemas/DnsZoneScanJobStatus'
+      required:
+      - JobId
+    DnsZoneDiscoveredRecordModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Record name relative to the zone. '@' represents apex.
+        Type:
+          allOf:
+          - $ref: '#/components/schemas/DnsZoneDiscoveredRecordType'
+        Ttl:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        Value:
+          type:
+          - string
+          - 'null'
+        Priority:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        Weight:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        Port:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        IsProxied:
+          type: boolean
+      required:
+      - IsProxied
+    UpdateDnsRecordModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Type:
+          allOf:
+          - $ref: '#/components/schemas/DnsRecordTypes'
+        Ttl:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        Value:
+          type: string
+        Name:
+          type: string
+        Weight:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        Priority:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        Flags:
+          type:
+          - integer
+          - 'null'
+          minimum: 0
+          maximum: 255
+        Tag:
+          type: string
+        Port:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        PullZoneId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        ScriptId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        Accelerated:
+          type:
+          - boolean
+          - 'null'
+        MonitorType:
+          allOf:
+          - $ref: '#/components/schemas/DnsMonitoringType'
+        GeolocationLatitude:
+          type:
+          - number
+          - 'null'
+          format: double
+        GeolocationLongitude:
+          type:
+          - number
+          - 'null'
+          format: double
+        LatencyZone:
+          type: string
+        SmartRoutingType:
+          allOf:
+          - $ref: '#/components/schemas/DnsSmartRoutingType'
+        Disabled:
+          type:
+          - boolean
+          - 'null'
+        EnviromentalVariables:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecordEnviromentalVariableModel'
+        Comment:
+          type: string
+        AutoSslIssuance:
+          type:
+          - boolean
+          - 'null'
+        Id:
+          type: integer
+          format: int64
+      required:
+      - Id
+    DnsZoneImportResultModel:
+      type: object
+      additionalProperties: false
+      properties:
+        RecordsSuccessful:
+          type: integer
+          format: int32
+        RecordsFailed:
+          type: integer
+          format: int32
+        RecordsSkipped:
+          type: integer
+          format: int32
+      required:
+      - RecordsSuccessful
+      - RecordsFailed
+      - RecordsSkipped
+    DnsRecordModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Id:
+          type: integer
+          format: int64
+        Type:
+          $ref: '#/components/schemas/DnsRecordTypes'
+        Ttl:
+          type: integer
+          format: int32
+        Value:
+          type:
+          - string
+          - 'null'
+        Name:
+          type:
+          - string
+          - 'null'
+        Weight:
+          type: integer
+          format: int32
+        Priority:
+          type: integer
+          format: int32
+        Port:
+          type: integer
+          format: int32
+        Flags:
+          type: integer
+          minimum: 0
+          maximum: 255
+        Tag:
+          type:
+          - string
+          - 'null'
+        Accelerated:
+          type: boolean
+        AcceleratedPullZoneId:
+          type: integer
+          format: int64
+        LinkName:
+          type:
+          - string
+          - 'null'
+        IPGeoLocationInfo:
+          oneOf:
+          - $ref: '#/components/schemas/GeoDnsLocationModel'
+        GeolocationInfo:
+          oneOf:
+          - $ref: '#/components/schemas/DnsRecordGeoLocationInfo'
+        MonitorStatus:
+          oneOf:
+          - $ref: '#/components/schemas/DnsMonitoringStatus'
+        MonitorType:
+          $ref: '#/components/schemas/DnsMonitoringType'
+        GeolocationLatitude:
+          type: number
+          format: double
+        GeolocationLongitude:
+          type: number
+          format: double
+        EnviromentalVariables:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/DnsRecordEnviromentalVariableModel'
+        LatencyZone:
+          type:
+          - string
+          - 'null'
+        SmartRoutingType:
+          $ref: '#/components/schemas/DnsSmartRoutingType'
+        Disabled:
+          type: boolean
+        Comment:
+          type:
+          - string
+          - 'null'
+        AutoSslIssuance:
+          type: boolean
+      required:
+      - Id
+      - Ttl
+      - Weight
+      - Priority
+      - Port
+      - Accelerated
+      - AcceleratedPullZoneId
+      - GeolocationLatitude
+      - GeolocationLongitude
+      - Disabled
+      - AutoSslIssuance
+    DnsSmartRoutingType:
+      type: string
+      description: 0 = None<br/>1 = Latency<br/>2 = Geolocation
+      x-enumNames:
+      - None
+      - Latency
+      - Geolocation
+      enum:
+      - None
+      - Latency
+      - Geolocation
+      x-enum-varnames:
+      - None
+      - Latency
+      - Geolocation
+      example: None
+    AddDnsRecordModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Type:
+          allOf:
+          - $ref: '#/components/schemas/DnsRecordTypes'
+        Ttl:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        Value:
+          type:
+          - string
+          - 'null'
+        Name:
+          type:
+          - string
+          - 'null'
+        Weight:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        Priority:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        Flags:
+          type:
+          - integer
+          - 'null'
+          minimum: 0
+          maximum: 255
+        Tag:
+          type:
+          - string
+          - 'null'
+        Port:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        PullZoneId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        ScriptId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        Accelerated:
+          type:
+          - boolean
+          - 'null'
+        MonitorType:
+          allOf:
+          - $ref: '#/components/schemas/DnsMonitoringType'
+        GeolocationLatitude:
+          type:
+          - number
+          - 'null'
+          format: double
+        GeolocationLongitude:
+          type:
+          - number
+          - 'null'
+          format: double
+        LatencyZone:
+          type:
+          - string
+          - 'null'
+        SmartRoutingType:
+          allOf:
+          - $ref: '#/components/schemas/DnsSmartRoutingType'
+        Disabled:
+          type:
+          - boolean
+          - 'null'
+        EnviromentalVariables:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/DnsRecordEnviromentalVariableModel'
+        Comment:
+          type:
+          - string
+          - 'null'
+        AutoSslIssuance:
+          type:
+          - boolean
+          - 'null'
+    DnsZoneAddModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Domain:
+          type:
+          - string
+          - 'null'
+          description: The domain that will be added.
+        Records:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/AddDnsRecordModel'
+          description: Optional array of DNS records to add when creating the zone.
+      required:
+      - Domain
+    UpdateDnsZoneModel:
+      type: object
+      additionalProperties: false
+      properties:
+        CustomNameserversEnabled:
+          type:
+          - boolean
+          - 'null'
+        Nameserver1:
+          type:
+          - string
+          - 'null'
+        Nameserver2:
+          type:
+          - string
+          - 'null'
+        SoaEmail:
+          type:
+          - string
+          - 'null'
+          format: email
+        LoggingEnabled:
+          type:
+          - boolean
+          - 'null'
+        LogAnonymizationType:
+          allOf:
+          - $ref: '#/components/schemas/LogAnonymizationType'
+          description: Gets the log anonymization type for this zone
+        CertificateKeyType:
+          allOf:
+          - $ref: '#/components/schemas/PrivateKeyType'
+          description: Sets the certificate private key type for wildcard certificates for this zone
+        LoggingIPAnonymizationEnabled:
+          type:
+          - boolean
+          - 'null'
+          description: Determines if the log anonoymization should be enabled
+    DnsZoneScanJobStatus:
+      type: string
+      enum:
+      - Pending
+      - InProgress
+      - Completed
+      - Failed
+      x-enumNames:
+      - Pending
+      - InProgress
+      - Completed
+      - Failed
+      description: 0 = Pending<br/>1 = InProgress<br/>2 = Completed<br/>3 = Failed
+      example: Pending
+    LogAnonymizationType:
+      type: string
+      description: 0 = OneDigit<br/>1 = Drop
+      x-enumNames:
+      - OneDigit
+      - Drop
+      enum:
+      - OneDigit
+      - Drop
+      x-enum-varnames:
+      - OneDigit
+      - Drop
+      example: OneDigit
+    DnsRecordTypes:
+      type: string
+      description: 0 = A<br/>1 = AAAA<br/>2 = CNAME<br/>3 = TXT<br/>4 = MX<br/>5 = SPF<br/>6 = Flatten<br/>7 = PullZone<br/>8 = SRV<br/>9 = CAA<br/>10 = PTR<br/>11 = Script<br/>12 = NS
+      x-enumNames:
+      - A
+      - AAAA
+      - CNAME
+      - TXT
+      - MX
+      - SPF
+      - Flatten
+      - PullZone
+      - SRV
+      - CAA
+      - PTR
+      - Script
+      - NS
+      enum:
+      - A
+      - AAAA
+      - CNAME
+      - TXT
+      - MX
+      - SPF
+      - Flatten
+      - PullZone
+      - SRV
+      - CAA
+      - PTR
+      - Script
+      - NS
+      x-enum-varnames:
+      - A
+      - AAAA
+      - CNAME
+      - TXT
+      - MX
+      - SPF
+      - Flatten
+      - PullZone
+      - SRV
+      - CAA
+      - PTR
+      - Script
+      - NS
+      example: A
+    PaginationListModelOfDnsZoneModel:
+      type: object
+      required:
+      - CurrentPage
+      - TotalItems
+      - HasMoreItems
+      properties:
+        Items:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsZoneModel'
+        CurrentPage:
+          type: integer
+          format: int32
+        TotalItems:
+          type: integer
+          format: int32
+        HasMoreItems:
+          type: boolean
+    GeoDnsLocationModel:
+      type: object
+      additionalProperties: false
+      properties:
+        CountryCode:
+          type:
+          - string
+          - 'null'
+          description: The ISO country code of the location
+        Country:
+          type:
+          - string
+          - 'null'
+          description: The name of the country of the location
+        ASN:
+          type: integer
+          format: int64
+          description: The ASN of the IP organization
+        OrganizationName:
+          type:
+          - string
+          - 'null'
+          description: The mame of the organization that owns the IP
+        City:
+          type:
+          - string
+          - 'null'
+          description: The name of the city of the location
+      required:
+      - ASN
+      description: Billing model contains data summary about the user's billing
+    ZoneAvailabilityRequestModel:
+      type: object
+      additionalProperties: false
+      properties:
+        Name:
+          type:
+          - string
+          - 'null'
+          description: Determines the name of the zone that we are checking
+    TriggerDnsZoneRecordScanRequest:
+      type: object
+      additionalProperties: false
+      properties:
+        ZoneId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          description: The ID of the DNS Zone to scan. Either ZoneId or Domain must be provided, but not both.
+        Domain:
+          type:
+          - string
+          - 'null'
+          description: The domain name to scan. Either ZoneId or Domain must be provided, but not both. Can be used even before creating the DNS zone.
+  securitySchemes:
+    AccessKey:
+      type: apiKey
+      description: API Access Key authorization header
+      name: AccessKey
+      in: header
+x-generator: Dynamic OpenAPI Generator v1.0.0
