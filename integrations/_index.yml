@@ -16,3 +16,34 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: bunny-net-peeringdb-interconnection-register
+  label: PeeringDB (interconnection register)
+  partner_name: PeeringDB (interconnection register)
+  category: network interconnection register
+  type: register
+  channel: standard-directory
+  evidence: https://www.peeringdb.com/net/37144
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: PeeringDB (peeringdb.com/api net, ix, fac, org)
+    standard: null
+    spec_file: null
+    role: peeringdb-network
+    registered_name: Bunny.net
+    register_id: https://www.peeringdb.com/net/37144
+    matched_domain: bunny.net
+    matched_by: domain
+    asns:
+    - 200325
+    info_types:
+    - Content
+    ix_presence: 0
+    exchanges_operated: []
+    facilities_operated: 0
+    signal_note: 'participation only: PeeringDB is self-registered by network operators; ASNs, IX presence and facility
+      counts are context, never counted'
+    detected_by: sweep-network-edge.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null

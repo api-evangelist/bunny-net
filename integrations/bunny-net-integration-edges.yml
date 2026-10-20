@@ -16,9 +16,44 @@ edges:
   detected: '2026-10-15'
   detected_by: mirror-platform-listings.py
   category: WordPress plugin
+- partner_name: PeeringDB (interconnection register)
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.peeringdb.com/net/37144
+  category: network interconnection register
+  contract_reference:
+    register: PeeringDB (peeringdb.com/api net, ix, fac, org)
+    standard: null
+    spec_file: null
+    role: peeringdb-network
+    registered_name: Bunny.net
+    register_id: https://www.peeringdb.com/net/37144
+    matched_domain: bunny.net
+    matched_by: domain
+    asns:
+    - 200325
+    info_types:
+    - Content
+    ix_presence: 0
+    exchanges_operated: []
+    facilities_operated: 0
+    signal_note: 'participation only: PeeringDB is self-registered by network operators; ASNs, IX presence and facility
+      counts are context, never counted'
+    detected_by: sweep-network-edge.py
+    detected: '2026-10-20'
+  detected_by: sweep-network-edge.py
+  first_seen: '2026-10-20'
 generated: '2026-10-15'
 method: searched
 checked:
 - wordpress/integrations/wordpress-integration-edges.yml
+- https://manrs.org/netops/participants/
+- https://www.peeringdb.com/api/fac
+- https://www.peeringdb.com/api/ix
+- https://www.peeringdb.com/api/net
 source:
 - wordpress/integrations/wordpress-integration-edges.yml
