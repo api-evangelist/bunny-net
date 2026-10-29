@@ -1,4 +1,4 @@
-# Bunny.net (bunny-net)
+# Bunny.net
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,345 +66,175 @@
 
 Bunny.net is a content-delivery and edge platform offering a global CDN, edge storage, video streaming, DNS, image optimisation, edge scripting, and WAF / security shielding. The Bunny.net Core Platform REST API at api.bunny.net manages account-level resources - Pull Zones, Storage Zones, DNS Zones, Stream video libraries, statistics, billing, purge, API keys, and reference data (countries, regions). Product-specific data-plane APIs sit on dedicated hosts: Edge Storage at storage.bunnycdn.com, Stream uploads at video.bunnycdn.com, Shield (WAF), Optimizer, and the Scripting / Magic Containers edge-compute API. All APIs use the AccessKey header for authentication, with API keys issued from the bunny.net dashboard.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/bunny-net/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/bunny-net/refs/heads/main/apis.yml)
+**Areas:** CDN · Edge · Video · Storage · DNS · WAF · Edge Compute · Image Optimization
 
-## Tags
+## Bunny.net on APIs.io
 
-- CDN
-- Edge
-- Video
-- Storage
-- DNS
-- WAF
-- Edge Compute
-- Image Optimization
+Everything profiled for Bunny.net is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bunny-net/](https://apis.io/providers/bunny-net/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (26)
 
-- **Created:** 2026-05-23
-- **Modified:** 2026-05-30
+- [Bunny.net Core Platform API](https://apis.io/apis/bunny-net/core/) — REST API for managing account-level bunny.net resources - Pull Zones, Storage Zones, DNS Zones, Stream Video Libraries, statistics, billing, purge, API…
+- [Bunny.net Pull Zones API](https://apis.io/apis/bunny-net/pull-zones/) — Endpoints for creating and configuring CDN Pull Zones - origin configuration, edge rules, hostnames, SSL certificates, cache settings, and security headers.
+- [Bunny.net Storage Zones API](https://apis.io/apis/bunny-net/storage-zones/) — Endpoints for creating and managing edge Storage Zones, replication regions, and access keys used by the Edge Storage data-plane.
+- [Bunny.net Edge Storage API](https://apis.io/apis/bunny-net/edge-storage/) — Object-storage data-plane API for uploading, downloading, listing, and deleting files inside a Storage Zone. Regional hosts are derived from the zone's…
+- [Bunny.net DNS API](https://apis.io/apis/bunny-net/dns/) — Endpoints for managing DNS zones and records on the Bunny.net DNS platform, including geo-steering and load-balancing record types.
+- [Bunny.net Stream API](https://apis.io/apis/bunny-net/stream/) — Video streaming API for managing Video Libraries, videos, collections, captions, chapters, transcoding profiles, and DRM. Upload and playback are served via…
+- [Bunny.net Stream Webhooks](https://apis.io/apis/bunny-net/stream-webhooks/) — Signed HTTP POST webhooks delivered by Bunny Stream to the WebhookUrl configured on a Video Library whenever a video transitions to a new processing state…
+- [Bunny.net Shield API](https://apis.io/apis/bunny-net/shield/) — Security and WAF configuration API for Bunny Shield - managed rules, custom rules, bot detection, rate-limiting policies, and DDoS mitigation settings…
+- [Bunny.net Optimizer](https://apis.io/apis/bunny-net/optimizer/) — Image and front-end optimisation service attached to Pull Zones - image resizing, format conversion (WebP/AVIF), quality controls, and automatic CSS/JS…
+- [Bunny.net Scripting / Edge Compute API](https://apis.io/apis/bunny-net/scripting/) — Edge-compute API for deploying and managing Bunny Edge Scripts - JavaScript/TypeScript functions that run on the Bunny.net edge network to mutate requests…
+- [Bunny.net Purge API](https://apis.io/apis/bunny-net/purge/) — Cache purge endpoints for invalidating cached content by URL, by Pull Zone, or by tag across the Bunny.net global edge network.
+- [Bunny.net Statistics API](https://apis.io/apis/bunny-net/statistics/) — Endpoints returning bandwidth, request, status-code, and geographic traffic statistics for the account and per Pull Zone or Storage Zone.
+- [Bunny.net Billing API](https://apis.io/apis/bunny-net/billing/) — Billing endpoints for retrieving account balance, monthly usage and invoices, and applying promo codes.
+- [Bunny.net API Keys API](https://apis.io/apis/bunny-net/api-keys/) — Endpoints for managing API keys (AccessKey) issued for the account.
+- [Bunny.net Countries API](https://apis.io/apis/bunny-net/countries/) — Reference endpoint returning the list of countries Bunny.net supports for geo-targeting in Pull Zone and DNS rules.
+- [Bunny.net Regions API](https://apis.io/apis/bunny-net/regions/) — Reference endpoint returning the list of Bunny.net edge and storage regions for use in zone configuration.
+- [Bunny.net Billing API](https://apis.io/apis/bunny-net/bunny-net-billing-api/) — The Billing API from Bunny.net — 3 operation(s) for billing.
+- [Bunny.net Countries API](https://apis.io/apis/bunny-net/bunny-net-countries-api/) — The Countries API from Bunny.net — 1 operation(s) for countries.
+- [Bunny.net PullZones API](https://apis.io/apis/bunny-net/bunny-net-pullzones-api/) — The PullZones API from Bunny.net — 12 operation(s) for pullzones.
+- [Bunny.net Purge API](https://apis.io/apis/bunny-net/bunny-net-purge-api/) — The Purge API from Bunny.net — 1 operation(s) for purge.
+- [Bunny.net Regions API](https://apis.io/apis/bunny-net/bunny-net-regions-api/) — The Regions API from Bunny.net — 1 operation(s) for regions.
+- [Bunny.net Statistics API](https://apis.io/apis/bunny-net/bunny-net-statistics-api/) — The Statistics API from Bunny.net — 3 operation(s) for statistics.
+- [Bunny.net StorageZones API](https://apis.io/apis/bunny-net/bunny-net-storagezones-api/) — The StorageZones API from Bunny.net — 4 operation(s) for storagezones.
+- [Bunny.net Stream API](https://apis.io/apis/bunny-net/bunny-net-stream-api/) — The Stream API from Bunny.net — 2 operation(s) for stream.
+- [Bunny.net API Keys API](https://apis.io/apis/bunny-net/bunny-net-api-keys-api/) — The API Keys API from Bunny.net — 1 operation(s) for api keys.
+- [Bunny.net DNS Zones API](https://apis.io/apis/bunny-net/bunny-net-dns-zones-api/) — The DNS Zones API from Bunny.net — 6 operation(s) for dns zones.
 
-## APIs
+### Published properties
 
-### Bunny.net Core Platform API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-REST API for managing account-level bunny.net resources - Pull Zones, Storage Zones, DNS Zones, Stream Video Libraries, statistics, billing, purge, API keys, and reference data (countries, regions).
+#### AsyncAPI (1)
 
-- **Human URL:** [https://docs.bunny.net/reference/bunnynet-api-overview](https://docs.bunny.net/reference/bunnynet-api-overview)
-- **Base URL:** `https://api.bunny.net`
+Event-driven and webhook contracts.
 
-#### Tags
+- [Bunny.net Stream Webhooks](https://apis.io/asyncapis/bunny-net/bunny-net-stream-webhooks-asyncapi/)
 
-- REST
-- Account
-- Management
+#### Event channels (1)
 
-#### Properties
+Individual events and webhooks the provider emits.
 
-- [Documentation](https://docs.bunny.net/reference/bunnynet-api-overview)
-- [Postman Collection](collections/bunny-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bunny-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [stream/video/state-changed](https://apis.io/channels/bunny-net/stream-video-state-changed/)
 
-### Bunny.net Pull Zones API
+#### GraphQL (1)
 
-Endpoints for creating and configuring CDN Pull Zones - origin configuration, edge rules, hostnames, SSL certificates, cache settings, and security headers.
+GraphQL schemas.
 
-- **Human URL:** [https://docs.bunny.net/reference/pullzonepublic_index](https://docs.bunny.net/reference/pullzonepublic_index)
-- **Base URL:** `https://api.bunny.net/pullzone`
+- [Moved to /providers/bunny-net/](https://apis.io/graphqls/bunny-net/bunny-net-graphql/)
 
-#### Tags
+#### Agentic access (1)
 
-- CDN
-- Pull Zones
-- Edge Rules
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Properties
+- [Bunny Net Agentic Access](https://apis.io/agentic-access/bunny-net/bunny-net-agentic-access/)
 
-- [Documentation](https://docs.bunny.net/reference/pullzonepublic_index)
-- [Postman Collection](collections/bunny-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bunny-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Collections (11)
 
-### Bunny.net Storage Zones API
+Postman and Open Collection request collections.
 
-Endpoints for creating and managing edge Storage Zones, replication regions, and access keys used by the Edge Storage data-plane.
+- [Bunny.net Core Platform API](https://apis.io/collections/bunny-net/open-bunny-net/)
+- [Bunny.net Core Platform APIKeys API](https://apis.io/collections/bunny-net/open-bunny-net-apikeys-api/)
+- [Bunny.net Core Platform APIKeys Billing API](https://apis.io/collections/bunny-net/open-bunny-net-billing-api/)
+- [Bunny.net Core Platform APIKeys Countries API](https://apis.io/collections/bunny-net/open-bunny-net-countries-api/)
+- [Bunny.net Core Platform APIKeys DNSZones API](https://apis.io/collections/bunny-net/open-bunny-net-dnszones-api/)
+- [Bunny.net Core Platform APIKeys PullZones API](https://apis.io/collections/bunny-net/open-bunny-net-pullzones-api/)
+- [Bunny.net Core Platform APIKeys Purge API](https://apis.io/collections/bunny-net/open-bunny-net-purge-api/)
+- [Bunny.net Core Platform APIKeys Regions API](https://apis.io/collections/bunny-net/open-bunny-net-regions-api/)
+- [Bunny.net Core Platform APIKeys Statistics API](https://apis.io/collections/bunny-net/open-bunny-net-statistics-api/)
+- [Bunny.net Core Platform APIKeys StorageZones API](https://apis.io/collections/bunny-net/open-bunny-net-storagezones-api/)
+- [Bunny.net Core Platform APIKeys Stream API](https://apis.io/collections/bunny-net/open-bunny-net-stream-api/)
 
-- **Human URL:** [https://docs.bunny.net/reference/storagezonepublic_index](https://docs.bunny.net/reference/storagezonepublic_index)
-- **Base URL:** `https://api.bunny.net/storagezone`
+#### Governance rules (1)
 
-#### Tags
+Spectral rulesets for the provider's contracts.
 
-- Storage
-- Edge Storage
-- Replication
+- [Bunny.net — asyncapi rules](https://apis.io/rules/bunny-net/bunny-net-asyncapi-spectral-rules/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://docs.bunny.net/reference/storagezonepublic_index)
-- [Postman Collection](collections/bunny-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bunny-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-### Bunny.net Edge Storage API
+- [Bunny Net Authentication](https://apis.io/security/bunny-net/bunny-net-authentication/)
+- [Bunny Net Domain Security](https://apis.io/security/bunny-net/bunny-net-domain-security/)
 
-Object-storage data-plane API for uploading, downloading, listing, and deleting files inside a Storage Zone. Regional hosts are derived from the zone's primary region (e.g. ny.storage.bunnycdn.com, la.storage.bunnycdn.com, syd.storage.bunnycdn.com), with the default host at storage.bunnycdn.com.
+#### Plans and pricing (2)
 
-- **Human URL:** [https://docs.bunny.net/reference/storage-api](https://docs.bunny.net/reference/storage-api)
-- **Base URL:** `https://storage.bunnycdn.com`
+Published plans, tiers and prices.
 
-#### Tags
+- [Bunny Net Plans Pricing](https://apis.io/plans/bunny-net/bunny-net-plans-pricing/)
+- [Bunny Net Price Estimates](https://apis.io/plans/bunny-net/bunny-net-price-estimates/)
 
-- Storage
-- Object Storage
-- Data Plane
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [Documentation](https://docs.bunny.net/reference/storage-api)
-- [Postman Collection](collections/bunny-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bunny-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Bunny Net Rate Limits](https://apis.io/rate-limits/bunny-net/bunny-net-rate-limits/)
 
-### Bunny.net DNS API
+#### FinOps (1)
 
-Endpoints for managing DNS zones and records on the Bunny.net DNS platform, including geo-steering and load-balancing record types.
+What the API costs to run, by operation.
 
-- **Human URL:** [https://docs.bunny.net/reference/dnszonepublic_index](https://docs.bunny.net/reference/dnszonepublic_index)
-- **Base URL:** `https://api.bunny.net/dnszone`
+- [Bunny Net Finops](https://apis.io/finops/bunny-net/bunny-net-finops/)
 
-#### Tags
+## Where to find this API
 
-- DNS
-- Geo Steering
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Properties
-
-- [Documentation](https://docs.bunny.net/reference/dnszonepublic_index)
-- [Postman Collection](collections/bunny-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bunny-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Bunny.net Stream API
-
-Video streaming API for managing Video Libraries, videos, collections, captions, chapters, transcoding profiles, and DRM. Upload and playback are served via dedicated video.bunnycdn.com endpoints; library-level management uses video.bunnycdn.com/library/{libraryId}.
-
-- **Human URL:** [https://docs.bunny.net/reference/video_getvideo](https://docs.bunny.net/reference/video_getvideo)
-- **Base URL:** `https://video.bunnycdn.com`
-
-#### Tags
-
-- Video
-- Streaming
-- VOD
-- Transcoding
-
-#### Properties
-
-- [Documentation](https://docs.bunny.net/reference/video_getvideo)
-- [Postman Collection](collections/bunny-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bunny-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Bunny.net Stream Webhooks
-
-Signed HTTP POST webhooks delivered by Bunny Stream to the WebhookUrl configured on a Video Library whenever a video transitions to a new processing state (Queued, Processing, Encoding, Finished, ResolutionFinished, Failed, PresignedUploadStarted / Finished / Failed, CaptionsGenerated, TitleOrDescriptionGenerated). Each request is authenticated with an HMAC-SHA256 signature over the raw body using the library's Read-Only API key.
-
-- **Human URL:** [https://docs.bunny.net/stream/webhooks](https://docs.bunny.net/stream/webhooks)
-
-#### Tags
-
-- Webhooks
-- AsyncAPI
-- Video
-- Streaming
-- Events
-
-#### Properties
-
-- [Documentation](https://docs.bunny.net/stream/webhooks)
-- [AsyncAPI](asyncapi/bunny-net-stream-webhooks-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [Postman Collection](collections/bunny-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bunny-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Bunny.net Shield API
-
-Security and WAF configuration API for Bunny Shield - managed rules, custom rules, bot detection, rate-limiting policies, and DDoS mitigation settings attached to Pull Zones.
-
-- **Human URL:** [https://docs.bunny.net/reference/shield-api](https://docs.bunny.net/reference/shield-api)
-- **Base URL:** `https://api.bunny.net/shield`
-
-#### Tags
-
-- WAF
-- Security
-- DDoS
-- Bot Mitigation
-
-#### Properties
-
-- [Documentation](https://docs.bunny.net/reference/shield-api)
-- [Postman Collection](collections/bunny-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bunny-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Bunny.net Optimizer
-
-Image and front-end optimisation service attached to Pull Zones - image resizing, format conversion (WebP/AVIF), quality controls, and automatic CSS/JS minification. Configured via Pull Zone settings on the Core Platform API.
-
-- **Human URL:** [https://docs.bunny.net/docs/cdn-optimizer-overview](https://docs.bunny.net/docs/cdn-optimizer-overview)
-- **Base URL:** `https://api.bunny.net/pullzone`
-
-#### Tags
-
-- Image Optimization
-- WebP
-- AVIF
-- Front-End
-
-#### Properties
-
-- [Documentation](https://docs.bunny.net/docs/cdn-optimizer-overview)
-- [Postman Collection](collections/bunny-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bunny-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Bunny.net Scripting / Edge Compute API
-
-Edge-compute API for deploying and managing Bunny Edge Scripts - JavaScript/TypeScript functions that run on the Bunny.net edge network to mutate requests and responses, with associated routes, environment variables, and deployments.
-
-- **Human URL:** [https://docs.bunny.net/reference/scripting-api](https://docs.bunny.net/reference/scripting-api)
-- **Base URL:** `https://api.bunny.net/compute/script`
-
-#### Tags
-
-- Edge Compute
-- Scripting
-- JavaScript
-
-#### Properties
-
-- [Documentation](https://docs.bunny.net/reference/scripting-api)
-- [Postman Collection](collections/bunny-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bunny-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Bunny.net Purge API
-
-Cache purge endpoints for invalidating cached content by URL, by Pull Zone, or by tag across the Bunny.net global edge network.
-
-- **Human URL:** [https://docs.bunny.net/reference/purgepublic_index](https://docs.bunny.net/reference/purgepublic_index)
-- **Base URL:** `https://api.bunny.net/purge`
-
-#### Tags
-
-- Cache
-- Purge
-- Invalidation
-
-#### Properties
-
-- [Documentation](https://docs.bunny.net/reference/purgepublic_index)
-- [Postman Collection](collections/bunny-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bunny-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Bunny.net Statistics API
-
-Endpoints returning bandwidth, request, status-code, and geographic traffic statistics for the account and per Pull Zone or Storage Zone.
-
-- **Human URL:** [https://docs.bunny.net/reference/statisticspublic_index](https://docs.bunny.net/reference/statisticspublic_index)
-- **Base URL:** `https://api.bunny.net/statistics`
-
-#### Tags
-
-- Statistics
-- Analytics
-- Bandwidth
-
-#### Properties
-
-- [Documentation](https://docs.bunny.net/reference/statisticspublic_index)
-- [Postman Collection](collections/bunny-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bunny-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Bunny.net Billing API
-
-Billing endpoints for retrieving account balance, monthly usage and invoices, and applying promo codes.
-
-- **Human URL:** [https://docs.bunny.net/reference/billingpublic_index](https://docs.bunny.net/reference/billingpublic_index)
-- **Base URL:** `https://api.bunny.net/billing`
-
-#### Tags
-
-- Billing
-- Usage
-- Invoices
-
-#### Properties
-
-- [Documentation](https://docs.bunny.net/reference/billingpublic_index)
-- [Postman Collection](collections/bunny-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bunny-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Bunny.net API Keys API
-
-Endpoints for managing API keys (AccessKey) issued for the account.
-
-- **Human URL:** [https://docs.bunny.net/reference/apikeypublic_index](https://docs.bunny.net/reference/apikeypublic_index)
-- **Base URL:** `https://api.bunny.net/apikey`
-
-#### Tags
-
-- API Keys
-- Authentication
-
-#### Properties
-
-- [Documentation](https://docs.bunny.net/reference/apikeypublic_index)
-- [Postman Collection](collections/bunny-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bunny-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Bunny.net Countries API
-
-Reference endpoint returning the list of countries Bunny.net supports for geo-targeting in Pull Zone and DNS rules.
-
-- **Human URL:** [https://docs.bunny.net/reference/countriespublic_index](https://docs.bunny.net/reference/countriespublic_index)
-- **Base URL:** `https://api.bunny.net/country`
-
-#### Tags
-
-- Reference
-- Geography
-
-#### Properties
-
-- [Documentation](https://docs.bunny.net/reference/countriespublic_index)
-- [Postman Collection](collections/bunny-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bunny-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Bunny.net Regions API
-
-Reference endpoint returning the list of Bunny.net edge and storage regions for use in zone configuration.
-
-- **Human URL:** [https://docs.bunny.net/reference/regionpublic_index](https://docs.bunny.net/reference/regionpublic_index)
-- **Base URL:** `https://api.bunny.net/region`
-
-#### Tags
-
-- Reference
-- Regions
-
-#### Properties
-
-- [Documentation](https://docs.bunny.net/reference/regionpublic_index)
-- [Postman Collection](collections/bunny-net.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bunny-net.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/bunny-net)
 - [Website](https://bunny.net/)
 - [Documentation](https://docs.bunny.net/)
-- [Git Hub](https://github.com/BunnyWay)
-- [Status](https://status.bunny.net/)
 - [Pricing](https://bunny.net/pricing/)
-- [Plans](plans/bunny-net-plans-pricing.yml)
-- [Rate Limits](rate-limits/bunny-net-rate-limits.yml)
-- [Fin Ops](finops/bunny-net-finops.yml)
-- [L L Ms Txt](https://docs.bunny.net/llms.txt)
+- [Blog](https://bunny.net/blog/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 35.6** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 56.9 |
+| Contract governance | 13.6 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 42.1 |
+
+**Agent readiness 19.0** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bunny-net/](https://apis.io/providers/bunny-net/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Bunny.net: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bunny-net/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
